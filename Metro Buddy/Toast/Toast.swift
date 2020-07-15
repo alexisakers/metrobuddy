@@ -17,3 +17,11 @@ struct Toast: View {
             .shadow(radius: 8)
     }
 }
+
+// MARK: - Preview
+
+struct Toast_Previews: PreviewProvider {
+    static var previews: some View {
+        Toast(text: "TEST TOAST")
+    }
+}

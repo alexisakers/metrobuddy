@@ -10,6 +10,12 @@
 		5E03303C24BE055B001D86D1 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03303B24BE055B001D86D1 /* Toast.swift */; };
 		5E03303E24BE117B001D86D1 /* ToastQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03303D24BE117B001D86D1 /* ToastQueue.swift */; };
 		5E03304224BE99E7001D86D1 /* ToastQueue+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03304124BE99E7001D86D1 /* ToastQueue+Preview.swift */; };
+		5E03304624BF3C29001D86D1 /* App.Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E03304524BF3C29001D86D1 /* App.Configuration.plist */; };
+		5E03304824BF3C53001D86D1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03304724BF3C53001D86D1 /* Constants.swift */; };
+		5E03304A24BF4120001D86D1 /* UserFacingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03304924BF4120001D86D1 /* UserFacingError.swift */; };
+		5E03304C24BF47E9001D86D1 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03304324BF3B92001D86D1 /* ErrorMessage.swift */; };
+		5E03304E24BF49A4001D86D1 /* MailComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03304D24BF49A4001D86D1 /* MailComposer.swift */; };
+		5E03305024BF5001001D86D1 /* MailComposer+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03304F24BF5001001D86D1 /* MailComposer+Factory.swift */; };
 		5E497D4624B7EFF500EE584E /* MetroCardShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D4524B7EFF500EE584E /* MetroCardShape.swift */; };
 		5E497D4824B8CF1500EE584E /* MetroCardBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D4724B8CF1500EE584E /* MetroCardBackground.swift */; };
 		5E497D4A24B8E1BC00EE584E /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D4924B8E1BC00EE584E /* RoundedButton.swift */; };
@@ -22,7 +28,6 @@
 		5E497D5F24B93E0B00EE584E /* PersistentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D5E24B93E0B00EE584E /* PersistentStore.swift */; };
 		5E497D6124B9433600EE584E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D6024B9433600EE584E /* RootView.swift */; };
 		5E497D6324B9503300EE584E /* TextFieldAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D6224B9503300EE584E /* TextFieldAlert.swift */; };
-		5E497D6524BA251900EE584E /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D6424BA251900EE584E /* ErrorMessage.swift */; };
 		5E497D6724BA278600EE584E /* ManagedObjectObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D6624BA278500EE584E /* ManagedObjectObserver.swift */; };
 		5E497D6E24BA5A9D00EE584E /* NSPersistentContainer+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D6D24BA5A9D00EE584E /* NSPersistentContainer+Helpers.swift */; };
 		5E497D7024BA5D9900EE584E /* NSManagedObjectModel+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D6F24BA5D9900EE584E /* NSManagedObjectModel+Helpers.swift */; };
@@ -96,6 +101,12 @@
 		5E03303B24BE055B001D86D1 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		5E03303D24BE117B001D86D1 /* ToastQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastQueue.swift; sourceTree = "<group>"; };
 		5E03304124BE99E7001D86D1 /* ToastQueue+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToastQueue+Preview.swift"; sourceTree = "<group>"; };
+		5E03304324BF3B92001D86D1 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		5E03304524BF3C29001D86D1 /* App.Configuration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = App.Configuration.plist; sourceTree = "<group>"; };
+		5E03304724BF3C53001D86D1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5E03304924BF4120001D86D1 /* UserFacingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFacingError.swift; sourceTree = "<group>"; };
+		5E03304D24BF49A4001D86D1 /* MailComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposer.swift; sourceTree = "<group>"; };
+		5E03304F24BF5001001D86D1 /* MailComposer+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MailComposer+Factory.swift"; sourceTree = "<group>"; };
 		5E497D4524B7EFF500EE584E /* MetroCardShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroCardShape.swift; sourceTree = "<group>"; };
 		5E497D4724B8CF1500EE584E /* MetroCardBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroCardBackground.swift; sourceTree = "<group>"; };
 		5E497D4924B8E1BC00EE584E /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -108,7 +119,6 @@
 		5E497D5E24B93E0B00EE584E /* PersistentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStore.swift; sourceTree = "<group>"; };
 		5E497D6024B9433600EE584E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		5E497D6224B9503300EE584E /* TextFieldAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAlert.swift; sourceTree = "<group>"; };
-		5E497D6424BA251900EE584E /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		5E497D6624BA278500EE584E /* ManagedObjectObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedObjectObserver.swift; sourceTree = "<group>"; };
 		5E497D6D24BA5A9D00EE584E /* NSPersistentContainer+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPersistentContainer+Helpers.swift"; sourceTree = "<group>"; };
 		5E497D6F24BA5D9900EE584E /* NSManagedObjectModel+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectModel+Helpers.swift"; sourceTree = "<group>"; };
@@ -197,6 +207,15 @@
 			path = Preview;
 			sourceTree = "<group>";
 		};
+		5E03304B24BF4137001D86D1 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				5E03304924BF4120001D86D1 /* UserFacingError.swift */,
+				5E03304324BF3B92001D86D1 /* ErrorMessage.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		5E497D6C24BA5A8700EE584E /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +246,7 @@
 				5E497D8424BB401100EE584E /* MetroKit.xcconfig */,
 				5ED4E29224B3E33D00B37946 /* App.Info.plist */,
 				5ED4E2A024B3E3B400B37946 /* MetroKit.Info.plist */,
+				5E03304524BF3C29001D86D1 /* App.Configuration.plist */,
 			);
 			path = Configs;
 			sourceTree = "<group>";
@@ -271,20 +291,22 @@
 				5E497D9D24BD164300EE584E /* ErrorScreen.swift */,
 				5E497D9B24BD0AAA00EE584E /* BackgroundView.swift */,
 				5ED4E28B24B3E33400B37946 /* ContentView.swift */,
+				5E03304724BF3C53001D86D1 /* Constants.swift */,
 				5EC7A61024BDF68100E3ED39 /* OnboardingTipView.swift */,
 				5E497DA124BD378200EE584E /* MetroCardActionGrid.swift */,
 				5E497D9F24BD167C00EE584E /* CardDetailsButton.swift */,
 				5E497D4F24B9104000EE584E /* NavigationBar.swift */,
+				5E03304D24BF49A4001D86D1 /* MailComposer.swift */,
 				5E497D4724B8CF1500EE584E /* MetroCardBackground.swift */,
 				5E497D4524B7EFF500EE584E /* MetroCardShape.swift */,
 				5E497D5224B92D2300EE584E /* MetroCardViewModel.swift */,
 				5E497D9324BC822B00EE584E /* DatePickerSheet.swift */,
 				5E497D9524BC866C00EE584E /* ModalSheet.swift */,
-				5E497D6424BA251900EE584E /* ErrorMessage.swift */,
 				5E03303F24BE9908001D86D1 /* Toast */,
 				5E497D4924B8E1BC00EE584E /* RoundedButton.swift */,
 				5E497D6224B9503300EE584E /* TextFieldAlert.swift */,
 				5E497DA524BD3CC400EE584E /* TextFieldAlert+Factory.swift */,
+				5E03304F24BF5001001D86D1 /* MailComposer+Factory.swift */,
 				5E03304024BE99DA001D86D1 /* Preview */,
 				5EC7A60724BDE8F200E3ED39 /* DesignSystem+Fonts.swift */,
 				5EC7A61224BE003200E3ED39 /* Localizable.stringsdict */,
@@ -332,6 +354,7 @@
 				5ED4E2BF24B3E3EB00B37946 /* MetroCard.swift */,
 				5E497D5A24B9305A00EE584E /* MetroCardUpdate.swift */,
 				5E497D5824B92F6D00EE584E /* ObjectReference.swift */,
+				5E03304B24BF4137001D86D1 /* Error */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -469,6 +492,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E03304624BF3C29001D86D1 /* App.Configuration.plist in Resources */,
 				5E497D4C24B8F32D00EE584E /* LaunchScreen.storyboard in Resources */,
 				5EC7A61324BE003200E3ED39 /* Localizable.stringsdict in Resources */,
 				5ED4E29124B3E33D00B37946 /* Preview Assets.xcassets in Resources */,
@@ -497,12 +521,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E03304824BF3C53001D86D1 /* Constants.swift in Sources */,
 				5E03303E24BE117B001D86D1 /* ToastQueue.swift in Sources */,
 				5E497D6124B9433600EE584E /* RootView.swift in Sources */,
 				5E497D5424B92D4F00EE584E /* MetroCardViewModel.swift in Sources */,
 				5EC7A60824BDE8F200E3ED39 /* DesignSystem+Fonts.swift in Sources */,
+				5E03305024BF5001001D86D1 /* MailComposer+Factory.swift in Sources */,
 				5E497D9C24BD0AAA00EE584E /* BackgroundView.swift in Sources */,
-				5E497D6524BA251900EE584E /* ErrorMessage.swift in Sources */,
 				5ED4E28C24B3E33400B37946 /* ContentView.swift in Sources */,
 				5E497DA224BD378300EE584E /* MetroCardActionGrid.swift in Sources */,
 				5E03304224BE99E7001D86D1 /* ToastQueue+Preview.swift in Sources */,
@@ -513,6 +538,7 @@
 				5E497D4824B8CF1500EE584E /* MetroCardBackground.swift in Sources */,
 				5ED4E28A24B3E33300B37946 /* AppDelegate.swift in Sources */,
 				5E497D9A24BD083B00EE584E /* RootViewModel.swift in Sources */,
+				5E03304E24BF49A4001D86D1 /* MailComposer.swift in Sources */,
 				5E497D4624B7EFF500EE584E /* MetroCardShape.swift in Sources */,
 				5E497D9424BC822D00EE584E /* DatePickerSheet.swift in Sources */,
 				5E497D9624BC866C00EE584E /* ModalSheet.swift in Sources */,
@@ -533,12 +559,14 @@
 				5EC7A60F24BDF2B900E3ED39 /* UserPreferenceKey.swift in Sources */,
 				5E497D5724B92DA300EE584E /* MetroModels.xcdatamodeld in Sources */,
 				5E497D7524BA617400EE584E /* MetroCardDataStoreError.swift in Sources */,
+				5E03304A24BF4120001D86D1 /* UserFacingError.swift in Sources */,
 				5E497D6E24BA5A9D00EE584E /* NSPersistentContainer+Helpers.swift in Sources */,
 				5E497D6724BA278600EE584E /* ManagedObjectObserver.swift in Sources */,
 				5E497D5B24B9305A00EE584E /* MetroCardUpdate.swift in Sources */,
 				5E497D5924B92F6D00EE584E /* ObjectReference.swift in Sources */,
 				5EC7A60D24BDF15800E3ED39 /* PropertyListRepresentable.swift in Sources */,
 				5E497D5F24B93E0B00EE584E /* PersistentStore.swift in Sources */,
+				5E03304C24BF47E9001D86D1 /* ErrorMessage.swift in Sources */,
 				5ED4E2BC24B3E3D500B37946 /* MetroDataStore.swift in Sources */,
 				5ED4E2C024B3E3EB00B37946 /* MetroCard.swift in Sources */,
 			);
