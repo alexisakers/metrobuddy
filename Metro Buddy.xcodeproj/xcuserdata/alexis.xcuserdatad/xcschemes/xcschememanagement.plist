@@ -9,6 +9,29 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>MetroKit.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>5ED4E28524B3E33300B37946</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5ED4E29C24B3E3B400B37946</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5ED4E2A424B3E3B400B37946</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>

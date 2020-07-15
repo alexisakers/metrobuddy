@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>remaining_swipes</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@swipes@</string>
+		<key>swipes</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>ld</string>
+			<key>zero</key>
+			<string>No swipes left</string>
+			<key>one</key>
+			<string>1 swipe left</string>
+			<key>other</key>
+			<string>%ld swipes left</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
