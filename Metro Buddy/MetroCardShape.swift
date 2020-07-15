@@ -1,12 +1,19 @@
 import SwiftUI
 
+/// A shape with a clipped corner that matches the design of a Metro Card.
 struct MetroCardShape: Shape {
     func path(in rect: CGRect) -> Path {
         let leftRect = CGRect(x: 0, y: 0, width: rect.width / 2, height: rect.height)
         let bottomRightRect = CGRect(x: rect.midX, y: rect.midY, width: rect.width / 2, height: rect.height / 2)
         let cornerRadius = CGSize(width: 20, height: 20)
         
-        var leftPath = Path(UIBezierPath(roundedRect: leftRect, byRoundingCorners: [.topLeft, .bottomLeft], cornerRadii: cornerRadius).cgPath)
+        var leftPath = Path(
+            UIBezierPath(
+                roundedRect: leftRect,
+                byRoundingCorners: [.topLeft, .bottomLeft],
+                cornerRadii: cornerRadius
+            ).cgPath
+        )
         
         let topRightPath = Path { path in
             let cornerSize = 0.1 * rect.width
@@ -25,12 +32,17 @@ struct MetroCardShape: Shape {
             path.addLine(to: topLeft)
         }
         
-        let bottomRightPath = Path(UIBezierPath(roundedRect: bottomRightRect, byRoundingCorners: .bottomRight, cornerRadii: cornerRadius).cgPath)
+        let bottomRightPath = Path(
+            UIBezierPath(
+                roundedRect: bottomRightRect,
+                byRoundingCorners: .bottomRight,
+                cornerRadii: cornerRadius
+            ).cgPath
+        )
         
         leftPath.addPath(topRightPath)
         leftPath.addPath(bottomRightPath)
 
         return leftPath
     }
-    
 }

@@ -12,8 +12,7 @@ struct RootView: View {
                 .environmentObject(toastQueue)
                 .eraseToAnyView()
         case .appUnavailable(let error):
-            #warning("TODO Alexis: Create app unavailable view.")
-            return BackgroundView()
+            return ErrorScreen(error: error)
                 .eraseToAnyView()
         }
     }
@@ -21,8 +20,6 @@ struct RootView: View {
     var body: some View {
         ZStack(alignment: .top) {
             contentView
-                .edgesIgnoringSafeArea(.all)
-                .background(BackgroundView())
                 .zIndex(0)
 
             if let toastText = toastQueue.toastText {

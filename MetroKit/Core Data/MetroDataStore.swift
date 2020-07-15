@@ -60,17 +60,18 @@ public class PersistentMetroCardDataStore: MetroCardDataStore {
     }
     
     private func getOrCreateCard() -> Result<MBYMetroCard, MetroCardDataStoreError> {
-        let context = container.viewContext
-        let fetchRequest = NSFetchRequest<MBYMetroCard>(entityName: "MetroCard")
-        do {
-            if let existingCard = try context.fetch(fetchRequest).first {
-                return .success(existingCard)
-            } else {
-                return createFirstCard()
-            }
-        } catch {
-            return .failure(.cannotRead(error as NSError))
-        }
+//        let context = container.viewContext
+//        let fetchRequest = NSFetchRequest<MBYMetroCard>(entityName: "MetroCard")
+//        do {
+//            if let existingCard = try context.fetch(fetchRequest).first {
+//                return .success(existingCard)
+//            } else {
+//                return createFirstCard()
+//            }
+//        } catch {
+//            return .failure(.cannotRead(error as NSError))
+//        }
+        return .failure(MetroCardDataStoreError.cardNotFound)
     }
     
     private func createFirstCard() -> Result<MBYMetroCard, MetroCardDataStoreError> {
