@@ -2,31 +2,6 @@ import SwiftUI
 import UIKit
 import AudioToolbox
 
-struct HapticsKey: EnvironmentKey {
-    static var defaultValue: Haptics = Haptics()
-}
-
-extension EnvironmentValues {
-    var haptics: Haptics {
-        get { self[HapticsKey.self] }
-        set { self[HapticsKey.self] = newValue }
-    }
-}
-
-class Haptics {
-    func failure() {
-        let feedbackGenerator = UINotificationFeedbackGenerator()
-        feedbackGenerator.prepare()
-        feedbackGenerator.notificationOccurred(.error)
-    }
-    
-    func success() {
-        let feedbackGenerator = UINotificationFeedbackGenerator()
-        feedbackGenerator.prepare()
-        feedbackGenerator.notificationOccurred(.success)
-    }
-}
-
 enum Title {
     case string(String)
     case localizedString(LocalizedStringKey)

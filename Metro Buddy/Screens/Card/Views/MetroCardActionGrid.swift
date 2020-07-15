@@ -17,14 +17,14 @@ struct MetroCardActionGrid: View {
     var body: some View {
         VStack(spacing: 16) {
             HStack(alignment: .top, spacing: 16) {
-                CardDetailsButton(
+                MetroCardActionButton(
                     title: "BALANCE",
                     value: nil,
                     actionLabel: .update,
                     action: updateBalanceButtonTapped
                 )
 
-                CardDetailsButton(
+                MetroCardActionButton(
                     title: "FARE",
                     value: viewModel.data.formattedFare,
                     actionLabel: .update,
@@ -33,14 +33,14 @@ struct MetroCardActionGrid: View {
             }
             
             HStack(alignment: .top, spacing: 16) {
-                CardDetailsButton(
+                MetroCardActionButton(
                     title: "EXPIRATION",
                     value: viewModel.data.formattedExpirationDate,
                     actionLabel: .add,
                     action: updateExpirationDateButtonTapped
                 )
 
-                CardDetailsButton(
+                MetroCardActionButton(
                     title: "CARD NUMBER",
                     value: viewModel.data.formattedSerialNumber,
                     actionLabel: .add,

@@ -1,6 +1,7 @@
 import SwiftUI
 import MessageUI
 
+
 final class MailComposer: UIViewControllerRepresentable {
     struct Configuration {
         let recipients: [String]?

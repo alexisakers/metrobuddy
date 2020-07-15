@@ -1,13 +1,16 @@
 import SwiftUI
 import MetroKit
 
+/// Displays a full-screen error message in case the app is not available.
 struct ErrorScreen: View {
     let error: ErrorMessage
 
-    @State private var isComposingMail: Bool = false
+    @State private var isComposingMail = false
     @Environment(\.configuration) private var configuration
     @Environment(\.canSendMail) private var canSendMail
 
+    // MARK: - View
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             HStack(alignment: .lastTextBaseline, spacing: 8) {
@@ -31,7 +34,7 @@ struct ErrorScreen: View {
                 RoundedButton(
                     title: Text("Contact Us"),
                     titleColor: .black,
-                    background: Color("MetroCardOrange"),
+                    background: Color.metroCardOrange,
                     padding: .standard,
                     action: contactButtonTapped
                 )
@@ -46,6 +49,8 @@ struct ErrorScreen: View {
             )
         }
     }
+    
+    // MARK: - Events
     
     private func contactButtonTapped() {
         isComposingMail.toggle()

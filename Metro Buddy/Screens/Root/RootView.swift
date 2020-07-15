@@ -1,22 +1,12 @@
 import SwiftUI
 
+/// The main view of the app, presenting different screens at its state changes.
 struct RootView: View {
     let viewModel: RootViewModel
-    @ObservedObject var toastQueue: ToastQueue
+    @EnvironmentObject var toastQueue: ToastQueue
     
-    var contentView: some View {
-        switch viewModel.content {
-        case .card(let viewModel):
-            return ContentView()
-                .environmentObject(viewModel)
-                .environmentObject(toastQueue)
-                .eraseToAnyView()
-        case .appUnavailable(let error):
-            return ErrorScreen(error: error)
-                .eraseToAnyView()
-        }
-    }
-    
+    // MARK: - View
+        
     var body: some View {
         ZStack(alignment: .top) {
             contentView
@@ -32,6 +22,19 @@ struct RootView: View {
                     )
                     .zIndex(1)
             }
+        }.background(BackgroundView())
+    }
+    
+    var contentView: some View {
+        switch viewModel.content {
+        case .card(let viewModel):
+            return MetroCardScreen()
+                .environmentObject(viewModel)
+                .eraseToAnyView()
+
+        case .appUnavailable(let error):
+            return ErrorScreen(error: error)
+                .eraseToAnyView()
         }
     }
 }

@@ -4,15 +4,6 @@ import MetroKit
 import SwiftUI
 import CombineExt
 
-struct MetroCardData {
-    let source: ObjectReference<MetroCard>
-    let formattedBalance: String
-    let formattedExpirationDate: String?
-    let formattedSerialNumber: String?
-    let formattedFare: String
-    let formattedRemainingSwipes: String
-}
-
 enum MetroCardBalanceError: Error {
     case insufficientFunds
     case cannotSave(Error)
@@ -198,20 +189,5 @@ class MetroCardViewModel: ObservableObject {
         }
 
         return update(number)
-    }
-}
-
-extension Decimal {
-    func quotientAndRemainer(dividingBy divisor: Decimal) -> (quotient: Int, remainder: Decimal) {
-        let dividend = self as NSDecimalNumber
-        let divisor = divisor as NSDecimalNumber
-        let behavior = NSDecimalNumberHandler(roundingMode: .down, scale: 0, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: false)
-        
-        let quotient = dividend
-            .dividing(by: divisor, withBehavior: behavior)
-        let subtractAmount = quotient.multiplying(by: divisor)
-        let remainder = dividend.subtracting(subtractAmount)
-
-        return (quotient.intValue, remainder as Decimal)
     }
 }

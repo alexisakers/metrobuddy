@@ -13,6 +13,6 @@ struct OnboardingTipView: View {
                 .font(.body)
         }.padding(16)
         .background(Color("ProminentContainerBackground"))
-        .mask(RoundedRectangle(cornerRadius: 20, style: .continuous))
+        .mask(RoundedRectangle.defaultStyle)
     }
 }

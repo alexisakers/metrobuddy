@@ -12,8 +12,9 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         )
                 
         let viewModel = RootViewModel(dataStore: dataStore, preferences: UserDefaults.standard)
-        let contentView = RootView(viewModel: viewModel, toastQueue: ToastQueue())
+        let contentView = RootView(viewModel: viewModel)
             .accentColor(Color("MetroCardOrange"))
+            .environmentObject(ToastQueue())
         
         let hostingController = UIHostingController(rootView: contentView)
         hostingController.overrideUserInterfaceStyle = .dark

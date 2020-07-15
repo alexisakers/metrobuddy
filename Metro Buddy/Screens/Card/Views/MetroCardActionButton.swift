@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CardDetailsButton: View {
+struct MetroCardActionButton: View {
     enum ActionLabel {
         case add, update
         

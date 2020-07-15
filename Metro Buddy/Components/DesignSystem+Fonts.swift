@@ -1,6 +1,30 @@
 import Foundation
 import SwiftUI
 
+extension RoundedRectangle {
+    static var defaultStyle: RoundedRectangle {
+        RoundedRectangle(cornerRadius: 20, style: .continuous)
+    }
+}
+
+extension Color {
+    static var metroCardYellow: Color {
+        Color("MetroCardYellow")
+    }
+    
+    static var metroCardOrange: Color {
+        Color("MetroCardOrange")
+    }
+    
+    static var contentBackground: Color {
+        Color("BackgroundColor")
+    }
+    
+    static var prominentContainerBackground: Color {
+        Color("ProminentContainerBackground")
+    }
+}
+
 enum DesignSystemComponent {
     struct FontAttributes {
         let component: DesignSystemComponent

@@ -1,33 +1,29 @@
 import SwiftUI
 
-struct MetroCardView<Content: View>: View {
-    let content: Content
-    
-    init(@ViewBuilder content: () -> Content) {
-        self.content = content()
-    }
+struct MetroCardView: View {
+    let formattedBalance: String
         
     var body: some View {
         LinearGradient(
-            gradient: Gradient(colors: [
-                Color("MetroCardYellow"),
-                Color("MetroCardOrange")
-            ]),
+            gradient: Gradient(colors: [.metroCardYellow, .metroCardOrange]),
             startPoint: .top,
             endPoint: .bottom
         ).aspectRatio(1.585, contentMode: .fill)
         .overlay(VStack(spacing: 0) {
             Spacer()
 
-            content
-                .padding(.horizontal, 20)
-                .padding(.top, 10)
+            Text(formattedBalance)
+                .font(.system(size: 50, weight: .bold, design: .rounded))
+                .foregroundColor(.black)
+                .padding(.horizontal, 16)
+                .padding(.top, 8)
+                .animation(nil)
 
             Spacer()
             Rectangle()
                 .foregroundColor(.black)
                 .frame(height: 40)
-                .padding(.bottom, 10)
+                .padding(.bottom, 8)
 
             Image("MetroCardArrows")
                 .resizable()

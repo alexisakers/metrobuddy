@@ -75,6 +75,7 @@ public struct TextAlert: Identifiable {
     public var cancel: String = "Cancel"
     public var action: (String?) -> ()
     public var textFieldConfiguration: ((UITextField) -> Void)?
+    public var validator: ((String?) -> Bool)?
 }
 
 extension View {
