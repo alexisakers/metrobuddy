@@ -23,7 +23,7 @@
 		5E497D6124B9433600EE584E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D6024B9433600EE584E /* RootView.swift */; };
 		5E497D6324B9503300EE584E /* TextFieldAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D6224B9503300EE584E /* TextFieldAlert.swift */; };
 		5E497D6524BA251900EE584E /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D6424BA251900EE584E /* ErrorMessage.swift */; };
-		5E497D6724BA278600EE584E /* ManagedObjectContextObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D6624BA278500EE584E /* ManagedObjectContextObserver.swift */; };
+		5E497D6724BA278600EE584E /* ManagedObjectObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D6624BA278500EE584E /* ManagedObjectObserver.swift */; };
 		5E497D6E24BA5A9D00EE584E /* NSPersistentContainer+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D6D24BA5A9D00EE584E /* NSPersistentContainer+Helpers.swift */; };
 		5E497D7024BA5D9900EE584E /* NSManagedObjectModel+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D6F24BA5D9900EE584E /* NSManagedObjectModel+Helpers.swift */; };
 		5E497D7324BA5EE500EE584E /* SymbolicLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D7224BA5EE500EE584E /* SymbolicLocation.swift */; };
@@ -109,7 +109,7 @@
 		5E497D6024B9433600EE584E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		5E497D6224B9503300EE584E /* TextFieldAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAlert.swift; sourceTree = "<group>"; };
 		5E497D6424BA251900EE584E /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
-		5E497D6624BA278500EE584E /* ManagedObjectContextObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedObjectContextObserver.swift; sourceTree = "<group>"; };
+		5E497D6624BA278500EE584E /* ManagedObjectObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedObjectObserver.swift; sourceTree = "<group>"; };
 		5E497D6D24BA5A9D00EE584E /* NSPersistentContainer+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPersistentContainer+Helpers.swift"; sourceTree = "<group>"; };
 		5E497D6F24BA5D9900EE584E /* NSManagedObjectModel+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectModel+Helpers.swift"; sourceTree = "<group>"; };
 		5E497D7224BA5EE500EE584E /* SymbolicLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolicLocation.swift; sourceTree = "<group>"; };
@@ -202,7 +202,7 @@
 			children = (
 				5ED4E2BB24B3E3D500B37946 /* MetroDataStore.swift */,
 				5E497D7424BA617400EE584E /* MetroCardDataStoreError.swift */,
-				5E497D6624BA278500EE584E /* ManagedObjectContextObserver.swift */,
+				5E497D6624BA278500EE584E /* ManagedObjectObserver.swift */,
 				5E497D7124BA5ECC00EE584E /* Helpers */,
 			);
 			path = "Core Data";
@@ -534,7 +534,7 @@
 				5E497D5724B92DA300EE584E /* MetroModels.xcdatamodeld in Sources */,
 				5E497D7524BA617400EE584E /* MetroCardDataStoreError.swift in Sources */,
 				5E497D6E24BA5A9D00EE584E /* NSPersistentContainer+Helpers.swift in Sources */,
-				5E497D6724BA278600EE584E /* ManagedObjectContextObserver.swift in Sources */,
+				5E497D6724BA278600EE584E /* ManagedObjectObserver.swift in Sources */,
 				5E497D5B24B9305A00EE584E /* MetroCardUpdate.swift in Sources */,
 				5E497D5924B92F6D00EE584E /* ObjectReference.swift in Sources */,
 				5EC7A60D24BDF15800E3ED39 /* PropertyListRepresentable.swift in Sources */,

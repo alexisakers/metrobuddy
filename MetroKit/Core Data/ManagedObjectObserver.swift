@@ -5,9 +5,8 @@ import CoreData
 /// is deleted, the publisher completes.
 /// - note: The observer makes the following assumptions:
 /// - The managed context is the view context.
-/// - The object will not be modified from the view context.
 /// - The object belongs to the view context.
-class ManagedObjectContextObserver<Object: NSManagedObject>: NSObject, Publisher {
+class ManagedObjectObserver<Object: NSManagedObject>: NSObject, Publisher {
     typealias Output = Object
     typealias Failure = Never
 
@@ -28,6 +27,14 @@ class ManagedObjectContextObserver<Object: NSManagedObject>: NSObject, Publisher
         self.underlyingSubject = CurrentValueSubject(object)
         super.init()
         
+        NotificationCenter.default
+            .addObserver(
+                self,
+                selector: #selector(managedObjectContextObjectsDidChange),
+                name: .NSManagedObjectContextObjectsDidChange,
+                object: context
+            )
+        
         notificationToken = NotificationCenter.default
             .addObserver(
                 forName: .NSManagedObjectContextDidMergeChangesObjectIDs,
@@ -39,25 +46,19 @@ class ManagedObjectContextObserver<Object: NSManagedObject>: NSObject, Publisher
             )
     }
     
-    deinit {
-        if let token = notificationToken {
-            NotificationCenter.default.removeObserver(token)
-        }
-    }
-    
     // MARK: - Observing
     
     @objc private func managedObjectContextObjectsDidChange(notification: Notification) {
-        let objectID = underlyingSubject.value.objectID
         let changes = notification.managedObjectContextChanges
+        let matchesPredicate: (NSManagedObject) -> Bool = {
+            $0.objectID == self.underlyingSubject.value.objectID
+        }
         
-        if changes.updated.contains(objectID) || changes.refreshed.contains(objectID) {
-            guard let updatedObject = try? context.existingObject(with: objectID) as? Object else {
-                return
-            }
-
+        if let updatedObject = (changes.updated.first(where: matchesPredicate)
+            ?? changes.refreshed.first(where: matchesPredicate))
+            .flatMap({ $0 as? Object }) {
             underlyingSubject.send(updatedObject)
-        } else if changes.deleted.contains(objectID) {
+        } else if changes.deleted.contains(where: matchesPredicate) {
             underlyingSubject.send(completion: .finished)
         }
     }
@@ -74,18 +75,18 @@ class ManagedObjectContextObserver<Object: NSManagedObject>: NSObject, Publisher
 // MARK: - Helpers
 
 private struct ManagedObjectContextChanges {
-    let updated: Set<NSManagedObjectID>
-    let refreshed: Set<NSManagedObjectID>
-    let inserted: Set<NSManagedObjectID>
-    let deleted: Set<NSManagedObjectID>
+    let updated: Set<NSManagedObject>
+    let refreshed: Set<NSManagedObject>
+    let inserted: Set<NSManagedObject>
+    let deleted: Set<NSManagedObject>
 }
 
 extension Notification {
     fileprivate var managedObjectContextChanges: ManagedObjectContextChanges {
-        let updated = userInfo?[NSUpdatedObjectIDsKey] as? Set<NSManagedObjectID>
-        let refreshed = userInfo?[NSRefreshedObjectIDsKey] as? Set<NSManagedObjectID>
-        let inserted = userInfo?[NSInsertedObjectIDsKey] as? Set<NSManagedObjectID>
-        let deleted = userInfo?[NSDeletedObjectIDsKey] as? Set<NSManagedObjectID>
+        let updated = userInfo?[NSUpdatedObjectsKey] as? Set<NSManagedObject>
+        let refreshed = userInfo?[NSRefreshedObjectsKey] as? Set<NSManagedObject>
+        let inserted = userInfo?[NSInsertedObjectsKey] as? Set<NSManagedObject>
+        let deleted = userInfo?[NSDeletedObjectsKey] as? Set<NSManagedObject>
 
         return ManagedObjectContextChanges(
             updated: updated ?? [],

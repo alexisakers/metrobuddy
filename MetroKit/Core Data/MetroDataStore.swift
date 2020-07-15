@@ -53,7 +53,7 @@ public class PersistentMetroCardDataStore: MetroCardDataStore {
     
     public func publisher(for card: ObjectReference<MetroCard>) -> AnyPublisher<ObjectReference<MetroCard>, Never> {
         let card = container.viewContext.object(with: card.objectID) as! MBYMetroCard
-        return ManagedObjectContextObserver(context: container.viewContext, object: card)
+        return ManagedObjectObserver(context: container.viewContext, object: card)
             .map { $0.makeReferenceSnapshot() }
             .removeDuplicates { $0.snapshot == $1.snapshot }
             .eraseToAnyPublisher()
@@ -99,7 +99,7 @@ public class PersistentMetroCardDataStore: MetroCardDataStore {
         let completionSubject = PassthroughSubject<Void, Error>()
         saveContext.performAndWait { [saveContext] in
             do {
-                guard let card = try saveContext.existingObject(with: cardReference.objectID) as? MBYMetroCard else {
+                guard let card = saveContext.object(with: cardReference.objectID) as? MBYMetroCard else {
                     return completionSubject.send(completion: .failure(MetroCardDataStoreError.cardNotFound))
                 }
                 
