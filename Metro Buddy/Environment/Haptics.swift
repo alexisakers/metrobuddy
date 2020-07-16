@@ -1,7 +1,15 @@
 import SwiftUI
+import MetroKit
 
 /// An object that requests haptic feedback from the device.
 class Haptics {
+    /// Requests a success haptic feedback.
+    func success() {
+        let feedbackGenerator = UINotificationFeedbackGenerator()
+        feedbackGenerator.prepare()
+        feedbackGenerator.notificationOccurred(.success)
+    }
+    
     /// Requests a failure haptic feedback.
     func failure() {
         let feedbackGenerator = UINotificationFeedbackGenerator()
@@ -9,11 +17,14 @@ class Haptics {
         feedbackGenerator.notificationOccurred(.error)
     }
     
-    /// Requests a success haptic feedback.
-    func success() {
-        let feedbackGenerator = UINotificationFeedbackGenerator()
-        feedbackGenerator.prepare()
-        feedbackGenerator.notificationOccurred(.success)
+    /// Requests a haptic feedback for the completion of a task.
+    func notify(completion: TaskCompletion) {
+        switch completion {
+        case .success:
+            success()
+        case .failure:
+            failure()
+        }
     }
 }
 

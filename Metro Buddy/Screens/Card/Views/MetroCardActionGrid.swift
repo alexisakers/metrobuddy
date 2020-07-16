@@ -1,17 +1,11 @@
 import SwiftUI
 
+/// A view that displays a grid of actions for the card.
 struct MetroCardActionGrid: View {
-    @Binding var textAlert: TextAlert?
+    @Binding var textFieldAlert: TextFieldAlert?
     @Binding var isShowingDatePicker: Bool
     @EnvironmentObject private var viewModel: MetroCardViewModel
 
-    // MARK: - Initialization
-    
-    init(textAlert: Binding<TextAlert?>, isShowingDatePicker: Binding<Bool>) {
-        self._textAlert = textAlert
-        self._isShowingDatePicker = isShowingDatePicker
-    }
-    
     // MARK: - View
     
     var body: some View {
@@ -53,11 +47,11 @@ struct MetroCardActionGrid: View {
     // MARK: - Input
     
     private func updateBalanceButtonTapped() {
-        textAlert = .updateBalance(action: viewModel.saveBalance)
+        textFieldAlert = .updateBalance(action: viewModel.saveBalance)
     }
 
     private func updateFareButtonTapped() {
-        textAlert = .updateFare(action: viewModel.saveFare)
+        textFieldAlert = .updateFare(validator: viewModel.validateFare, action: viewModel.saveFare)
     }
     
     private func updateExpirationDateButtonTapped() {
@@ -65,6 +59,6 @@ struct MetroCardActionGrid: View {
     }
     
     private func updateSerialNumberButtonTapped() {
-        textAlert = .updateSerialNumber(action: viewModel.saveSerialNumber)
+        textFieldAlert = .updateSerialNumber(action: viewModel.saveSerialNumber)
     }
 }

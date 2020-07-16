@@ -1,15 +1,16 @@
 import SwiftUI
 
+/// A view that displays a label and a button for an action related to a Metro Card.
 struct MetroCardActionButton: View {
     enum ActionLabel {
         case add, update
         
-        var localizationKey: LocalizedStringKey {
+        var text: Text {
             switch self {
             case .add:
-                return "Add"
+                return Text("Add")
             case .update:
-                return "Update"
+                return Text("Update")
             }
         }
     }
@@ -17,7 +18,14 @@ struct MetroCardActionButton: View {
     let title: LocalizedStringKey
     let buttonText: Text
     let action: () -> Void
+
+    // MARK: - Initialization
     
+    /// Creates a new action button.
+    /// - parameter title: The title that describes the subject of the action.
+    /// - parameter value: The localized value that is currently associated with the action.
+    /// - parameter actionLabel: The label to use in the action button if there is no value.
+    /// - parameter action: The action to execute when the button is pressed.
     init(title: LocalizedStringKey, value: String?, actionLabel: ActionLabel, action: @escaping () -> Void) {
         self.title = title
         self.action = action
@@ -25,9 +33,11 @@ struct MetroCardActionButton: View {
         if let value = value {
             buttonText = Text(value)
         } else {
-            buttonText = Text(actionLabel.localizationKey)
+            buttonText = actionLabel.text
         }
     }
+    
+    // MARK: - View
     
     var body: some View {
         VStack(spacing: 8) {
@@ -39,15 +49,15 @@ struct MetroCardActionButton: View {
                 title: buttonText,
                 titleColor: .white,
                 background: Color.black,
-                padding: .compact,
+                design: .compact,
                 action: actionButtonTapped
             )
         }
     }
     
-    func actionButtonTapped() {
-        withAnimation {
-            action()
-        }
+    // MARL: - Input
+    
+    private func actionButtonTapped() {
+        action()
     }
 }

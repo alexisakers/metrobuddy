@@ -1,89 +1,52 @@
 import Combine
-import Foundation
-import MetroKit
-import SwiftUI
 import CombineExt
+import Foundation
+import SwiftUI
+import MetroKit
 
-enum MetroCardBalanceError: Error {
-    case insufficientFunds
-    case cannotSave(Error)
-}
-
-enum TaskCompletion {
-    case success
-    case failure
-}
-
+/// An object responsible for computing the, and which side effects to display when the data changes.
 class MetroCardViewModel: ObservableObject {
+    private enum MetroCardBalanceError: Error {
+        case insufficientFunds
+    }
+    
+    // MARK: - Properties
+    
     private let dataStore: MetroCardDataStore
     private let updateSubject = PassthroughSubject<MetroCardUpdate, Never>()
     private let swipeSubject = PassthroughSubject<Void, Never>()
     private var tasks: Set<AnyCancellable> = []
 
+    // MARK: - Outputs
+    
+    /// The current card data to display to the user.
     @Published var data: MetroCardData
-    @Published var showOnboarding: Bool = false
-    @Published var hasError: Bool = false
-    let tooltip: AnyPublisher<String, Never>
-    let completedTasks: AnyPublisher<TaskCompletion, Never>
-
-    @Published var error: ErrorMessage?
-    var errorBinding: Binding<ErrorMessage?> {
-        Binding(get: { self.error }, set: { self.error = $0 })
-    }
     
-    static let currencyFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.currencyCode = "USD"
-        formatter.numberStyle = .currency
-        return formatter
-    }()
+    /// Emits a user-friendly message when an error occurs.
+    @Published var errorMessage: ErrorMessage?
     
-    static let shortDateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.timeStyle = .none
-        formatter.dateStyle = .medium
-        return formatter
-    }()
+    /// Emits toasts to display to the user.
+    let toast: AnyPublisher<String, Never>
     
-    static let inputNumberFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.generatesDecimalNumbers = true
-        return formatter
-    }()
+    /// Emits a value when a task was completed.
+    let taskCompletion: AnyPublisher<TaskCompletion, Never>
+                
+    // MARK: - Initialization
     
     public init(card: ObjectReference<MetroCard>, dataStore: MetroCardDataStore, preferences: Preferences) {
         self.dataStore = dataStore
-                
+        self.data = Self.makeData(for: card, preferences: preferences)
+
         let cardPublisher = dataStore
             .publisher(for: card)
             .share(replay: 1)
-        
-        func makeData(for card: ObjectReference<MetroCard>) -> MetroCardData {
-            let formattedDate = card.expirationDate.map(Self.shortDateFormatter.string(from:))
-            
-            let remainingSwipes = card.balance
-                .quotientAndRemainer(dividingBy: card.fare)
-                .quotient
-            
-            let formattedRemainingSwipesFormat = NSLocalizedString("remaining_swipes", comment: "")
-            
-            return MetroCardData(
-                source: card,
-                formattedBalance: Self.currencyFormatter.string(from: card.balance as NSDecimalNumber)!,
-                formattedExpirationDate: formattedDate,
-                formattedSerialNumber: card.serialNumber,
-                formattedFare: Self.currencyFormatter.string(from: card.fare as NSDecimalNumber)!,
-                formattedRemainingSwipes: .localizedStringWithFormat(formattedRemainingSwipesFormat, remainingSwipes)
-            )
-        }
-        
-        self.data = makeData(for: card)
-        
+
+        // Set Up Update Publishers
         let updateElements = updateSubject
             .withLatestFrom(cardPublisher) { ($0, $1) }
-            .receive(on: DispatchQueue.main)
             .flatMap { update, card in
                 dataStore.applyUpdates([update], to: card)
+                    .receive(on: DispatchQueue.main)
                     .handleEvents(receiveCompletion: {
                         if case .finished = $0 {
                             if case .balance = update {
@@ -106,15 +69,17 @@ class MetroCardViewModel: ObservableObject {
                 
                 let update = MetroCardUpdate.balance(card.balance - card.fare)
                 return dataStore.applyUpdates([update], to: card)
+                    .receive(on: DispatchQueue.main)
                     .eraseToAnyPublisher()
                     .materialize()
             }
         
+        // Set Up Completion/Failure Publishers
         let taskEvents = updateElements
             .merge(with: swipeElements)
             .share(replay: 1)
         
-        completedTasks = taskEvents
+        taskCompletion = taskEvents
             .compactMap { event in
                 switch event {
                 case .finished:
@@ -126,34 +91,39 @@ class MetroCardViewModel: ObservableObject {
                 }
             }.eraseToAnyPublisher()
                 
-        tooltip = taskEvents
+        toast = taskEvents
             .compactMap {
                 guard case .failure(MetroCardBalanceError.insufficientFunds) = $0 else {
                     return nil
                 }
                 
-                return NSLocalizedString("Insufficient Fare", comment: "")
-                    .localizedUppercase
+                return NSLocalizedString("Insufficient Fare", comment: "").localizedUppercase
             }.eraseToAnyPublisher()
         
-        cardPublisher
-            .map(makeData)
-            .assign(to: \.data, on: self)
+        taskEvents
+            .compactMap { event -> ErrorMessage? in
+                switch event {
+                case .failure(MetroCardBalanceError.insufficientFunds):
+                    return nil
+                case .failure(let error):
+                    return ErrorMessage(title: "Cannot Save Changes", error: error)
+                default:
+                    return nil
+                }
+            }.assign(to: \.errorMessage, on: self)
             .store(in: &tasks)
         
+        // Process and Display Card Changes
         cardPublisher
-            .map { card in
-                let userDidOnboard = preferences
-                    .value(forKey: UserDidOnboardPreferenceKey.self)
-                return !userDidOnboard && card.balance == 0
-            }.assign(to: \.showOnboarding, on: self)
+            .receive(on: DispatchQueue.global(qos: .userInteractive))
+            .map { Self.makeData(for: $0, preferences: preferences) }
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.data, on: self)
             .store(in: &tasks)
     }
     
-    func perform(update: MetroCardUpdate) {
-        updateSubject.send(update)
-    }
-    
+    // MARK: - Inputs
+        
     func saveBalance(_ input: String?) {
         guard let update = parseInput(input, to: MetroCardUpdate.balance) else {
             return
@@ -162,6 +132,16 @@ class MetroCardViewModel: ObservableObject {
         updateSubject.send(update)
     }
     
+    /// Validates the input for the fare field. Returns `true` if the input is a valid number, and if the fare is greater than 0.
+    func validateFare(_ input: String?) -> Bool {
+        guard case let .fare(number) = parseInput(input, to: MetroCardUpdate.fare) else {
+            return false
+        }
+        
+        return number > 0
+    }
+    
+    /// Saves the new validated fare.
     func saveFare(_ input: String?) {
         guard let update = parseInput(input, to: MetroCardUpdate.fare) else {
             return
@@ -172,6 +152,10 @@ class MetroCardViewModel: ObservableObject {
     
     func swipe() {
         swipeSubject.send(())
+    }
+    
+    func saveExpirationDate(_ date: Date?) {
+        updateSubject.send(.expirationDate(date))
     }
     
     func saveSerialNumber(_ input: String?) {
@@ -189,5 +173,62 @@ class MetroCardViewModel: ObservableObject {
         }
 
         return update(number)
+    }
+}
+
+// MARK: - Helpers
+
+extension MetroCardViewModel {
+    private static let currencyFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.currencyCode = "USD"
+        formatter.numberStyle = .currency
+        return formatter
+    }()
+    
+    private static let shortDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .none
+        formatter.dateStyle = .medium
+        return formatter
+    }()
+    
+    private static let inputNumberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.generatesDecimalNumbers = true
+        return formatter
+    }()
+
+    /// Creates a `MetroCardData` object from an underlying card data,
+    private static func makeData(for card: ObjectReference<MetroCard>, preferences: Preferences) -> MetroCardData {
+        let formattedBalance = Self.currencyFormatter
+            .string(from: card.balance as NSDecimalNumber)!
+        
+        let formattedDate = card.expirationDate
+            .map(shortDateFormatter.string(from:))
+        
+        let formattedFare = Self.currencyFormatter
+            .string(from: card.fare as NSDecimalNumber)!
+        
+        let remainingSwipes = card.balance
+            .quotientAndRemainer(dividingBy: card.fare)
+            .quotient
+        
+        let formattedRemainingSwipesFormat = NSLocalizedString("remaining_swipes", comment: "")
+        let formattedRemainingSwipes = String
+            .localizedStringWithFormat(formattedRemainingSwipesFormat, remainingSwipes)
+        
+        let userDidOnboard = preferences
+            .value(forKey: UserDidOnboardPreferenceKey.self)
+        
+        return MetroCardData(
+            isOnboarded: userDidOnboard || card.balance != 0,
+            formattedBalance: formattedBalance,
+            expirationDate: card.expirationDate,
+            formattedExpirationDate: formattedDate,
+            formattedSerialNumber: card.serialNumber,
+            formattedFare: formattedFare,
+            formattedRemainingSwipes: formattedRemainingSwipes
+        )
     }
 }

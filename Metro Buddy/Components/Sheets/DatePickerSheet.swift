@@ -23,13 +23,13 @@ struct ExpirationDatePickerSheet: View {
         VStack(spacing: 10) {
             HStack {
                 Text("Expiration Date")
-                    .component(.sheetTitle)
+                    .font(.sheetTitle)
                 
                 Spacer()
                 
                 Button(action: closeButtonTapped) {
-                    Image(systemName: "xmark.circle.fill")
-                        .component(.sheetTitle)
+                    Image.Symbols.closeButton
+                        .font(.sheetTitle)
                 }
             }
             
@@ -41,7 +41,7 @@ struct ExpirationDatePickerSheet: View {
                 title: Text("Save"),
                 titleColor: .black,
                 background: Color.accentColor,
-                padding: .standard,
+                design: .standard,
                 action: saveButtonTapped
             )
             

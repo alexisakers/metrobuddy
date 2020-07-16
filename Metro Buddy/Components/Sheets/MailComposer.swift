@@ -1,36 +1,40 @@
 import SwiftUI
 import MessageUI
 
-
+/// A view that displays a mail composer with a content configuration.
 final class MailComposer: UIViewControllerRepresentable {
-    struct Configuration {
+    struct Configuration: Hashable, Identifiable {
         let recipients: [String]?
         let subject: String?
         let body: String?
+        
+        var id: Int {
+            hashValue
+        }
     }
 
     let configuration: Configuration
-    @Binding var isPresented: Bool
+    let onDismiss: () -> Void
     
-    init(configuration: Configuration, isPresented: Binding<Bool>) {
+    init(configuration: Configuration, onDismiss: @escaping () -> Void) {
         self.configuration = configuration
-        self._isPresented = isPresented
+        self.onDismiss = onDismiss
     }
     
-    
     class Coordinator: NSObject, MFMailComposeViewControllerDelegate {
-        @Binding var isPresented: Bool
-        init(isPresented: Binding<Bool>) {
-            self._isPresented = isPresented
+        let onDismiss: () -> Void
+
+        init(onDismiss: @escaping () -> Void) {
+            self.onDismiss = onDismiss
         }
         
         func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-            isPresented = false
+            onDismiss()
         }
     }
     
     func makeCoordinator() -> Coordinator {
-        return Coordinator(isPresented: $isPresented)
+        return Coordinator(onDismiss: onDismiss)
     }
     
     func makeUIViewController(context: Context) -> MFMailComposeViewController {
@@ -51,5 +55,16 @@ final class MailComposer: UIViewControllerRepresentable {
     
     func updateUIViewController(_ uiViewController: MFMailComposeViewController, context: Context) {
         uiViewController.mailComposeDelegate = context.coordinator
+    }
+}
+
+// MARK: - Modifier
+
+extension View {
+    /// Displays a mail composer with the specified configuration.
+    func mailComposer(configuration: Binding<MailComposer.Configuration?>) -> some View {
+        sheet(item: configuration) {
+            MailComposer(configuration: $0, onDismiss: { configuration.wrappedValue = nil })
+        }
     }
 }

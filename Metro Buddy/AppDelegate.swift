@@ -13,7 +13,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
                 
         let viewModel = RootViewModel(dataStore: dataStore, preferences: UserDefaults.standard)
         let contentView = RootView(viewModel: viewModel)
-            .accentColor(Color("MetroCardOrange"))
+            .accentColor(.metroCardOrange)
             .environmentObject(ToastQueue())
         
         let hostingController = UIHostingController(rootView: contentView)

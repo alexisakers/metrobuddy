@@ -8,12 +8,12 @@ struct Toast: View {
     
     var body: some View {
         Text(text)
-            .foregroundColor(Color(.systemTeal))
-            .component(.tooltip)
+            .foregroundColor(.toastText)
+            .font(.toastText)
             .padding(.vertical, 8)
             .padding(.horizontal, 16)
             .background(Color.black)
-            .mask(RoundedRectangle(cornerRadius: 20, style: .continuous))
+            .mask(RoundedRectangle.defaultStyle)
             .shadow(radius: 8)
     }
 }

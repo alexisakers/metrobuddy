@@ -5,7 +5,7 @@ import MetroKit
 struct ErrorScreen: View {
     let error: ErrorMessage
 
-    @State private var isComposingMail = false
+    @State private var emailConfiguration: MailComposer.Configuration?
     @Environment(\.configuration) private var configuration
     @Environment(\.canSendMail) private var canSendMail
 
@@ -14,11 +14,11 @@ struct ErrorScreen: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             HStack(alignment: .lastTextBaseline, spacing: 8) {
-                Image(systemName: "exclamationmark.triangle.fill")
+                Image.Symbols.exclamationMarkTriangleFill
                     .accessibility(hidden: true)
                 
                 Text("Unexpected Issue")
-            } .component(.sheetTitle)
+            } .font(.sheetTitle)
             .padding(.bottom, 16)
 
             Text(error.localizedDescription)
@@ -35,24 +35,19 @@ struct ErrorScreen: View {
                     title: Text("Contact Us"),
                     titleColor: .black,
                     background: Color.metroCardOrange,
-                    padding: .standard,
+                    design: .standard,
                     action: contactButtonTapped
                 )
             }
         }.padding(16)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(BackgroundView())
-        .sheet(isPresented: $isComposingMail) { () -> MailComposer in
-            MailComposer(
-                configuration: .errorReport(appConfiguration: configuration, message: error),
-                isPresented: $isComposingMail
-            )
-        }
+        .mailComposer(configuration: $emailConfiguration)
     }
     
     // MARK: - Events
     
     private func contactButtonTapped() {
-        isComposingMail.toggle()
+        emailConfiguration = .errorReport(appConfiguration: configuration, message: error)
     }
 }

@@ -1,14 +1,17 @@
 import SwiftUI
+import MetroKit
 
 /// The screen that displays the user's Metro Card.
 struct MetroCardScreen: View {
     @Environment(\.haptics) var haptics
+    @Environment(\.configuration) var appConfiguration
     @EnvironmentObject var toastQueue: ToastQueue
     @EnvironmentObject var viewModel: MetroCardViewModel
 
-    @State private var textAlert: TextAlert?
+    @State private var textFieldAlert: TextFieldAlert?
     @State private var isShowingDatePicker = false
     @State private var expirationDate = Date()
+    @State private var emailConfiguration: MailComposer.Configuration?
 
     // MARK: - Gestures
 
@@ -42,20 +45,20 @@ struct MetroCardScreen: View {
                     .gesture(dragGesture)
                     .animation(.spring())
                                 
-                if viewModel.showOnboarding {
-                    OnboardingTipView()
-                } else {
+                if viewModel.data.isOnboarded {
                     RoundedButton(
                         title: Text("Swipe"),
                         titleColor: .white,
                         background: Color.prominentContainerBackground,
-                        padding: .standard,
+                        design: .standard,
                         action: commitSwipe
                     )
+                } else {
+                    OnboardingTipView()
                 }
                 
                 MetroCardActionGrid(
-                    textAlert: $textAlert,
+                    textFieldAlert: $textFieldAlert,
                     isShowingDatePicker: $isShowingDatePicker
                 )
                 
@@ -67,26 +70,27 @@ struct MetroCardScreen: View {
             if isShowingDatePicker {
                 ModalSheet(isPresented: $isShowingDatePicker) {
                     ExpirationDatePickerSheet(
-                        initialValue: viewModel.data.source.expirationDate,
+                        initialValue: viewModel.data.expirationDate,
                         isPresented: $isShowingDatePicker,
-                        saveHandler: { viewModel.perform(update: .expirationDate($0)) },
-                        resetHandler: { viewModel.perform(update: .expirationDate(nil)) }
+                        saveHandler: { viewModel.saveExpirationDate($0) },
+                        resetHandler: { viewModel.saveExpirationDate(nil) }
                     )
                 }.transition(.opacity)
                 .zIndex(1)
             }
-        }.onReceive(viewModel.tooltip, perform: toastQueue.displayToast)
-        .onReceive(viewModel.completedTasks, perform: taskDidComplete)
-        .textAlert(item: $textAlert)
-        .alert(item: $viewModel.error) { errorMessage in
-            Alert(title: Text(errorMessage.title))
+        }.onReceive(viewModel.toast, perform: toastQueue.displayToast)
+        .onReceive(viewModel.taskCompletion, perform: haptics.notify)
+        .textFieldAlert(item: $textFieldAlert)
+        .mailComposer(configuration: $emailConfiguration)
+        .alert(item: $viewModel.errorMessage) {
+            Alert(errorMessage: $0, configuration: appConfiguration, emailConfiguration: $emailConfiguration)
         }
     }
     
     // MARK: - Actions
     
     private func cardTapped() {
-        textAlert = .updateBalance(action: viewModel.saveBalance)
+        textFieldAlert = .updateBalance(action: viewModel.saveBalance)
     }
     
     private func dragGestureChanged(gesture: DragGesture.Value) {
@@ -120,15 +124,6 @@ struct MetroCardScreen: View {
                     self.isPerformingSwipe = false
                 }
             }
-        }
-    }
-    
-    private func taskDidComplete(completion: TaskCompletion) {
-        switch completion {
-        case .success:
-            haptics.success()
-        case .failure:
-            haptics.failure()
         }
     }
 }
