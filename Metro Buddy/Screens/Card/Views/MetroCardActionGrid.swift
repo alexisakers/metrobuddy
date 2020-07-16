@@ -47,7 +47,7 @@ struct MetroCardActionGrid: View {
     // MARK: - Input
     
     private func updateBalanceButtonTapped() {
-        textFieldAlert = .updateBalance(action: viewModel.saveBalance)
+        textFieldAlert = .updateBalance(validator: viewModel.validateBalance, action: viewModel.saveBalance)
     }
 
     private func updateFareButtonTapped() {
@@ -59,6 +59,6 @@ struct MetroCardActionGrid: View {
     }
     
     private func updateSerialNumberButtonTapped() {
-        textFieldAlert = .updateSerialNumber(action: viewModel.saveSerialNumber)
+        textFieldAlert = .updateSerialNumber(validator: viewModel.validateSerialNumber, action: viewModel.saveSerialNumber)
     }
 }

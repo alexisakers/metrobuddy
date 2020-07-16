@@ -51,7 +51,7 @@ struct MetroCardScreen: View {
                         titleColor: .white,
                         background: Color.prominentContainerBackground,
                         design: .standard,
-                        action: commitSwipe
+                        action: recordSwipe
                     )
                 } else {
                     OnboardingTipView()
@@ -90,7 +90,7 @@ struct MetroCardScreen: View {
     // MARK: - Actions
     
     private func cardTapped() {
-        textFieldAlert = .updateBalance(action: viewModel.saveBalance)
+        textFieldAlert = .updateBalance(validator: viewModel.validateBalance, action: viewModel.saveBalance)
     }
     
     private func dragGestureChanged(gesture: DragGesture.Value) {
@@ -104,7 +104,7 @@ struct MetroCardScreen: View {
         let xTranslation = gesture.translation.width
         if xTranslation < -100 {
             withAnimation {
-                commitSwipe()
+                recordSwipe()
                 drag = 0
             }
         } else {
@@ -114,12 +114,12 @@ struct MetroCardScreen: View {
         }
     }
     
-    private func commitSwipe() {
+    private func recordSwipe() {
         withAnimation(.easeIn(duration: 0.3)) {
             isPerformingSwipe = true
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                viewModel.swipe()
+                viewModel.recordSwipe()
                 withAnimation(.easeOut(duration: 0.3)) {
                     self.isPerformingSwipe = false
                 }

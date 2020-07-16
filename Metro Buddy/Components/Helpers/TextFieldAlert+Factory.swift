@@ -9,7 +9,7 @@ extension TextFieldAlert {
         return NSLocalizedString("Cancel", comment: "")
     }
         
-    static func updateBalance(action: @escaping (String?) -> Void) -> TextFieldAlert {
+    static func updateBalance(validator: @escaping (String?) -> Bool, action: @escaping (String?) -> Void) -> TextFieldAlert {
         TextFieldAlert(
             id: "update-balance",
             title: NSLocalizedString("Card Balance", comment: ""),
@@ -17,6 +17,7 @@ extension TextFieldAlert {
             inputPlaceholder: NSLocalizedString("Current Balance", comment: ""),
             acceptButtonTitle: acceptButtonTitle,
             cancelButtonTitle: cancelButtonTitle,
+            validator: validator,
             action: action,
             textFieldConfiguration: {
                 $0.keyboardType = .decimalPad
@@ -24,7 +25,7 @@ extension TextFieldAlert {
         )
     }
     
-    static func updateFare(validator: ((String?) -> Bool)?, action: @escaping (String?) -> Void) -> TextFieldAlert {
+    static func updateFare(validator: @escaping (String?) -> Bool, action: @escaping (String?) -> Void) -> TextFieldAlert {
         TextFieldAlert(
             id: "update-fare",
             title: NSLocalizedString("Current Fare", comment: ""),
@@ -40,7 +41,7 @@ extension TextFieldAlert {
         )
     }
     
-    static func updateSerialNumber(action: @escaping (String?) -> Void) -> TextFieldAlert {
+    static func updateSerialNumber(validator: @escaping (String?) -> Bool, action: @escaping (String?) -> Void) -> TextFieldAlert {
         TextFieldAlert(
             id: "update-serial-number",
             title: NSLocalizedString("Card Number", comment: ""),
@@ -48,6 +49,7 @@ extension TextFieldAlert {
             inputPlaceholder: NSLocalizedString("Card Number", comment: ""),
             acceptButtonTitle: acceptButtonTitle,
             cancelButtonTitle: cancelButtonTitle,
+            validator: validator,
             action: action,
             textFieldConfiguration: {
                 $0.keyboardType = .numberPad

@@ -124,6 +124,16 @@ class MetroCardViewModel: ObservableObject {
     
     // MARK: - Inputs
         
+    /// Validates the input for the balance field. Returns `true` if the input is a valid number.
+    func validateBalance(_ input: String?) -> Bool {
+        if case .balance = parseInput(input, to: MetroCardUpdate.balance) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    /// Saves the new validated balance.
     func saveBalance(_ input: String?) {
         guard let update = parseInput(input, to: MetroCardUpdate.balance) else {
             return
@@ -150,14 +160,16 @@ class MetroCardViewModel: ObservableObject {
         updateSubject.send(update)
     }
     
-    func swipe() {
-        swipeSubject.send(())
+    /// Validates the input for the serial number field. Returns `true` if the input is not empty.
+    func validateSerialNumber(_ input: String?) -> Bool {
+        guard let input = input else {
+            return false
+        }
+
+        return !input.isEmpty
     }
     
-    func saveExpirationDate(_ date: Date?) {
-        updateSubject.send(.expirationDate(date))
-    }
-    
+    /// Saves the new serial number.
     func saveSerialNumber(_ input: String?) {
         guard let input = input else {
             return
@@ -166,7 +178,17 @@ class MetroCardViewModel: ObservableObject {
         let updatedValue = input.isEmpty ? nil : input
         updateSubject.send(.serialNumber(updatedValue))
     }
-    
+
+    /// Saves the new expiration date.
+    func saveExpirationDate(_ date: Date?) {
+        updateSubject.send(.expirationDate(date))
+    }
+
+    /// Records a swipe.
+    func recordSwipe() {
+        swipeSubject.send(())
+    }
+
     private func parseInput(_ input: String?, to update: (Decimal) -> MetroCardUpdate) -> MetroCardUpdate? {
         guard let number = input.flatMap(Self.inputNumberFormatter.number) as? Decimal else {
             return nil
