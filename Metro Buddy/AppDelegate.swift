@@ -9,8 +9,10 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         let groupID = Bundle.main.infoValue(forKey: AppGroupNameInfoPlistKey.self)!
         
         let dataStore = try! PersistentMetroCardDataStore(
-            persistentStore: .onDisk(.securityGroupContainer(id: groupID, path: ["Path"])),
-            useCloudKit: false
+            persistentStore: .onDisk(
+                .securityGroupContainer(id: groupID, path: ["Path"])
+            ),
+            useCloudKit: true
         )
                 
         let viewModel = RootViewModel(dataStore: dataStore, preferences: UserDefaults.standard)
