@@ -6,8 +6,10 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        let groupID = Bundle.main.infoValue(forKey: AppGroupNameInfoPlistKey.self)!
+        
         let dataStore = try! PersistentMetroCardDataStore(
-            persistentStore: .onDisk(.documentsFolder(path: ["Data"])),
+            persistentStore: .onDisk(.securityGroupContainer(id: groupID, path: ["Path"])),
             useCloudKit: false
         )
                 

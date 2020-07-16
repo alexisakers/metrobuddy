@@ -52,10 +52,10 @@ struct ExpirationDatePickerSheet: View {
                     .foregroundColor(.accentColor)
                     .padding(8)
             }
-        }.padding(20)
+        }.padding(16)
         .background(Color.contentBackground)
         .mask(RoundedRectangle.defaultStyle)
-        .padding(20)
+        .padding(16)
     }
     
     // MARK: - Input

@@ -14,9 +14,9 @@ struct RoundedButton<Background: View>: View {
         var verticalPadding: CGFloat {
             switch self {
             case .standard:
-                return 8
+                return 16
             case .compact:
-                return 4
+                return 8
             }
         }
     }

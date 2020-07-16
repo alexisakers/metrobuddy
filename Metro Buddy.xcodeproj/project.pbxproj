@@ -28,6 +28,7 @@
 		5E421A3B24C103E200AB8ED4 /* Design+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E421A3A24C103E200AB8ED4 /* Design+Colors.swift */; };
 		5E421A3D24C103FE00AB8ED4 /* Design+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E421A3C24C103FE00AB8ED4 /* Design+Images.swift */; };
 		5E421A3F24C1041700AB8ED4 /* Design+Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E421A3E24C1041700AB8ED4 /* Design+Shapes.swift */; };
+		5E421A4324C1070400AB8ED4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E421A4224C1070400AB8ED4 /* CloudKit.framework */; };
 		5E497D4624B7EFF500EE584E /* MetroCardShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D4524B7EFF500EE584E /* MetroCardShape.swift */; };
 		5E497D4824B8CF1500EE584E /* MetroCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D4724B8CF1500EE584E /* MetroCardView.swift */; };
 		5E497D4A24B8E1BC00EE584E /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D4924B8E1BC00EE584E /* RoundedButton.swift */; };
@@ -131,6 +132,8 @@
 		5E421A3A24C103E200AB8ED4 /* Design+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Colors.swift"; sourceTree = "<group>"; };
 		5E421A3C24C103FE00AB8ED4 /* Design+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Images.swift"; sourceTree = "<group>"; };
 		5E421A3E24C1041700AB8ED4 /* Design+Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Shapes.swift"; sourceTree = "<group>"; };
+		5E421A4024C106F100AB8ED4 /* MetroBuddy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MetroBuddy.entitlements; sourceTree = "<group>"; };
+		5E421A4224C1070400AB8ED4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		5E497D4524B7EFF500EE584E /* MetroCardShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroCardShape.swift; sourceTree = "<group>"; };
 		5E497D4724B8CF1500EE584E /* MetroCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroCardView.swift; sourceTree = "<group>"; };
 		5E497D4924B8E1BC00EE584E /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -192,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5ED4E2B224B3E3B400B37946 /* MetroKit.framework in Frameworks */,
+				5E421A4324C1070400AB8ED4 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,7 +239,6 @@
 		5E03305124BF5F5F001D86D1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				5E03303F24BE9908001D86D1 /* Toast */,
 				5E17B46024C10366000FA57E /* Design */,
 				5EC4EDED24C0E80600747DA3 /* Views */,
 				5EC4EDEC24C0E7FA00747DA3 /* Sheets */,
@@ -344,6 +347,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		5E421A4124C1070400AB8ED4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E421A4224C1070400AB8ED4 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5E497D6C24BA5A8700EE584E /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +386,7 @@
 				5ED4E29224B3E33D00B37946 /* App.Info.plist */,
 				5ED4E2A024B3E3B400B37946 /* MetroKit.Info.plist */,
 				5E03304524BF3C29001D86D1 /* App.Configuration.plist */,
+				5E421A4024C106F100AB8ED4 /* MetroBuddy.entitlements */,
 			);
 			path = Configs;
 			sourceTree = "<group>";
@@ -393,6 +405,7 @@
 		5EC4EDED24C0E80600747DA3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5E03303F24BE9908001D86D1 /* Toast */,
 				5E497D4924B8E1BC00EE584E /* RoundedButton.swift */,
 				5E17B45E24C0FEBD000FA57E /* ScaleButtonStyle.swift */,
 				5E497D9B24BD0AAA00EE584E /* BackgroundView.swift */,
@@ -419,6 +432,7 @@
 				5ED4E29E24B3E3B400B37946 /* MetroKit */,
 				5ED4E2AB24B3E3B400B37946 /* MetroKitTests */,
 				5ED4E28724B3E33300B37946 /* Products */,
+				5E421A4124C1070400AB8ED4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

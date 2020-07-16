@@ -36,7 +36,7 @@ struct MetroCardScreen: View {
     
     var body: some View {
         ZStack(alignment: .center) {
-            VStack(spacing: 20) {
+            VStack(spacing: 16) {
                 NavigationBar(subtitle: viewModel.data.formattedRemainingSwipes)
                 
                 MetroCardView(formattedBalance: viewModel.data.formattedBalance)

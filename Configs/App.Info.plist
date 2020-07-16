@@ -45,5 +45,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>MBYAppGroupName</key>
+	<string>group.$(DOMAIN)</string>
 </dict>
 </plist>
