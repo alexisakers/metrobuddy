@@ -17,7 +17,7 @@
                BlueprintIdentifier = "5ED4E29C24B3E3B400B37946"
                BuildableName = "MetroKit.framework"
                BlueprintName = "MetroKit"
-               ReferencedContainer = "container:Metro Buddy.xcodeproj">
+               ReferencedContainer = "container:MetroBuddy.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
             BlueprintIdentifier = "5ED4E29C24B3E3B400B37946"
             BuildableName = "MetroKit.framework"
             BlueprintName = "MetroKit"
-            ReferencedContainer = "container:Metro Buddy.xcodeproj">
+            ReferencedContainer = "container:MetroBuddy.xcodeproj">
          </BuildableReference>
       </CodeCoverageTargets>
       <Testables>
@@ -46,7 +46,7 @@
                BlueprintIdentifier = "5ED4E2A424B3E3B400B37946"
                BuildableName = "MetroKitTests.xctest"
                BlueprintName = "MetroKitTests"
-               ReferencedContainer = "container:Metro Buddy.xcodeproj">
+               ReferencedContainer = "container:MetroBuddy.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -74,7 +74,7 @@
             BlueprintIdentifier = "5ED4E29C24B3E3B400B37946"
             BuildableName = "MetroKit.framework"
             BlueprintName = "MetroKit"
-            ReferencedContainer = "container:Metro Buddy.xcodeproj">
+            ReferencedContainer = "container:MetroBuddy.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

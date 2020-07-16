@@ -430,7 +430,7 @@
 			isa = PBXGroup;
 			children = (
 				5E497D8324BB3FA100EE584E /* Configs */,
-				5ED4E28824B3E33300B37946 /* Metro Buddy */,
+				5ED4E28824B3E33300B37946 /* App */,
 				5ED4E29E24B3E3B400B37946 /* MetroKit */,
 				5ED4E2AB24B3E3B400B37946 /* MetroKitTests */,
 				5ED4E28724B3E33300B37946 /* Products */,
@@ -448,7 +448,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5ED4E28824B3E33300B37946 /* Metro Buddy */ = {
+		5ED4E28824B3E33300B37946 /* App */ = {
 			isa = PBXGroup;
 			children = (
 				5ED4E28924B3E33300B37946 /* AppDelegate.swift */,
@@ -461,7 +461,7 @@
 				5ED4E28D24B3E33D00B37946 /* Assets.xcassets */,
 				5ED4E28F24B3E33D00B37946 /* Preview Content */,
 			);
-			path = "Metro Buddy";
+			path = App;
 			sourceTree = "<group>";
 		};
 		5ED4E28F24B3E33D00B37946 /* Preview Content */ = {
@@ -613,7 +613,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5ED4E28124B3E33300B37946 /* Build configuration list for PBXProject "Metro Buddy" */;
+			buildConfigurationList = 5ED4E28124B3E33300B37946 /* Build configuration list for PBXProject "MetroBuddy" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -888,7 +888,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Metro Buddy/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"App/Preview Content\"";
 				DEVELOPMENT_TEAM = 75E8K39Z38;
 				ENABLE_PREVIEWS = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -908,7 +908,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Metro Buddy/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"App/Preview Content\"";
 				DEVELOPMENT_TEAM = 75E8K39Z38;
 				ENABLE_PREVIEWS = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1012,7 +1012,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5ED4E28124B3E33300B37946 /* Build configuration list for PBXProject "Metro Buddy" */ = {
+		5ED4E28124B3E33300B37946 /* Build configuration list for PBXProject "MetroBuddy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5ED4E29324B3E33D00B37946 /* Debug */,

@@ -17,7 +17,7 @@
                BlueprintIdentifier = "5ED4E28524B3E33300B37946"
                BuildableName = "Metro Buddy.app"
                BlueprintName = "Metro Buddy"
-               ReferencedContainer = "container:Metro Buddy.xcodeproj">
+               ReferencedContainer = "container:MetroBuddy.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,35 +32,20 @@
       <CodeCoverageTargets>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5ED4E28524B3E33300B37946"
-            BuildableName = "Metro Buddy.app"
-            BlueprintName = "Metro Buddy"
-            ReferencedContainer = "container:Metro Buddy.xcodeproj">
-         </BuildableReference>
-         <BuildableReference
-            BuildableIdentifier = "primary"
             BlueprintIdentifier = "5ED4E29C24B3E3B400B37946"
             BuildableName = "MetroKit.framework"
             BlueprintName = "MetroKit"
-            ReferencedContainer = "container:Metro Buddy.xcodeproj">
+            ReferencedContainer = "container:MetroBuddy.xcodeproj">
+         </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "5ED4E28524B3E33300B37946"
+            BuildableName = "Metro Buddy.app"
+            BlueprintName = "Metro Buddy"
+            ReferencedContainer = "container:MetroBuddy.xcodeproj">
          </BuildableReference>
       </CodeCoverageTargets>
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5ED4E2A424B3E3B400B37946"
-               BuildableName = "MetroKitTests.xctest"
-               BlueprintName = "MetroKitTests"
-               ReferencedContainer = "container:Metro Buddy.xcodeproj">
-            </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "FileBasedTestCase">
-               </Test>
-            </SkippedTests>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -80,7 +65,7 @@
             BlueprintIdentifier = "5ED4E28524B3E33300B37946"
             BuildableName = "Metro Buddy.app"
             BlueprintName = "Metro Buddy"
-            ReferencedContainer = "container:Metro Buddy.xcodeproj">
+            ReferencedContainer = "container:MetroBuddy.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -97,7 +82,7 @@
             BlueprintIdentifier = "5ED4E28524B3E33300B37946"
             BuildableName = "Metro Buddy.app"
             BlueprintName = "Metro Buddy"
-            ReferencedContainer = "container:Metro Buddy.xcodeproj">
+            ReferencedContainer = "container:MetroBuddy.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
