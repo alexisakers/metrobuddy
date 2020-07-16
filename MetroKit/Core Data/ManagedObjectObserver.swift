@@ -13,7 +13,7 @@ class ManagedObjectObserver<Object: NSManagedObject>: NSObject, Publisher {
     private let underlyingSubject: CurrentValueSubject<Output, Failure>
     private let context: NSManagedObjectContext
     private var notificationToken: NSObjectProtocol?
-    
+        
     // MARK: - Lifecycle
         
     /// Creates an observer.
@@ -33,16 +33,6 @@ class ManagedObjectObserver<Object: NSManagedObject>: NSObject, Publisher {
                 selector: #selector(managedObjectContextObjectsDidChange),
                 name: .NSManagedObjectContextObjectsDidChange,
                 object: context
-            )
-        
-        notificationToken = NotificationCenter.default
-            .addObserver(
-                forName: .NSManagedObjectContextDidMergeChangesObjectIDs,
-                object: context,
-                queue: .main,
-                using: { [unowned self] in
-                    self.managedObjectContextObjectsDidChange(notification: $0)
-                }
             )
     }
     

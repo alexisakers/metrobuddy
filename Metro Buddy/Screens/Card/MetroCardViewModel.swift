@@ -33,7 +33,7 @@ class MetroCardViewModel: ObservableObject {
                 
     // MARK: - Initialization
     
-    public init(card: ObjectReference<MetroCard>, dataStore: MetroCardDataStore, preferences: Preferences) {
+    public init(card: ObjectReference<MetroCard>, dataStore: MetroCardDataStore, preferences: UserPreferences) {
         self.dataStore = dataStore
         self.data = Self.makeData(for: card, preferences: preferences)
 
@@ -222,7 +222,7 @@ extension MetroCardViewModel {
     }()
 
     /// Creates a `MetroCardData` object from an underlying card data,
-    private static func makeData(for card: ObjectReference<MetroCard>, preferences: Preferences) -> MetroCardData {
+    private static func makeData(for card: ObjectReference<MetroCard>, preferences: UserPreferences) -> MetroCardData {
         let formattedBalance = Self.currencyFormatter
             .string(from: card.balance as NSDecimalNumber)!
         

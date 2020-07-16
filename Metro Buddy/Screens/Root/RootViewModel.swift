@@ -18,7 +18,7 @@ class RootViewModel {
     
     // MARK: - Initialization
     
-    init(dataStore: MetroCardDataStore, preferences: Preferences) {
+    init(dataStore: MetroCardDataStore, preferences: UserPreferences) {
         do {
             let initialCard = try dataStore.currentCard()
             let viewModel = MetroCardViewModel(card: initialCard, dataStore: dataStore, preferences: preferences)

@@ -19,72 +19,77 @@ final class PersistentMetroCardDataStoreTests: XCTestCase {
     
     // MARK: - Get Card
     
-    func testThatItReturnsCardWhenItExists() {
+    func testThatItReturnsCardWhenItExists() throws {
         // GIVEN
         let snapshot = MetroCard.fake
         let objectID = sut.insert(snapshot: snapshot)
         
         // WHEN
-        let card = sut.card()
-        let recorder = Recorder(source: card)
+        let card = try sut.currentCard()
         
         // THEN
-        XCTAssertNil(recorder.completion)
-        XCTAssertEqual(recorder.recordedElements.count, 1)
-        XCTAssertEqual(recorder.recordedElements.last?.objectID, objectID)
-        XCTAssertEqual(recorder.recordedElements.last?.target, snapshot)
+        XCTAssertEqual(card.objectID, objectID)
+        XCTAssertEqual(card.snapshot, snapshot)
     }
     
-    func testThatItCreatesCardWhenItDoesntExist() {
+    func testThatItCreatesCardWhenItDoesntExist() throws {
         // GIVEN
-        let card = sut.card()
-        let recorder = Recorder(source: card)
+        let card = try sut.currentCard()
         
         // THEN
-        XCTAssertNil(recorder.completion)
-        XCTAssertEqual(recorder.recordedElements.count, 1)
-        assertEqualVisibleData(recorder.recordedElements[0].target, MetroCard.makeDefault())
+        assertEqualVisibleData(card.snapshot, MetroCard.makeDefault())
     }
     
     // MARK: - Update Card
     
-    func testThatItUpdatesData() {
+    func testThatItUpdatesData() throws {
         // GIVEN
         let snapshot = MetroCard.fake
         _ = sut.insert(snapshot: snapshot)
-        let cardsRecorder = Recorder(source: sut.card())
+        let card = try sut.currentCard()
+        //let cardsRecorder = Recorder(source: sut.publisher(for: card))
         let expirationDate = Date()
         var cards: [ObjectReference<MetroCard>] = []
         
         // WHEN
-        let receiveUpdateExpectation = observeCards(receiveValue: { cards.append($0); return cards.count == 2 })
+        let receiveUpdateExpectation = observe(card, receiveValue: {
+            cards.append($0)
+            return cards.count == 2
+        })
+        
         receiveUpdateExpectation.assertForOverFulfill = true
 
         let finishUpdatingCardsExpectation = applyUpdates([
             .balance(22),
             .expirationDate(expirationDate),
             .serialNumber("0987654321"),
-            .swipeCost(3)
+            .fare(3)
         ], to: cards[0])
         
-        wait(for: [receiveUpdateExpectation, finishUpdatingCardsExpectation], timeout: 1)
+        wait(for: [receiveUpdateExpectation, finishUpdatingCardsExpectation], timeout: 5)
         
         // THEN
-        XCTAssertEqual(cardsRecorder.recordedElementsCount, 2)
-        XCTAssertEqual(cardsRecorder.recordedElements.last?.target.balance, 22)
-        XCTAssertEqual(cardsRecorder.recordedElements.last?.target.expirationDate, expirationDate)
-        XCTAssertEqual(cardsRecorder.recordedElements.last?.target.serialNumber, "0987654321")
-        XCTAssertEqual(cardsRecorder.recordedElements.last?.target.swipeCost, 3)
+        XCTAssertEqual(cards.count, 2)
+        XCTAssertEqual(cards.last?.snapshot.balance, 22)
+        XCTAssertEqual(cards.last?.snapshot.expirationDate, expirationDate)
+        XCTAssertEqual(cards.last?.snapshot.serialNumber, "0987654321")
+        XCTAssertEqual(cards.last?.snapshot.fare, 3)
     }
     
-    func testThatItNotifiesOfUpdates() {
+    func testThatItNotifiesOfUpdates() throws {
         // GIVEN
         let snapshot = MetroCard.fake
         let objectID = sut.insert(snapshot: snapshot)
+        let card = try sut.currentCard()
+        
         var cards: [ObjectReference<MetroCard>] = []
 
         // WHEN
-        let receiveUpdateExpectation = observeCards(receiveValue: { cards.append($0); return cards.count == 2 })
+        let receiveUpdateExpectation = observe(card, receiveValue: {
+                cards.append($0)
+                return cards.count == 2
+        })
+
         receiveUpdateExpectation.assertForOverFulfill = true
                 
         let finishUpdateExpectation = applyUpdates([.balance(22)], to: cards[0])
@@ -95,17 +100,23 @@ final class PersistentMetroCardDataStoreTests: XCTestCase {
         
         // THEN
         XCTAssertTrue(cards.allSatisfy { $0.objectID == objectID })
-        XCTAssertEqual(cards[1].target.balance, 22)
+        XCTAssertEqual(cards.last?.snapshot.balance, 22)
     }
         
-    func testThatItNotifiesOfExternalChanges() {
+    func testThatItNotifiesOfExternalChanges() throws {
         // GIVEN
         let snapshot = MetroCard.fake
         let objectID = sut.insert(snapshot: snapshot)
+        let card = try sut.currentCard()
+        
         var cards: [ObjectReference<MetroCard>] = []
         
         // WHEN
-        let receiveUpdateExpectation = observeCards(receiveValue: { cards.append($0); return cards.count == 2 })
+        let receiveUpdateExpectation = observe(card, receiveValue: {
+                cards.append($0)
+                return cards.count == 2
+        })
+
         receiveUpdateExpectation.assertForOverFulfill = true
         
         let context = sut.saveContext
@@ -119,34 +130,34 @@ final class PersistentMetroCardDataStoreTests: XCTestCase {
         
         // THEN
         XCTAssertEqual(cards.count, 2)
-        XCTAssertEqual(cards.last?.target.balance, 0)
+        XCTAssertEqual(cards.last?.snapshot.balance, 0)
     }
     
     // MARK: - Helpers
     
     func assertEqualVisibleData(_ lhs: MetroCard, _ rhs: MetroCard, file: StaticString = #filePath, line: UInt = #line) {
         XCTAssertEqual(lhs.balance, rhs.balance, file: file, line: line)
-        XCTAssertEqual(lhs.swipeCost, rhs.swipeCost, file: file, line: line)
+        XCTAssertEqual(lhs.fare, rhs.fare, file: file, line: line)
         XCTAssertEqual(lhs.expirationDate, rhs.expirationDate, file: file, line: line)
         XCTAssertEqual(lhs.serialNumber, rhs.serialNumber, file: file, line: line)
     }
     
-    func observeCards(receiveValue: @escaping (ObjectReference<MetroCard>) -> Bool, file: StaticString = #filePath, line: UInt = #line)  -> XCTestExpectation {
+    func observe(_ card: ObjectReference<MetroCard>, receiveValue: @escaping (ObjectReference<MetroCard>) -> Bool, file: StaticString = #filePath, line: UInt = #line)  -> XCTestExpectation {
         let receiveUpdateExpectation = expectation(description: "The cards stream sends an update.")
-        sut.card()
-            .handleEvents(receiveCancel: {
-                print("Cancel")
-            })
+        sut.publisher(for: card)
+            .share()
             .sink(
-                receiveCompletion: { _ in },
-                receiveValue: { [self] in
+                receiveCompletion: {
+                    XCTFail("The card stream completed early: \($0)", file: file, line: line)
+                },
+                receiveValue: {
                     if receiveValue($0) {
+                        print("Received value")
                         receiveUpdateExpectation.fulfill()
+                        print(self)
                     }
-                    print(self.hash)
                 }
-            )
-            .store(in: &cancellables)
+            ).store(in: &cancellables)
         return receiveUpdateExpectation
     }
     
@@ -154,16 +165,17 @@ final class PersistentMetroCardDataStoreTests: XCTestCase {
         let finishUpdateExpectation = expectation(description: "The update finishes.")
         sut.applyUpdates(updates, to: card)
             .sink(
-                receiveCompletion: { [self]
+                receiveCompletion: {
                     if case .failure(let error) = $0 {
                         XCTFail("Unexpected error: \(error)", file: file, line: line)
                     }
             
-                    print(self.hash)
+                    print("Finished update")
                     finishUpdateExpectation.fulfill()
                 },
                 receiveValue: { _ in }
-            ).store(in: &cancellables)
+            )
+            .store(in: &cancellables)
         return finishUpdateExpectation
     }
 }

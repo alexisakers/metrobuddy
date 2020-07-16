@@ -1,22 +1,7 @@
 import Foundation
 
-public protocol PropertyListRepresentable: PropertyListConvertible {}
-
-extension PropertyListRepresentable {
-    public init(propertyListValue: Self) {
-        self = propertyListValue
-    }
-    
-    public var propertyListValue: Self {
-        return self
-    }
-}
-
-public protocol PropertyListConvertible {
-    associatedtype PropertyListValue: PropertyListRepresentable
-    init?(propertyListValue: PropertyListValue)
-    var propertyListValue: PropertyListValue { get }
-}
+/// An object for types that can be included in a property list file.
+public protocol PropertyListRepresentable {}
 
 // MARK: - Default Types
 

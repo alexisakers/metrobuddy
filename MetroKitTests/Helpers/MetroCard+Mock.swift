@@ -8,7 +8,8 @@ extension MetroCard {
             balance: 25.00,
             expirationDate: nil,
             serialNumber: "01234567890",
-            swipeCost: 2.75)
+            fare: 2.75
+        )
     }
 }
 

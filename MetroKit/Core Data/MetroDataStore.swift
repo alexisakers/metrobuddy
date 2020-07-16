@@ -53,6 +53,7 @@ public class PersistentMetroCardDataStore: MetroCardDataStore {
     
     public func publisher(for card: ObjectReference<MetroCard>) -> AnyPublisher<ObjectReference<MetroCard>, Never> {
         let card = container.viewContext.object(with: card.objectID) as! MBYMetroCard
+        
         return ManagedObjectObserver(context: container.viewContext, object: card)
             .map { $0.makeReferenceSnapshot() }
             .removeDuplicates { $0.snapshot == $1.snapshot }

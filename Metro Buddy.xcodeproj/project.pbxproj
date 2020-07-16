@@ -29,6 +29,8 @@
 		5E421A3D24C103FE00AB8ED4 /* Design+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E421A3C24C103FE00AB8ED4 /* Design+Images.swift */; };
 		5E421A3F24C1041700AB8ED4 /* Design+Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E421A3E24C1041700AB8ED4 /* Design+Shapes.swift */; };
 		5E421A4324C1070400AB8ED4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E421A4224C1070400AB8ED4 /* CloudKit.framework */; };
+		5E421A4524C1160B00AB8ED4 /* ObjectReferenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E421A4424C1160B00AB8ED4 /* ObjectReferenceTests.swift */; };
+		5E421A4724C117DD00AB8ED4 /* UserPreferencesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E421A4624C117DD00AB8ED4 /* UserPreferencesTests.swift */; };
 		5E497D4624B7EFF500EE584E /* MetroCardShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D4524B7EFF500EE584E /* MetroCardShape.swift */; };
 		5E497D4824B8CF1500EE584E /* MetroCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D4724B8CF1500EE584E /* MetroCardView.swift */; };
 		5E497D4A24B8E1BC00EE584E /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D4924B8E1BC00EE584E /* RoundedButton.swift */; };
@@ -52,7 +54,6 @@
 		5E497D8A24BB4BDC00EE584E /* PersistentStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D8924BB4BDC00EE584E /* PersistentStoreTests.swift */; };
 		5E497D8C24BB4C2E00EE584E /* FileBasedTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D8B24BB4C2E00EE584E /* FileBasedTestCase.swift */; };
 		5E497D9024BB504000EE584E /* MetroCard+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D8F24BB504000EE584E /* MetroCard+Mock.swift */; };
-		5E497D9224BB52D700EE584E /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D9124BB52D700EE584E /* Recorder.swift */; };
 		5E497D9424BC822D00EE584E /* DatePickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D9324BC822B00EE584E /* DatePickerSheet.swift */; };
 		5E497D9624BC866C00EE584E /* ModalSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D9524BC866C00EE584E /* ModalSheet.swift */; };
 		5E497D9A24BD083B00EE584E /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D9924BD083A00EE584E /* RootViewModel.swift */; };
@@ -62,7 +63,7 @@
 		5E497DA224BD378300EE584E /* MetroCardActionGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497DA124BD378200EE584E /* MetroCardActionGrid.swift */; };
 		5E497DA624BD3CC400EE584E /* TextFieldAlert+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497DA524BD3CC400EE584E /* TextFieldAlert+Factory.swift */; };
 		5EC7A60824BDE8F200E3ED39 /* Design+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */; };
-		5EC7A60B24BDEF0300E3ED39 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60A24BDEF0300E3ED39 /* Preferences.swift */; };
+		5EC7A60B24BDEF0300E3ED39 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */; };
 		5EC7A60D24BDF15800E3ED39 /* PropertyListRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */; };
 		5EC7A60F24BDF2B900E3ED39 /* UserPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60E24BDF2B900E3ED39 /* UserPreferenceKey.swift */; };
 		5EC7A61124BDF68100E3ED39 /* OnboardingTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A61024BDF68100E3ED39 /* OnboardingTipView.swift */; };
@@ -134,6 +135,8 @@
 		5E421A3E24C1041700AB8ED4 /* Design+Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Shapes.swift"; sourceTree = "<group>"; };
 		5E421A4024C106F100AB8ED4 /* MetroBuddy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MetroBuddy.entitlements; sourceTree = "<group>"; };
 		5E421A4224C1070400AB8ED4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		5E421A4424C1160B00AB8ED4 /* ObjectReferenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectReferenceTests.swift; sourceTree = "<group>"; };
+		5E421A4624C117DD00AB8ED4 /* UserPreferencesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferencesTests.swift; sourceTree = "<group>"; };
 		5E497D4524B7EFF500EE584E /* MetroCardShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroCardShape.swift; sourceTree = "<group>"; };
 		5E497D4724B8CF1500EE584E /* MetroCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroCardView.swift; sourceTree = "<group>"; };
 		5E497D4924B8E1BC00EE584E /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -157,7 +160,6 @@
 		5E497D8924BB4BDC00EE584E /* PersistentStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStoreTests.swift; sourceTree = "<group>"; };
 		5E497D8B24BB4C2E00EE584E /* FileBasedTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileBasedTestCase.swift; sourceTree = "<group>"; };
 		5E497D8F24BB504000EE584E /* MetroCard+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MetroCard+Mock.swift"; sourceTree = "<group>"; };
-		5E497D9124BB52D700EE584E /* Recorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
 		5E497D9324BC822B00EE584E /* DatePickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerSheet.swift; sourceTree = "<group>"; };
 		5E497D9524BC866C00EE584E /* ModalSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSheet.swift; sourceTree = "<group>"; };
 		5E497D9924BD083A00EE584E /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
@@ -167,7 +169,7 @@
 		5E497DA124BD378200EE584E /* MetroCardActionGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroCardActionGrid.swift; sourceTree = "<group>"; };
 		5E497DA524BD3CC400EE584E /* TextFieldAlert+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldAlert+Factory.swift"; sourceTree = "<group>"; };
 		5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Fonts.swift"; sourceTree = "<group>"; };
-		5EC7A60A24BDEF0300E3ED39 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListRepresentable.swift; sourceTree = "<group>"; };
 		5EC7A60E24BDF2B900E3ED39 /* UserPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferenceKey.swift; sourceTree = "<group>"; };
 		5EC7A61024BDF68100E3ED39 /* OnboardingTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTipView.swift; sourceTree = "<group>"; };
@@ -417,7 +419,7 @@
 		5EC7A60924BDEEF400E3ED39 /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
-				5EC7A60A24BDEF0300E3ED39 /* Preferences.swift */,
+				5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */,
 				5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */,
 				5EC7A60E24BDF2B900E3ED39 /* UserPreferenceKey.swift */,
 			);
@@ -487,6 +489,8 @@
 				5E497D8524BB444200EE584E /* PersistentMetroCardDataStoreTests.swift */,
 				5E497D8724BB456100EE584E /* SymbolicLocationTests.swift */,
 				5E497D8924BB4BDC00EE584E /* PersistentStoreTests.swift */,
+				5E421A4424C1160B00AB8ED4 /* ObjectReferenceTests.swift */,
+				5E421A4624C117DD00AB8ED4 /* UserPreferencesTests.swift */,
 				5ED4E2CC24B4089C00B37946 /* Helpers */,
 				5ED4E2AE24B3E3B400B37946 /* Info.plist */,
 			);
@@ -511,7 +515,6 @@
 				5ED4E2CD24B408AA00B37946 /* MockFileManager.swift */,
 				5E497D8B24BB4C2E00EE584E /* FileBasedTestCase.swift */,
 				5E497D8F24BB504000EE584E /* MetroCard+Mock.swift */,
-				5E497D9124BB52D700EE584E /* Recorder.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -712,7 +715,7 @@
 			files = (
 				5E497D7324BA5EE500EE584E /* SymbolicLocation.swift in Sources */,
 				5E497D7024BA5D9900EE584E /* NSManagedObjectModel+Helpers.swift in Sources */,
-				5EC7A60B24BDEF0300E3ED39 /* Preferences.swift in Sources */,
+				5EC7A60B24BDEF0300E3ED39 /* UserPreferences.swift in Sources */,
 				5EC7A60F24BDF2B900E3ED39 /* UserPreferenceKey.swift in Sources */,
 				5E497D5724B92DA300EE584E /* MetroModels.xcdatamodeld in Sources */,
 				5E497D7524BA617400EE584E /* MetroCardDataStoreError.swift in Sources */,
@@ -734,12 +737,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E421A4524C1160B00AB8ED4 /* ObjectReferenceTests.swift in Sources */,
+				5E421A4724C117DD00AB8ED4 /* UserPreferencesTests.swift in Sources */,
 				5E497D8624BB444200EE584E /* PersistentMetroCardDataStoreTests.swift in Sources */,
 				5E497D8824BB456100EE584E /* SymbolicLocationTests.swift in Sources */,
 				5E497D8A24BB4BDC00EE584E /* PersistentStoreTests.swift in Sources */,
 				5E497D9024BB504000EE584E /* MetroCard+Mock.swift in Sources */,
 				5ED4E2CE24B408AA00B37946 /* MockFileManager.swift in Sources */,
-				5E497D9224BB52D700EE584E /* Recorder.swift in Sources */,
 				5E497D8C24BB4C2E00EE584E /* FileBasedTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
