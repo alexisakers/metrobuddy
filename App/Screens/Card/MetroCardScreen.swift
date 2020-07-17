@@ -37,15 +37,15 @@ struct MetroCardScreen: View {
     var body: some View {
         ZStack(alignment: .center) {
             ScrollView(.vertical) {
-                VStack(spacing: 16) {
+                VStack(alignment: .leading, spacing: 16) {
                     NavigationBar(subtitle: viewModel.data.formattedRemainingSwipes)
 
                     MetroCardView(formattedBalance: viewModel.data.formattedBalance)
                         .offset(offset)
                         .onTapGesture(perform: cardTapped)
                         .gesture(dragGesture)
+                        .transition(AnyTransition.identity.animation(nil))
                         .animation(.spring())
-                        .transition(.identity)
 
                     if viewModel.data.isOnboarded {
                         RoundedButton(
@@ -67,7 +67,8 @@ struct MetroCardScreen: View {
                     Spacer()
                 }.padding(.all, 16)
                 .background(BackgroundView())
-            }.zIndex(0)
+            }.transition(.identity)
+            .zIndex(0)
 
             if isShowingDatePicker {
                 ModalSheet(isPresented: $isShowingDatePicker) {
@@ -86,7 +87,7 @@ struct MetroCardScreen: View {
         .mailComposer(configuration: $emailConfiguration)
         .alert(item: $viewModel.errorMessage) {
             Alert(errorMessage: $0, configuration: appConfiguration, emailConfiguration: $emailConfiguration)
-        }
+        }.frame(maxWidth: .infinity)
     }
     
     // MARK: - Actions

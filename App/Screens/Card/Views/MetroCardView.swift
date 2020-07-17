@@ -15,7 +15,6 @@ struct MetroCardView: View {
                 .foregroundColor(.black)
                 .padding(.horizontal, 16)
                 .padding(.top, 8)
-                .animation(nil)
 
             Spacer()
             Rectangle()
@@ -28,16 +27,15 @@ struct MetroCardView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(height: 12)
                 .padding(.bottom, 8)
-        }
+        }.animation(nil)
         .background(
             LinearGradient(
                 gradient: Gradient(colors: [.metroCardYellow, .metroCardOrange]),
                 startPoint: .top,
                 endPoint: .bottom
-            )
+            ).animation(nil)
         ).aspectRatio(1.585, contentMode: .fill)
-        .mask(MetroCardShape())
-        .fixedSize(horizontal: false, vertical: true)
+        .mask(MetroCardShape().animation(nil))
         .accessibilityElement(children: .combine)
     }
 }
