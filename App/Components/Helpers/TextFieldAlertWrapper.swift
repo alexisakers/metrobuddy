@@ -18,7 +18,9 @@ fileprivate struct AlertWrapper<Content: View>: UIViewControllerRepresentable {
     }
     
     func makeUIViewController(context: Context) -> UIHostingController<Content> {
-        UIHostingController(rootView: content)
+        let hostingController = UIHostingController(rootView: content)
+        hostingController.overrideUserInterfaceStyle = UIUserInterfaceStyle(context.environment.colorScheme)
+        return hostingController
     }
     
     func updateUIViewController(_ uiViewController: UIHostingController<Content>, context: Context) {
@@ -26,6 +28,7 @@ fileprivate struct AlertWrapper<Content: View>: UIViewControllerRepresentable {
         
         if let alert = alert, uiViewController.presentedViewController == nil {
             let alertController = ValidatingTextFieldAlertController(textFieldAlert: alert, dismiss: dismissAlert)
+            alertController.overrideUserInterfaceStyle = UIUserInterfaceStyle(context.environment.colorScheme)
             context.coordinator.alertController = alertController
             uiViewController.present(alertController, animated: true)
         }

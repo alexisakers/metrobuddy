@@ -33,6 +33,7 @@
 		5E421A4724C117DD00AB8ED4 /* UserPreferencesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E421A4624C117DD00AB8ED4 /* UserPreferencesTests.swift */; };
 		5E421A7024C1D70D00AB8ED4 /* FlexibleStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E421A6F24C1D70D00AB8ED4 /* FlexibleStack.swift */; };
 		5E421A7224C1D7D900AB8ED4 /* ContentSize+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E421A7124C1D7D900AB8ED4 /* ContentSize+UIKit.swift */; };
+		5E421A7424C1F12A00AB8ED4 /* ColorScheme+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E421A7324C1F12900AB8ED4 /* ColorScheme+Helpers.swift */; };
 		5E497D4624B7EFF500EE584E /* MetroCardShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D4524B7EFF500EE584E /* MetroCardShape.swift */; };
 		5E497D4824B8CF1500EE584E /* MetroCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D4724B8CF1500EE584E /* MetroCardView.swift */; };
 		5E497D4A24B8E1BC00EE584E /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D4924B8E1BC00EE584E /* RoundedButton.swift */; };
@@ -141,6 +142,7 @@
 		5E421A4624C117DD00AB8ED4 /* UserPreferencesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferencesTests.swift; sourceTree = "<group>"; };
 		5E421A6F24C1D70D00AB8ED4 /* FlexibleStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleStack.swift; sourceTree = "<group>"; };
 		5E421A7124C1D7D900AB8ED4 /* ContentSize+UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentSize+UIKit.swift"; sourceTree = "<group>"; };
+		5E421A7324C1F12900AB8ED4 /* ColorScheme+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ColorScheme+Helpers.swift"; sourceTree = "<group>"; };
 		5E497D4524B7EFF500EE584E /* MetroCardShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroCardShape.swift; sourceTree = "<group>"; };
 		5E497D4724B8CF1500EE584E /* MetroCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroCardView.swift; sourceTree = "<group>"; };
 		5E497D4924B8E1BC00EE584E /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 				5E03304F24BF5001001D86D1 /* MailComposer+Factory.swift */,
 				5E17D37824BFD1A7003E99D1 /* Alert+ErrorMessage.swift */,
 				5E421A7124C1D7D900AB8ED4 /* ContentSize+UIKit.swift */,
+				5E421A7324C1F12900AB8ED4 /* ColorScheme+Helpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -687,6 +690,7 @@
 				5E497D5424B92D4F00EE584E /* MetroCardViewModel.swift in Sources */,
 				5EC7A60824BDE8F200E3ED39 /* Design+Fonts.swift in Sources */,
 				5E17D37B24C0AE04003E99D1 /* TextFieldAlert+UIAlertController.swift in Sources */,
+				5E421A7424C1F12A00AB8ED4 /* ColorScheme+Helpers.swift in Sources */,
 				5E17D37424BF659D003E99D1 /* InfoPlist.swift in Sources */,
 				5E03305024BF5001001D86D1 /* MailComposer+Factory.swift in Sources */,
 				5E497D9C24BD0AAA00EE584E /* BackgroundView.swift in Sources */,
