@@ -46,6 +46,16 @@
          </BuildableReference>
       </CodeCoverageTargets>
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5ED4E2A424B3E3B400B37946"
+               BuildableName = "MetroKitTests.xctest"
+               BlueprintName = "MetroKitTests"
+               ReferencedContainer = "container:MetroBuddy.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

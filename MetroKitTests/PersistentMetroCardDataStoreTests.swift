@@ -47,7 +47,6 @@ final class PersistentMetroCardDataStoreTests: XCTestCase {
         let snapshot = MetroCard.fake
         _ = sut.insert(snapshot: snapshot)
         let card = try sut.currentCard()
-        //let cardsRecorder = Recorder(source: sut.publisher(for: card))
         let expirationDate = Date()
         var cards: [ObjectReference<MetroCard>] = []
         

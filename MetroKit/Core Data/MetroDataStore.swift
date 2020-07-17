@@ -82,9 +82,11 @@ public class PersistentMetroCardDataStore: MetroCardDataStore {
                 let newCard = MBYMetroCard(context: saveContext)
                 newCard.populateFields(with: MetroCard.makeDefault())
                 try saveContext.save()
-                try saveContext.obtainPermanentIDs(for: [newCard]) // may not be necessary
-                let convertedCard = container.viewContext.object(with: newCard.objectID) as! MBYMetroCard
-                result = .success(convertedCard)
+
+                container.viewContext.performAndWait {
+                    let convertedCard = container.viewContext.object(with: newCard.objectID) as! MBYMetroCard
+                    result = .success(convertedCard)
+                }
             } catch {
                 result = .failure(.cannotSave(error as NSError))
             }
