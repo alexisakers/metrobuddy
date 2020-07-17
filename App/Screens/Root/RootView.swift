@@ -4,9 +4,9 @@ import SwiftUI
 struct RootView: View {
     let viewModel: RootViewModel
     @EnvironmentObject var toastQueue: ToastQueue
-    
+
     // MARK: - View
-        
+
     var body: some View {
         ZStack(alignment: .top) {
             contentView

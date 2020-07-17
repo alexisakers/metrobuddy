@@ -36,6 +36,9 @@ struct MetroCardView: View {
             ).animation(nil)
         ).aspectRatio(1.585, contentMode: .fill)
         .mask(MetroCardShape().animation(nil))
-        .accessibilityElement(children: .combine)
+        .accessibilityElement(children: .ignore)
+        .accessibility(addTraits: .isButton)
+        .accessibility(label: Text("Card Balance"))
+        .accessibility(value: Text(formattedBalance))
     }
 }

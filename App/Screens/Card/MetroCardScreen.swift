@@ -39,6 +39,7 @@ struct MetroCardScreen: View {
             ScrollView(.vertical) {
                 VStack(alignment: .leading, spacing: 16) {
                     NavigationBar(subtitle: viewModel.data.formattedRemainingSwipes)
+                        .accessibility(sortPriority: 0)
 
                     MetroCardView(formattedBalance: viewModel.data.formattedBalance)
                         .offset(offset)
@@ -46,6 +47,7 @@ struct MetroCardScreen: View {
                         .gesture(dragGesture)
                         .transition(AnyTransition.identity.animation(nil))
                         .animation(.spring())
+                        .accessibilityAction(named: Text("Swipe Card"), recordSwipe)
 
                     if viewModel.data.isOnboarded {
                         RoundedButton(
@@ -68,6 +70,7 @@ struct MetroCardScreen: View {
                 }.padding(.all, 16)
                 .background(BackgroundView())
             }.transition(.identity)
+            .accessibility(hidden: isShowingDatePicker)
             .zIndex(0)
 
             if isShowingDatePicker {
@@ -79,15 +82,18 @@ struct MetroCardScreen: View {
                         resetHandler: { viewModel.saveExpirationDate(nil) }
                     )
                 }.transition(.opacity)
+                .accessibility(sortPriority: 1)
                 .zIndex(1)
             }
-        }.onReceive(viewModel.toast, perform: toastQueue.displayToast)
+        }.frame(maxWidth: .infinity)
+        .accessibilityElement(children: .contain)
+        .onReceive(viewModel.toast, perform: toastQueue.displayToast)
         .onReceive(viewModel.taskCompletion, perform: haptics.notify)
         .textFieldAlert(item: $textFieldAlert)
         .mailComposer(configuration: $emailConfiguration)
         .alert(item: $viewModel.errorMessage) {
             Alert(errorMessage: $0, configuration: appConfiguration, emailConfiguration: $emailConfiguration)
-        }.frame(maxWidth: .infinity)
+        }
     }
     
     // MARK: - Actions

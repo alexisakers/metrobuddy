@@ -56,6 +56,10 @@ struct MetroCardActionButton: View {
                 action: actionButtonTapped
             )
         }.animation(nil)
+        .accessibilityElement(children: .ignore)
+        .accessibility(label: Text(title))
+        .accessibility(value: buttonText)
+        .accessibility(addTraits: .isButton)
     }
     
     // MARL: - Input

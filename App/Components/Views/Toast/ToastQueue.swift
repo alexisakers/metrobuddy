@@ -19,7 +19,11 @@ class ToastQueue: NSObject, ObservableObject {
         withAnimation {
             toastText = text
         }
-    
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            UIAccessibility.post(notification: .announcement, argument: text)
+        }
+
         perform(#selector(dismissTooltip), with: nil, afterDelay: 2)
     }
     

@@ -26,6 +26,7 @@ struct ExpirationDatePickerSheet: View {
                     .font(.sheetTitle)
                     .minimumScaleFactor(0.1)
                     .lineLimit(1)
+                    .accessibility(addTraits: .isHeader)
 
                 Spacer()
 
@@ -34,7 +35,7 @@ struct ExpirationDatePickerSheet: View {
                         .resizable()
                         .frame(width: 24, height: 24, alignment: .trailing)
                         .padding(8)
-                }
+                }.accessibility(label: Text("Close"))
             }.padding(.horizontal, 16)
             .padding(.top, 16)
 

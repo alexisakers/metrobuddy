@@ -6,7 +6,12 @@ struct OnboardingTipView: View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(alignment: .center) {
                 Image.Symbols.lightbulb
+                    .accessibility(hidden: true)
+
                 Text("TIP")
+                    .accessibility(label: Text("Tip"))
+                    .accessibility(addTraits: .isHeader)
+
                 Spacer()
             }.font(.contentCardTitle)
             

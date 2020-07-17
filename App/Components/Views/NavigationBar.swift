@@ -12,6 +12,7 @@ struct NavigationBar: View {
                     .foregroundColor(.white)
                     .minimumScaleFactor(0.1)
                     .lineLimit(1)
+                    .accessibility(addTraits: .isHeader)
 
                 Spacer()
             }
