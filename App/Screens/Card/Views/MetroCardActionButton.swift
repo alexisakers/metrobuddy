@@ -44,7 +44,10 @@ struct MetroCardActionButton: View {
             Text(title)
                 .font(.caption)
                 .fontWeight(.medium)
-            
+                .lineLimit(1)
+                .minimumScaleFactor(0.1)
+                .animation(nil)
+
             RoundedButton(
                 title: buttonText,
                 titleColor: .white,
@@ -52,7 +55,7 @@ struct MetroCardActionButton: View {
                 design: .compact,
                 action: actionButtonTapped
             )
-        }
+        }.animation(nil)
     }
     
     // MARL: - Input

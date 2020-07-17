@@ -21,3 +21,9 @@ extension Color {
         Color(.systemTeal)
     }
 }
+
+extension UIColor {
+    static var contentBackground: UIColor {
+        UIColor(named: "BackgroundColor")!
+    }
+}

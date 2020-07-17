@@ -10,6 +10,8 @@ struct NavigationBar: View {
                 Text("My Card")
                     .font(.screenTitle)
                     .foregroundColor(.white)
+                    .minimumScaleFactor(0.1)
+                    .lineLimit(1)
 
                 Spacer()
             }
@@ -17,7 +19,8 @@ struct NavigationBar: View {
             Text(subtitle)
                 .font(.subheadline)
                 .foregroundColor(.white)
-        }
+                .lineLimit(nil)
+        }.fixedSize(horizontal: false, vertical: true)
     }
 }
 

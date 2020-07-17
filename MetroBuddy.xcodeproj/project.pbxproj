@@ -31,6 +31,8 @@
 		5E421A4324C1070400AB8ED4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E421A4224C1070400AB8ED4 /* CloudKit.framework */; };
 		5E421A4524C1160B00AB8ED4 /* ObjectReferenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E421A4424C1160B00AB8ED4 /* ObjectReferenceTests.swift */; };
 		5E421A4724C117DD00AB8ED4 /* UserPreferencesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E421A4624C117DD00AB8ED4 /* UserPreferencesTests.swift */; };
+		5E421A7024C1D70D00AB8ED4 /* FlexibleStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E421A6F24C1D70D00AB8ED4 /* FlexibleStack.swift */; };
+		5E421A7224C1D7D900AB8ED4 /* ContentSize+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E421A7124C1D7D900AB8ED4 /* ContentSize+UIKit.swift */; };
 		5E497D4624B7EFF500EE584E /* MetroCardShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D4524B7EFF500EE584E /* MetroCardShape.swift */; };
 		5E497D4824B8CF1500EE584E /* MetroCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D4724B8CF1500EE584E /* MetroCardView.swift */; };
 		5E497D4A24B8E1BC00EE584E /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D4924B8E1BC00EE584E /* RoundedButton.swift */; };
@@ -137,6 +139,8 @@
 		5E421A4224C1070400AB8ED4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		5E421A4424C1160B00AB8ED4 /* ObjectReferenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectReferenceTests.swift; sourceTree = "<group>"; };
 		5E421A4624C117DD00AB8ED4 /* UserPreferencesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferencesTests.swift; sourceTree = "<group>"; };
+		5E421A6F24C1D70D00AB8ED4 /* FlexibleStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleStack.swift; sourceTree = "<group>"; };
+		5E421A7124C1D7D900AB8ED4 /* ContentSize+UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentSize+UIKit.swift"; sourceTree = "<group>"; };
 		5E497D4524B7EFF500EE584E /* MetroCardShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroCardShape.swift; sourceTree = "<group>"; };
 		5E497D4724B8CF1500EE584E /* MetroCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroCardView.swift; sourceTree = "<group>"; };
 		5E497D4924B8E1BC00EE584E /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -337,6 +341,7 @@
 				5E17D37C24C0BE97003E99D1 /* TextFieldAlertWrapper.swift */,
 				5E03304F24BF5001001D86D1 /* MailComposer+Factory.swift */,
 				5E17D37824BFD1A7003E99D1 /* Alert+ErrorMessage.swift */,
+				5E421A7124C1D7D900AB8ED4 /* ContentSize+UIKit.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -412,6 +417,7 @@
 				5E17B45E24C0FEBD000FA57E /* ScaleButtonStyle.swift */,
 				5E497D9B24BD0AAA00EE584E /* BackgroundView.swift */,
 				5E497D4F24B9104000EE584E /* NavigationBar.swift */,
+				5E421A6F24C1D70D00AB8ED4 /* FlexibleStack.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -687,6 +693,7 @@
 				5ED4E28C24B3E33400B37946 /* MetroCardScreen.swift in Sources */,
 				5E497DA224BD378300EE584E /* MetroCardActionGrid.swift in Sources */,
 				5E497D9E24BD164300EE584E /* ErrorScreen.swift in Sources */,
+				5E421A7024C1D70D00AB8ED4 /* FlexibleStack.swift in Sources */,
 				5E497D4A24B8E1BC00EE584E /* RoundedButton.swift in Sources */,
 				5EC7A61124BDF68100E3ED39 /* OnboardingTipView.swift in Sources */,
 				5E497DA024BD167C00EE584E /* MetroCardActionButton.swift in Sources */,
@@ -698,6 +705,7 @@
 				5E17D37124BF6234003E99D1 /* MetroCardData.swift in Sources */,
 				5E497D4624B7EFF500EE584E /* MetroCardShape.swift in Sources */,
 				5E497D9424BC822D00EE584E /* DatePickerSheet.swift in Sources */,
+				5E421A7224C1D7D900AB8ED4 /* ContentSize+UIKit.swift in Sources */,
 				5E03305424BF5FBA001D86D1 /* Haptics.swift in Sources */,
 				5E497D9624BC866C00EE584E /* ModalSheet.swift in Sources */,
 				5E497D6324B9503300EE584E /* TextFieldAlert.swift in Sources */,

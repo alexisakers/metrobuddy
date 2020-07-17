@@ -10,7 +10,7 @@ struct MetroCardActionGrid: View {
     
     var body: some View {
         VStack(spacing: 16) {
-            HStack(alignment: .top, spacing: 16) {
+            FlexibleStack(hStackAlignment: .top, vStackAlignment: .leading) {
                 MetroCardActionButton(
                     title: "BALANCE",
                     value: nil,
@@ -26,7 +26,7 @@ struct MetroCardActionGrid: View {
                 )
             }
             
-            HStack(alignment: .top, spacing: 16) {
+            FlexibleStack(hStackAlignment: .top, vStackAlignment: .leading) {
                 MetroCardActionButton(
                     title: "EXPIRATION",
                     value: viewModel.data.formattedExpirationDate,

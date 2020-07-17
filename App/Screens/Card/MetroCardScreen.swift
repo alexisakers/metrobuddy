@@ -36,37 +36,39 @@ struct MetroCardScreen: View {
     
     var body: some View {
         ZStack(alignment: .center) {
-            VStack(spacing: 16) {
-                NavigationBar(subtitle: viewModel.data.formattedRemainingSwipes)
-                
-                MetroCardView(formattedBalance: viewModel.data.formattedBalance)
-                    .offset(offset)
-                    .onTapGesture(perform: cardTapped)
-                    .gesture(dragGesture)
-                    .animation(.spring())
-                                
-                if viewModel.data.isOnboarded {
-                    RoundedButton(
-                        title: Text("Swipe"),
-                        titleColor: .white,
-                        background: Color.prominentContainerBackground,
-                        design: .standard,
-                        action: recordSwipe
+            ScrollView(.vertical) {
+                VStack(spacing: 16) {
+                    NavigationBar(subtitle: viewModel.data.formattedRemainingSwipes)
+
+                    MetroCardView(formattedBalance: viewModel.data.formattedBalance)
+                        .offset(offset)
+                        .onTapGesture(perform: cardTapped)
+                        .gesture(dragGesture)
+                        .animation(.spring())
+                        .transition(.identity)
+
+                    if viewModel.data.isOnboarded {
+                        RoundedButton(
+                            title: Text("Swipe"),
+                            titleColor: .white,
+                            background: Color.prominentContainerBackground,
+                            design: .standard,
+                            action: recordSwipe
+                        )
+                    } else {
+                        OnboardingTipView()
+                    }
+
+                    MetroCardActionGrid(
+                        textFieldAlert: $textFieldAlert,
+                        isShowingDatePicker: $isShowingDatePicker
                     )
-                } else {
-                    OnboardingTipView()
-                }
-                
-                MetroCardActionGrid(
-                    textFieldAlert: $textFieldAlert,
-                    isShowingDatePicker: $isShowingDatePicker
-                )
-                
-                Spacer()
-            }.padding(.all, 16)
-            .background(BackgroundView())
-            .zIndex(0)
-            
+
+                    Spacer()
+                }.padding(.all, 16)
+                .background(BackgroundView())
+            }.zIndex(0)
+
             if isShowingDatePicker {
                 ModalSheet(isPresented: $isShowingDatePicker) {
                     ExpirationDatePickerSheet(
@@ -115,12 +117,12 @@ struct MetroCardScreen: View {
     }
     
     private func recordSwipe() {
-        withAnimation(.easeIn(duration: 0.3)) {
+        withAnimation(.easeIn(duration: 0.25)) {
             isPerformingSwipe = true
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 viewModel.recordSwipe()
-                withAnimation(.easeOut(duration: 0.3)) {
+                withAnimation(.spring()) {
                     self.isPerformingSwipe = false
                 }
             }

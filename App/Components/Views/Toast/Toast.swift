@@ -9,7 +9,9 @@ struct Toast: View {
     var body: some View {
         Text(text)
             .foregroundColor(.toastText)
-            .font(.toastText)
+            .font(Font.toastText, textStyle: .body)
+            .lineLimit(2)
+            .minimumScaleFactor(0.1)
             .padding(.vertical, 8)
             .padding(.horizontal, 16)
             .background(Color.black)

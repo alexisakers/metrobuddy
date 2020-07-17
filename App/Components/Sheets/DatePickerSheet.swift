@@ -24,38 +24,46 @@ struct ExpirationDatePickerSheet: View {
             HStack {
                 Text("Expiration Date")
                     .font(.sheetTitle)
-                
+                    .minimumScaleFactor(0.1)
+                    .lineLimit(1)
+
                 Spacer()
-                
+
                 Button(action: closeButtonTapped) {
                     Image.Symbols.closeButton
-                        .font(.sheetTitle)
+                        .resizable()
+                        .frame(width: 24, height: 24, alignment: .trailing)
+                        .padding(8)
                 }
-            }
-            
+            }.padding(.horizontal, 16)
+            .padding(.top, 16)
+
             DatePicker("Expiration Date", selection: $selectedDate, displayedComponents: [.date])
                 .labelsHidden()
                 .datePickerStyle(WheelDatePickerStyle())
-            
+                .minimumScaleFactor(0.1)
+
             RoundedButton(
                 title: Text("Save"),
                 titleColor: .black,
                 background: Color.accentColor,
                 design: .standard,
                 action: saveButtonTapped
-            )
-            
+            ).padding(.horizontal, 16)
+
             Button(action: resetButtonTapped) {
                 Text("Remove Expiration")
                     .font(.body)
                     .fontWeight(.semibold)
                     .foregroundColor(.accentColor)
+                    .minimumScaleFactor(0.1)
+                    .lineLimit(1)
                     .padding(8)
-            }
-        }.padding(16)
-        .background(Color.contentBackground)
+            }.padding(.horizontal, 16)
+            .padding(.bottom, 8)
+        }.background(Color.contentBackground)
         .mask(RoundedRectangle.defaultStyle)
-        .padding(16)
+        .padding(.horizontal, UIDatePicker.isUltraCompact ? 0 : 16)
     }
     
     // MARK: - Input
@@ -78,5 +86,13 @@ struct ExpirationDatePickerSheet: View {
             saveHandler(selectedDate)
             isPresented = false
         }
+    }
+}
+
+// MARK: - Helpers
+
+extension UIDatePicker {
+    fileprivate static var isUltraCompact: Bool {
+        return UIScreen.main.bounds.width < 375
     }
 }
