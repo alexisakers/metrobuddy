@@ -10,6 +10,7 @@ struct RootView: View {
     var body: some View {
         ZStack(alignment: .top) {
             contentView
+                .edgesIgnoringSafeArea(.all)
                 .zIndex(0)
 
             if let toastText = toastQueue.toastText {

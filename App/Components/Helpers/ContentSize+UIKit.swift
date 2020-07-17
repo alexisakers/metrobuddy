@@ -2,6 +2,7 @@ import SwiftUI
 import UIKit
 
 extension UIContentSizeCategory {
+    /// Converts a SwiftUI content size category to a `UIContentSizeCategory`.
     init(_ contentSizeCategory: ContentSizeCategory) {
         switch contentSizeCategory {
         case .extraSmall:
