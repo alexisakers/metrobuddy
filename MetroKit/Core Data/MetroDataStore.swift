@@ -63,6 +63,7 @@ public class PersistentMetroCardDataStore: MetroCardDataStore {
     private func getOrCreateCard() -> Result<MBYMetroCard, MetroCardDataStoreError> {
         let context = container.viewContext
         let fetchRequest = NSFetchRequest<MBYMetroCard>(entityName: "MetroCard")
+        fetchRequest.fetchLimit = 1
         do {
             if let existingCard = try context.fetch(fetchRequest).first {
                 return .success(existingCard)
@@ -81,7 +82,7 @@ public class PersistentMetroCardDataStore: MetroCardDataStore {
                 let newCard = MBYMetroCard(context: saveContext)
                 newCard.populateFields(with: MetroCard.makeDefault())
                 try saveContext.save()
-                try saveContext.obtainPermanentIDs(for: [newCard])
+                try saveContext.obtainPermanentIDs(for: [newCard]) // may not be necessary
                 let convertedCard = container.viewContext.object(with: newCard.objectID) as! MBYMetroCard
                 result = .success(convertedCard)
             } catch {

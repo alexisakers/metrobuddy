@@ -10,7 +10,7 @@ struct RoundedButton<Background: View>: View {
         /// A compact design to use inside inline contexts.
         case compact
         
-        /// The amunt of vertical padding to apply.
+        /// The amount of vertical padding to apply.
         var verticalPadding: CGFloat {
             switch self {
             case .standard:

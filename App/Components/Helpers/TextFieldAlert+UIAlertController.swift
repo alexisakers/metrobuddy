@@ -49,9 +49,13 @@ class ValidatingTextFieldAlertController: UIAlertController {
         addAction(acceptAction)
         preferredAction = acceptAction
         validatedAction = acceptAction
-        
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
         // Observe changes
-        textField!.addTarget(
+        textField?.addTarget(
             self,
             action: #selector(textFieldChanged),
             for: [.editingDidBegin, .editingChanged, .editingDidEnd]

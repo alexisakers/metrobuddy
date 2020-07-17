@@ -30,7 +30,7 @@ public struct ErrorMessage: Hashable, Identifiable {
             self.localizedDescription = error.uiErrorDescription
         } else {
             let format = NSLocalizedString(
-                "An unexpected error occured. The error code is $1%@ $2%ld ($3%@).",
+                "An unexpected error occured. The error code is %1$@ %2$ld (%3$@).",
                 comment: "The first parameter is the error domain. The second parameter is the error code. The third parameter is the error description, that may not be localized/understandable by the user."
             )
             

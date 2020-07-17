@@ -48,10 +48,8 @@ class MetroCardViewModel: ObservableObject {
                 dataStore.applyUpdates([update], to: card)
                     .receive(on: DispatchQueue.main)
                     .handleEvents(receiveCompletion: {
-                        if case .finished = $0 {
-                            if case .balance = update {
-                                preferences.setValue(true, forKey: UserDidOnboardPreferenceKey.self)
-                            }
+                        if case .finished = $0, case .balance = update {
+                            preferences.setValue(true, forKey: UserDidOnboardPreferenceKey.self)
                         }
                     })
                     .materialize()
@@ -59,7 +57,6 @@ class MetroCardViewModel: ObservableObject {
         
         let swipeElements = swipeSubject
             .withLatestFrom(cardPublisher) { ($0, $1) }
-            .receive(on: DispatchQueue.main)
             .flatMap { _, card -> Publishers.Materialize<AnyPublisher<Void, Error>> in
                 guard card.balance >= card.fare else {
                     return Fail<Void, Error>(error: MetroCardBalanceError.insufficientFunds as Error)

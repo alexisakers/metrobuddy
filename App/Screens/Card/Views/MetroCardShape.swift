@@ -23,7 +23,6 @@ struct MetroCardShape: Shape {
             let bottomRight = CGPoint(x: rect.maxX, y: rect.midY)
             let bottomLeft = CGPoint(x: rect.midX, y: rect.midY)
 
-            
             path.move(to: topLeft)
             path.addLine(to: highCorner)
             path.addLine(to: lowCorner)
