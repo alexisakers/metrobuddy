@@ -70,7 +70,9 @@ struct MetroCardScreen: View {
                 }.padding(.all, 16)
                 .background(BackgroundView())
             }.transition(.identity)
+            .animation(nil)
             .accessibility(hidden: isShowingDatePicker)
+            .frame(maxWidth: .infinity)
             .zIndex(0)
 
             if isShowingDatePicker {

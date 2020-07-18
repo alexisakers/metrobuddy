@@ -6,18 +6,21 @@ struct MetroCardData {
     /// Whether the user finished onboarding the card.
     let isOnboarded: Bool
     
-    /// The formatted balance of the card.
+    /// The balance of the card, formatted for display.
     let formattedBalance: String
     
     /// The expiration date that the user entered.
     let expirationDate: Date?
     
-    /// The
+    /// The expiration date, formatted for display.
     let formattedExpirationDate: String?
 
+    /// The serial number the user entered.
     let formattedSerialNumber: String?
 
+    /// The current fare, formatted for display.
     let formattedFare: String
 
+    /// The number of remaining swipes, formatted for display and pluralized if needed.
     let formattedRemainingSwipes: String
 }
