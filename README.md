@@ -1,10 +1,10 @@
-*logo*
+![Icon](.github/icon.png)
 
 # MetroBuddy
 
 MetroBuddy is an iOS app that allows you to track the balance of your transit card, with a primary focus on New York's MetroCard. As a New Yorker (even though 2020 is not exactly the year of subway-riding), seeing this message is rather frustrating...
 
-*Fare image*
+![Insufficient fare](.github/fare.png)
 
 I built MetroBuddy to alleviate this pain, and improve my SwiftUI and app architecting skills.
 
@@ -25,7 +25,7 @@ These are the main screens of the app:
 
 | Onboarding | Idle State | Expiration Date Picker |
 |---|---|---|
-| *Screenshot* | *Screenshot* | *Screenshot* |
+| ![Onboarding](.github/onboarding.png) | ![Idle](.github/idle.png) | ![Insufficient fare](.github/expiration.png) |
 
 ### Information Structure
 The information is structured in a way that satisfies both of the core principles: obvious and accessible. The linear data layout works well with screen readers. The use of a larger font for the balance makes it easier for riders to know if they need to reload their MetroCard before swiping while they are running down the station's stairs.
@@ -36,7 +36,7 @@ As a public transit enthusiast, swiping my MetroCard to enter the subway brings 
 - You can swipe the card to the left to record one swipe
 - When the balance is insufficient to record a swipe, a toast with a monospaced font appears to display the same message as the turnstile
 
-*Gif*
+![Insufficient fare](.github/appflow.gif)
 
 ### Colors
 Since the app will most likely be used just before or right after the user enters the subway, a dark design felt like a natural decision to better accomodates the subway's minimally lit environment.
@@ -84,7 +84,7 @@ Contributions, feedback and suggestions are more than welcome! Please read the [
 
 ## License
 
-The source code is [licensed](LICENSE) under the MIT license. Source code is defined as compilable text files (ending in `.swift`, `.plist`, `.xcdatamodel`, `.xcodeproj`). However, designs, flows and assets are copyrighted and may not be redistributed without permission. You are not permitted to redistribute copies the application on the App Store. 
+The source code and documentation are [licensed](LICENSE) under the MIT license. Source code is defined as compilable text files (ending in `.swift`, `.plist`, `.xcdatamodel`, `.xcodeproj`). However, designs, flows and assets are copyrighted and may not be redistributed without permission. You are not permitted to redistribute copies the application on the App Store. 
 
 Please note that the app is not affiliated with New York's MTA in any way.
 
