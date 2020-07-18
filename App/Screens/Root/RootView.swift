@@ -13,7 +13,7 @@ struct RootView: View {
                 .edgesIgnoringSafeArea(.all)
                 .zIndex(0)
 
-            if let toastText = toastQueue.toastText {
+            toastQueue.toastText.map { toastText in
                 Toast(text: toastText)
                     .animation(Animation.spring().speed(2))
                     .transition(

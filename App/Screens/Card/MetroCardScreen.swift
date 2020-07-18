@@ -80,8 +80,8 @@ struct MetroCardScreen: View {
                     ExpirationDatePickerSheet(
                         initialValue: viewModel.data.expirationDate,
                         isPresented: $isShowingDatePicker,
-                        saveHandler: { viewModel.saveExpirationDate($0) },
-                        resetHandler: { viewModel.saveExpirationDate(nil) }
+                        saveHandler: { self.viewModel.saveExpirationDate($0) },
+                        resetHandler: { self.viewModel.saveExpirationDate(nil) }
                     )
                 }.transition(.opacity)
                 .accessibility(sortPriority: 1)
@@ -130,7 +130,7 @@ struct MetroCardScreen: View {
             isPerformingSwipe = true
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                viewModel.recordSwipe()
+                self.viewModel.recordSwipe()
                 withAnimation(.spring()) {
                     self.isPerformingSwipe = false
                 }
