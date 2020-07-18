@@ -1,4 +1,4 @@
-![Icon](.github/icon.png)
+<img src="https://github.com/alexaubry/metro-buddy/raw/main/.github/icon.png" alt="App icon" height="128" />
 
 # MetroBuddy
 
