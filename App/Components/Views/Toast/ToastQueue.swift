@@ -15,8 +15,8 @@ class ToastQueue: NSObject, ObservableObject {
             selector: #selector(dismissTooltip),
             object: nil
         )
-        
-        withAnimation {
+
+        withAnimation(Animation.spring().speed(2)) {
             toastText = text
         }
 
@@ -27,10 +27,9 @@ class ToastQueue: NSObject, ObservableObject {
         perform(#selector(dismissTooltip), with: nil, afterDelay: 2)
     }
     
-    ///
     @objc private func dismissTooltip() {
-        withAnimation {
-            self.toastText = nil
+        withAnimation(Animation.spring().speed(2)) {
+            toastText = nil
         }
     }
 }

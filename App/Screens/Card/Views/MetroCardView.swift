@@ -33,9 +33,9 @@ struct MetroCardView: View {
                 gradient: Gradient(colors: [.metroCardYellow, .metroCardOrange]),
                 startPoint: .top,
                 endPoint: .bottom
-            ).animation(nil)
+            )
         ).aspectRatio(1.585, contentMode: .fill)
-        .mask(MetroCardShape().animation(nil))
+        .mask(MetroCardShape())
         .accessibilityElement(children: .ignore)
         .accessibility(addTraits: .isButton)
         .accessibility(label: Text("Card Balance"))

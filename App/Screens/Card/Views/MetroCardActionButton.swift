@@ -46,7 +46,6 @@ struct MetroCardActionButton: View {
                 .fontWeight(.medium)
                 .lineLimit(1)
                 .minimumScaleFactor(0.1)
-                .animation(nil)
 
             RoundedButton(
                 title: buttonText,
@@ -55,8 +54,7 @@ struct MetroCardActionButton: View {
                 design: .compact,
                 action: actionButtonTapped
             )
-        }.animation(nil)
-        .accessibilityElement(children: .ignore)
+        }.accessibilityElement(children: .ignore)
         .accessibility(label: Text(title))
         .accessibility(value: buttonText)
         .accessibility(addTraits: .isButton)

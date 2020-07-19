@@ -6,6 +6,7 @@ struct MetroCardScreen: View {
     @Environment(\.haptics) var haptics
     @Environment(\.configuration) var appConfiguration
     @Environment(\.enableAnimations) var enableAnimations
+
     @EnvironmentObject var toastQueue: ToastQueue
     @EnvironmentObject var viewModel: MetroCardViewModel
 
@@ -46,8 +47,9 @@ struct MetroCardScreen: View {
                         .offset(offset)
                         .onTapGesture(perform: cardTapped)
                         .gesture(dragGesture)
-                        .animation(enableAnimations ? Animation.spring() : nil)
                         .accessibilityAction(named: Text("Swipe Card"), recordSwipe)
+                        .transition(.opacity)
+                        .animation(enableAnimations ? Animation.spring() : nil, value: offset)
 
                     if viewModel.data.isOnboarded {
                         RoundedButton(
@@ -69,8 +71,8 @@ struct MetroCardScreen: View {
                     Spacer()
                 }.padding(.all, 16)
                 .background(BackgroundView())
+                .frame(maxWidth: 414)
             }.transition(.identity)
-            .animation(nil)
             .accessibility(hidden: isShowingDatePicker)
             .frame(maxWidth: .infinity)
             .zIndex(0)
@@ -83,9 +85,9 @@ struct MetroCardScreen: View {
                         saveHandler: { self.viewModel.saveExpirationDate($0) },
                         resetHandler: { self.viewModel.saveExpirationDate(nil) }
                     )
-                }.transition(.opacity)
-                .animation(enableAnimations ? Animation.linear(duration: 0.25) : nil)
-                .accessibility(sortPriority: 1)
+                }.transition(AnyTransition.opacity
+                    .animation(enableAnimations ? Animation.easeInOut(duration: 0.25) : nil)
+                ).accessibility(sortPriority: 1)
                 .zIndex(1)
             }
         }.frame(maxWidth: .infinity)
@@ -115,27 +117,23 @@ struct MetroCardScreen: View {
     private func dragGestureEnded(gesture: DragGesture.Value) {
         let xTranslation = gesture.translation.width
         if xTranslation < -100 {
-            withAnimation {
-                recordSwipe()
-                drag = 0
-            }
+            recordSwipe()
+            drag = 0
         } else {
-            withAnimation {
-                drag = 0
-            }
+            drag = 0
         }
     }
     
     private func recordSwipe() {
-        withAnimation(.easeIn(duration: 0.25)) {
-            isPerformingSwipe = true
+        guard enableAnimations else {
+            return viewModel.recordSwipe()
+        }
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                self.viewModel.recordSwipe()
-                withAnimation(.spring()) {
-                    self.isPerformingSwipe = false
-                }
-            }
+        isPerformingSwipe = true
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.viewModel.recordSwipe()
+            self.isPerformingSwipe = false
         }
     }
 }

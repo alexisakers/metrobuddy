@@ -27,8 +27,6 @@ struct ModalSheet<Content: View>: View {
     }
 
     private func closeActionActivated() {
-        withAnimation {
-            isPresented = false
-        }
+        isPresented = false
     }
 }

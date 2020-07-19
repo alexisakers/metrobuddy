@@ -16,14 +16,13 @@ struct RootView: View {
 
             toastQueue.toastText.map { toastText in
                 Toast(text: toastText)
-                    .animation(Animation.spring().speed(2))
-                    .transition(
-                        AnyTransition
-                            .move(edge: .top)
-                            .combined(with: .opacity)
-                    )
                     .zIndex(1)
-            }
+            }.transition(
+                AnyTransition
+                    .move(edge: .top)
+                    .combined(with: .opacity)
+            )
+
         }.background(BackgroundView())
         .accessibilityElement(children: .contain)
     }

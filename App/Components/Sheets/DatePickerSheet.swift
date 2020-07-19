@@ -78,23 +78,17 @@ struct ExpirationDatePickerSheet: View {
     // MARK: - Input
     
     private func closeButtonTapped() {
-        withAnimation {
-            isPresented = false
-        }
+        isPresented = false
     }
     
     private func resetButtonTapped() {
-        withAnimation {
-            resetHandler()
-            isPresented = false
-        }
+        resetHandler()
+        isPresented = false
     }
     
     private func saveButtonTapped() {
-        withAnimation {
-            saveHandler(selectedDate)
-            isPresented = false
-        }
+        saveHandler(selectedDate)
+        isPresented = false
     }
 }
 

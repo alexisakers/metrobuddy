@@ -55,9 +55,7 @@ struct MetroCardActionGrid: View {
     }
     
     private func updateExpirationDateButtonTapped() {
-        withAnimation {
-            isShowingDatePicker = true
-        }
+        isShowingDatePicker = true
     }
     
     private func updateSerialNumberButtonTapped() {

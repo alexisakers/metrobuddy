@@ -973,15 +973,17 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/MetroTesting.framework",
 			);
 			name = "Embed Debug Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"$(BUILD_APP_DIR)/Frameworks/MetroTesting.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "FILENAME=\"MetroTesting.framework\"\nRESOURCE_PATH=\"${BUILT_PRODUCTS_DIR}/${FILENAME}\"\nBUILD_APP_DIR=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\"\nDESTINATION=\"$BUILD_APP_DIR/Frameworks/$FILENAME\"\n\nif [ \"$CONFIGURATION\" == \"Debug\" ]; then\ncp -R \"$RESOURCE_PATH\" \"$DESTINATION\"\n/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} ${OTHER_CODE_SIGN_FLAGS} --preserve-metadata=identifier,entitlements \"$DESTINATION\"\nfi\n";
+			shellScript = "FILENAME=\"MetroTesting.framework\"\nRESOURCE_PATH=\"${BUILT_PRODUCTS_DIR}/${FILENAME}\"\nBUILD_APP_DIR=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\"\nDESTINATION=\"$BUILD_APP_DIR/Frameworks/$FILENAME\"\n\nif [ \"$CONFIGURATION\" == \"Debug\" ]; then\nrm -rf \"$DESTINATION\"\ncp -R \"$RESOURCE_PATH\" \"$DESTINATION\"\n/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} ${OTHER_CODE_SIGN_FLAGS} --preserve-metadata=identifier,entitlements \"$DESTINATION\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

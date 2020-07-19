@@ -45,14 +45,15 @@ struct RoundedButton<Background: View>: View {
                 .font(.body)
                 .fontWeight(.semibold)
                 .foregroundColor(titleColor)
-                .frame(maxWidth: .infinity)
-                .padding(.horizontal, 8)
+                .padding(.horizontal, 2)
                 .padding(.vertical, design.verticalPadding)
+                .frame(maxWidth: .infinity)
                 .background(background)
                 .mask(RoundedRectangle.defaultStyle)
         }.buttonStyle(ScaleButtonStyle())
         .accessibilityElement(children: .ignore)
         .accessibility(addTraits: .isButton)
         .accessibility(label: title)
+        .frame(maxWidth: .infinity)
     }
 }
