@@ -10,13 +10,16 @@ struct OnboardingTipView: View {
 
                 Text("TIP")
                     .accessibility(label: Text("Tip"))
-                    .accessibility(addTraits: .isHeader)
+                    .accessibility(addTraits: [.isHeader, .isStaticText])
+                    .accessibility(identifier: "tip-title")
 
                 Spacer()
             }.font(.contentCardTitle)
             
             Text("Tap on the card or the “Update Balance” button below to enter your current card balance.")
                 .font(.body)
+                .accessibility(addTraits: .isStaticText)
+                .accessibility(identifier: "tip-message")
         }.padding(16)
         .background(Color.prominentContainerBackground)
         .mask(RoundedRectangle.defaultStyle)

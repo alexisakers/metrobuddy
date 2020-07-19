@@ -1,5 +1,7 @@
+import Foundation
 import MetroKit
 
+/// Simulates a data state where the user only has one swipe left.
 @objc(OneSwipeLeftTestScenario)
 public final class OneSwipeLeftTestScenario: ReturningUserTestScenario {
     override class var balance: Decimal { 2.75 }

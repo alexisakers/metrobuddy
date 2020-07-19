@@ -1,6 +1,10 @@
 import SwiftUI
 import MessageUI
 
+#if DEBUG
+import MetroTesting
+#endif
+
 /// Enapsulates the app's static configuration.
 struct AppConfiguration: Decodable {
     /// The email at which developers can be contacted.
@@ -27,7 +31,11 @@ private struct CanSendMailEnvironmentKey: EnvironmentKey {
 }
 
 private struct EnableAnimationsEnvironmentKey: EnvironmentKey {
-    static var defaultValue: Bool = !ProcessInfo.processInfo.arguments.contains("-DisableAnimations")
+    #if DEBUG
+    static var defaultValue: Bool = !UserDefaults.standard.bool(forKey: TestLaunchKeys.disableAnimations)
+    #else
+    static var defaultValue: Bool = true
+    #endif
 }
 
 extension EnvironmentValues {

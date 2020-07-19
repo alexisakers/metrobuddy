@@ -1,5 +1,6 @@
 import CoreData
 
+/// A concrete `NSManagedObjectID` subclass that returns a fake `uriRepresentation`, used in the `MockMetroCardDataStore`.
 class FakeManagedObjectID: NSManagedObjectID {
     let uuid = UUID()
 

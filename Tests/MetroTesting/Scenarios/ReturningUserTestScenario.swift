@@ -1,5 +1,7 @@
+import Foundation
 import MetroKit
 
+/// Reproduces the state of the data when the user has already used the app. You can override the `class` properties to customize the initial data.
 @objc(ReturningUserTestScenario)
 public class ReturningUserTestScenario: NSObject, TestScenario {
     class var balance: Decimal { 25 }
@@ -23,5 +25,11 @@ public class ReturningUserTestScenario: NSObject, TestScenario {
             createsCardAutomatically: true,
             allowUpdates: true
         )
+    }
+
+    public static func makePreferences() -> UserPreferences {
+        let userDefaults = MockPreferences()
+        userDefaults.setValue(true, forKey: UserDidOnboardPreferenceKey.self)
+        return userDefaults
     }
 }

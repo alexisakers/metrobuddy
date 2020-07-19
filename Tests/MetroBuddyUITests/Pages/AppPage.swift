@@ -7,7 +7,7 @@ import XCTest
 class AppPage {
     let app: XCUIApplication
 
-    init(app: XCUIApplication) {
+    required init(app: XCUIApplication) {
         self.app = app
     }
 

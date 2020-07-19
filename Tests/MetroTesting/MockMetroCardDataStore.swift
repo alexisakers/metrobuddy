@@ -2,28 +2,25 @@ import Combine
 import CoreData
 @testable import MetroKit
 
+/// A concrete data store that can be used to configure in tests. You can configure the card's data, and what operations should fail.
 public final class MockMetroCardDataStore: MetroCardDataStore {
     let cardPublisher: CurrentValueSubject<MetroCard?, Never>
-
     let id: NSManagedObjectID
-    var createsCardAutomatically: Bool
-    var allowUpdates: Bool
+    let createsCardAutomatically: Bool
+    let allowUpdates: Bool
 
-    private var externalChangeObserver: NSObjectProtocol?
+    // MARK: - Initialization
 
+    /// Creates a new mock data store with the specified options.
+    /// - parameter card: The card data to use. Pass `nil` if you want to simulate a fresh install.
+    /// - parameter createsCardAutomatically: Whether we should create the card when first queried. Pass `false` if you want to simulate an
+    /// app-unavailable error.
+    /// - parameter allowUpdates: Whether updates should succeed. Pass `false` if you want to simulate save failures.
     init(card: MetroCard?, createsCardAutomatically: Bool, allowUpdates: Bool) {
         self.cardPublisher = CurrentValueSubject(card)
         self.id = FakeManagedObjectID()
         self.createsCardAutomatically = createsCardAutomatically
         self.allowUpdates = allowUpdates
-
-        externalChangeObserver = NotificationCenter.default
-            .addObserver(
-                forName: MetroTesting.testDidEmitExternalChangeNotification,
-                object: id,
-                queue: nil,
-                using: { [unowned self] in self.testDidEmitExternalChange($0) }
-            )
     }
 
     // MARK: - MetroCardDataStore
@@ -48,7 +45,7 @@ public final class MockMetroCardDataStore: MetroCardDataStore {
     }
 
     public func applyUpdates(_ updates: [MetroCardUpdate], to cardReference: ObjectReference<MetroCard>) -> AnyPublisher<Void, Error> {
-        guard let card = cardPublisher.value, cardReference.objectID == id else {
+        guard var card = cardPublisher.value, cardReference.objectID == id else {
             return Fail(error: MetroCardDataStoreError.cardNotFound)
                 .eraseToAnyPublisher()
         }
@@ -59,27 +56,6 @@ public final class MockMetroCardDataStore: MetroCardDataStore {
                 .eraseToAnyPublisher()
         }
 
-        performUpdates(updates, on: card)
-
-        return Just(())
-            .setFailureType(to: Error.self)
-            .eraseToAnyPublisher()
-    }
-
-    // MARK: - Helpers
-
-    private func testDidEmitExternalChange(_ notifiation: Notification) {
-        guard let updates = notifiation.userInfo?[MetroTesting.UserInfoKeys.cardUpdates] as? [MetroCardUpdate] else {
-            return
-        }
-
-        if let card = cardPublisher.value {
-            performUpdates(updates, on: card)
-        }
-    }
-
-    private func performUpdates(_ updates: [MetroCardUpdate], on card: MetroCard) {
-        var card = card
         for update in updates {
             switch update {
             case .balance(let newBalance):
@@ -94,5 +70,9 @@ public final class MockMetroCardDataStore: MetroCardDataStore {
         }
 
         cardPublisher.send(card)
+
+        return Just(())
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
     }
 }

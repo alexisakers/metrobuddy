@@ -31,6 +31,9 @@
 		5E2F16E124C4C26B0097D0EB /* AppPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2F16DE24C4C23A0097D0EB /* AppPage.swift */; };
 		5E2F16E224C4C3C40097D0EB /* XCUIApplication+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2F16DB24C4C1CD0097D0EB /* XCUIApplication+Helpers.swift */; };
 		5E2F16E624C4C4C60097D0EB /* OneSwipeLeftTestScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2F16E324C4C48F0097D0EB /* OneSwipeLeftTestScenario.swift */; };
+		5E2F16EC24C4CE240097D0EB /* ScenarioBasedTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2F16EA24C4CE110097D0EB /* ScenarioBasedTestCase.swift */; };
+		5E2F16EF24C4CF780097D0EB /* FirstLaunchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2F16ED24C4CF5F0097D0EB /* FirstLaunchUITests.swift */; };
+		5E2F16F224C4D33A0097D0EB /* MockPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2F16F024C4D27F0097D0EB /* MockPreferences.swift */; };
 		5E421A3B24C103E200AB8ED4 /* Design+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E421A3A24C103E200AB8ED4 /* Design+Colors.swift */; };
 		5E421A3D24C103FE00AB8ED4 /* Design+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E421A3C24C103FE00AB8ED4 /* Design+Images.swift */; };
 		5E421A3F24C1041700AB8ED4 /* Design+Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E421A3E24C1041700AB8ED4 /* Design+Shapes.swift */; };
@@ -73,7 +76,6 @@
 		5E497DA624BD3CC400EE584E /* TextFieldAlert+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497DA524BD3CC400EE584E /* TextFieldAlert+Factory.swift */; };
 		5E5715C624C3A4AA0068F20B /* MetroBuddyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5715C524C3A4AA0068F20B /* MetroBuddyUITests.swift */; };
 		5E5715CE24C3A6740068F20B /* MetroCardPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5715CD24C3A6740068F20B /* MetroCardPage.swift */; };
-		5E5715E624C3AA500068F20B /* MetroTesting.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E5715D624C3AA500068F20B /* MetroTesting.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E5715F224C3AA680068F20B /* MockMetroCardDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5715F124C3AA680068F20B /* MockMetroCardDataStore.swift */; };
 		5E5715FA24C3AC0F0068F20B /* MetroBuddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5715F924C3AC0F0068F20B /* MetroBuddyTests.swift */; };
 		5E57160224C3AC240068F20B /* RootViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E57160124C3AC240068F20B /* RootViewModelTests.swift */; };
@@ -81,7 +83,7 @@
 		5E57160724C4A0520068F20B /* TestScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E57160624C4A0520068F20B /* TestScenario.swift */; };
 		5E57160B24C4A62F0068F20B /* MetroCard+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E57160A24C4A62F0068F20B /* MetroCard+Helpers.swift */; };
 		5E57160D24C4A8170068F20B /* FakeManagedObjectID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E57160C24C4A8170068F20B /* FakeManagedObjectID.swift */; };
-		5E57160F24C4A8520068F20B /* DataStoreTestDidEmitExternalChangeNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E57160E24C4A8520068F20B /* DataStoreTestDidEmitExternalChangeNotification.swift */; };
+		5E57160F24C4A8520068F20B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E57160E24C4A8520068F20B /* Constants.swift */; };
 		5E57161224C4AB6F0068F20B /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E57161024C4AB490068F20B /* AppFactory.swift */; };
 		5E57161424C4ADD90068F20B /* NewInstallTestScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E57161324C4ADD90068F20B /* NewInstallTestScenario.swift */; };
 		5EC7A60824BDE8F200E3ED39 /* Design+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */; };
@@ -185,6 +187,9 @@
 		5E2F16DB24C4C1CD0097D0EB /* XCUIApplication+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Helpers.swift"; sourceTree = "<group>"; };
 		5E2F16DE24C4C23A0097D0EB /* AppPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPage.swift; sourceTree = "<group>"; };
 		5E2F16E324C4C48F0097D0EB /* OneSwipeLeftTestScenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneSwipeLeftTestScenario.swift; sourceTree = "<group>"; };
+		5E2F16EA24C4CE110097D0EB /* ScenarioBasedTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioBasedTestCase.swift; sourceTree = "<group>"; };
+		5E2F16ED24C4CF5F0097D0EB /* FirstLaunchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchUITests.swift; sourceTree = "<group>"; };
+		5E2F16F024C4D27F0097D0EB /* MockPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPreferences.swift; sourceTree = "<group>"; };
 		5E421A3A24C103E200AB8ED4 /* Design+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Colors.swift"; sourceTree = "<group>"; };
 		5E421A3C24C103FE00AB8ED4 /* Design+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Images.swift"; sourceTree = "<group>"; };
 		5E421A3E24C1041700AB8ED4 /* Design+Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Shapes.swift"; sourceTree = "<group>"; };
@@ -231,7 +236,6 @@
 		5E5715C724C3A4AA0068F20B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E5715CD24C3A6740068F20B /* MetroCardPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroCardPage.swift; sourceTree = "<group>"; };
 		5E5715D424C3AA500068F20B /* MetroTesting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MetroTesting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E5715D624C3AA500068F20B /* MetroTesting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MetroTesting.h; sourceTree = "<group>"; };
 		5E5715D724C3AA500068F20B /* MetroTesting.Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MetroTesting.Info.plist; sourceTree = "<group>"; };
 		5E5715F124C3AA680068F20B /* MockMetroCardDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMetroCardDataStore.swift; sourceTree = "<group>"; };
 		5E5715F724C3AC0F0068F20B /* MetroBuddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetroBuddyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -243,7 +247,7 @@
 		5E57160924C4A3720068F20B /* MetroTesting.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MetroTesting.xcconfig; sourceTree = "<group>"; };
 		5E57160A24C4A62F0068F20B /* MetroCard+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MetroCard+Helpers.swift"; sourceTree = "<group>"; };
 		5E57160C24C4A8170068F20B /* FakeManagedObjectID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeManagedObjectID.swift; sourceTree = "<group>"; };
-		5E57160E24C4A8520068F20B /* DataStoreTestDidEmitExternalChangeNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreTestDidEmitExternalChangeNotification.swift; sourceTree = "<group>"; };
+		5E57160E24C4A8520068F20B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5E57161024C4AB490068F20B /* AppFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		5E57161324C4ADD90068F20B /* NewInstallTestScenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInstallTestScenario.swift; sourceTree = "<group>"; };
 		5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Fonts.swift"; sourceTree = "<group>"; };
@@ -410,11 +414,11 @@
 		5E03305C24BF60A5001D86D1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5E497D4724B8CF1500EE584E /* MetroCardView.swift */,
 				5EC7A61024BDF68100E3ED39 /* OnboardingTipView.swift */,
+				5E497D4724B8CF1500EE584E /* MetroCardView.swift */,
+				5E497D4524B7EFF500EE584E /* MetroCardShape.swift */,
 				5E497DA124BD378200EE584E /* MetroCardActionGrid.swift */,
 				5E497D9F24BD167C00EE584E /* MetroCardActionButton.swift */,
-				5E497D4524B7EFF500EE584E /* MetroCardShape.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -455,6 +459,7 @@
 		5E2F16DA24C4C1C20097D0EB /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				5E2F16EA24C4CE110097D0EB /* ScenarioBasedTestCase.swift */,
 				5E2F16DB24C4C1CD0097D0EB /* XCUIApplication+Helpers.swift */,
 			);
 			path = Helpers;
@@ -468,6 +473,16 @@
 				5E57160324C3AE6F0068F20B /* TextFieldAlertPage.swift */,
 			);
 			path = Pages;
+			sourceTree = "<group>";
+		};
+		5E2F16E924C4CD120097D0EB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5E57160E24C4A8520068F20B /* Constants.swift */,
+				5E57160C24C4A8170068F20B /* FakeManagedObjectID.swift */,
+				5E57160A24C4A62F0068F20B /* MetroCard+Helpers.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		5E421A4124C1070400AB8ED4 /* Frameworks */ = {
@@ -520,6 +535,7 @@
 			isa = PBXGroup;
 			children = (
 				5E5715C524C3A4AA0068F20B /* MetroBuddyUITests.swift */,
+				5E2F16ED24C4CF5F0097D0EB /* FirstLaunchUITests.swift */,
 				5E2F16DD24C4C2200097D0EB /* Pages */,
 				5E2F16DA24C4C1C20097D0EB /* Helpers */,
 				5E5715C724C3A4AA0068F20B /* Info.plist */,
@@ -530,12 +546,10 @@
 		5E5715D524C3AA500068F20B /* MetroTesting */ = {
 			isa = PBXGroup;
 			children = (
-				5E5715D624C3AA500068F20B /* MetroTesting.h */,
-				5E57160524C4A03E0068F20B /* Scenarios */,
 				5E5715F124C3AA680068F20B /* MockMetroCardDataStore.swift */,
-				5E57160A24C4A62F0068F20B /* MetroCard+Helpers.swift */,
-				5E57160C24C4A8170068F20B /* FakeManagedObjectID.swift */,
-				5E57160E24C4A8520068F20B /* DataStoreTestDidEmitExternalChangeNotification.swift */,
+				5E2F16F024C4D27F0097D0EB /* MockPreferences.swift */,
+				5E57160524C4A03E0068F20B /* Scenarios */,
+				5E2F16E924C4CD120097D0EB /* Helpers */,
 			);
 			path = MetroTesting;
 			sourceTree = "<group>";
@@ -709,7 +723,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E5715E624C3AA500068F20B /* MetroTesting.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -955,7 +968,9 @@
 			files = (
 				5E57160424C3AE6F0068F20B /* TextFieldAlertPage.swift in Sources */,
 				5E5715CE24C3A6740068F20B /* MetroCardPage.swift in Sources */,
+				5E2F16EF24C4CF780097D0EB /* FirstLaunchUITests.swift in Sources */,
 				5E2F16E124C4C26B0097D0EB /* AppPage.swift in Sources */,
+				5E2F16EC24C4CE240097D0EB /* ScenarioBasedTestCase.swift in Sources */,
 				5E2F16E224C4C3C40097D0EB /* XCUIApplication+Helpers.swift in Sources */,
 				5E5715C624C3A4AA0068F20B /* MetroBuddyUITests.swift in Sources */,
 			);
@@ -968,8 +983,9 @@
 				5E57160D24C4A8170068F20B /* FakeManagedObjectID.swift in Sources */,
 				5E57160B24C4A62F0068F20B /* MetroCard+Helpers.swift in Sources */,
 				5E2F16E624C4C4C60097D0EB /* OneSwipeLeftTestScenario.swift in Sources */,
+				5E2F16F224C4D33A0097D0EB /* MockPreferences.swift in Sources */,
 				5E5715F224C3AA680068F20B /* MockMetroCardDataStore.swift in Sources */,
-				5E57160F24C4A8520068F20B /* DataStoreTestDidEmitExternalChangeNotification.swift in Sources */,
+				5E57160F24C4A8520068F20B /* Constants.swift in Sources */,
 				5E57161424C4ADD90068F20B /* NewInstallTestScenario.swift in Sources */,
 				5E2F16D924C4BFC00097D0EB /* ReturningUserTestScenario.swift in Sources */,
 				5E57160724C4A0520068F20B /* TestScenario.swift in Sources */,

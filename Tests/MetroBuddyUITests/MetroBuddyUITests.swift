@@ -1,18 +1,11 @@
 import XCTest
 import MetroTesting
 
-class MetroBuddyUITests: XCTestCase {
-    var page: MetroCardPage!
-
-    override func tearDown() {
-        super.tearDown()
-        page = nil
-    }
-
+class MetroBuddyUITests: ScenarioBasedTestCase<MetroCardPage> {
     // MARK: - Actions
 
     func testUpdateFareAction() {
-        configureScenario(ReturningUserTestScenario.self)
+        let page = rootPageWithScenario(ReturningUserTestScenario.self)
 
         // The initial value is 2.75
         XCTAssertEqual(page.fareValue, "$2.75")
@@ -42,7 +35,7 @@ class MetroBuddyUITests: XCTestCase {
     }
 
     func testUpdateBalanceAction() {
-        configureScenario(ReturningUserTestScenario.self)
+        let page = rootPageWithScenario(ReturningUserTestScenario.self)
 
         // The initial value is $25
         XCTAssertEqual(page.balanceValue, "$25.00")
@@ -74,7 +67,7 @@ class MetroBuddyUITests: XCTestCase {
     // MARK: - Last Swipe
 
     func testLastSwipeBehavior() {
-        configureScenario(OneSwipeLeftTestScenario.self)
+        let page = rootPageWithScenario(OneSwipeLeftTestScenario.self)
 
         // The initial balance is $2.75
         XCTAssertEqual(page.balanceValue, "$2.75")
@@ -90,11 +83,5 @@ class MetroBuddyUITests: XCTestCase {
         XCTAssertEqual(page.balanceValue, "$0.00")
         XCTAssertEqual(page.subtitle, "No swipes left")
         XCTAssertEqual(page.toastText, "INSUFFICIENT FARE")
-    }
-
-    func configureScenario(_ scenario: TestScenario.Type) {
-        let app = XCUIApplication(scenario: scenario)
-        app.launch()
-        page = MetroCardPage(app: app)
     }
 }

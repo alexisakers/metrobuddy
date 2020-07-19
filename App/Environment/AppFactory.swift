@@ -8,33 +8,35 @@ import MetroTesting
 /// A namespace that contains helpers to create the components required to launch the app.
 enum AppFactory {
     /// Loads the data store. Returns either a mock data store if we are testing, or the production data store otherwise.
-    static func loadDataStore() -> MetroCardDataStore {
+    static func loadDataStores() -> (MetroCardDataStore, UserPreferences) {
         #if DEBUG
-        return loadMockStoreIfNeeded()
+        return loadMockStoresIfNeeded()
         #else
         return loadDefaultStore()
         #endif
     }
 
-    private static func loadMockStoreIfNeeded() -> MetroCardDataStore {
+    private static func loadMockStoresIfNeeded() -> (MetroCardDataStore, UserPreferences) {
         if
-            let scenarioName = UserDefaults.standard.string(forKey: MetroTesting.EnvironmentKeys.scenarioName),
+            let scenarioName = UserDefaults.standard.string(forKey: TestLaunchKeys.scenarioName),
             let scenario = NSClassFromString(scenarioName) as? TestScenario.Type
         {
             UIView.setAnimationsEnabled(false)
-            return scenario.makeDataStore()
+            return (scenario.makeDataStore(), scenario.makePreferences())
         } else {
-            return loadDefaultStore()
+            return loadDefaultStores()
         }
     }
 
-    private static func loadDefaultStore() -> MetroCardDataStore {
+    private static func loadDefaultStores() -> (MetroCardDataStore, UserPreferences) {
         let groupID = Bundle.main.infoValue(forKey: AppGroupNameInfoPlistKey.self)!
-        return try! PersistentMetroCardDataStore(
+        let dataStore = try! PersistentMetroCardDataStore(
             persistentStore: .onDisk(
                 .securityGroupContainer(id: groupID, path: ["Data"])
             ),
             useCloudKit: true
         )
+        let userDefaults = UserDefaults(suiteName: groupID)!
+        return (dataStore, userDefaults)
     }
 }

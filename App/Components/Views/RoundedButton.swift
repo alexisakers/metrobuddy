@@ -51,5 +51,8 @@ struct RoundedButton<Background: View>: View {
                 .background(background)
                 .mask(RoundedRectangle.defaultStyle)
         }.buttonStyle(ScaleButtonStyle())
+        .accessibilityElement(children: .ignore)
+        .accessibility(addTraits: .isButton)
+        .accessibility(label: title)
     }
 }

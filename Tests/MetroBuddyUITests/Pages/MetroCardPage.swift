@@ -9,8 +9,18 @@ class MetroCardPage: AppPage {
     private let fareButtonID = "fare-button"
     private let expirationButtonID = "expiration-button"
     private let cardNumberButtonID = "card-number-button"
+    private let tipTitleID = "tip-title"
+    private let tipMessageID = "tip-message"
 
     // MARK: - State
+
+    var tipTitle: XCUIElement {
+        app.staticTexts[tipTitleID]
+    }
+
+    var tipMessage: XCUIElement {
+        app.staticTexts[tipMessageID]
+    }
 
     var subtitle: String {
         app.staticTexts[subtitleID].label
@@ -18,6 +28,10 @@ class MetroCardPage: AppPage {
 
     var balanceValue: String {
         app.buttons[cardID].value as! String
+    }
+
+    var swipeButton: XCUIElement {
+        app.buttons[swipeButtonID]
     }
 
     var fareValue: String {
@@ -28,7 +42,7 @@ class MetroCardPage: AppPage {
 
     func performSwipe() {
         let card = app.buttons[cardID]
-        let start = card.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 0))
+        let start = card.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0))
         let end = card.coordinate(withNormalizedOffset: CGVector(dx: -0.5, dy: 0))
         start.press(forDuration: 0, thenDragTo: end)
     }

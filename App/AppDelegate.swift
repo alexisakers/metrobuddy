@@ -6,10 +6,8 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        let viewModel = RootViewModel(
-            dataStore: AppFactory.loadDataStore(),
-            preferences: UserDefaults.standard
-        )
+        let (dataStore, preferences) = AppFactory.loadDataStores()
+        let viewModel = RootViewModel(dataStore: dataStore, preferences: preferences)
 
         let contentView = RootView(viewModel: viewModel)
             .accentColor(.metroCardOrange)

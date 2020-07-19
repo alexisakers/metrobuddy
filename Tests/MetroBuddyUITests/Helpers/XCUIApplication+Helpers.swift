@@ -8,8 +8,8 @@ extension XCUIApplication {
     convenience init(scenario: TestScenario.Type) {
         self.init()
         launchArguments = [
-            "-DisableAnimations",
-            "-\(MetroTesting.EnvironmentKeys.scenarioName)", NSStringFromClass(scenario)
+            "-" + TestLaunchKeys.disableAnimations, "1",
+            "-" + TestLaunchKeys.scenarioName, NSStringFromClass(scenario)
         ]
     }
 }
