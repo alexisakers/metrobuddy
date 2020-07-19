@@ -38,18 +38,17 @@ struct MetroCardScreen: View {
     
     var body: some View {
         ZStack(alignment: .center) {
-            ScrollView(.vertical) {
+            FullWidthScrollView {
                 VStack(alignment: .leading, spacing: 16) {
                     NavigationBar(subtitle: viewModel.data.formattedRemainingSwipes)
                         .accessibility(sortPriority: 0)
 
                     MetroCardView(formattedBalance: viewModel.data.formattedBalance)
                         .offset(offset)
+                        .animation(enableAnimations ? Animation.spring() : nil, value: offset)
                         .onTapGesture(perform: cardTapped)
                         .gesture(dragGesture)
                         .accessibilityAction(named: Text("Swipe Card"), recordSwipe)
-                        .transition(.opacity)
-                        .animation(enableAnimations ? Animation.spring() : nil, value: offset)
 
                     if viewModel.data.isOnboarded {
                         RoundedButton(
@@ -59,8 +58,10 @@ struct MetroCardScreen: View {
                             design: .standard,
                             action: recordSwipe
                         ).accessibility(identifier: "swipe-button")
+                            .transition(.opacity)
                     } else {
                         OnboardingTipView()
+                            .transition(.opacity)
                     }
 
                     MetroCardActionGrid(
@@ -70,11 +71,9 @@ struct MetroCardScreen: View {
 
                     Spacer()
                 }.padding(.all, 16)
-                .background(BackgroundView())
-                .frame(maxWidth: 414)
-            }.transition(.identity)
-            .accessibility(hidden: isShowingDatePicker)
-            .frame(maxWidth: .infinity)
+                    .background(BackgroundView())
+                    .animation(.spring())
+            }.accessibility(hidden: isShowingDatePicker)
             .zIndex(0)
 
             if isShowingDatePicker {
@@ -90,8 +89,7 @@ struct MetroCardScreen: View {
                 ).accessibility(sortPriority: 1)
                 .zIndex(1)
             }
-        }.frame(maxWidth: .infinity)
-        .accessibilityElement(children: .contain)
+        }.accessibilityElement(children: .contain)
         .onReceive(viewModel.toast, perform: toastQueue.displayToast)
         .onReceive(viewModel.taskCompletion, perform: haptics.notify)
         .textFieldAlert(item: $textFieldAlert)

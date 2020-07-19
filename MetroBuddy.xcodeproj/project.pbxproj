@@ -34,6 +34,7 @@
 		5E2F16F224C4D33A0097D0EB /* MockPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2F16F024C4D27F0097D0EB /* MockPreferences.swift */; };
 		5E2F16F524C4D77A0097D0EB /* ExistingCardAttributesTestScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2F16F324C4D7640097D0EB /* ExistingCardAttributesTestScenario.swift */; };
 		5E2F16F824C4DA030097D0EB /* ExpirationDatePickerPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2F16F624C4D9F20097D0EB /* ExpirationDatePickerPage.swift */; };
+		5E2F16FF24C504C60097D0EB /* FullWidthScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2F16FE24C504C60097D0EB /* FullWidthScrollView.swift */; };
 		5E421A3B24C103E200AB8ED4 /* Design+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E421A3A24C103E200AB8ED4 /* Design+Colors.swift */; };
 		5E421A3D24C103FE00AB8ED4 /* Design+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E421A3C24C103FE00AB8ED4 /* Design+Images.swift */; };
 		5E421A3F24C1041700AB8ED4 /* Design+Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E421A3E24C1041700AB8ED4 /* Design+Shapes.swift */; };
@@ -191,6 +192,7 @@
 		5E2F16F024C4D27F0097D0EB /* MockPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPreferences.swift; sourceTree = "<group>"; };
 		5E2F16F324C4D7640097D0EB /* ExistingCardAttributesTestScenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistingCardAttributesTestScenario.swift; sourceTree = "<group>"; };
 		5E2F16F624C4D9F20097D0EB /* ExpirationDatePickerPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpirationDatePickerPage.swift; sourceTree = "<group>"; };
+		5E2F16FE24C504C60097D0EB /* FullWidthScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullWidthScrollView.swift; sourceTree = "<group>"; };
 		5E421A3A24C103E200AB8ED4 /* Design+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Colors.swift"; sourceTree = "<group>"; };
 		5E421A3C24C103FE00AB8ED4 /* Design+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Images.swift"; sourceTree = "<group>"; };
 		5E421A3E24C1041700AB8ED4 /* Design+Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Shapes.swift"; sourceTree = "<group>"; };
@@ -608,6 +610,7 @@
 				5E497D9B24BD0AAA00EE584E /* BackgroundView.swift */,
 				5E497D4F24B9104000EE584E /* NavigationBar.swift */,
 				5E421A6F24C1D70D00AB8ED4 /* FlexibleStack.swift */,
+				5E2F16FE24C504C60097D0EB /* FullWidthScrollView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1039,6 +1042,7 @@
 				5E03305B24BF6069001D86D1 /* View+Helpers.swift in Sources */,
 				5E03303E24BE117B001D86D1 /* ToastQueue.swift in Sources */,
 				5E497D6124B9433600EE584E /* RootView.swift in Sources */,
+				5E2F16FF24C504C60097D0EB /* FullWidthScrollView.swift in Sources */,
 				5E421A3B24C103E200AB8ED4 /* Design+Colors.swift in Sources */,
 				5E17D37924BFD1A7003E99D1 /* Alert+ErrorMessage.swift in Sources */,
 				5E497D5424B92D4F00EE584E /* MetroCardViewModel.swift in Sources */,

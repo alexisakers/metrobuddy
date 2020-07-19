@@ -50,6 +50,7 @@ struct RoundedButton<Background: View>: View {
                 .frame(maxWidth: .infinity)
                 .background(background)
                 .mask(RoundedRectangle.defaultStyle)
+                .animation(nil)
         }.buttonStyle(ScaleButtonStyle())
         .accessibilityElement(children: .ignore)
         .accessibility(addTraits: .isButton)

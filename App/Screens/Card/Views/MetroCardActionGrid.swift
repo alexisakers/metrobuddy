@@ -9,7 +9,7 @@ struct MetroCardActionGrid: View {
     // MARK: - View
     
     var body: some View {
-        VStack(spacing: 16) {
+        VStack(alignment: .leading, spacing: 16) {
             FlexibleStack(hStackAlignment: .top, vStackAlignment: .leading) {
                 MetroCardActionButton(
                     title: "BALANCE",
