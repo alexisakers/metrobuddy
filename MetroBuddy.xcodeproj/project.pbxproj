@@ -257,7 +257,7 @@
 		5EC7A60E24BDF2B900E3ED39 /* UserPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferenceKey.swift; sourceTree = "<group>"; };
 		5EC7A61024BDF68100E3ED39 /* OnboardingTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTipView.swift; sourceTree = "<group>"; };
 		5EC7A61224BE003200E3ED39 /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
-		5ED4E28624B3E33300B37946 /* Metro Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Metro Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5ED4E28624B3E33300B37946 /* MetroBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetroBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ED4E28924B3E33300B37946 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5ED4E28B24B3E33400B37946 /* MetroCardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroCardScreen.swift; sourceTree = "<group>"; };
 		5ED4E28D24B3E33D00B37946 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -637,7 +637,7 @@
 		5ED4E28724B3E33300B37946 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5ED4E28624B3E33300B37946 /* Metro Buddy.app */,
+				5ED4E28624B3E33300B37946 /* MetroBuddy.app */,
 				5ED4E29D24B3E3B400B37946 /* MetroKit.framework */,
 				5ED4E2A524B3E3B400B37946 /* MetroKitTests.xctest */,
 				5E5715C324C3A4AA0068F20B /* MetroBuddyUITests.xctest */,
@@ -793,9 +793,9 @@
 			productReference = 5E5715F724C3AC0F0068F20B /* MetroBuddyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		5ED4E28524B3E33300B37946 /* Metro Buddy */ = {
+		5ED4E28524B3E33300B37946 /* MetroBuddy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5ED4E29524B3E33D00B37946 /* Build configuration list for PBXNativeTarget "Metro Buddy" */;
+			buildConfigurationList = 5ED4E29524B3E33D00B37946 /* Build configuration list for PBXNativeTarget "MetroBuddy" */;
 			buildPhases = (
 				5ED4E28224B3E33300B37946 /* Sources */,
 				5ED4E28324B3E33300B37946 /* Frameworks */,
@@ -809,11 +809,11 @@
 				5ED4E2B124B3E3B400B37946 /* PBXTargetDependency */,
 				5E5715E824C3AA500068F20B /* PBXTargetDependency */,
 			);
-			name = "Metro Buddy";
+			name = MetroBuddy;
 			packageProductDependencies = (
 			);
 			productName = "Metro Buddy";
-			productReference = 5ED4E28624B3E33300B37946 /* Metro Buddy.app */;
+			productReference = 5ED4E28624B3E33300B37946 /* MetroBuddy.app */;
 			productType = "com.apple.product-type.application";
 		};
 		5ED4E29C24B3E3B400B37946 /* MetroKit */ = {
@@ -904,7 +904,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5ED4E28524B3E33300B37946 /* Metro Buddy */,
+				5ED4E28524B3E33300B37946 /* MetroBuddy */,
 				5ED4E29C24B3E3B400B37946 /* MetroKit */,
 				5E5715D324C3AA500068F20B /* MetroTesting */,
 				5ED4E2A424B3E3B400B37946 /* MetroKitTests */,
@@ -981,7 +981,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "FILENAME=\"MetroTesting.framework\"\nRESOURCE_PATH=\"${BUILT_PRODUCTS_DIR}/${FILENAME}\"\nBUILD_APP_DIR=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\"\nDESTINATION=\"$BUILD_APP_DIR/Frameworks/$FILENAME\"\n\nif [ \"$CONFIGURATION\" == \"Debug\" ]; then\ncp -R \"$RESOURCE_PATH\" \"$DESTINATION\"\n/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} ${OTHER_CODE_SIGN_FLAGS} --preserve-metadata=identifier,entitlements $DESTINATION\nfi\n";
+			shellScript = "FILENAME=\"MetroTesting.framework\"\nRESOURCE_PATH=\"${BUILT_PRODUCTS_DIR}/${FILENAME}\"\nBUILD_APP_DIR=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\"\nDESTINATION=\"$BUILD_APP_DIR/Frameworks/$FILENAME\"\n\nif [ \"$CONFIGURATION\" == \"Debug\" ]; then\ncp -R \"$RESOURCE_PATH\" \"$DESTINATION\"\n/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} ${OTHER_CODE_SIGN_FLAGS} --preserve-metadata=identifier,entitlements \"$DESTINATION\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1123,7 +1123,7 @@
 		};
 		5E5715C924C3A4AA0068F20B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5ED4E28524B3E33300B37946 /* Metro Buddy */;
+			target = 5ED4E28524B3E33300B37946 /* MetroBuddy */;
 			targetProxy = 5E5715C824C3A4AA0068F20B /* PBXContainerItemProxy */;
 		};
 		5E5715E824C3AA500068F20B /* PBXTargetDependency */ = {
@@ -1133,7 +1133,7 @@
 		};
 		5E5715FD24C3AC0F0068F20B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5ED4E28524B3E33300B37946 /* Metro Buddy */;
+			target = 5ED4E28524B3E33300B37946 /* MetroBuddy */;
 			targetProxy = 5E5715FC24C3AC0F0068F20B /* PBXContainerItemProxy */;
 		};
 		5ED4E2A824B3E3B400B37946 /* PBXTargetDependency */ = {
@@ -1574,7 +1574,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5ED4E29524B3E33D00B37946 /* Build configuration list for PBXNativeTarget "Metro Buddy" */ = {
+		5ED4E29524B3E33D00B37946 /* Build configuration list for PBXNativeTarget "MetroBuddy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5ED4E29624B3E33D00B37946 /* Debug */,
