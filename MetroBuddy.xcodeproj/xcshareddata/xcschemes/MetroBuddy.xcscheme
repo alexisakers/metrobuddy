@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5ED4E28524B3E33300B37946"
-               BuildableName = "Metro Buddy.app"
-               BlueprintName = "Metro Buddy"
+               BuildableName = "MetroBuddy.app"
+               BlueprintName = "MetroBuddy"
                ReferencedContainer = "container:MetroBuddy.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -40,8 +40,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5ED4E28524B3E33300B37946"
-            BuildableName = "Metro Buddy.app"
-            BlueprintName = "Metro Buddy"
+            BuildableName = "MetroBuddy.app"
+            BlueprintName = "MetroBuddy"
             ReferencedContainer = "container:MetroBuddy.xcodeproj">
          </BuildableReference>
       </CodeCoverageTargets>
@@ -93,8 +93,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5ED4E28524B3E33300B37946"
-            BuildableName = "Metro Buddy.app"
-            BlueprintName = "Metro Buddy"
+            BuildableName = "MetroBuddy.app"
+            BlueprintName = "MetroBuddy"
             ReferencedContainer = "container:MetroBuddy.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -110,8 +110,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5ED4E28524B3E33300B37946"
-            BuildableName = "Metro Buddy.app"
-            BlueprintName = "Metro Buddy"
+            BuildableName = "MetroBuddy.app"
+            BlueprintName = "MetroBuddy"
             ReferencedContainer = "container:MetroBuddy.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
