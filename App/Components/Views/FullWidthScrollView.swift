@@ -1,9 +1,12 @@
 import SwiftUI
+import Introspect
 
 /// A scroll view that fills the entire width of the screen.
 struct FullWidthScrollView<Content: View>: View {
+    let bounce: Axis.Set
     let content: Content
-    init(@ViewBuilder content: () -> Content) {
+    init(bounce: Axis.Set, @ViewBuilder content: () -> Content) {
+        self.bounce = bounce
         self.content = content()
     }
 
@@ -13,6 +16,11 @@ struct FullWidthScrollView<Content: View>: View {
                 self.content
                     .frame(width: geometry.size.width)
             }.frame(width: geometry.size.width)
+                // Temporary solution until SwiftUI exposes APIs to disable bouncing, see FB8072964
+                .introspectScrollView {
+                    $0.alwaysBounceVertical = self.bounce.contains(.vertical)
+                    $0.alwaysBounceHorizontal = self.bounce.contains(.horizontal)
+                }
         }
     }
 }

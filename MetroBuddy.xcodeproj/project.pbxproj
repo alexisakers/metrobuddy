@@ -87,6 +87,7 @@
 		5E57160F24C4A8520068F20B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E57160E24C4A8520068F20B /* Constants.swift */; };
 		5E57161224C4AB6F0068F20B /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E57161024C4AB490068F20B /* AppFactory.swift */; };
 		5E57161424C4ADD90068F20B /* NewInstallTestScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E57161324C4ADD90068F20B /* NewInstallTestScenario.swift */; };
+		5E7456AE24C50CCF00BDEF9C /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 5E7456AD24C50CCF00BDEF9C /* Introspect */; };
 		5EC7A60824BDE8F200E3ED39 /* Design+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */; };
 		5EC7A60B24BDEF0300E3ED39 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */; };
 		5EC7A60D24BDF15800E3ED39 /* PropertyListRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */; };
@@ -303,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5ED4E2B224B3E3B400B37946 /* MetroKit.framework in Frameworks */,
+				5E7456AE24C50CCF00BDEF9C /* Introspect in Frameworks */,
 				5E421A4324C1070400AB8ED4 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -814,6 +816,7 @@
 			);
 			name = MetroBuddy;
 			packageProductDependencies = (
+				5E7456AD24C50CCF00BDEF9C /* Introspect */,
 			);
 			productName = "Metro Buddy";
 			productReference = 5ED4E28624B3E33300B37946 /* MetroBuddy.app */;
@@ -902,6 +905,7 @@
 			mainGroup = 5ED4E27D24B3E33300B37946;
 			packageReferences = (
 				5E497D7D24BB3EB100EE584E /* XCRemoteSwiftPackageReference "CombineExt" */,
+				5E7456AC24C50CCF00BDEF9C /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = 5ED4E28724B3E33300B37946 /* Products */;
 			projectDirPath = "";
@@ -1618,6 +1622,14 @@
 				minimumVersion = 1.2.0;
 			};
 		};
+		5E7456AC24C50CCF00BDEF9C /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1625,6 +1637,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5E497D7D24BB3EB100EE584E /* XCRemoteSwiftPackageReference "CombineExt" */;
 			productName = CombineExt;
+		};
+		5E7456AD24C50CCF00BDEF9C /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5E7456AC24C50CCF00BDEF9C /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
 		};
 /* End XCSwiftPackageProductDependency section */
 

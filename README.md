@@ -95,5 +95,6 @@ The source code and documentation are [licensed](LICENSE) under the MIT license.
 Please note that the app is not affiliated with New York's MTA in any way.
 
 ### Third-Party Licenses
-The app uses the following third party library:
+The app uses the following third party libraries:
 - [CombineExt](https://github.com/CombineCommunity/CombineExt)
+- [Introspect for SwiftUI](https://github.com/siteline/SwiftUI-Introspect)
