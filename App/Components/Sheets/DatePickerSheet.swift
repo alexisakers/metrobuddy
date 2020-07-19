@@ -5,6 +5,7 @@ struct ExpirationDatePickerSheet: View {
     @Binding var isPresented: Bool
     let saveHandler: (Date) -> Void
     let resetHandler: () -> Void
+    let hasInitialSelection: Bool
 
     @State private var selectedDate: Date
 
@@ -13,6 +14,7 @@ struct ExpirationDatePickerSheet: View {
     init(initialValue: Date?, isPresented: Binding<Bool>, saveHandler: @escaping (Date) -> Void, resetHandler: @escaping () -> Void) {
         self.saveHandler = saveHandler
         self.resetHandler = resetHandler
+        self.hasInitialSelection = initialValue != nil
         self._isPresented = isPresented
         self._selectedDate = State(initialValue: initialValue ?? Date())
     }
@@ -36,6 +38,7 @@ struct ExpirationDatePickerSheet: View {
                         .frame(width: 24, height: 24, alignment: .trailing)
                         .padding(8)
                 }.accessibility(label: Text("Close"))
+                .accessibility(identifier: "close-button")
             }.padding(.horizontal, 16)
             .padding(.top, 16)
 
@@ -51,17 +54,22 @@ struct ExpirationDatePickerSheet: View {
                 design: .standard,
                 action: saveButtonTapped
             ).padding(.horizontal, 16)
+            .accessibility(identifier: "save-button")
+            .padding(.bottom, hasInitialSelection ? 0 : 8)
 
-            Button(action: resetButtonTapped) {
-                Text("Remove Expiration")
-                    .font(.body)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.accentColor)
-                    .minimumScaleFactor(0.1)
-                    .lineLimit(1)
-                    .padding(8)
-            }.padding(.horizontal, 16)
-            .padding(.bottom, 8)
+            if hasInitialSelection {
+                Button(action: resetButtonTapped) {
+                    Text("Remove Expiration")
+                        .font(.body)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.accentColor)
+                        .minimumScaleFactor(0.1)
+                        .lineLimit(1)
+                        .padding(8)
+                }.padding(.horizontal, 16)
+                .padding(.bottom, 8)
+                .accessibility(identifier: "remove-date-button")
+            }
         }.background(Color.contentBackground)
         .mask(RoundedRectangle.defaultStyle)
         .padding(.horizontal, UIDatePicker.isUltraCompact ? 0 : 16)

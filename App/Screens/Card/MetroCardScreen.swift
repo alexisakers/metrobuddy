@@ -84,6 +84,7 @@ struct MetroCardScreen: View {
                         resetHandler: { self.viewModel.saveExpirationDate(nil) }
                     )
                 }.transition(.opacity)
+                .animation(enableAnimations ? Animation.linear(duration: 0.25) : nil)
                 .accessibility(sortPriority: 1)
                 .zIndex(1)
             }

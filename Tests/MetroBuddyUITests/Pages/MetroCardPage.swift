@@ -38,6 +38,14 @@ class MetroCardPage: AppPage {
         app.buttons[fareButtonID].value as! String
     }
 
+    var serialNumberValue: String {
+        app.buttons[cardNumberButtonID].value as! String
+    }
+
+    var expirationDateValue: String {
+        app.buttons[expirationButtonID].value as! String
+    }
+
     // MARK: - Actions
 
     func performSwipe() {
@@ -62,8 +70,10 @@ class MetroCardPage: AppPage {
         return TextFieldAlertPage(app: app)
     }
 
-    func tapExpirationButtin() {
+    func tapExpirationButton() -> ExpirationDatePickerPage {
         app.buttons[expirationButtonID].tap()
+        sleep(1)
+        return ExpirationDatePickerPage(app: app)
     }
 
     func tapCardNumberButton() -> TextFieldAlertPage {

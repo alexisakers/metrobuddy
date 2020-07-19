@@ -2,8 +2,16 @@ import XCTest
 import MetroTesting
 
 class MetroBuddyUITests: ScenarioBasedTestCase<MetroCardPage> {
-    // MARK: - Actions
+    // MARK: - Initial State
+    func testThatItDisplaysCardAttributes() {
+        let page = rootPageWithScenario(ExistingCardAttributesTestScenario.self)
+        XCTAssertEqual(page.fareValue, "$2.75")
+        XCTAssertEqual(page.balanceValue, "$25.00")
+        XCTAssertEqual(page.serialNumberValue, "0123456789")
+        XCTAssertEqual(page.expirationDateValue, "Mar 20, 2020")
+    }
 
+    // MARK: - Actions
     func testUpdateFareAction() {
         let page = rootPageWithScenario(ReturningUserTestScenario.self)
 
@@ -11,7 +19,7 @@ class MetroBuddyUITests: ScenarioBasedTestCase<MetroCardPage> {
         XCTAssertEqual(page.fareValue, "$2.75")
         XCTAssertEqual(page.subtitle, "9 swipes left")
 
-        // Tapping on the alert and cancelling has no effect
+        // Tapping on the button and cancelling has no effect
         var alert = page.tapFareButton()
         XCTAssertFalse(alert.saveButton.isEnabled)
         alert.tapCancel()
@@ -41,7 +49,7 @@ class MetroBuddyUITests: ScenarioBasedTestCase<MetroCardPage> {
         XCTAssertEqual(page.balanceValue, "$25.00")
         XCTAssertEqual(page.subtitle, "9 swipes left")
 
-        // Tapping on the alert and cancelling has no effect
+        // Tapping on the button and cancelling has no effect
         var alert = page.tapBalanceButton()
         XCTAssertFalse(alert.saveButton.isEnabled)
         alert.tapCancel()
@@ -62,6 +70,46 @@ class MetroBuddyUITests: ScenarioBasedTestCase<MetroCardPage> {
 
         // The number of remaining swipes is updated
         XCTAssertEqual(page.subtitle, "1 swipe left")
+    }
+
+    func testSerialNumberAction() {
+        let page = rootPageWithScenario(ReturningUserTestScenario.self)
+
+        // Tapping on the button and cancelling has no effect
+        var alert = page.tapCardNumberButton()
+        XCTAssertFalse(alert.saveButton.isEnabled)
+        alert.tapCancel()
+        XCTAssertEqual(page.serialNumberValue, "Add")
+
+        // If you enter a valid value, the save button can be tapped and the value is updated
+        alert = page.tapCardNumberButton()
+        alert.enterText("0987654321")
+        alert.tapSave()
+        XCTAssertEqual(page.serialNumberValue, "0987654321")
+    }
+
+    func testExpirationDateAction() {
+        let page = rootPageWithScenario(ReturningUserTestScenario.self)
+
+        // Tapping on the button and cancelling has no effect
+        var alert = page.tapExpirationButton()
+        alert.tapCloseButton()
+        XCTAssertFalse(alert.removeDateButton.exists)
+        XCTAssertEqual(page.expirationDateValue, "Add")
+
+        // Seleting a date hides the alert and updates the text
+        alert = page.tapExpirationButton()
+        XCTAssertFalse(alert.removeDateButton.exists)
+
+        alert.selectDate(year: 2030, month: 3, day: 20)
+        alert.tapSaveButton()
+        XCTAssertEqual(page.expirationDateValue, "Mar 20, 2030")
+
+        // Removing the expiration updates the value
+        alert = page.tapExpirationButton()
+        XCTAssertTrue(alert.removeDateButton.exists)
+        alert.tapRemoveDateButton()
+        XCTAssertEqual(page.expirationDateValue, "Add")
     }
 
     // MARK: - Last Swipe
