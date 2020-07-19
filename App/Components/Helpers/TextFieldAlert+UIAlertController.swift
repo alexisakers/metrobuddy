@@ -3,6 +3,10 @@ import ObjectiveC
 
 /// An alert that displays a text field and enables or disables.
 class ValidatingTextFieldAlertController: UIAlertController {
+    private struct AssociatedKeys {
+        static var accessibilityID = "mby_accessibilityID"
+    }
+
     var validator: ((String?) -> Bool)?
     var validatedAction: UIAlertAction?
     
@@ -23,6 +27,7 @@ class ValidatingTextFieldAlertController: UIAlertController {
         // Configure the text field
         addTextField {
             $0.placeholder = textFieldAlert.inputPlaceholder
+            $0.accessibilityIdentifier = "alert-text-field"
             textFieldAlert.textFieldConfiguration?($0)
         }
         
@@ -44,11 +49,32 @@ class ValidatingTextFieldAlertController: UIAlertController {
                 dismiss()
             }
         )
-        
+
+        #if DEBUG
+        objc_setAssociatedObject(cancelAction, &AssociatedKeys.accessibilityID, "alert-cancel-button", .OBJC_ASSOCIATION_RETAIN)
+        objc_setAssociatedObject(acceptAction, &AssociatedKeys.accessibilityID, "alert-save-button", .OBJC_ASSOCIATION_RETAIN)
+        #endif
+
         addAction(cancelAction)
         addAction(acceptAction)
         preferredAction = acceptAction
         validatedAction = acceptAction
+    }
+
+    /// Adds the accessibility IDs to the action views in debug configurations, as it uses a private API.
+    func applyAccessibilityIdentifiers() {
+        #if DEBUG
+        for action in actions {
+            guard
+                let accessibilityID = objc_getAssociatedObject(action, &AssociatedKeys.accessibilityID) as? String,
+                let representer = action.value(forKey: "__representer") as? UIView
+            else {
+                continue
+            }
+
+            representer.accessibilityIdentifier = accessibilityID
+        }
+        #endif
     }
 
     override func viewDidLoad() {

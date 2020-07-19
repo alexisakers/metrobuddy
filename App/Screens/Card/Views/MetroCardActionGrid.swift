@@ -16,14 +16,14 @@ struct MetroCardActionGrid: View {
                     value: nil,
                     actionLabel: .update,
                     action: updateBalanceButtonTapped
-                )
+                ).accessibility(identifier: "balance-button")
 
                 MetroCardActionButton(
                     title: "FARE",
                     value: viewModel.data.formattedFare,
                     actionLabel: .update,
                     action: updateFareButtonTapped
-                )
+                ).accessibility(identifier: "fare-button")
             }
             
             FlexibleStack(hStackAlignment: .top, vStackAlignment: .leading) {
@@ -32,14 +32,14 @@ struct MetroCardActionGrid: View {
                     value: viewModel.data.formattedExpirationDate,
                     actionLabel: .add,
                     action: updateExpirationDateButtonTapped
-                )
+                ).accessibility(identifier: "expiration-button")
 
                 MetroCardActionButton(
                     title: "CARD NUMBER",
                     value: viewModel.data.formattedSerialNumber,
                     actionLabel: .add,
                     action: updateSerialNumberButtonTapped
-                )
+                ).accessibility(identifier: "card-number-button")
             }
         }
     }

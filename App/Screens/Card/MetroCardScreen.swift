@@ -5,6 +5,7 @@ import MetroKit
 struct MetroCardScreen: View {
     @Environment(\.haptics) var haptics
     @Environment(\.configuration) var appConfiguration
+    @Environment(\.enableAnimations) var enableAnimations
     @EnvironmentObject var toastQueue: ToastQueue
     @EnvironmentObject var viewModel: MetroCardViewModel
 
@@ -45,8 +46,7 @@ struct MetroCardScreen: View {
                         .offset(offset)
                         .onTapGesture(perform: cardTapped)
                         .gesture(dragGesture)
-                        .transition(AnyTransition.identity.animation(nil))
-                        .animation(.spring())
+                        .animation(enableAnimations ? Animation.spring() : nil)
                         .accessibilityAction(named: Text("Swipe Card"), recordSwipe)
 
                     if viewModel.data.isOnboarded {
@@ -56,7 +56,7 @@ struct MetroCardScreen: View {
                             background: Color.prominentContainerBackground,
                             design: .standard,
                             action: recordSwipe
-                        )
+                        ).accessibility(identifier: "swipe-button")
                     } else {
                         OnboardingTipView()
                     }

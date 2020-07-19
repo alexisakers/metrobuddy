@@ -17,6 +17,8 @@ struct Toast: View {
             .background(Color.black)
             .mask(RoundedRectangle.defaultStyle)
             .shadow(radius: 8)
+            .accessibility(addTraits: .isStaticText)
+            .accessibility(identifier: "toast")
     }
 }
 

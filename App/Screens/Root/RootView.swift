@@ -12,6 +12,7 @@ struct RootView: View {
             contentView
                 .edgesIgnoringSafeArea(.all)
                 .zIndex(0)
+                .accessibilityElement(children: .contain)
 
             toastQueue.toastText.map { toastText in
                 Toast(text: toastText)
@@ -24,6 +25,7 @@ struct RootView: View {
                     .zIndex(1)
             }
         }.background(BackgroundView())
+        .accessibilityElement(children: .contain)
     }
     
     var contentView: some View {

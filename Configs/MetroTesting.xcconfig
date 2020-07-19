@@ -1,0 +1,4 @@
+#include "Base.xcconfig"
+
+PRODUCT_BUNDLE_IDENTIFIER = ${DOMAIN}.MetroTesting;
+INFOPLIST_FILE = Configs/MetroTesting.Info.plist;

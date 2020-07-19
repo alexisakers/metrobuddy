@@ -26,6 +26,10 @@ private struct CanSendMailEnvironmentKey: EnvironmentKey {
     static var defaultValue: Bool = MFMailComposeViewController.canSendMail()
 }
 
+private struct EnableAnimationsEnvironmentKey: EnvironmentKey {
+    static var defaultValue: Bool = !ProcessInfo.processInfo.arguments.contains("-DisableAnimations")
+}
+
 extension EnvironmentValues {
     /// The app's static configuration.
     var configuration: AppConfiguration {
@@ -37,5 +41,11 @@ extension EnvironmentValues {
     var canSendMail: Bool {
         get { self[CanSendMailEnvironmentKey.self] }
         set { self[CanSendMailEnvironmentKey.self] = newValue }
+    }
+
+    /// Whether animations are enabled.
+    var enableAnimations: Bool {
+        get { self[EnableAnimationsEnvironmentKey.self] }
+        set { self[EnableAnimationsEnvironmentKey.self] = newValue }
     }
 }

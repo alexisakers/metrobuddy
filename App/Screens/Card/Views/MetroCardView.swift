@@ -40,5 +40,7 @@ struct MetroCardView: View {
         .accessibility(addTraits: .isButton)
         .accessibility(label: Text("Card Balance"))
         .accessibility(value: Text(formattedBalance))
+        .accessibility(addTraits: .isButton)
+        .accessibility(identifier: "card")
     }
 }

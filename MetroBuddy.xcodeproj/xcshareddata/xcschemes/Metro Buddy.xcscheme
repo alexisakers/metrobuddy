@@ -56,6 +56,36 @@
                ReferencedContainer = "container:MetroBuddy.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5E5715C224C3A4AA0068F20B"
+               BuildableName = "MetroBuddyUITests.xctest"
+               BlueprintName = "MetroBuddyUITests"
+               ReferencedContainer = "container:MetroBuddy.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5E5715DB24C3AA500068F20B"
+               BuildableName = "MetroTestingTests.xctest"
+               BlueprintName = "MetroTestingTests"
+               ReferencedContainer = "container:MetroBuddy.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5E5715F624C3AC0F0068F20B"
+               BuildableName = "MetroBuddyTests.xctest"
+               BlueprintName = "MetroBuddyTests"
+               ReferencedContainer = "container:MetroBuddy.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

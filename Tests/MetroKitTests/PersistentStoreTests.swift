@@ -32,7 +32,7 @@ final class PersistentStoreTest: FileBasedTestCase {
         
     // MARK: - Helpers
     
-    func assertConfiguration(_ storeDescription: NSPersistentStoreDescription, file: StaticString = #filePath, line: UInt = #line) {
+    func assertConfiguration(_ storeDescription: NSPersistentStoreDescription, file: StaticString = #file, line: UInt = #line) {
         XCTAssertFalse(storeDescription.shouldAddStoreAsynchronously, file: file, line: line)
         XCTAssertTrue(storeDescription.shouldInferMappingModelAutomatically, file: file, line: line)
         XCTAssertTrue(storeDescription.shouldMigrateStoreAutomatically, file: file, line: line)

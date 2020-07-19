@@ -134,14 +134,14 @@ final class PersistentMetroCardDataStoreTests: XCTestCase {
     
     // MARK: - Helpers
     
-    func assertEqualVisibleData(_ lhs: MetroCard, _ rhs: MetroCard, file: StaticString = #filePath, line: UInt = #line) {
+    func assertEqualVisibleData(_ lhs: MetroCard, _ rhs: MetroCard, file: StaticString = #file, line: UInt = #line) {
         XCTAssertEqual(lhs.balance, rhs.balance, file: file, line: line)
         XCTAssertEqual(lhs.fare, rhs.fare, file: file, line: line)
         XCTAssertEqual(lhs.expirationDate, rhs.expirationDate, file: file, line: line)
         XCTAssertEqual(lhs.serialNumber, rhs.serialNumber, file: file, line: line)
     }
     
-    func observe(_ card: ObjectReference<MetroCard>, receiveValue: @escaping (ObjectReference<MetroCard>) -> Bool, file: StaticString = #filePath, line: UInt = #line)  -> XCTestExpectation {
+    func observe(_ card: ObjectReference<MetroCard>, receiveValue: @escaping (ObjectReference<MetroCard>) -> Bool, file: StaticString = #file, line: UInt = #line)  -> XCTestExpectation {
         let receiveUpdateExpectation = expectation(description: "The cards stream sends an update.")
         sut.publisher(for: card)
             .share()
@@ -160,7 +160,7 @@ final class PersistentMetroCardDataStoreTests: XCTestCase {
         return receiveUpdateExpectation
     }
     
-    func applyUpdates(_ updates: [MetroCardUpdate], to card: ObjectReference<MetroCard>, file: StaticString = #filePath, line: UInt = #line) -> XCTestExpectation {
+    func applyUpdates(_ updates: [MetroCardUpdate], to card: ObjectReference<MetroCard>, file: StaticString = #file, line: UInt = #line) -> XCTestExpectation {
         let finishUpdateExpectation = expectation(description: "The update finishes.")
         sut.applyUpdates(updates, to: card)
             .sink(

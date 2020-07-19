@@ -25,6 +25,12 @@
 		5E17D37924BFD1A7003E99D1 /* Alert+ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E17D37824BFD1A7003E99D1 /* Alert+ErrorMessage.swift */; };
 		5E17D37B24C0AE04003E99D1 /* TextFieldAlert+UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E17D37A24C0AE03003E99D1 /* TextFieldAlert+UIAlertController.swift */; };
 		5E17D37D24C0BE97003E99D1 /* TextFieldAlertWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E17D37C24C0BE97003E99D1 /* TextFieldAlertWrapper.swift */; };
+		5E2F16D524C4B8320097D0EB /* MetroTesting.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5E5715D424C3AA500068F20B /* MetroTesting.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5E2F16D624C4B8CF0097D0EB /* MetroTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E5715D424C3AA500068F20B /* MetroTesting.framework */; };
+		5E2F16D924C4BFC00097D0EB /* ReturningUserTestScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2F16D724C4BF9A0097D0EB /* ReturningUserTestScenario.swift */; };
+		5E2F16E124C4C26B0097D0EB /* AppPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2F16DE24C4C23A0097D0EB /* AppPage.swift */; };
+		5E2F16E224C4C3C40097D0EB /* XCUIApplication+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2F16DB24C4C1CD0097D0EB /* XCUIApplication+Helpers.swift */; };
+		5E2F16E624C4C4C60097D0EB /* OneSwipeLeftTestScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2F16E324C4C48F0097D0EB /* OneSwipeLeftTestScenario.swift */; };
 		5E421A3B24C103E200AB8ED4 /* Design+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E421A3A24C103E200AB8ED4 /* Design+Colors.swift */; };
 		5E421A3D24C103FE00AB8ED4 /* Design+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E421A3C24C103FE00AB8ED4 /* Design+Images.swift */; };
 		5E421A3F24C1041700AB8ED4 /* Design+Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E421A3E24C1041700AB8ED4 /* Design+Shapes.swift */; };
@@ -65,6 +71,19 @@
 		5E497DA024BD167C00EE584E /* MetroCardActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D9F24BD167C00EE584E /* MetroCardActionButton.swift */; };
 		5E497DA224BD378300EE584E /* MetroCardActionGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497DA124BD378200EE584E /* MetroCardActionGrid.swift */; };
 		5E497DA624BD3CC400EE584E /* TextFieldAlert+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497DA524BD3CC400EE584E /* TextFieldAlert+Factory.swift */; };
+		5E5715C624C3A4AA0068F20B /* MetroBuddyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5715C524C3A4AA0068F20B /* MetroBuddyUITests.swift */; };
+		5E5715CE24C3A6740068F20B /* MetroCardPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5715CD24C3A6740068F20B /* MetroCardPage.swift */; };
+		5E5715E624C3AA500068F20B /* MetroTesting.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E5715D624C3AA500068F20B /* MetroTesting.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E5715F224C3AA680068F20B /* MockMetroCardDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5715F124C3AA680068F20B /* MockMetroCardDataStore.swift */; };
+		5E5715FA24C3AC0F0068F20B /* MetroBuddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5715F924C3AC0F0068F20B /* MetroBuddyTests.swift */; };
+		5E57160224C3AC240068F20B /* RootViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E57160124C3AC240068F20B /* RootViewModelTests.swift */; };
+		5E57160424C3AE6F0068F20B /* TextFieldAlertPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E57160324C3AE6F0068F20B /* TextFieldAlertPage.swift */; };
+		5E57160724C4A0520068F20B /* TestScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E57160624C4A0520068F20B /* TestScenario.swift */; };
+		5E57160B24C4A62F0068F20B /* MetroCard+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E57160A24C4A62F0068F20B /* MetroCard+Helpers.swift */; };
+		5E57160D24C4A8170068F20B /* FakeManagedObjectID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E57160C24C4A8170068F20B /* FakeManagedObjectID.swift */; };
+		5E57160F24C4A8520068F20B /* DataStoreTestDidEmitExternalChangeNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E57160E24C4A8520068F20B /* DataStoreTestDidEmitExternalChangeNotification.swift */; };
+		5E57161224C4AB6F0068F20B /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E57161024C4AB490068F20B /* AppFactory.swift */; };
+		5E57161424C4ADD90068F20B /* NewInstallTestScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E57161324C4ADD90068F20B /* NewInstallTestScenario.swift */; };
 		5EC7A60824BDE8F200E3ED39 /* Design+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */; };
 		5EC7A60B24BDEF0300E3ED39 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */; };
 		5EC7A60D24BDF15800E3ED39 /* PropertyListRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */; };
@@ -84,6 +103,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5E2F16D324C4B7CD0097D0EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5ED4E27E24B3E33300B37946 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5ED4E29C24B3E3B400B37946;
+			remoteInfo = MetroKit;
+		};
+		5E5715C824C3A4AA0068F20B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5ED4E27E24B3E33300B37946 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5ED4E28524B3E33300B37946;
+			remoteInfo = "Metro Buddy";
+		};
+		5E5715E724C3AA500068F20B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5ED4E27E24B3E33300B37946 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E5715D324C3AA500068F20B;
+			remoteInfo = MetroTesting;
+		};
+		5E5715FC24C3AC0F0068F20B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5ED4E27E24B3E33300B37946 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5ED4E28524B3E33300B37946;
+			remoteInfo = "Metro Buddy";
+		};
 		5ED4E2A724B3E3B400B37946 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5ED4E27E24B3E33300B37946 /* Project object */;
@@ -107,6 +154,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				5E2F16D524C4B8320097D0EB /* MetroTesting.framework in Embed Frameworks */,
 				5ED4E2B324B3E3B400B37946 /* MetroKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -133,6 +181,10 @@
 		5E17D37824BFD1A7003E99D1 /* Alert+ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+ErrorMessage.swift"; sourceTree = "<group>"; };
 		5E17D37A24C0AE03003E99D1 /* TextFieldAlert+UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldAlert+UIAlertController.swift"; sourceTree = "<group>"; };
 		5E17D37C24C0BE97003E99D1 /* TextFieldAlertWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAlertWrapper.swift; sourceTree = "<group>"; };
+		5E2F16D724C4BF9A0097D0EB /* ReturningUserTestScenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturningUserTestScenario.swift; sourceTree = "<group>"; };
+		5E2F16DB24C4C1CD0097D0EB /* XCUIApplication+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Helpers.swift"; sourceTree = "<group>"; };
+		5E2F16DE24C4C23A0097D0EB /* AppPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPage.swift; sourceTree = "<group>"; };
+		5E2F16E324C4C48F0097D0EB /* OneSwipeLeftTestScenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneSwipeLeftTestScenario.swift; sourceTree = "<group>"; };
 		5E421A3A24C103E200AB8ED4 /* Design+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Colors.swift"; sourceTree = "<group>"; };
 		5E421A3C24C103FE00AB8ED4 /* Design+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Images.swift"; sourceTree = "<group>"; };
 		5E421A3E24C1041700AB8ED4 /* Design+Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Shapes.swift"; sourceTree = "<group>"; };
@@ -174,6 +226,26 @@
 		5E497D9F24BD167C00EE584E /* MetroCardActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroCardActionButton.swift; sourceTree = "<group>"; };
 		5E497DA124BD378200EE584E /* MetroCardActionGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroCardActionGrid.swift; sourceTree = "<group>"; };
 		5E497DA524BD3CC400EE584E /* TextFieldAlert+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldAlert+Factory.swift"; sourceTree = "<group>"; };
+		5E5715C324C3A4AA0068F20B /* MetroBuddyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetroBuddyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E5715C524C3A4AA0068F20B /* MetroBuddyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroBuddyUITests.swift; sourceTree = "<group>"; };
+		5E5715C724C3A4AA0068F20B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E5715CD24C3A6740068F20B /* MetroCardPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroCardPage.swift; sourceTree = "<group>"; };
+		5E5715D424C3AA500068F20B /* MetroTesting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MetroTesting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E5715D624C3AA500068F20B /* MetroTesting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MetroTesting.h; sourceTree = "<group>"; };
+		5E5715D724C3AA500068F20B /* MetroTesting.Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MetroTesting.Info.plist; sourceTree = "<group>"; };
+		5E5715F124C3AA680068F20B /* MockMetroCardDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMetroCardDataStore.swift; sourceTree = "<group>"; };
+		5E5715F724C3AC0F0068F20B /* MetroBuddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetroBuddyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E5715F924C3AC0F0068F20B /* MetroBuddyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroBuddyTests.swift; sourceTree = "<group>"; };
+		5E5715FB24C3AC0F0068F20B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E57160124C3AC240068F20B /* RootViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModelTests.swift; sourceTree = "<group>"; };
+		5E57160324C3AE6F0068F20B /* TextFieldAlertPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAlertPage.swift; sourceTree = "<group>"; };
+		5E57160624C4A0520068F20B /* TestScenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScenario.swift; sourceTree = "<group>"; };
+		5E57160924C4A3720068F20B /* MetroTesting.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MetroTesting.xcconfig; sourceTree = "<group>"; };
+		5E57160A24C4A62F0068F20B /* MetroCard+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MetroCard+Helpers.swift"; sourceTree = "<group>"; };
+		5E57160C24C4A8170068F20B /* FakeManagedObjectID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeManagedObjectID.swift; sourceTree = "<group>"; };
+		5E57160E24C4A8520068F20B /* DataStoreTestDidEmitExternalChangeNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreTestDidEmitExternalChangeNotification.swift; sourceTree = "<group>"; };
+		5E57161024C4AB490068F20B /* AppFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
+		5E57161324C4ADD90068F20B /* NewInstallTestScenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInstallTestScenario.swift; sourceTree = "<group>"; };
 		5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Fonts.swift"; sourceTree = "<group>"; };
 		5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListRepresentable.swift; sourceTree = "<group>"; };
@@ -198,10 +270,32 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5E5715C024C3A4AA0068F20B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E5715D124C3AA500068F20B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E5715F424C3AC0F0068F20B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5ED4E28324B3E33300B37946 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E2F16D624C4B8CF0097D0EB /* MetroTesting.framework in Frameworks */,
 				5ED4E2B224B3E3B400B37946 /* MetroKit.framework in Frameworks */,
 				5E421A4324C1070400AB8ED4 /* CloudKit.framework in Frameworks */,
 			);
@@ -261,6 +355,7 @@
 				5E17D37324BF659D003E99D1 /* InfoPlist.swift */,
 				5E03304724BF3C53001D86D1 /* AppConfiguration.swift */,
 				5E03305324BF5FBA001D86D1 /* Haptics.swift */,
+				5E57161024C4AB490068F20B /* AppFactory.swift */,
 			);
 			path = Environment;
 			sourceTree = "<group>";
@@ -357,6 +452,24 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		5E2F16DA24C4C1C20097D0EB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5E2F16DB24C4C1CD0097D0EB /* XCUIApplication+Helpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5E2F16DD24C4C2200097D0EB /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				5E2F16DE24C4C23A0097D0EB /* AppPage.swift */,
+				5E5715CD24C3A6740068F20B /* MetroCardPage.swift */,
+				5E57160324C3AE6F0068F20B /* TextFieldAlertPage.swift */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
 		5E421A4124C1070400AB8ED4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,12 +506,70 @@
 				5ED4E2C424B3E56200B37946 /* Base.xcconfig */,
 				5ED4E2C724B400BF00B37946 /* App.xcconfig */,
 				5E497D8424BB401100EE584E /* MetroKit.xcconfig */,
+				5E57160924C4A3720068F20B /* MetroTesting.xcconfig */,
 				5ED4E29224B3E33D00B37946 /* App.Info.plist */,
 				5ED4E2A024B3E3B400B37946 /* MetroKit.Info.plist */,
+				5E5715D724C3AA500068F20B /* MetroTesting.Info.plist */,
 				5E03304524BF3C29001D86D1 /* App.Configuration.plist */,
 				5E421A4024C106F100AB8ED4 /* MetroBuddy.entitlements */,
 			);
 			path = Configs;
+			sourceTree = "<group>";
+		};
+		5E5715C424C3A4AA0068F20B /* MetroBuddyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5E5715C524C3A4AA0068F20B /* MetroBuddyUITests.swift */,
+				5E2F16DD24C4C2200097D0EB /* Pages */,
+				5E2F16DA24C4C1C20097D0EB /* Helpers */,
+				5E5715C724C3A4AA0068F20B /* Info.plist */,
+			);
+			path = MetroBuddyUITests;
+			sourceTree = "<group>";
+		};
+		5E5715D524C3AA500068F20B /* MetroTesting */ = {
+			isa = PBXGroup;
+			children = (
+				5E5715D624C3AA500068F20B /* MetroTesting.h */,
+				5E57160524C4A03E0068F20B /* Scenarios */,
+				5E5715F124C3AA680068F20B /* MockMetroCardDataStore.swift */,
+				5E57160A24C4A62F0068F20B /* MetroCard+Helpers.swift */,
+				5E57160C24C4A8170068F20B /* FakeManagedObjectID.swift */,
+				5E57160E24C4A8520068F20B /* DataStoreTestDidEmitExternalChangeNotification.swift */,
+			);
+			path = MetroTesting;
+			sourceTree = "<group>";
+		};
+		5E5715F824C3AC0F0068F20B /* MetroBuddyTests */ = {
+			isa = PBXGroup;
+			children = (
+				5E5715F924C3AC0F0068F20B /* MetroBuddyTests.swift */,
+				5E57160124C3AC240068F20B /* RootViewModelTests.swift */,
+				5E5715FB24C3AC0F0068F20B /* Info.plist */,
+			);
+			path = MetroBuddyTests;
+			sourceTree = "<group>";
+		};
+		5E57160524C4A03E0068F20B /* Scenarios */ = {
+			isa = PBXGroup;
+			children = (
+				5E57160624C4A0520068F20B /* TestScenario.swift */,
+				5E57161324C4ADD90068F20B /* NewInstallTestScenario.swift */,
+				5E2F16D724C4BF9A0097D0EB /* ReturningUserTestScenario.swift */,
+				5E2F16E324C4C48F0097D0EB /* OneSwipeLeftTestScenario.swift */,
+			);
+			path = Scenarios;
+			sourceTree = "<group>";
+		};
+		5E57160824C4A2F90068F20B /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				5E5715D524C3AA500068F20B /* MetroTesting */,
+				5ED4E2AB24B3E3B400B37946 /* MetroKitTests */,
+				5E5715C424C3A4AA0068F20B /* MetroBuddyUITests */,
+				5E5715F824C3AC0F0068F20B /* MetroBuddyTests */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		5EC4EDEC24C0E7FA00747DA3 /* Sheets */ = {
@@ -441,7 +612,7 @@
 				5E497D8324BB3FA100EE584E /* Configs */,
 				5ED4E28824B3E33300B37946 /* App */,
 				5ED4E29E24B3E3B400B37946 /* MetroKit */,
-				5ED4E2AB24B3E3B400B37946 /* MetroKitTests */,
+				5E57160824C4A2F90068F20B /* Tests */,
 				5ED4E28724B3E33300B37946 /* Products */,
 				5E421A4124C1070400AB8ED4 /* Frameworks */,
 			);
@@ -453,6 +624,9 @@
 				5ED4E28624B3E33300B37946 /* Metro Buddy.app */,
 				5ED4E29D24B3E3B400B37946 /* MetroKit.framework */,
 				5ED4E2A524B3E3B400B37946 /* MetroKitTests.xctest */,
+				5E5715C324C3A4AA0068F20B /* MetroBuddyUITests.xctest */,
+				5E5715D424C3AA500068F20B /* MetroTesting.framework */,
+				5E5715F724C3AC0F0068F20B /* MetroBuddyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -531,6 +705,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		5E5715CF24C3AA500068F20B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E5715E624C3AA500068F20B /* MetroTesting.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5ED4E29824B3E3B400B37946 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -541,6 +723,61 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		5E5715C224C3A4AA0068F20B /* MetroBuddyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E5715CC24C3A4AA0068F20B /* Build configuration list for PBXNativeTarget "MetroBuddyUITests" */;
+			buildPhases = (
+				5E5715BF24C3A4AA0068F20B /* Sources */,
+				5E5715C024C3A4AA0068F20B /* Frameworks */,
+				5E5715C124C3A4AA0068F20B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5E5715C924C3A4AA0068F20B /* PBXTargetDependency */,
+			);
+			name = MetroBuddyUITests;
+			productName = MetroBuddyUITests;
+			productReference = 5E5715C324C3A4AA0068F20B /* MetroBuddyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		5E5715D324C3AA500068F20B /* MetroTesting */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E5715EB24C3AA500068F20B /* Build configuration list for PBXNativeTarget "MetroTesting" */;
+			buildPhases = (
+				5E5715CF24C3AA500068F20B /* Headers */,
+				5E5715D024C3AA500068F20B /* Sources */,
+				5E5715D124C3AA500068F20B /* Frameworks */,
+				5E5715D224C3AA500068F20B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5E2F16D424C4B7CD0097D0EB /* PBXTargetDependency */,
+			);
+			name = MetroTesting;
+			productName = MetroTesting;
+			productReference = 5E5715D424C3AA500068F20B /* MetroTesting.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5E5715F624C3AC0F0068F20B /* MetroBuddyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E5715FE24C3AC0F0068F20B /* Build configuration list for PBXNativeTarget "MetroBuddyTests" */;
+			buildPhases = (
+				5E5715F324C3AC0F0068F20B /* Sources */,
+				5E5715F424C3AC0F0068F20B /* Frameworks */,
+				5E5715F524C3AC0F0068F20B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5E5715FD24C3AC0F0068F20B /* PBXTargetDependency */,
+			);
+			name = MetroBuddyTests;
+			productName = MetroBuddyTests;
+			productReference = 5E5715F724C3AC0F0068F20B /* MetroBuddyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		5ED4E28524B3E33300B37946 /* Metro Buddy */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5ED4E29524B3E33D00B37946 /* Build configuration list for PBXNativeTarget "Metro Buddy" */;
@@ -554,6 +791,7 @@
 			);
 			dependencies = (
 				5ED4E2B124B3E3B400B37946 /* PBXTargetDependency */,
+				5E5715E824C3AA500068F20B /* PBXTargetDependency */,
 			);
 			name = "Metro Buddy";
 			packageProductDependencies = (
@@ -610,6 +848,18 @@
 				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
+					5E5715C224C3A4AA0068F20B = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = 5ED4E28524B3E33300B37946;
+					};
+					5E5715D324C3AA500068F20B = {
+						CreatedOnToolsVersion = 12.0;
+						LastSwiftMigration = 1200;
+					};
+					5E5715F624C3AC0F0068F20B = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = 5ED4E28524B3E33300B37946;
+					};
 					5ED4E28524B3E33300B37946 = {
 						CreatedOnToolsVersion = 12.0;
 					};
@@ -641,11 +891,35 @@
 				5ED4E28524B3E33300B37946 /* Metro Buddy */,
 				5ED4E29C24B3E3B400B37946 /* MetroKit */,
 				5ED4E2A424B3E3B400B37946 /* MetroKitTests */,
+				5E5715C224C3A4AA0068F20B /* MetroBuddyUITests */,
+				5E5715D324C3AA500068F20B /* MetroTesting */,
+				5E5715F624C3AC0F0068F20B /* MetroBuddyTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5E5715C124C3A4AA0068F20B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E5715D224C3AA500068F20B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E5715F524C3AC0F0068F20B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5ED4E28424B3E33300B37946 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -675,6 +949,42 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5E5715BF24C3A4AA0068F20B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E57160424C3AE6F0068F20B /* TextFieldAlertPage.swift in Sources */,
+				5E5715CE24C3A6740068F20B /* MetroCardPage.swift in Sources */,
+				5E2F16E124C4C26B0097D0EB /* AppPage.swift in Sources */,
+				5E2F16E224C4C3C40097D0EB /* XCUIApplication+Helpers.swift in Sources */,
+				5E5715C624C3A4AA0068F20B /* MetroBuddyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E5715D024C3AA500068F20B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E57160D24C4A8170068F20B /* FakeManagedObjectID.swift in Sources */,
+				5E57160B24C4A62F0068F20B /* MetroCard+Helpers.swift in Sources */,
+				5E2F16E624C4C4C60097D0EB /* OneSwipeLeftTestScenario.swift in Sources */,
+				5E5715F224C3AA680068F20B /* MockMetroCardDataStore.swift in Sources */,
+				5E57160F24C4A8520068F20B /* DataStoreTestDidEmitExternalChangeNotification.swift in Sources */,
+				5E57161424C4ADD90068F20B /* NewInstallTestScenario.swift in Sources */,
+				5E2F16D924C4BFC00097D0EB /* ReturningUserTestScenario.swift in Sources */,
+				5E57160724C4A0520068F20B /* TestScenario.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E5715F324C3AC0F0068F20B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E57160224C3AC240068F20B /* RootViewModelTests.swift in Sources */,
+				5E5715FA24C3AC0F0068F20B /* MetroBuddyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5ED4E28224B3E33300B37946 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -710,6 +1020,7 @@
 				5E497D4624B7EFF500EE584E /* MetroCardShape.swift in Sources */,
 				5E497D9424BC822D00EE584E /* DatePickerSheet.swift in Sources */,
 				5E421A7224C1D7D900AB8ED4 /* ContentSize+UIKit.swift in Sources */,
+				5E57161224C4AB6F0068F20B /* AppFactory.swift in Sources */,
 				5E03305424BF5FBA001D86D1 /* Haptics.swift in Sources */,
 				5E497D9624BC866C00EE584E /* ModalSheet.swift in Sources */,
 				5E497D6324B9503300EE584E /* TextFieldAlert.swift in Sources */,
@@ -763,6 +1074,26 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5E2F16D424C4B7CD0097D0EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5ED4E29C24B3E3B400B37946 /* MetroKit */;
+			targetProxy = 5E2F16D324C4B7CD0097D0EB /* PBXContainerItemProxy */;
+		};
+		5E5715C924C3A4AA0068F20B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5ED4E28524B3E33300B37946 /* Metro Buddy */;
+			targetProxy = 5E5715C824C3A4AA0068F20B /* PBXContainerItemProxy */;
+		};
+		5E5715E824C3AA500068F20B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5E5715D324C3AA500068F20B /* MetroTesting */;
+			targetProxy = 5E5715E724C3AA500068F20B /* PBXContainerItemProxy */;
+		};
+		5E5715FD24C3AC0F0068F20B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5ED4E28524B3E33300B37946 /* Metro Buddy */;
+			targetProxy = 5E5715FC24C3AC0F0068F20B /* PBXContainerItemProxy */;
+		};
 		5ED4E2A824B3E3B400B37946 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5ED4E29C24B3E3B400B37946 /* MetroKit */;
@@ -776,6 +1107,142 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		5E5715CA24C3A4AA0068F20B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5ED4E2C424B3E56200B37946 /* Base.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 75E8K39Z38;
+				INFOPLIST_FILE = Tests/MetroBuddyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.alexisonline.MetroBuddyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Metro Buddy";
+			};
+			name = Debug;
+		};
+		5E5715CB24C3A4AA0068F20B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 75E8K39Z38;
+				INFOPLIST_FILE = Tests/MetroBuddyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.alexisonline.MetroBuddyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Metro Buddy";
+			};
+			name = Release;
+		};
+		5E5715EC24C3AA500068F20B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E57160924C4A3720068F20B /* MetroTesting.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 75E8K39Z38;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.alexisonline.MetroTesting;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5E5715ED24C3AA500068F20B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 75E8K39Z38;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.alexisonline.MetroTesting;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5E5715FF24C3AC0F0068F20B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5ED4E2C424B3E56200B37946 /* Base.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 75E8K39Z38;
+				INFOPLIST_FILE = Tests/MetroBuddyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.alexisonline.MetroBuddyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Metro Buddy.app/Metro Buddy";
+			};
+			name = Debug;
+		};
+		5E57160024C3AC0F0068F20B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 75E8K39Z38;
+				INFOPLIST_FILE = Tests/MetroBuddyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.alexisonline.MetroBuddyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Metro Buddy.app/Metro Buddy";
+			};
+			name = Release;
+		};
 		5ED4E29324B3E33D00B37946 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -827,7 +1294,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -882,7 +1349,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -985,11 +1452,12 @@
 		};
 		5ED4E2B924B3E3B400B37946 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5ED4E2C424B3E56200B37946 /* Base.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 75E8K39Z38;
-				INFOPLIST_FILE = MetroKitTests/Info.plist;
+				INFOPLIST_FILE = Tests/MetroKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1008,7 +1476,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 75E8K39Z38;
-				INFOPLIST_FILE = MetroKitTests/Info.plist;
+				INFOPLIST_FILE = Tests/MetroKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1024,6 +1492,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5E5715CC24C3A4AA0068F20B /* Build configuration list for PBXNativeTarget "MetroBuddyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E5715CA24C3A4AA0068F20B /* Debug */,
+				5E5715CB24C3A4AA0068F20B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E5715EB24C3AA500068F20B /* Build configuration list for PBXNativeTarget "MetroTesting" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E5715EC24C3AA500068F20B /* Debug */,
+				5E5715ED24C3AA500068F20B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E5715FE24C3AC0F0068F20B /* Build configuration list for PBXNativeTarget "MetroBuddyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E5715FF24C3AC0F0068F20B /* Debug */,
+				5E57160024C3AC0F0068F20B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5ED4E28124B3E33300B37946 /* Build configuration list for PBXProject "MetroBuddy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

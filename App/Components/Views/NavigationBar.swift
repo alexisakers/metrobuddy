@@ -21,6 +21,8 @@ struct NavigationBar: View {
                 .font(.subheadline)
                 .foregroundColor(.white)
                 .lineLimit(nil)
+                .accessibility(addTraits: .isStaticText)
+                .accessibility(identifier: "subtitle")
         }.fixedSize(horizontal: false, vertical: true)
     }
 }

@@ -30,7 +30,9 @@ fileprivate struct AlertWrapper<Content: View>: UIViewControllerRepresentable {
             let alertController = ValidatingTextFieldAlertController(textFieldAlert: alert, dismiss: dismissAlert)
             alertController.overrideUserInterfaceStyle = UIUserInterfaceStyle(context.environment.colorScheme)
             context.coordinator.alertController = alertController
-            uiViewController.present(alertController, animated: true)
+            uiViewController.present(alertController, animated: true) {
+                alertController.applyAccessibilityIdentifiers()
+            }
         }
 
         if alert == nil && uiViewController.presentedViewController == context.coordinator.alertController {
