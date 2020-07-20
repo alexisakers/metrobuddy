@@ -23,5 +23,6 @@ struct OnboardingTipView: View {
         }.padding(16)
         .background(Color.prominentContainerBackground)
         .mask(RoundedRectangle.defaultStyle)
+        .fixedSize(horizontal: false, vertical: true)
     }
 }
