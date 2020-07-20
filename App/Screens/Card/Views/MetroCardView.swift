@@ -15,7 +15,6 @@ struct MetroCardView: View {
                 .foregroundColor(.black)
                 .padding(.horizontal, 16)
                 .padding(.top, 8)
-                .animation(nil)
 
             Spacer()
             Rectangle()

@@ -23,7 +23,6 @@ struct NavigationBar: View {
                 .lineLimit(nil)
                 .accessibility(addTraits: .isStaticText)
                 .accessibility(identifier: "subtitle")
-                .animation(nil)
         }.fixedSize(horizontal: false, vertical: true)
     }
 }

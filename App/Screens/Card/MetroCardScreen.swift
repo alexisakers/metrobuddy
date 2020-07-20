@@ -38,7 +38,7 @@ struct MetroCardScreen: View {
     
     var body: some View {
         ZStack(alignment: .center) {
-            FullWidthScrollView {
+            FullWidthScrollView(bounce: []) {
                 VStack(alignment: .leading, spacing: 16) {
                     NavigationBar(subtitle: viewModel.data.formattedRemainingSwipes)
                         .accessibility(sortPriority: 0)
@@ -59,20 +59,22 @@ struct MetroCardScreen: View {
                             action: recordSwipe
                         ).accessibility(identifier: "swipe-button")
                             .transition(.opacity)
+                            .animation(.easeInOut)
                     } else {
                         OnboardingTipView()
                             .transition(.opacity)
+                            .animation(.easeInOut)
                     }
 
                     MetroCardActionGrid(
                         textFieldAlert: $textFieldAlert,
                         isShowingDatePicker: $isShowingDatePicker
-                    )
+                    ).animation(.easeInOut)
 
                     Spacer()
                 }.padding(.all, 16)
                     .background(BackgroundView())
-                    .animation(.spring())
+
             }.accessibility(hidden: isShowingDatePicker)
             .zIndex(0)
 
