@@ -96,7 +96,7 @@ I'm Alexis Aubry-Akers, an iOS engineer based in NYC. You can learn more about m
 
 ## License
 
-The source code and documentation are [licensed](LICENSE) under the MIT license. Source code is defined as compilable text files (ending in `.swift`, `.plist`, `.xcdatamodel`, `.xcodeproj`). However, designs, flows and assets are copyrighted and may not be redistributed without permission. You are not permitted to redistribute copies the application on the App Store. 
+The source code and documentation are [licensed](LICENSE.md) under the MIT license. Source code is defined as compilable text files (ending in `.swift`, `.plist`, `.xcdatamodel`, `.xcodeproj`). However, designs, flows and assets are copyrighted and may not be redistributed without permission. You are not permitted to redistribute copies the application on the App Store. 
 
 Please note that the app is not affiliated with New York's MTA in any way.
 
