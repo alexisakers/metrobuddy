@@ -1,0 +1,1 @@
+This folder normally includes the [Inter](https://fonts.google.com/specimen/Inter) fonts used for screenshots. To run `frameit`, download the family and paste the `Inter-SemiBold.ttf` file in this folder.
