@@ -1,4 +1,4 @@
-<img src="https://github.com/alexaubry/metro-buddy/raw/main/.github/icon.png" alt="App icon" height="128" />
+<img src="https://github.com/alexaubry/metrobuddy/raw/main/.github/icon.png" alt="App icon" height="128" />
 
 # MetroBuddy
 
@@ -69,9 +69,15 @@ card.snapshot.balance == card.balance // true
 
 This is the overview of the state of testing:
 - `MetroKit` stores and models are unit-tested
+- The app's core flows are UI-tested
 - [ ] The app's view models should be unit-tested
-- [ ] The app's core flows should be UI-tested
 - [ ] The app should be tested and deployed continously
+
+To facilitate unit-testing, the project contains a `MetroTesting` framework, that defines mocks for the data store and preferences. To configure UI tests, we define *scenarios*, which are types that have a method that creates a mock. Scenarios are usually scoped to a single use case, e.g. the "new install" scenario or "returning user" scenario. The UI tests can pass the name of the scenario class to the `XCUIApplication`'s launch arguments. The app will attempt to parse the scenario's class name and get the mock store from it. The `MetroTesting` framework and this injection logic are only enabled on debug builds. The framework is not included in the release build.
+
+UI tests also use the *page-object* pattern, which is a way to decouple the automation logic from test assertions. The app's screens are organized into *pages* that use `XCUIApplication` to get properties from elements and interact with them.
+
+To record screenshots for the App Store, we use [snapshot](http://docs.fastlane.tools/getting-started/ios/screenshots/) from fastlane.
 
 ## Contributing
 
