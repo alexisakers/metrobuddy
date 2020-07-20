@@ -7,4 +7,7 @@ public enum TestLaunchKeys {
 
     /// The name of the scenario to use, as a `String`.
     public static let scenarioName = "MetroTestingScenarioName"
+
+    /// Whether to keep toasts displayed longer, as a `Bool`.
+    public static let delayToastDismissal = "DelayToastDismissal"
 }

@@ -88,6 +88,8 @@
 		5E57161224C4AB6F0068F20B /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E57161024C4AB490068F20B /* AppFactory.swift */; };
 		5E57161424C4ADD90068F20B /* NewInstallTestScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E57161324C4ADD90068F20B /* NewInstallTestScenario.swift */; };
 		5E7456AE24C50CCF00BDEF9C /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 5E7456AD24C50CCF00BDEF9C /* Introspect */; };
+		5E936E1F24C5210600F7807E /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E1E24C5210600F7807E /* SnapshotHelper.swift */; };
+		5E936E2124C5214E00F7807E /* SnapshotsTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E2024C5214E00F7807E /* SnapshotsTestCase.swift */; };
 		5EC7A60824BDE8F200E3ED39 /* Design+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */; };
 		5EC7A60B24BDEF0300E3ED39 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */; };
 		5EC7A60D24BDF15800E3ED39 /* PropertyListRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */; };
@@ -254,6 +256,8 @@
 		5E57160E24C4A8520068F20B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5E57161024C4AB490068F20B /* AppFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		5E57161324C4ADD90068F20B /* NewInstallTestScenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInstallTestScenario.swift; sourceTree = "<group>"; };
+		5E936E1E24C5210600F7807E /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
+		5E936E2024C5214E00F7807E /* SnapshotsTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotsTestCase.swift; sourceTree = "<group>"; };
 		5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Fonts.swift"; sourceTree = "<group>"; };
 		5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListRepresentable.swift; sourceTree = "<group>"; };
@@ -463,6 +467,7 @@
 		5E2F16DA24C4C1C20097D0EB /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				5E936E1E24C5210600F7807E /* SnapshotHelper.swift */,
 				5E2F16EA24C4CE110097D0EB /* ScenarioBasedTestCase.swift */,
 				5E2F16DB24C4C1CD0097D0EB /* XCUIApplication+Helpers.swift */,
 			);
@@ -541,6 +546,7 @@
 			children = (
 				5E5715C524C3A4AA0068F20B /* MetroBuddyUITests.swift */,
 				5E2F16ED24C4CF5F0097D0EB /* FirstLaunchUITests.swift */,
+				5E936E2024C5214E00F7807E /* SnapshotsTestCase.swift */,
 				5E2F16DD24C4C2200097D0EB /* Pages */,
 				5E2F16DA24C4C1C20097D0EB /* Helpers */,
 				5E5715C724C3A4AA0068F20B /* Info.plist */,
@@ -980,13 +986,11 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/MetroTesting.framework",
 			);
 			name = "Embed Debug Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(BUILD_APP_DIR)/Frameworks/MetroTesting.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1000,10 +1004,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E57160424C3AE6F0068F20B /* TextFieldAlertPage.swift in Sources */,
+				5E936E2124C5214E00F7807E /* SnapshotsTestCase.swift in Sources */,
 				5E5715CE24C3A6740068F20B /* MetroCardPage.swift in Sources */,
 				5E2F16EF24C4CF780097D0EB /* FirstLaunchUITests.swift in Sources */,
 				5E2F16E124C4C26B0097D0EB /* AppPage.swift in Sources */,
 				5E2F16EC24C4CE240097D0EB /* ScenarioBasedTestCase.swift in Sources */,
+				5E936E1F24C5210600F7807E /* SnapshotHelper.swift in Sources */,
 				5E2F16F824C4DA030097D0EB /* ExpirationDatePickerPage.swift in Sources */,
 				5E2F16E224C4C3C40097D0EB /* XCUIApplication+Helpers.swift in Sources */,
 				5E5715C624C3A4AA0068F20B /* MetroBuddyUITests.swift in Sources */,
@@ -1173,9 +1179,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dev.alexisonline.MetroBuddyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Metro Buddy";
+				TEST_TARGET_NAME = MetroBuddy;
 			};
 			name = Debug;
 		};
@@ -1192,9 +1199,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dev.alexisonline.MetroBuddyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Metro Buddy";
+				TEST_TARGET_NAME = MetroBuddy;
 			};
 			name = Release;
 		};

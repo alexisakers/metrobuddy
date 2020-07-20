@@ -1,0 +1,16 @@
+devices([
+  "iPhone 8",
+  "iPhone 8 Plus",
+  "iPhone SE (1st generation)",
+  "iPhone 11",
+  "iPhone 11 Pro",
+  "iPhone 11 Pro Max"
+])
+
+languages([
+  "en-US",
+])
+
+scheme("MetroBuddyUITests")
+clear_previous_screenshots(false)
+override_status_bar(true)

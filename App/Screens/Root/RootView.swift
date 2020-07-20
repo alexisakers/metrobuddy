@@ -14,16 +14,9 @@ struct RootView: View {
                 .zIndex(0)
                 .accessibilityElement(children: .contain)
 
-            GeometryReader { geometry in
-                Color.contentBackground
-                    .frame(width: geometry.size.width, height: geometry.safeAreaInsets.top)
-            }.fixedSize(horizontal: false, vertical: true)
-                .edgesIgnoringSafeArea(.all)
-                .zIndex(1)
-
             toastQueue.toastText.map { toastText in
                 Toast(text: toastText)
-                    .zIndex(2)
+                    .zIndex(1)
             }.transition(
                 AnyTransition
                     .move(edge: .top)

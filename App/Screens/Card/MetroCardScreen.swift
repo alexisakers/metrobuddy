@@ -37,7 +37,7 @@ struct MetroCardScreen: View {
     // MARK: - View
     
     var body: some View {
-        ZStack(alignment: .center) {
+        ZStack(alignment: .top) {
             FullWidthScrollView(bounce: []) {
                 VStack(alignment: .leading, spacing: 16) {
                     NavigationBar(subtitle: viewModel.data.formattedRemainingSwipes)
@@ -79,6 +79,13 @@ struct MetroCardScreen: View {
             }.accessibility(hidden: isShowingDatePicker)
             .zIndex(0)
 
+            GeometryReader { geometry in
+                 Color.contentBackground
+                     .frame(width: geometry.size.width, height: geometry.safeAreaInsets.top + 1)
+             }.fixedSize(horizontal: false, vertical: true)
+                 .edgesIgnoringSafeArea(.all)
+                 .zIndex(1)
+
             if isShowingDatePicker {
                 ModalSheet(isPresented: $isShowingDatePicker) {
                     ExpirationDatePickerSheet(
@@ -90,7 +97,7 @@ struct MetroCardScreen: View {
                 }.transition(AnyTransition.opacity
                     .animation(enableAnimations ? Animation.easeInOut(duration: 0.25) : nil)
                 ).accessibility(sortPriority: 1)
-                .zIndex(1)
+                .zIndex(2)
             }
         }.accessibilityElement(children: .contain)
         .onReceive(viewModel.toast, perform: toastQueue.displayToast)
