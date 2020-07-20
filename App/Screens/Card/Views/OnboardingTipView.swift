@@ -16,7 +16,7 @@ struct OnboardingTipView: View {
                 Spacer()
             }.font(.contentCardTitle)
             
-            Text("Tap on the card or the “Update Balance” button below to enter your current card balance.")
+            Text("Tap on the card to enter your current card balance.")
                 .font(.body)
                 .accessibility(addTraits: .isStaticText)
                 .accessibility(identifier: "tip-message")

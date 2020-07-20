@@ -51,25 +51,26 @@ struct MetroCardScreen: View {
                         .accessibilityAction(named: Text("Swipe Card"), recordSwipe)
 
                     if viewModel.data.isOnboarded {
-                        RoundedButton(
-                            title: Text("Swipe"),
-                            titleColor: .white,
-                            background: Color.prominentContainerBackground,
-                            design: .standard,
-                            action: recordSwipe
-                        ).accessibility(identifier: "swipe-button")
-                            .transition(.opacity)
+                        Group {
+                            RoundedButton(
+                                title: Text("Swipe"),
+                                titleColor: .white,
+                                background: Color.prominentContainerBackground,
+                                design: .standard,
+                                action: recordSwipe
+                            ).accessibility(identifier: "swipe-button")
+
+                            MetroCardActionGrid(
+                                textFieldAlert: $textFieldAlert,
+                                isShowingDatePicker: $isShowingDatePicker
+                            )
+                        }.transition(.opacity)
                             .animation(.easeInOut)
                     } else {
                         OnboardingTipView()
                             .transition(.opacity)
                             .animation(.easeInOut)
                     }
-
-                    MetroCardActionGrid(
-                        textFieldAlert: $textFieldAlert,
-                        isShowingDatePicker: $isShowingDatePicker
-                    ).animation(.easeInOut)
 
                     Spacer()
                 }.padding(.all, 16)

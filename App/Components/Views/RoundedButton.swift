@@ -55,6 +55,6 @@ struct RoundedButton<Background: View>: View {
         .accessibilityElement(children: .ignore)
         .accessibility(addTraits: .isButton)
         .accessibility(label: title)
-        .frame(maxWidth: .infinity)
+        .fixedSize(horizontal: false, vertical: true)
     }
 }
