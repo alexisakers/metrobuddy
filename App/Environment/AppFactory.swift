@@ -12,10 +12,11 @@ enum AppFactory {
         #if DEBUG
         return loadMockStoresIfNeeded()
         #else
-        return loadDefaultStore()
+        return loadDefaultStores()
         #endif
     }
 
+    #if DEBUG
     private static func loadMockStoresIfNeeded() -> (MetroCardDataStore, UserPreferences) {
         if
             let scenarioName = UserDefaults.standard.string(forKey: TestLaunchKeys.scenarioName),
@@ -27,6 +28,7 @@ enum AppFactory {
             return loadDefaultStores()
         }
     }
+    #endif
 
     private static func loadDefaultStores() -> (MetroCardDataStore, UserPreferences) {
         let groupID = Bundle.main.infoValue(forKey: AppGroupNameInfoPlistKey.self)!

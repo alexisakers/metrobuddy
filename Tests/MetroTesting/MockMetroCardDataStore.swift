@@ -1,6 +1,6 @@
 import Combine
 import CoreData
-@testable import MetroKit
+import MetroKit
 
 /// A concrete data store that can be used to configure in tests. You can configure the card's data, and what operations should fail.
 public final class MockMetroCardDataStore: MetroCardDataStore {
@@ -45,7 +45,7 @@ public final class MockMetroCardDataStore: MetroCardDataStore {
     }
 
     public func applyUpdates(_ updates: [MetroCardUpdate], to cardReference: ObjectReference<MetroCard>) -> AnyPublisher<Void, Error> {
-        guard var card = cardPublisher.value, cardReference.objectID == id else {
+        guard var card = cardPublisher.value else {
             return Fail(error: MetroCardDataStoreError.cardNotFound)
                 .eraseToAnyPublisher()
         }

@@ -31,7 +31,7 @@ public struct MetroCard: Equatable, Identifiable {
 // MARK: - Default Card
 
 extension MetroCard {
-    static func makeDefault() -> MetroCard {
+    public static func makeDefault() -> MetroCard {
         return MetroCard(
             id: UUID(),
             balance: 0,

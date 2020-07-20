@@ -13,7 +13,12 @@ public struct ObjectReference<Snapshot> {
     
     /// The snapshot of the object that is being referenced.
     public let snapshot: Snapshot
-    
+
+    public init(objectID: NSManagedObjectID, snapshot: Snapshot) {
+        self.objectID = objectID
+        self.snapshot = snapshot
+    }
+
     /// Returns the value at the specified key path from the referenced object.
     public subscript<Value>(dynamicMember keyPath: KeyPath<Snapshot, Value>) -> Value {
         return snapshot[keyPath: keyPath]

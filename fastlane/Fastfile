@@ -1,0 +1,20 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Generates screenshots and uploads them to the App Store"
+  lane :screenshots do
+    capture_screenshots
+    frame_screenshots
+    upload_to_app_store(
+      skip_binary_upload: true,
+      skip_metadata: true,
+      skip_app_version_update: true
+    )
+  end
+
+  desc "Push a new release build to the App Store"
+  lane :release do
+    build_app(scheme: "MetroBuddy")
+    upload_to_app_store
+  end
+end

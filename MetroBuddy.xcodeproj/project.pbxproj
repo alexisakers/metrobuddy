@@ -1237,6 +1237,7 @@
 		};
 		5E5715ED24C3AA500068F20B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E57160924C4A3720068F20B /* MetroTesting.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
