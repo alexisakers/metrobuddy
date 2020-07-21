@@ -6,7 +6,9 @@ MetroBuddy is an iOS app that allows you to track the balance of your transit ca
 
 ![Insufficient fare](.github/fare.png)
 
-I built MetroBuddy to alleviate this pain, and improve my SwiftUI and app architecting skills. The app is currently in beta. Please [reach out](#author) if you are interested.
+I built MetroBuddy to alleviate this pain, and improve my SwiftUI and app architecting skills. 
+
+[<img src="https://github.com/alexaubry/metrobuddy/raw/main/.github/download-button.png" alt="Download on the App Store" height="40">](https://apps.apple.com/us/app/id1524065433)
 
 ## Core Principles
 
