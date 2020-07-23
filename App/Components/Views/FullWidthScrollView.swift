@@ -18,6 +18,7 @@ struct FullWidthScrollView<Content: View>: View {
             }.frame(width: geometry.size.width)
                 // Temporary solution until SwiftUI exposes APIs to disable bouncing, see FB8072964
                 .introspectScrollView {
+                    $0.contentInsetAdjustmentBehavior = .always
                     $0.alwaysBounceVertical = self.bounce.contains(.vertical)
                     $0.alwaysBounceHorizontal = self.bounce.contains(.horizontal)
                 }
