@@ -1,5 +1,6 @@
 import SwiftUI
 import MetroKit
+import Intents
 
 /// The screen that displays the user's Metro Card.
 struct MetroCardScreen: View {
@@ -12,6 +13,7 @@ struct MetroCardScreen: View {
 
     @State private var textFieldAlert: TextFieldAlert?
     @State private var isShowingDatePicker = false
+    @State private var isShowingShorcutsSummary = false
     @State private var expirationDate = Date()
     @State private var emailConfiguration: MailComposer.Configuration?
 
@@ -40,8 +42,19 @@ struct MetroCardScreen: View {
         ZStack(alignment: .top) {
             FullWidthScrollView(bounce: []) {
                 VStack(alignment: .leading, spacing: 16) {
-                    NavigationBar(subtitle: viewModel.data.formattedRemainingSwipes)
-                        .accessibility(sortPriority: 0)
+                    HStack {
+                        NavigationBar(subtitle: viewModel.data.formattedRemainingSwipes)
+                            .accessibility(sortPriority: 0)
+
+                        Spacer()
+
+                        Button(action: shortcutsButtonTapped) {
+                            Image("SiriButton")
+                        }.buttonStyle(ScaleButtonStyle())
+                        .accessibilityElement(children: .ignore)
+                        .accessibility(identifier: "shortcuts-button")
+                        .accessibility(label: Text("Siri Shortcuts"))
+                    }
 
                     MetroCardView(formattedBalance: viewModel.data.formattedBalance)
                         .offset(offset)
@@ -65,7 +78,7 @@ struct MetroCardScreen: View {
                                 isShowingDatePicker: $isShowingDatePicker
                             )
                         }.transition(.opacity)
-                            .animation(.easeInOut)
+                          .animation(.easeInOut)
                     } else {
                         OnboardingTipView()
                             .transition(.opacity)
@@ -98,6 +111,15 @@ struct MetroCardScreen: View {
                     .animation(enableAnimations ? Animation.easeInOut(duration: 0.25) : nil)
                 ).accessibility(sortPriority: 1)
                 .zIndex(2)
+            }
+
+            if isShowingShorcutsSummary {
+                ModalSheet(isPresented: $isShowingShorcutsSummary) {
+                    ShorcutsView(viewModel: ShorcutsViewModel(), isPresented: $isShowingShorcutsSummary)
+                }.transition(AnyTransition.opacity
+                    .animation(enableAnimations ? Animation.easeInOut(duration: 0.25) : nil)
+                ).accessibility(sortPriority: 1)
+                .zIndex(3)
             }
         }.accessibilityElement(children: .contain)
         .onReceive(viewModel.toast, perform: toastQueue.displayToast)
@@ -142,6 +164,12 @@ struct MetroCardScreen: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             self.viewModel.recordSwipe()
             self.isPerformingSwipe = false
+        }
+    }
+
+    private func shortcutsButtonTapped() {
+        withAnimation {
+            isShowingShorcutsSummary.toggle()
         }
     }
 }

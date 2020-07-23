@@ -24,6 +24,13 @@
 	<true/>
 	<key>MBYAppGroupName</key>
 	<string>group.$(DOMAIN)</string>
+	<key>NSSiriUsageDescription</key>
+	<string>This lets you ask Siri to update your MetroCard balance.</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>MBYCheckBalanceIntent</string>
+		<string>MBYSwipeCardIntent</string>
+	</array>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchScreen</key>

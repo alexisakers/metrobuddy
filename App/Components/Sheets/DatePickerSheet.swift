@@ -23,23 +23,10 @@ struct ExpirationDatePickerSheet: View {
     
     var body: some View {
         VStack(spacing: 10) {
-            HStack {
-                Text("Expiration Date")
-                    .font(.sheetTitle)
-                    .minimumScaleFactor(0.1)
-                    .lineLimit(1)
-                    .accessibility(addTraits: .isHeader)
-
-                Spacer()
-
-                Button(action: closeButtonTapped) {
-                    Image.Symbols.closeButton
-                        .resizable()
-                        .frame(width: 24, height: 24, alignment: .trailing)
-                        .padding(8)
-                }.accessibility(label: Text("Close"))
-                .accessibility(identifier: "close-button")
-            }.padding(.horizontal, 16)
+            SheetNavigationBar(
+                title: Text("Expiration Date"),
+                isPresented: $isPresented
+            ).padding(.horizontal, 16)
             .padding(.top, 16)
 
             DatePicker("Expiration Date", selection: $selectedDate, displayedComponents: [.date])

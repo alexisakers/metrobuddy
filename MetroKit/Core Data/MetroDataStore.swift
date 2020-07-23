@@ -10,8 +10,7 @@ public protocol MetroCardDataStore {
     func publisher(for card: ObjectReference<MetroCard>) -> AnyPublisher<ObjectReference<MetroCard>, Never>
     
     /// Update the data on the specified card reference by using the given update descriptior.
-    func applyUpdates(_ update: [MetroCardUpdate],
-                      to cardReference: ObjectReference<MetroCard>) -> AnyPublisher<Void, Error>
+    func applyUpdates(_ update: [MetroCardUpdate], to cardReference: ObjectReference<MetroCard>) -> AnyPublisher<Void, Error>
 }
 
 /// A concrete Metro card Data store that uses Core Data as a storage mechanism.

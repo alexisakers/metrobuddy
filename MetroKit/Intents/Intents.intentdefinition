@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>INEnums</key>
+	<array/>
+	<key>INIntentDefinitionModelVersion</key>
+	<string>1.1</string>
+	<key>INIntentDefinitionNamespace</key>
+	<string>8DVrPl</string>
+	<key>INIntentDefinitionSystemVersion</key>
+	<string>19E287</string>
+	<key>INIntentDefinitionToolsBuildVersion</key>
+	<string>11E708</string>
+	<key>INIntentDefinitionToolsVersion</key>
+	<string>11.6</string>
+	<key>INIntents</key>
+	<array>
+		<dict>
+			<key>INIntentCategory</key>
+			<string>checkIn</string>
+			<key>INIntentDescription</key>
+			<string>Update your MetroCard balance after a swipe.</string>
+			<key>INIntentDescriptionID</key>
+			<string>ngnWHC</string>
+			<key>INIntentLastParameterTag</key>
+			<integer>1</integer>
+			<key>INIntentName</key>
+			<string>MBYSwipeCard</string>
+			<key>INIntentParameterCombinations</key>
+			<dict>
+				<key></key>
+				<dict>
+					<key>INIntentParameterCombinationSubtitle</key>
+					<string>Update your MetroCard balance after a swipe.</string>
+					<key>INIntentParameterCombinationSubtitleID</key>
+					<string>0dxmO0</string>
+					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
+					<true/>
+					<key>INIntentParameterCombinationTitle</key>
+					<string>Swipe MetroCard</string>
+					<key>INIntentParameterCombinationTitleID</key>
+					<string>59xwIV</string>
+				</dict>
+			</dict>
+			<key>INIntentResponse</key>
+			<dict>
+				<key>INIntentResponseCodes</key>
+				<array>
+					<dict>
+						<key>INIntentResponseCodeConciseFormatString</key>
+						<string>Your new balance is ${balance}. Save travels!</string>
+						<key>INIntentResponseCodeConciseFormatStringID</key>
+						<string>Qry24V</string>
+						<key>INIntentResponseCodeFormatString</key>
+						<string>Your new balance is ${balance}. Save travels!</string>
+						<key>INIntentResponseCodeFormatStringID</key>
+						<string>Yx8Opk</string>
+						<key>INIntentResponseCodeName</key>
+						<string>success</string>
+						<key>INIntentResponseCodeSuccess</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>INIntentResponseCodeName</key>
+						<string>failure</string>
+					</dict>
+					<dict>
+						<key>INIntentResponseCodeConciseFormatString</key>
+						<string>Insufficient funds. You have %@ on your MetroCard.</string>
+						<key>INIntentResponseCodeConciseFormatStringID</key>
+						<string>rFFqA4</string>
+						<key>INIntentResponseCodeFormatString</key>
+						<string>Insufficient funds. You have %@ on your MetroCard.</string>
+						<key>INIntentResponseCodeFormatStringID</key>
+						<string>kjXifQ</string>
+						<key>INIntentResponseCodeName</key>
+						<string>insufficientFunds</string>
+					</dict>
+				</array>
+				<key>INIntentResponseLastParameterTag</key>
+				<integer>7</integer>
+				<key>INIntentResponseOutput</key>
+				<string>balance</string>
+				<key>INIntentResponseParameters</key>
+				<array>
+					<dict>
+						<key>INIntentResponseParameterDisplayName</key>
+						<string>Balance</string>
+						<key>INIntentResponseParameterDisplayNameID</key>
+						<string>pPaq3b</string>
+						<key>INIntentResponseParameterDisplayPriority</key>
+						<integer>1</integer>
+						<key>INIntentResponseParameterName</key>
+						<string>balance</string>
+						<key>INIntentResponseParameterTag</key>
+						<integer>7</integer>
+						<key>INIntentResponseParameterType</key>
+						<string>CurrencyAmount</string>
+					</dict>
+				</array>
+			</dict>
+			<key>INIntentRestrictions</key>
+			<integer>1</integer>
+			<key>INIntentTitle</key>
+			<string>Swipe MetroCard</string>
+			<key>INIntentTitleID</key>
+			<string>tPhv2t</string>
+			<key>INIntentType</key>
+			<string>Custom</string>
+			<key>INIntentVerb</key>
+			<string>CheckIn</string>
+		</dict>
+		<dict>
+			<key>INIntentCategory</key>
+			<string>information</string>
+			<key>INIntentDescription</key>
+			<string>See how much money you have on your MetroCard.</string>
+			<key>INIntentDescriptionID</key>
+			<string>itjFv9</string>
+			<key>INIntentName</key>
+			<string>MBYCheckBalance</string>
+			<key>INIntentParameterCombinations</key>
+			<dict>
+				<key></key>
+				<dict>
+					<key>INIntentParameterCombinationIsPrimary</key>
+					<true/>
+					<key>INIntentParameterCombinationSubtitle</key>
+					<string>See how much money you have on your MetroCard.</string>
+					<key>INIntentParameterCombinationSubtitleID</key>
+					<string>DgQnev</string>
+					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
+					<true/>
+					<key>INIntentParameterCombinationTitle</key>
+					<string>Check my MetroCard Balance</string>
+					<key>INIntentParameterCombinationTitleID</key>
+					<string>lLhOrL</string>
+				</dict>
+			</dict>
+			<key>INIntentResponse</key>
+			<dict>
+				<key>INIntentResponseCodes</key>
+				<array>
+					<dict>
+						<key>INIntentResponseCodeConciseFormatString</key>
+						<string>You have ${balance} on your MetroCard. That's ${formattedSwipeCount} with your current fare.</string>
+						<key>INIntentResponseCodeConciseFormatStringID</key>
+						<string>DF988u</string>
+						<key>INIntentResponseCodeFormatString</key>
+						<string>You have ${balance} on your MetroCard. That's ${formattedSwipeCount} with your current fare.</string>
+						<key>INIntentResponseCodeFormatStringID</key>
+						<string>VX6iyG</string>
+						<key>INIntentResponseCodeName</key>
+						<string>success</string>
+						<key>INIntentResponseCodeSuccess</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>INIntentResponseCodeConciseFormatString</key>
+						<string>An unexpected error occured. Open the app to see your balance.</string>
+						<key>INIntentResponseCodeConciseFormatStringID</key>
+						<string>uIlj51</string>
+						<key>INIntentResponseCodeFormatString</key>
+						<string>An unexpected error occured. Open the app to see your balance.</string>
+						<key>INIntentResponseCodeFormatStringID</key>
+						<string>eAPiw6</string>
+						<key>INIntentResponseCodeName</key>
+						<string>failure</string>
+					</dict>
+				</array>
+				<key>INIntentResponseLastParameterTag</key>
+				<integer>8</integer>
+				<key>INIntentResponseOutput</key>
+				<string>balance</string>
+				<key>INIntentResponseParameters</key>
+				<array>
+					<dict>
+						<key>INIntentResponseParameterDisplayName</key>
+						<string>Balance</string>
+						<key>INIntentResponseParameterDisplayNameID</key>
+						<string>M5Hvyn</string>
+						<key>INIntentResponseParameterDisplayPriority</key>
+						<integer>1</integer>
+						<key>INIntentResponseParameterName</key>
+						<string>balance</string>
+						<key>INIntentResponseParameterTag</key>
+						<integer>2</integer>
+						<key>INIntentResponseParameterType</key>
+						<string>CurrencyAmount</string>
+					</dict>
+					<dict>
+						<key>INIntentResponseParameterDisplayName</key>
+						<string>Formatted Swipe Count</string>
+						<key>INIntentResponseParameterDisplayNameID</key>
+						<string>pXfrPL</string>
+						<key>INIntentResponseParameterDisplayPriority</key>
+						<integer>2</integer>
+						<key>INIntentResponseParameterName</key>
+						<string>formattedSwipeCount</string>
+						<key>INIntentResponseParameterTag</key>
+						<integer>8</integer>
+						<key>INIntentResponseParameterType</key>
+						<string>String</string>
+					</dict>
+				</array>
+			</dict>
+			<key>INIntentTitle</key>
+			<string>Check my MetroCard Balance</string>
+			<key>INIntentTitleID</key>
+			<string>tNUdcn</string>
+			<key>INIntentType</key>
+			<string>Custom</string>
+			<key>INIntentVerb</key>
+			<string>View</string>
+		</dict>
+	</array>
+	<key>INTypes</key>
+	<array/>
+</dict>
+</plist>

@@ -1,0 +1,4 @@
+#include "Base.xcconfig"
+
+PRODUCT_BUNDLE_IDENTIFIER = ${DOMAIN}.MetroIntents;
+INFOPLIST_FILE = Configs/MetroIntents.Info.plist;

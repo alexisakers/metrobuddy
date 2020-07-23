@@ -1,13 +1,14 @@
 import Combine
 import CombineExt
 import Foundation
+import Intents
 import SwiftUI
 import MetroKit
 
 /// An object responsible for computing the, and which side effects to display when the data changes.
 class MetroCardViewModel: ObservableObject {
     private enum MetroCardBalanceError: Error {
-        case insufficientFunds
+        case insufficientFunds(Decimal)
     }
     
     // MARK: - Properties
@@ -59,18 +60,22 @@ class MetroCardViewModel: ObservableObject {
             .withLatestFrom(cardPublisher) { ($0, $1) }
             .flatMap { _, card -> Publishers.Materialize<AnyPublisher<Void, Error>> in
                 guard card.balance >= card.fare else {
-                    return Fail<Void, Error>(error: MetroCardBalanceError.insufficientFunds as Error)
+                    return Fail<Void, Error>(error: MetroCardBalanceError.insufficientFunds(card.balance) as Error)
                         .eraseToAnyPublisher()
                         .materialize()
                 }
-                
+
+                let newBalance = card.balance - card.fare
                 let update = MetroCardUpdate.balance(card.balance - card.fare)
                 return dataStore.applyUpdates([update], to: card)
+                    .handleEvents(receiveCompletion: {
+                        Self.donateSwipeInteraction(requestedBalance: newBalance, completion: $0)
+                    })
                     .receive(on: DispatchQueue.main)
                     .eraseToAnyPublisher()
                     .materialize()
             }
-        
+
         // Set Up Completion/Failure Publishers
         let taskEvents = updateElements
             .merge(with: swipeElements)
@@ -192,6 +197,32 @@ class MetroCardViewModel: ObservableObject {
         }
 
         return update(number)
+    }
+
+    // MARK: - Intents
+
+    private static func donateSwipeInteraction(requestedBalance: Decimal, completion: Subscribers.Completion<Error>) {
+        let response: MBYSwipeCardIntentResponse
+        switch completion {
+        case .finished:
+            response = MBYSwipeCardIntentResponse(code: .success, userActivity: nil)
+            response.balance = INCurrencyAmount(amount: requestedBalance as NSDecimalNumber, currencyCode: "USD")
+
+        case .failure(let error):
+            switch error {
+            case MetroCardBalanceError.insufficientFunds(let currentBalance):
+                response = MBYSwipeCardIntentResponse(code: .insufficientFunds, userActivity: nil)
+                response.balance = INCurrencyAmount(amount: currentBalance as NSDecimalNumber, currencyCode: "USD")
+
+            default:
+                response = MBYSwipeCardIntentResponse(code: .failure, userActivity: nil)
+            }
+        }
+
+        let interaction = INInteraction(intent: MBYSwipeCardIntent(), response: response)
+        interaction.donate {
+            dump($0)
+        }
     }
 }
 
