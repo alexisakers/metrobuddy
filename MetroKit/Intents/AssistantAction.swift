@@ -9,7 +9,7 @@ public enum AssistantAction: Int, CaseIterable {
     public var title: String {
         switch self {
         case .swipeCard:
-            return NSLocalizedString("Swipe Card", comment: "The name of the shortcut that asks Siri to swipe the card")
+            return NSLocalizedString("Swipe MetroCard", comment: "The name of the shortcut that asks Siri to swipe the card")
         case .checkBalance:
             return NSLocalizedString("Check my MetroCard Balance", comment: "The name of the shortcut that asks Siri for the current card balance.")
         }

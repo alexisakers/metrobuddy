@@ -3,10 +3,10 @@ import MetroKit
 
 struct AssistantActionView: View {
     let item: AssistantActionListItem
-    @Binding var activeConfiguration: AssistantActionConfiguration?
+    @Binding var activeConfiguration: AssistantActionConfigurationOption?
 
     var buttonTitle: Text {
-        switch item.configuration {
+        switch item.configurationOption {
         case .add:
             return Text("Add to Siri")
         case .edit:
@@ -15,7 +15,7 @@ struct AssistantActionView: View {
     }
 
     var subtitle: Text {
-        switch item.configuration {
+        switch item.configurationOption {
         case .add:
             return Text(item.action.localizedDescription)
         case .edit(let voiceShortcut):
@@ -24,7 +24,7 @@ struct AssistantActionView: View {
     }
 
     var accessoryIcon: some View {
-        if case .edit = item.configuration {
+        if case .edit = item.configurationOption {
             return Image(systemName: "checkmark.circle.fill")
                 .font(.headline)
         } else {
@@ -33,18 +33,16 @@ struct AssistantActionView: View {
         }
     }
 
-    var background: some View {
-        switch item.configuration {
-        case .add:
-            return Color.prominentContainerBackground
-        case .edit:
-            return Color("SiriPurple")
-        }
+    var background: AnyView {
+        return RoundedRectangle
+        .defaultStyle
+        .foregroundColor(Color("SiriPurple"))
+        .eraseToAnyView()
     }
 
     var body: some View {
         Button(action: buttonTapped) {
-            HStack {
+            HStack(spacing: 12) {
                 VStack(alignment: .leading, spacing: 8) {
                     HStack {
                         accessoryIcon
@@ -59,19 +57,15 @@ struct AssistantActionView: View {
                 }
 
                 Spacer()
-
                 Image(systemName: "chevron.right")
-
         }.padding(16)
             .frame(maxWidth: .infinity)
             .background(background)
-        .mask(RoundedRectangle.defaultStyle)
             .accentColor(.white)
         }.buttonStyle(ScaleButtonStyle())
-
     }
 
     private func buttonTapped() {
-        activeConfiguration = item.configuration
+        activeConfiguration = item.configurationOption
     }
 }

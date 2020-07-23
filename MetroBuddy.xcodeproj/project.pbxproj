@@ -108,6 +108,9 @@
 		5E936E6524C87A3500F7807E /* AddVoiceShortcutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E6124C8798900F7807E /* AddVoiceShortcutView.swift */; };
 		5E936E6624C87A3800F7807E /* EditVoiceShortcutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E6324C879EB00F7807E /* EditVoiceShortcutView.swift */; };
 		5E936E6824C880D300F7807E /* AssistantActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E6724C880D300F7807E /* AssistantActionView.swift */; };
+		5E936E6A24C9D05400F7807E /* SafeAreaSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E6924C9D05300F7807E /* SafeAreaSpacer.swift */; };
+		5E936E6C24C9D40100F7807E /* AssistantActionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E6B24C9D40100F7807E /* AssistantActionConfiguration.swift */; };
+		5E936E6E24C9D44A00F7807E /* AssistantActionListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E6D24C9D44A00F7807E /* AssistantActionListItem.swift */; };
 		5EC7A60824BDE8F200E3ED39 /* Design+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */; };
 		5EC7A60B24BDEF0300E3ED39 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */; };
 		5EC7A60D24BDF15800E3ED39 /* PropertyListRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */; };
@@ -320,6 +323,9 @@
 		5E936E6124C8798900F7807E /* AddVoiceShortcutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVoiceShortcutView.swift; sourceTree = "<group>"; };
 		5E936E6324C879EB00F7807E /* EditVoiceShortcutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVoiceShortcutView.swift; sourceTree = "<group>"; };
 		5E936E6724C880D300F7807E /* AssistantActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantActionView.swift; sourceTree = "<group>"; };
+		5E936E6924C9D05300F7807E /* SafeAreaSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaSpacer.swift; sourceTree = "<group>"; };
+		5E936E6B24C9D40100F7807E /* AssistantActionConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantActionConfiguration.swift; sourceTree = "<group>"; };
+		5E936E6D24C9D44A00F7807E /* AssistantActionListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantActionListItem.swift; sourceTree = "<group>"; };
 		5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Fonts.swift"; sourceTree = "<group>"; };
 		5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListRepresentable.swift; sourceTree = "<group>"; };
@@ -444,10 +450,10 @@
 		5E03305524BF5FCE001D86D1 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				5E936E5024C74F6E00F7807E /* Siri */,
 				5E03305624BF5FD3001D86D1 /* Root */,
 				5E03305724BF5FDE001D86D1 /* Error */,
 				5E03305824BF5FF3001D86D1 /* Card */,
+				5E936E5024C74F6E00F7807E /* Siri */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -498,6 +504,7 @@
 				5E497D4524B7EFF500EE584E /* MetroCardShape.swift */,
 				5E497DA124BD378200EE584E /* MetroCardActionGrid.swift */,
 				5E497D9F24BD167C00EE584E /* MetroCardActionButton.swift */,
+				5E497D9324BC822B00EE584E /* DatePickerSheet.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -695,10 +702,9 @@
 		5E936E5024C74F6E00F7807E /* Siri */ = {
 			isa = PBXGroup;
 			children = (
-				5E936E5724C79B1800F7807E /* ShortcutsViewModel.swift */,
-				5E936E5524C79ABE00F7807E /* ShorcutsView.swift */,
-				5E936E6724C880D300F7807E /* AssistantActionView.swift */,
-				5E936E5124C74F7300F7807E /* Components */,
+				5E936E6F24C9D9A400F7807E /* Models */,
+				5E936E7124C9DBE400F7807E /* View Models */,
+				5E936E7024C9DBDD00F7807E /* Views */,
 			);
 			path = Siri;
 			sourceTree = "<group>";
@@ -712,12 +718,38 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		5E936E6F24C9D9A400F7807E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5E936E6B24C9D40100F7807E /* AssistantActionConfiguration.swift */,
+				5E936E6D24C9D44A00F7807E /* AssistantActionListItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5E936E7024C9DBDD00F7807E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5E936E5524C79ABE00F7807E /* ShorcutsView.swift */,
+				5E936E6724C880D300F7807E /* AssistantActionView.swift */,
+				5E936E5124C74F7300F7807E /* Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5E936E7124C9DBE400F7807E /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				5E936E5724C79B1800F7807E /* ShortcutsViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
 		5EC4EDEC24C0E7FA00747DA3 /* Sheets */ = {
 			isa = PBXGroup;
 			children = (
 				5E03304D24BF49A4001D86D1 /* MailComposer.swift */,
 				5E497D6224B9503300EE584E /* TextFieldAlert.swift */,
-				5E497D9324BC822B00EE584E /* DatePickerSheet.swift */,
 				5E497D9524BC866C00EE584E /* ModalSheet.swift */,
 			);
 			path = Sheets;
@@ -734,6 +766,7 @@
 				5E936E5924C7A59E00F7807E /* SheetNavigationBar.swift */,
 				5E421A6F24C1D70D00AB8ED4 /* FlexibleStack.swift */,
 				5E2F16FE24C504C60097D0EB /* FullWidthScrollView.swift */,
+				5E936E6924C9D05300F7807E /* SafeAreaSpacer.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1217,6 +1250,7 @@
 				5E03305B24BF6069001D86D1 /* View+Helpers.swift in Sources */,
 				5E03303E24BE117B001D86D1 /* ToastQueue.swift in Sources */,
 				5E936E5624C79ABE00F7807E /* ShorcutsView.swift in Sources */,
+				5E936E6C24C9D40100F7807E /* AssistantActionConfiguration.swift in Sources */,
 				5E497D6124B9433600EE584E /* RootView.swift in Sources */,
 				5E2F16FF24C504C60097D0EB /* FullWidthScrollView.swift in Sources */,
 				5E421A3B24C103E200AB8ED4 /* Design+Colors.swift in Sources */,
@@ -1254,10 +1288,12 @@
 				5E936E6524C87A3500F7807E /* AddVoiceShortcutView.swift in Sources */,
 				5E497D6324B9503300EE584E /* TextFieldAlert.swift in Sources */,
 				5E497D5024B9104000EE584E /* NavigationBar.swift in Sources */,
+				5E936E6A24C9D05400F7807E /* SafeAreaSpacer.swift in Sources */,
 				5E17D36F24BF611A003E99D1 /* Decimal+Helpers.swift in Sources */,
 				5E497DA624BD3CC400EE584E /* TextFieldAlert+Factory.swift in Sources */,
 				5E03303C24BE055B001D86D1 /* Toast.swift in Sources */,
 				5E421A3F24C1041700AB8ED4 /* Design+Shapes.swift in Sources */,
+				5E936E6E24C9D44A00F7807E /* AssistantActionListItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

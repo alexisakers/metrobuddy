@@ -57,9 +57,10 @@ struct ExpirationDatePickerSheet: View {
                 .padding(.bottom, 8)
                 .accessibility(identifier: "remove-date-button")
             }
+
+            SafeAreaSpacer(edge: .bottom)
         }.background(Color.contentBackground)
         .mask(RoundedRectangle.defaultStyle)
-        .padding(.horizontal, UIDatePicker.isUltraCompact ? 0 : 16)
     }
     
     // MARK: - Input

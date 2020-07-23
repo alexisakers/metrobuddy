@@ -1,5 +1,20 @@
 import SwiftUI
 
+struct ModalBackdrop: View {
+    @Binding var isPresented: Bool
+
+    var body: some View {
+        Color.black.opacity(isPresented ? 0.75 : 0)
+            .disabled(!isPresented)
+            .onTapGesture(perform: closeActionActivated)
+            .edgesIgnoringSafeArea(.all)
+    }
+
+    private func closeActionActivated() {
+        isPresented = false
+    }
+}
+
 /// A view that displays modal content on top of a view that dims the content underneath.
 struct ModalSheet<Content: View>: View {
     @Binding var isPresented: Bool
@@ -27,6 +42,7 @@ struct ModalSheet<Content: View>: View {
             
             content
                 .zIndex(1)
+                .edgesIgnoringSafeArea(.bottom)
                 .transition(AnyTransition.move(edge: .top)
                 .animation(enableAnimations ? Animation.easeInOut(duration: 0.25) : nil))
         }.accessibilityAction(.escape, closeActionActivated)

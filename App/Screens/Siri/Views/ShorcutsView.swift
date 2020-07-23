@@ -4,8 +4,9 @@ import SwiftUI
 struct ShorcutsView: View {
     @ObservedObject var viewModel: ShorcutsViewModel
     @Binding var isPresented: Bool
+    @Environment(\.haptics) var haptics
 
-    @State private var activeConfiguration: AssistantActionConfiguration?
+    @State private var activeConfiguration: AssistantActionConfigurationOption?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -21,20 +22,17 @@ struct ShorcutsView: View {
                 )
             }
 
-            GeometryReader { geometry in
-                Spacer(minLength: geometry.safeAreaInsets.bottom)
-            }.fixedSize(horizontal: false, vertical: true)
+            SafeAreaSpacer(edge: .bottom)
         }.padding(16)
         .background(Color.contentBackground)
         .mask(RoundedRectangle.defaultStyle)
         .sheet(item: $activeConfiguration, content: makeSheet)
-            .edgesIgnoringSafeArea(.bottom)
         .onAppear(perform: viewModel.reload)
     }
 
     // MARK: - Inputs
 
-    private func makeSheet(for configuration: AssistantActionConfiguration) -> AnyView {
+    private func makeSheet(for configuration: AssistantActionConfigurationOption) -> AnyView {
         switch configuration {
         case .add(let shortcut):
             return AddVoiceShortcutView(shortcut: shortcut, dismiss: addVoiceShortcutViewDismissed)
@@ -54,5 +52,6 @@ struct ShorcutsView: View {
     private func editVoiceShortcutViewDismissed() {
         activeConfiguration = nil
         viewModel.reload()
+        haptics.success()
     }
 }

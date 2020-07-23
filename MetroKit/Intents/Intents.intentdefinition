@@ -71,7 +71,7 @@
 						<key>INIntentResponseCodeConciseFormatStringID</key>
 						<string>rFFqA4</string>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>Insufficient funds. You have %@ on your MetroCard.</string>
+						<string>Insufficient funds. You have ${balance} on your MetroCard.</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>kjXifQ</string>
 						<key>INIntentResponseCodeName</key>

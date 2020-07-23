@@ -7,7 +7,7 @@ extension Alert {
         self = Alert(
             title: Text(errorMessage.title),
             message: Text(errorMessage.localizedDescription)
-                + Text(verbatim: "\n")
+                + Text(verbatim: "\n\n")
                 + Text(errorMessage.contactCTA),
             primaryButton: .default(
                 Text("Contact Us"),
