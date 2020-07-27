@@ -23,6 +23,8 @@ struct AddVoiceShortcutView: UIViewControllerRepresentable {
     let shortcut: INShortcut
     let dismiss: () -> Void
 
+    // MARK: - UIViewControllerRepresentable
+
     func makeCoordinator() -> Coordinator {
         return Coordinator(dismiss: dismiss)
     }

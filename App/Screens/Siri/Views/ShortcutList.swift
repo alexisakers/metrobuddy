@@ -3,13 +3,17 @@ import SwiftUI
 
 /// A view that displays a list of available Siri shortcuts, and allows the user to add/edit them.
 struct ShortcutList: View {
+    private typealias ShortcutList = ForEach<[AssistantActionListItem], AssistantActionListItem.ID, AssistantActionView>
+
     @ObservedObject var viewModel: ShortcutListViewModel
     @Binding var isPresented: Bool
-    @Environment(\.haptics) var haptics
 
+    @Environment(\.haptics) private var haptics
     @State private var activeConfiguration: AssistantActionConfigurationOption?
 
-    var activityIndicator: ActivityIndicator? {
+    // MARK: - Subviews
+
+    private var activityIndicator: ActivityIndicator? {
         guard case .loading = viewModel.content else {
             return nil
         }
@@ -17,7 +21,7 @@ struct ShortcutList: View {
         return ActivityIndicator(style: .medium)
     }
 
-    var list: AnyView? {
+    private var list: ShortcutList? {
         guard case let .loaded(items) = viewModel.content else {
             return nil
         }
@@ -27,14 +31,15 @@ struct ShortcutList: View {
                 item: item,
                 activeConfiguration: self.$activeConfiguration
             )
-        }.eraseToAnyView()
+        }
     }
 
-    var errorMessage: AnyView? {
+    private var errorMessage: AnyView? {
         guard case let .failure(errorMessage) = viewModel.content else {
             return nil
         }
 
+        #warning("TODO Alexis: modularize")
         return VStack(alignment: .leading, spacing: 16) {
             Text(errorMessage.title)
             Text(errorMessage.localizedDescription)
@@ -50,18 +55,18 @@ struct ShortcutList: View {
         }.eraseToAnyView()
     }
 
+    // MARK: - View
+
     var body: some View {
-        NavigationView {
-            FullWidthScrollView(bounce: .vertical) {
-                Group {
-                    activityIndicator
-                    list
-                    errorMessage
-                }.padding(16)
-            }.navigationBarTitle("Siri Shortcuts", displayMode: .inline)
-        }.sheet(item: $activeConfiguration, content: makeSheet)
-        .onAppear(perform: viewModel.reload)
-            .colorScheme(.dark)
+        FullWidthScrollView(bounce: .vertical) {
+            Group {
+                activityIndicator
+                list
+                errorMessage
+            }.padding(16)
+        }.onAppear(perform: viewModel.reload)
+        .sheet(item: $activeConfiguration, content: makeSheet)
+        .colorScheme(.dark)
     }
 
     // MARK: - Inputs

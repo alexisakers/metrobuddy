@@ -167,10 +167,12 @@ struct MetroCardScreen: View {
 
     // MARK: - Sheet
 
-    private func makeShortcutList() -> ShortcutList {
-        ShortcutList(
-            viewModel: viewModel.makeShortcutListViewModel(),
-            isPresented: $isShowingShorcutsSummary
-        )
+    private func makeShortcutList() -> some View {
+        NavigationView {
+            ShortcutList(
+                viewModel: viewModel.makeShortcutListViewModel(),
+                isPresented: $isShowingShorcutsSummary
+            ).navigationBarTitle("Siri Shortcuts", displayMode: .inline)
+        }
     }
 }

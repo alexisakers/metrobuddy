@@ -24,6 +24,8 @@ struct EditVoiceShortcutView: UIViewControllerRepresentable {
         }
     }
 
+    // MARK: - UIViewControllerRepresentable
+
     let shortcut: INVoiceShortcut
     let dismiss: () -> Void
 
