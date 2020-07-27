@@ -112,17 +112,10 @@ struct MetroCardScreen: View {
                 ).accessibility(sortPriority: 1)
                 .zIndex(2)
             }
-
-            if isShowingShorcutsSummary {
-                ModalSheet(isPresented: $isShowingShorcutsSummary) {
-                    ShorcutsView(viewModel: ShorcutsViewModel(), isPresented: $isShowingShorcutsSummary)
-                }.transition(AnyTransition.opacity
-                    .animation(enableAnimations ? Animation.easeInOut(duration: 0.25) : nil)
-                ).accessibility(sortPriority: 1)
-                .zIndex(3)
-            }
         }.accessibilityElement(children: .contain)
-        .onReceive(viewModel.toast, perform: toastQueue.displayToast)
+        .sheet(isPresented: $isShowingShorcutsSummary) {
+            ShorcutsView(viewModel: ShorcutsViewModel(), isPresented: self.$isShowingShorcutsSummary)
+        }.onReceive(viewModel.toast, perform: toastQueue.displayToast)
         .onReceive(viewModel.taskCompletion, perform: haptics.notify)
         .textFieldAlert(item: $textFieldAlert)
         .mailComposer(configuration: $emailConfiguration)

@@ -20,6 +20,9 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         UIScrollView.appearance(whenContainedInInstancesOf: [type(of: hostingController)])
             .backgroundColor = .contentBackground
 
+        UIScrollView.appearance(whenContainedInInstancesOf: [UINavigationController.self])
+            .backgroundColor = .contentBackground
+
         self.window = {
             let window = UIWindow(frame: UIScreen.main.bounds)
             window.rootViewController = hostingController

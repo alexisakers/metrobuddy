@@ -3,29 +3,32 @@ import MetroKit
 
 
 class ShorcutsViewModel: ObservableObject {
-    enum Content {
+    enum State {
         case loading
-        case loaded(AssistantActionListItem)
+        case loaded([AssistantActionListItem])
+        case failure(NSError)
     }
 
-    @Published var items: [AssistantActionListItem] = []
+    @Published var state: State = .loading
 
     init() {
-        items = makeListItems(for: [])
         reload()
     }
 
     func reload() {
         INVoiceShortcutCenter.shared.getAllVoiceShortcuts { shortcuts, error in
-            guard let shortcuts = shortcuts else {
-                print("No")
-                #warning("TODO Alexis: Handle errors")
-                return
+            if let error = error {
+                return self.setState(.failure(error as NSError))
             }
 
-            DispatchQueue.main.async {
-                self.items = self.makeListItems(for: shortcuts)
-            }
+            let items = self.makeListItems(for: shortcuts ?? [])
+            self.setState(.loaded(items))
+        }
+    }
+
+    private func setState(_ state: State) {
+        DispatchQueue.main.async {
+            self.state = state
         }
     }
 
