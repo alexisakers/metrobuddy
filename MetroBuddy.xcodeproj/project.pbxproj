@@ -112,6 +112,7 @@
 		5E936E7624CF204700F7807E /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E7424CF1F5A00F7807E /* ActivityIndicator.swift */; };
 		5E936E7A24CF2C8400F7807E /* ShortcutsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E7924CF2C8400F7807E /* ShortcutsButton.swift */; };
 		5E936E7C24CF4EAA00F7807E /* ShortcutListErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E7B24CF4EA900F7807E /* ShortcutListErrorView.swift */; };
+		5E936E7E24CF59F600F7807E /* CheckBalanceIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E7D24CF59F600F7807E /* CheckBalanceIntentHandler.swift */; };
 		5EC7A60824BDE8F200E3ED39 /* Design+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */; };
 		5EC7A60B24BDEF0300E3ED39 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */; };
 		5EC7A60D24BDF15800E3ED39 /* PropertyListRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */; };
@@ -328,6 +329,7 @@
 		5E936E7424CF1F5A00F7807E /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		5E936E7924CF2C8400F7807E /* ShortcutsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsButton.swift; sourceTree = "<group>"; };
 		5E936E7B24CF4EA900F7807E /* ShortcutListErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutListErrorView.swift; sourceTree = "<group>"; };
+		5E936E7D24CF59F600F7807E /* CheckBalanceIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBalanceIntentHandler.swift; sourceTree = "<group>"; };
 		5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Fonts.swift"; sourceTree = "<group>"; };
 		5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListRepresentable.swift; sourceTree = "<group>"; };
@@ -684,9 +686,10 @@
 		5E936E2924C7323700F7807E /* MetroIntents */ = {
 			isa = PBXGroup;
 			children = (
-				5E936E4C24C7457800F7807E /* MetroIntents.entitlements */,
 				5E936E2A24C7323700F7807E /* IntentHandler.swift */,
 				5E936E3824C7338D00F7807E /* SwipeMetroCardIntentHandler.swift */,
+				5E936E7D24CF59F600F7807E /* CheckBalanceIntentHandler.swift */,
+				5E936E4C24C7457800F7807E /* MetroIntents.entitlements */,
 			);
 			path = MetroIntents;
 			sourceTree = "<group>";
@@ -1236,6 +1239,7 @@
 			files = (
 				5E936E4924C743DE00F7807E /* Intents.intentdefinition in Sources */,
 				5E936E3924C7338D00F7807E /* SwipeMetroCardIntentHandler.swift in Sources */,
+				5E936E7E24CF59F600F7807E /* CheckBalanceIntentHandler.swift in Sources */,
 				5E936E2B24C7323700F7807E /* IntentHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

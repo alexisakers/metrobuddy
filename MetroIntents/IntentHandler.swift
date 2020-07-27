@@ -10,6 +10,8 @@ class IntentHandler: INExtension {
 
         if intent is MBYSwipeCardIntent {
             return SwipeMetroCardIntentHandler(dataStore: dataStore)
+        } else if intent is MBYCheckBalanceIntent {
+            return CheckBalanceIntentHandler(dataStore: dataStore)
         }
 
         return self

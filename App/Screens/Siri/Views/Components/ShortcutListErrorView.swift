@@ -1,6 +1,7 @@
 import SwiftUI
 import MetroKit
 
+/// A view that displays an error inside the shortcut list view.
 struct ShortcutListErrorView: View {
     let errorMessage: ErrorMessage
     let retryAction: () -> Void

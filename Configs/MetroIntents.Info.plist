@@ -28,6 +28,7 @@
 		<dict>
 			<key>IntentsRestrictedWhileLocked</key>
 			<array>
+				<string>MBYCheckBalanceIntent</string>
 				<string>MBYSwipeCardIntent</string>
 			</array>
 			<key>IntentsRestrictedWhileProtectedDataUnavailable</key>

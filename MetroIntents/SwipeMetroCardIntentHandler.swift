@@ -2,6 +2,7 @@ import Combine
 import Intents
 import MetroKit
 
+/// An object that handles the `MBYSwipeCardIntent` by attempting to update the card details.
 class SwipeMetroCardIntentHandler: NSObject, MBYSwipeCardIntentHandling {
     enum Result {
         case insufficientFunds(Decimal)
@@ -38,7 +39,8 @@ class SwipeMetroCardIntentHandler: NSObject, MBYSwipeCardIntentHandling {
                     } else {
                         return completion(.success(newBalance))
                     }
-                }, receiveValue: { _ in }).store(in: &tasks)
+                }, receiveValue: { _ in })
+                .store(in: &tasks)
 
         } catch {
             return completion(.failure(error))
@@ -51,7 +53,8 @@ class SwipeMetroCardIntentHandler: NSObject, MBYSwipeCardIntentHandling {
             let response = MBYSwipeCardIntentResponse(code: .insufficientFunds, userActivity: nil)
             response.balance = INCurrencyAmount(amount: balance as NSDecimalNumber, currencyCode: "USD")
             return response
-        case .failure(let error):
+
+        case .failure:
             let response = MBYSwipeCardIntentResponse(code: .failure, userActivity: nil)
             return response
 
