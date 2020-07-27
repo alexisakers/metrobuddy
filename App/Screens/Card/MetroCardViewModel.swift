@@ -1,6 +1,5 @@
 import Combine
 import CombineExt
-import Foundation
 import Intents
 import SwiftUI
 import MetroKit
@@ -224,9 +223,7 @@ class MetroCardViewModel: ObservableObject {
         }
 
         let interaction = INInteraction(intent: MBYSwipeCardIntent(), response: response)
-        interaction.donate {
-            dump($0)
-        }
+        interaction.donate()
     }
 }
 

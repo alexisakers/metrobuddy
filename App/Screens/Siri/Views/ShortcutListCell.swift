@@ -1,11 +1,14 @@
 import SwiftUI
 import MetroKit
 
-struct AssistantActionView: View {
-    let item: AssistantActionListItem
+/// A cell that displays a Siri shortcut.
+struct ShortcutListCell: View {
+    let item: ShortcutListItem
     @Binding var activeConfiguration: AssistantActionConfigurationOption?
 
-    var subtitle: Text {
+    // MARK: - Subviews
+
+    private var subtitle: Text {
         switch item.configurationOption {
         case .add:
             return Text(item.action.localizedDescription)
@@ -14,22 +17,23 @@ struct AssistantActionView: View {
         }
     }
 
-    var accessoryIcon: some View {
+    private var accessoryIcon: some View {
         if case .edit = item.configurationOption {
-            return Image(systemName: "checkmark.circle.fill")
+            return Image.Symbols.checkmarkCircleFill
                 .font(.headline)
         } else {
-            return Image(systemName: "plus.circle.fill")
+            return Image.Symbols.plusCircleFill
                 .font(.headline)
         }
     }
 
-    var background: AnyView {
-        return RoundedRectangle
-        .defaultStyle
-        .foregroundColor(Color("SiriPurple"))
-        .eraseToAnyView()
+    private var background: some View {
+        RoundedRectangle
+            .defaultStyle
+            .foregroundColor(.siriPurple)
     }
+
+    // MARK: - View
 
     var body: some View {
         Button(action: buttonTapped) {
@@ -48,13 +52,17 @@ struct AssistantActionView: View {
                 }
 
                 Spacer()
-                Image(systemName: "chevron.right")
+
+                Image.Symbols.chevronRight
+                    .font(.body)
         }.padding(16)
             .frame(maxWidth: .infinity)
             .background(background)
             .accentColor(.white)
         }.buttonStyle(ScaleButtonStyle())
     }
+
+    // MARK: - Input
 
     private func buttonTapped() {
         activeConfiguration = item.configurationOption

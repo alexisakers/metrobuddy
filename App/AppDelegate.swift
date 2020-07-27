@@ -1,6 +1,5 @@
 import MetroKit
 import SwiftUI
-import Intents
 
 @UIApplicationMain
 final class AppDelegate: NSObject, UIApplicationDelegate {

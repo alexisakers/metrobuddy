@@ -2,7 +2,7 @@ import Foundation
 import MetroKit
 
 /// A list item that displays an assistant action and its available options.
-struct AssistantActionListItem: Identifiable {
+struct ShortcutListItem: Identifiable {
     /// The action available to the user.
     let action: AssistantAction
 

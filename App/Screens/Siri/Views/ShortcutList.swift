@@ -3,7 +3,7 @@ import SwiftUI
 
 /// A view that displays a list of available Siri shortcuts, and allows the user to add/edit them.
 struct ShortcutList: View {
-    private typealias ShortcutList = ForEach<[AssistantActionListItem], AssistantActionListItem.ID, AssistantActionView>
+    private typealias ShortcutList = ForEach<[ShortcutListItem], ShortcutListItem.ID, ShortcutListCell>
 
     @ObservedObject var viewModel: ShortcutListViewModel
     @Binding var isPresented: Bool
@@ -27,10 +27,7 @@ struct ShortcutList: View {
         }
 
         return ForEach(items) { item in
-            AssistantActionView(
-                item: item,
-                activeConfiguration: self.$activeConfiguration
-            )
+            ShortcutListCell(item: item, activeConfiguration: self.$activeConfiguration)
         }
     }
 
@@ -66,7 +63,6 @@ struct ShortcutList: View {
             }.padding(16)
         }.onAppear(perform: viewModel.reload)
         .sheet(item: $activeConfiguration, content: makeSheet)
-        .colorScheme(.dark)
     }
 
     // MARK: - Inputs

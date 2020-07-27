@@ -67,7 +67,7 @@
 		5E497D8A24BB4BDC00EE584E /* PersistentStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D8924BB4BDC00EE584E /* PersistentStoreTests.swift */; };
 		5E497D8C24BB4C2E00EE584E /* FileBasedTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D8B24BB4C2E00EE584E /* FileBasedTestCase.swift */; };
 		5E497D9024BB504000EE584E /* MetroCard+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D8F24BB504000EE584E /* MetroCard+Mock.swift */; };
-		5E497D9424BC822D00EE584E /* DatePickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D9324BC822B00EE584E /* DatePickerSheet.swift */; };
+		5E497D9424BC822D00EE584E /* ExpirationDatePickerModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D9324BC822B00EE584E /* ExpirationDatePickerModal.swift */; };
 		5E497D9624BC866C00EE584E /* ModalSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D9524BC866C00EE584E /* ModalSheet.swift */; };
 		5E497D9A24BD083B00EE584E /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D9924BD083A00EE584E /* RootViewModel.swift */; };
 		5E497D9C24BD0AAA00EE584E /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D9B24BD0AAA00EE584E /* BackgroundView.swift */; };
@@ -98,20 +98,19 @@
 		5E936E4824C743DC00F7807E /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E3424C7324C00F7807E /* Intents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
 		5E936E4924C743DE00F7807E /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E3424C7324C00F7807E /* Intents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
 		5E936E4B24C7445C00F7807E /* PersistentStore+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E4A24C7445C00F7807E /* PersistentStore+Default.swift */; };
-		5E936E4F24C749EA00F7807E /* NewSiriFeaturesTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E4D24C7498B00F7807E /* NewSiriFeaturesTipView.swift */; };
 		5E936E5624C79ABE00F7807E /* ShortcutList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E5524C79ABE00F7807E /* ShortcutList.swift */; };
 		5E936E5824C79B1800F7807E /* ShortcutListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E5724C79B1800F7807E /* ShortcutListViewModel.swift */; };
-		5E936E5A24C7A59E00F7807E /* SheetNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E5924C7A59E00F7807E /* SheetNavigationBar.swift */; };
+		5E936E5A24C7A59E00F7807E /* ModalTitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E5924C7A59E00F7807E /* ModalTitleBar.swift */; };
 		5E936E5C24C86F9300F7807E /* AssistantAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E5B24C86F9300F7807E /* AssistantAction.swift */; };
 		5E936E5E24C873B300F7807E /* INShortcut+VoiceAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E5D24C873B300F7807E /* INShortcut+VoiceAction.swift */; };
 		5E936E6524C87A3500F7807E /* AddVoiceShortcutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E6124C8798900F7807E /* AddVoiceShortcutView.swift */; };
 		5E936E6624C87A3800F7807E /* EditVoiceShortcutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E6324C879EB00F7807E /* EditVoiceShortcutView.swift */; };
-		5E936E6824C880D300F7807E /* AssistantActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E6724C880D300F7807E /* AssistantActionView.swift */; };
-		5E936E6A24C9D05400F7807E /* SafeAreaSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E6924C9D05300F7807E /* SafeAreaSpacer.swift */; };
+		5E936E6824C880D300F7807E /* ShortcutListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E6724C880D300F7807E /* ShortcutListCell.swift */; };
 		5E936E6C24C9D40100F7807E /* AssistantActionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E6B24C9D40100F7807E /* AssistantActionConfiguration.swift */; };
-		5E936E6E24C9D44A00F7807E /* AssistantActionListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E6D24C9D44A00F7807E /* AssistantActionListItem.swift */; };
+		5E936E6E24C9D44A00F7807E /* ShortcutListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E6D24C9D44A00F7807E /* ShortcutListItem.swift */; };
 		5E936E7324CF1BE300F7807E /* VoiceShortcutCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E7224CF1BE200F7807E /* VoiceShortcutCenter.swift */; };
 		5E936E7624CF204700F7807E /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E7424CF1F5A00F7807E /* ActivityIndicator.swift */; };
+		5E936E7A24CF2C8400F7807E /* ShortcutsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E7924CF2C8400F7807E /* ShortcutsButton.swift */; };
 		5EC7A60824BDE8F200E3ED39 /* Design+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */; };
 		5EC7A60B24BDEF0300E3ED39 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */; };
 		5EC7A60D24BDF15800E3ED39 /* PropertyListRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */; };
@@ -276,7 +275,7 @@
 		5E497D8924BB4BDC00EE584E /* PersistentStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStoreTests.swift; sourceTree = "<group>"; };
 		5E497D8B24BB4C2E00EE584E /* FileBasedTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileBasedTestCase.swift; sourceTree = "<group>"; };
 		5E497D8F24BB504000EE584E /* MetroCard+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MetroCard+Mock.swift"; sourceTree = "<group>"; };
-		5E497D9324BC822B00EE584E /* DatePickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerSheet.swift; sourceTree = "<group>"; };
+		5E497D9324BC822B00EE584E /* ExpirationDatePickerModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpirationDatePickerModal.swift; sourceTree = "<group>"; };
 		5E497D9524BC866C00EE584E /* ModalSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSheet.swift; sourceTree = "<group>"; };
 		5E497D9924BD083A00EE584E /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		5E497D9B24BD0AAA00EE584E /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
@@ -314,20 +313,19 @@
 		5E936E3A24C7368900F7807E /* MetroIntents.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MetroIntents.xcconfig; sourceTree = "<group>"; };
 		5E936E4A24C7445C00F7807E /* PersistentStore+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistentStore+Default.swift"; sourceTree = "<group>"; };
 		5E936E4C24C7457800F7807E /* MetroIntents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MetroIntents.entitlements; sourceTree = "<group>"; };
-		5E936E4D24C7498B00F7807E /* NewSiriFeaturesTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSiriFeaturesTipView.swift; sourceTree = "<group>"; };
 		5E936E5524C79ABE00F7807E /* ShortcutList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutList.swift; sourceTree = "<group>"; };
 		5E936E5724C79B1800F7807E /* ShortcutListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutListViewModel.swift; sourceTree = "<group>"; };
-		5E936E5924C7A59E00F7807E /* SheetNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetNavigationBar.swift; sourceTree = "<group>"; };
+		5E936E5924C7A59E00F7807E /* ModalTitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTitleBar.swift; sourceTree = "<group>"; };
 		5E936E5B24C86F9300F7807E /* AssistantAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantAction.swift; sourceTree = "<group>"; };
 		5E936E5D24C873B300F7807E /* INShortcut+VoiceAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "INShortcut+VoiceAction.swift"; sourceTree = "<group>"; };
 		5E936E6124C8798900F7807E /* AddVoiceShortcutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVoiceShortcutView.swift; sourceTree = "<group>"; };
 		5E936E6324C879EB00F7807E /* EditVoiceShortcutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVoiceShortcutView.swift; sourceTree = "<group>"; };
-		5E936E6724C880D300F7807E /* AssistantActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantActionView.swift; sourceTree = "<group>"; };
-		5E936E6924C9D05300F7807E /* SafeAreaSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaSpacer.swift; sourceTree = "<group>"; };
+		5E936E6724C880D300F7807E /* ShortcutListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutListCell.swift; sourceTree = "<group>"; };
 		5E936E6B24C9D40100F7807E /* AssistantActionConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantActionConfiguration.swift; sourceTree = "<group>"; };
-		5E936E6D24C9D44A00F7807E /* AssistantActionListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantActionListItem.swift; sourceTree = "<group>"; };
+		5E936E6D24C9D44A00F7807E /* ShortcutListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutListItem.swift; sourceTree = "<group>"; };
 		5E936E7224CF1BE200F7807E /* VoiceShortcutCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceShortcutCenter.swift; sourceTree = "<group>"; };
 		5E936E7424CF1F5A00F7807E /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		5E936E7924CF2C8400F7807E /* ShortcutsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsButton.swift; sourceTree = "<group>"; };
 		5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Fonts.swift"; sourceTree = "<group>"; };
 		5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListRepresentable.swift; sourceTree = "<group>"; };
@@ -501,12 +499,12 @@
 			isa = PBXGroup;
 			children = (
 				5EC7A61024BDF68100E3ED39 /* OnboardingTipView.swift */,
-				5E936E4D24C7498B00F7807E /* NewSiriFeaturesTipView.swift */,
 				5E497D4724B8CF1500EE584E /* MetroCardView.swift */,
 				5E497D4524B7EFF500EE584E /* MetroCardShape.swift */,
 				5E497DA124BD378200EE584E /* MetroCardActionGrid.swift */,
 				5E497D9F24BD167C00EE584E /* MetroCardActionButton.swift */,
-				5E497D9324BC822B00EE584E /* DatePickerSheet.swift */,
+				5E497D9324BC822B00EE584E /* ExpirationDatePickerModal.swift */,
+				5E936E7924CF2C8400F7807E /* ShortcutsButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -725,7 +723,7 @@
 			isa = PBXGroup;
 			children = (
 				5E936E6B24C9D40100F7807E /* AssistantActionConfiguration.swift */,
-				5E936E6D24C9D44A00F7807E /* AssistantActionListItem.swift */,
+				5E936E6D24C9D44A00F7807E /* ShortcutListItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -734,7 +732,7 @@
 			isa = PBXGroup;
 			children = (
 				5E936E5524C79ABE00F7807E /* ShortcutList.swift */,
-				5E936E6724C880D300F7807E /* AssistantActionView.swift */,
+				5E936E6724C880D300F7807E /* ShortcutListCell.swift */,
 				5E936E5124C74F7300F7807E /* Components */,
 			);
 			path = Views;
@@ -766,10 +764,9 @@
 				5E17B45E24C0FEBD000FA57E /* ScaleButtonStyle.swift */,
 				5E497D9B24BD0AAA00EE584E /* BackgroundView.swift */,
 				5E497D4F24B9104000EE584E /* NavigationBar.swift */,
-				5E936E5924C7A59E00F7807E /* SheetNavigationBar.swift */,
+				5E936E5924C7A59E00F7807E /* ModalTitleBar.swift */,
 				5E421A6F24C1D70D00AB8ED4 /* FlexibleStack.swift */,
 				5E2F16FE24C504C60097D0EB /* FullWidthScrollView.swift */,
-				5E936E6924C9D05300F7807E /* SafeAreaSpacer.swift */,
 				5E936E7424CF1F5A00F7807E /* ActivityIndicator.swift */,
 			);
 			path = Views;
@@ -1246,7 +1243,7 @@
 			files = (
 				5E936E4824C743DC00F7807E /* Intents.intentdefinition in Sources */,
 				5E17B45F24C0FEBD000FA57E /* ScaleButtonStyle.swift in Sources */,
-				5E936E5A24C7A59E00F7807E /* SheetNavigationBar.swift in Sources */,
+				5E936E5A24C7A59E00F7807E /* ModalTitleBar.swift in Sources */,
 				5E421A3D24C103FE00AB8ED4 /* Design+Images.swift in Sources */,
 				5E03304824BF3C53001D86D1 /* AppConfiguration.swift in Sources */,
 				5E03305B24BF6069001D86D1 /* View+Helpers.swift in Sources */,
@@ -1256,6 +1253,7 @@
 				5E497D6124B9433600EE584E /* RootView.swift in Sources */,
 				5E2F16FF24C504C60097D0EB /* FullWidthScrollView.swift in Sources */,
 				5E421A3B24C103E200AB8ED4 /* Design+Colors.swift in Sources */,
+				5E936E7A24CF2C8400F7807E /* ShortcutsButton.swift in Sources */,
 				5E17D37924BFD1A7003E99D1 /* Alert+ErrorMessage.swift in Sources */,
 				5E497D5424B92D4F00EE584E /* MetroCardViewModel.swift in Sources */,
 				5EC7A60824BDE8F200E3ED39 /* Design+Fonts.swift in Sources */,
@@ -1264,7 +1262,6 @@
 				5E17D37424BF659D003E99D1 /* InfoPlist.swift in Sources */,
 				5E03305024BF5001001D86D1 /* MailComposer+Factory.swift in Sources */,
 				5E497D9C24BD0AAA00EE584E /* BackgroundView.swift in Sources */,
-				5E936E4F24C749EA00F7807E /* NewSiriFeaturesTipView.swift in Sources */,
 				5ED4E28C24B3E33400B37946 /* MetroCardScreen.swift in Sources */,
 				5E497DA224BD378300EE584E /* MetroCardActionGrid.swift in Sources */,
 				5E497D9E24BD164300EE584E /* ErrorScreen.swift in Sources */,
@@ -1281,9 +1278,9 @@
 				5E03304E24BF49A4001D86D1 /* MailComposer.swift in Sources */,
 				5E17D37124BF6234003E99D1 /* MetroCardData.swift in Sources */,
 				5E497D4624B7EFF500EE584E /* MetroCardShape.swift in Sources */,
-				5E497D9424BC822D00EE584E /* DatePickerSheet.swift in Sources */,
+				5E497D9424BC822D00EE584E /* ExpirationDatePickerModal.swift in Sources */,
 				5E421A7224C1D7D900AB8ED4 /* ContentSize+UIKit.swift in Sources */,
-				5E936E6824C880D300F7807E /* AssistantActionView.swift in Sources */,
+				5E936E6824C880D300F7807E /* ShortcutListCell.swift in Sources */,
 				5E57161224C4AB6F0068F20B /* AppFactory.swift in Sources */,
 				5E03305424BF5FBA001D86D1 /* Haptics.swift in Sources */,
 				5E936E5824C79B1800F7807E /* ShortcutListViewModel.swift in Sources */,
@@ -1291,12 +1288,11 @@
 				5E936E6524C87A3500F7807E /* AddVoiceShortcutView.swift in Sources */,
 				5E497D6324B9503300EE584E /* TextFieldAlert.swift in Sources */,
 				5E497D5024B9104000EE584E /* NavigationBar.swift in Sources */,
-				5E936E6A24C9D05400F7807E /* SafeAreaSpacer.swift in Sources */,
 				5E17D36F24BF611A003E99D1 /* Decimal+Helpers.swift in Sources */,
 				5E497DA624BD3CC400EE584E /* TextFieldAlert+Factory.swift in Sources */,
 				5E03303C24BE055B001D86D1 /* Toast.swift in Sources */,
 				5E421A3F24C1041700AB8ED4 /* Design+Shapes.swift in Sources */,
-				5E936E6E24C9D44A00F7807E /* AssistantActionListItem.swift in Sources */,
+				5E936E6E24C9D44A00F7807E /* ShortcutListItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

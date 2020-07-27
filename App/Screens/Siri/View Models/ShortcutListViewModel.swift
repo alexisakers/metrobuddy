@@ -6,7 +6,7 @@ final class ShortcutListViewModel: ObservableObject {
     /// The possible contents of the view.
     enum Content {
         case loading
-        case loaded([AssistantActionListItem])
+        case loaded([ShortcutListItem])
         case failure(ErrorMessage)
     }
 
@@ -52,7 +52,7 @@ final class ShortcutListViewModel: ObservableObject {
     }
 
     /// Creates the items to display in the list of shortcuts.
-    private func makeListItems(for shortcuts: [INVoiceShortcut]) -> [AssistantActionListItem] {
+    private func makeListItems(for shortcuts: [INVoiceShortcut]) -> [ShortcutListItem] {
         let shortcutsByAction: [AssistantAction: INVoiceShortcut] = shortcuts.reduce(into: [:]) { list, voiceShortcut in
             guard let action = voiceShortcut.shortcut.action else {
                 return
@@ -63,9 +63,9 @@ final class ShortcutListViewModel: ObservableObject {
 
         return AssistantAction.allCases.map {
             if let voiceShortcut = shortcutsByAction[$0] {
-                return AssistantActionListItem(action: $0, configurationOption: .edit(voiceShortcut))
+                return ShortcutListItem(action: $0, configurationOption: .edit(voiceShortcut))
             } else {
-                return AssistantActionListItem(action: $0, configurationOption: .add(INShortcut($0)))
+                return ShortcutListItem(action: $0, configurationOption: .add(INShortcut($0)))
             }
         }
     }

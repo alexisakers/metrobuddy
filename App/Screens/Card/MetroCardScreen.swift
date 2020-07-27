@@ -1,6 +1,5 @@
 import SwiftUI
 import MetroKit
-import Intents
 
 /// The screen that displays the user's Metro Card.
 struct MetroCardScreen: View {
@@ -13,7 +12,7 @@ struct MetroCardScreen: View {
 
     @State private var textFieldAlert: TextFieldAlert?
     @State private var isShowingDatePicker = false
-    @State private var isShowingShorcutsSummary = false
+    @State private var isShowingShorcutList = false
     @State private var expirationDate = Date()
     @State private var emailConfiguration: MailComposer.Configuration?
 
@@ -47,13 +46,7 @@ struct MetroCardScreen: View {
                             .accessibility(sortPriority: 0)
 
                         Spacer()
-
-                        Button(action: shortcutsButtonTapped) {
-                            Image("SiriButton")
-                        }.buttonStyle(ScaleButtonStyle())
-                        .accessibilityElement(children: .ignore)
-                        .accessibility(identifier: "shortcuts-button")
-                        .accessibility(label: Text("Siri Shortcuts"))
+                        ShortcutsButton(action: shortcutsButtonTapped)
                     }
 
                     MetroCardView(formattedBalance: viewModel.data.formattedBalance)
@@ -101,7 +94,7 @@ struct MetroCardScreen: View {
 
             if isShowingDatePicker {
                 ModalSheet(isPresented: $isShowingDatePicker) {
-                    ExpirationDatePickerSheet(
+                    ExpirationDatePickerModal(
                         initialValue: viewModel.data.expirationDate,
                         isPresented: $isShowingDatePicker,
                         saveHandler: { self.viewModel.saveExpirationDate($0) },
@@ -115,7 +108,7 @@ struct MetroCardScreen: View {
         }.accessibilityElement(children: .contain)
         .onReceive(viewModel.toast, perform: toastQueue.displayToast)
         .onReceive(viewModel.taskCompletion, perform: haptics.notify)
-        .sheet(isPresented: $isShowingShorcutsSummary, content: makeShortcutList)
+        .sheet(isPresented: $isShowingShorcutList, content: makeShortcutList)
         .textFieldAlert(item: $textFieldAlert)
         .mailComposer(configuration: $emailConfiguration)
         .alert(item: $viewModel.errorMessage) {
@@ -161,7 +154,7 @@ struct MetroCardScreen: View {
 
     private func shortcutsButtonTapped() {
         withAnimation {
-            isShowingShorcutsSummary.toggle()
+            isShowingShorcutList.toggle()
         }
     }
 
@@ -171,8 +164,8 @@ struct MetroCardScreen: View {
         NavigationView {
             ShortcutList(
                 viewModel: viewModel.makeShortcutListViewModel(),
-                isPresented: $isShowingShorcutsSummary
+                isPresented: $isShowingShorcutList
             ).navigationBarTitle("Siri Shortcuts", displayMode: .inline)
-        }
+        }.colorScheme(.dark)
     }
 }
