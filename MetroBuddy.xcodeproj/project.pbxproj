@@ -111,6 +111,7 @@
 		5E936E7324CF1BE300F7807E /* VoiceShortcutCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E7224CF1BE200F7807E /* VoiceShortcutCenter.swift */; };
 		5E936E7624CF204700F7807E /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E7424CF1F5A00F7807E /* ActivityIndicator.swift */; };
 		5E936E7A24CF2C8400F7807E /* ShortcutsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E7924CF2C8400F7807E /* ShortcutsButton.swift */; };
+		5E936E7C24CF4EAA00F7807E /* ShortcutListErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E7B24CF4EA900F7807E /* ShortcutListErrorView.swift */; };
 		5EC7A60824BDE8F200E3ED39 /* Design+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */; };
 		5EC7A60B24BDEF0300E3ED39 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */; };
 		5EC7A60D24BDF15800E3ED39 /* PropertyListRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */; };
@@ -326,6 +327,7 @@
 		5E936E7224CF1BE200F7807E /* VoiceShortcutCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceShortcutCenter.swift; sourceTree = "<group>"; };
 		5E936E7424CF1F5A00F7807E /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		5E936E7924CF2C8400F7807E /* ShortcutsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsButton.swift; sourceTree = "<group>"; };
+		5E936E7B24CF4EA900F7807E /* ShortcutListErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutListErrorView.swift; sourceTree = "<group>"; };
 		5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Fonts.swift"; sourceTree = "<group>"; };
 		5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListRepresentable.swift; sourceTree = "<group>"; };
@@ -713,6 +715,8 @@
 		5E936E5124C74F7300F7807E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				5E936E6724C880D300F7807E /* ShortcutListCell.swift */,
+				5E936E7B24CF4EA900F7807E /* ShortcutListErrorView.swift */,
 				5E936E6124C8798900F7807E /* AddVoiceShortcutView.swift */,
 				5E936E6324C879EB00F7807E /* EditVoiceShortcutView.swift */,
 			);
@@ -732,7 +736,6 @@
 			isa = PBXGroup;
 			children = (
 				5E936E5524C79ABE00F7807E /* ShortcutList.swift */,
-				5E936E6724C880D300F7807E /* ShortcutListCell.swift */,
 				5E936E5124C74F7300F7807E /* Components */,
 			);
 			path = Views;
@@ -1280,6 +1283,7 @@
 				5E497D4624B7EFF500EE584E /* MetroCardShape.swift in Sources */,
 				5E497D9424BC822D00EE584E /* ExpirationDatePickerModal.swift in Sources */,
 				5E421A7224C1D7D900AB8ED4 /* ContentSize+UIKit.swift in Sources */,
+				5E936E7C24CF4EAA00F7807E /* ShortcutListErrorView.swift in Sources */,
 				5E936E6824C880D300F7807E /* ShortcutListCell.swift in Sources */,
 				5E57161224C4AB6F0068F20B /* AppFactory.swift in Sources */,
 				5E03305424BF5FBA001D86D1 /* Haptics.swift in Sources */,

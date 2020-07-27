@@ -37,7 +37,7 @@ final class ShortcutListViewModel: ObservableObject {
                     error: error
                 )
 
-                return self.updateContent(.failure(errorMessage))
+               return self.updateContent(.failure(errorMessage))
             }
         }
     }

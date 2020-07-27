@@ -62,6 +62,14 @@
 						<true/>
 					</dict>
 					<dict>
+						<key>INIntentResponseCodeConciseFormatString</key>
+						<string>An unexpected error occured. Open the app to perform the action.</string>
+						<key>INIntentResponseCodeConciseFormatStringID</key>
+						<string>8mk9JJ</string>
+						<key>INIntentResponseCodeFormatString</key>
+						<string>An unexpected error occured. Open the app to perform the action.</string>
+						<key>INIntentResponseCodeFormatStringID</key>
+						<string>nPmd7q</string>
 						<key>INIntentResponseCodeName</key>
 						<string>failure</string>
 					</dict>

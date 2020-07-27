@@ -107,7 +107,10 @@ class MetroCardViewModel: ObservableObject {
                 case .failure(MetroCardBalanceError.insufficientFunds):
                     return nil
                 case .failure(let error):
-                    return ErrorMessage(title: "Cannot Save Changes", error: error)
+                    return ErrorMessage(
+                        title: NSLocalizedString("Cannot Save Changes", comment: ""),
+                        error: error
+                    )
                 default:
                     return nil
                 }

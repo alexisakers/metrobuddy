@@ -1,5 +1,5 @@
-import Intents
 import SwiftUI
+import MetroKit
 
 /// A view that displays a list of available Siri shortcuts, and allows the user to add/edit them.
 struct ShortcutList: View {
@@ -10,6 +10,7 @@ struct ShortcutList: View {
 
     @Environment(\.haptics) private var haptics
     @State private var activeConfiguration: AssistantActionConfigurationOption?
+    @State private var configurationErrorMessage: ErrorMessage?
 
     // MARK: - Subviews
 
@@ -31,25 +32,12 @@ struct ShortcutList: View {
         }
     }
 
-    private var errorMessage: AnyView? {
+    private var errorMessage: ShortcutListErrorView? {
         guard case let .failure(errorMessage) = viewModel.content else {
             return nil
         }
 
-        #warning("TODO Alexis: modularize")
-        return VStack(alignment: .leading, spacing: 16) {
-            Text(errorMessage.title)
-            Text(errorMessage.localizedDescription)
-            Text(errorMessage.diagnosticMessage)
-
-            RoundedButton(
-                title: Text("Try Again"),
-                titleColor: .white,
-                background: Color("SiriPurple"),
-                design: .standard,
-                action: viewModel.reload
-            )
-        }.eraseToAnyView()
+        return ShortcutListErrorView(errorMessage: errorMessage, retryAction: viewModel.reload)
     }
 
     // MARK: - View
@@ -62,6 +50,7 @@ struct ShortcutList: View {
                 errorMessage
             }.padding(16)
         }.onAppear(perform: viewModel.reload)
+        .alert(item: $configurationErrorMessage, content: makeConfigurationErrorAlert)
         .sheet(item: $activeConfiguration, content: makeSheet)
     }
 
@@ -79,14 +68,26 @@ struct ShortcutList: View {
         }
     }
 
-    private func addVoiceShortcutViewDismissed() {
+    private func addVoiceShortcutViewDismissed(errorMessage: ErrorMessage?) {
         activeConfiguration = nil
+        configurationErrorMessage = errorMessage
         viewModel.reload()
+        notifyCompletion(errorMessage: errorMessage)
     }
 
-    private func editVoiceShortcutViewDismissed() {
+    private func editVoiceShortcutViewDismissed(errorMessage: ErrorMessage?) {
         activeConfiguration = nil
         viewModel.reload()
-        haptics.success()
+        notifyCompletion(errorMessage: errorMessage)
+    }
+
+    private func notifyCompletion(errorMessage: ErrorMessage?) {
+        haptics.notify(completion: errorMessage == nil ? .success : .failure)
+    }
+
+    // MARK: - Helpers
+
+    private func makeConfigurationErrorAlert(_ message: ErrorMessage) -> Alert {
+        Alert(errorMessage: message)
     }
 }
