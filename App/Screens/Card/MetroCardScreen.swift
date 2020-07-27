@@ -113,10 +113,9 @@ struct MetroCardScreen: View {
                 .zIndex(2)
             }
         }.accessibilityElement(children: .contain)
-        .sheet(isPresented: $isShowingShorcutsSummary) {
-            ShorcutsView(viewModel: ShorcutsViewModel(), isPresented: self.$isShowingShorcutsSummary)
-        }.onReceive(viewModel.toast, perform: toastQueue.displayToast)
+        .onReceive(viewModel.toast, perform: toastQueue.displayToast)
         .onReceive(viewModel.taskCompletion, perform: haptics.notify)
+        .sheet(isPresented: $isShowingShorcutsSummary, content: makeShortcutList)
         .textFieldAlert(item: $textFieldAlert)
         .mailComposer(configuration: $emailConfiguration)
         .alert(item: $viewModel.errorMessage) {
@@ -164,5 +163,14 @@ struct MetroCardScreen: View {
         withAnimation {
             isShowingShorcutsSummary.toggle()
         }
+    }
+
+    // MARK: - Sheet
+
+    private func makeShortcutList() -> ShortcutList {
+        ShortcutList(
+            viewModel: viewModel.makeShortcutListViewModel(),
+            isPresented: $isShowingShorcutsSummary
+        )
     }
 }

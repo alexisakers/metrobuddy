@@ -1,29 +1,16 @@
 import Intents
 import SwiftUI
 
-struct ActivityIndicator: UIViewRepresentable {
-    let style: UIActivityIndicatorView.Style
-
-    func makeUIView(context: Context) -> UIActivityIndicatorView {
-        let view = UIActivityIndicatorView(style: style)
-        view.startAnimating()
-        return view
-    }
-
-    func updateUIView(_ uiView: UIActivityIndicatorView, context: Context) {
-        // no-op
-    }
-}
-
-struct ShorcutsView: View {
-    @ObservedObject var viewModel: ShorcutsViewModel
+/// A view that displays a list of available Siri shortcuts, and allows the user to add/edit them.
+struct ShortcutList: View {
+    @ObservedObject var viewModel: ShortcutListViewModel
     @Binding var isPresented: Bool
     @Environment(\.haptics) var haptics
 
     @State private var activeConfiguration: AssistantActionConfigurationOption?
 
     var activityIndicator: ActivityIndicator? {
-        guard case .loading = viewModel.state else {
+        guard case .loading = viewModel.content else {
             return nil
         }
 
@@ -31,7 +18,7 @@ struct ShorcutsView: View {
     }
 
     var list: AnyView? {
-        guard case let .loaded(items) = viewModel.state else {
+        guard case let .loaded(items) = viewModel.content else {
             return nil
         }
 
@@ -44,13 +31,14 @@ struct ShorcutsView: View {
     }
 
     var errorMessage: AnyView? {
-        guard case let .failure(error) = viewModel.state else {
+        guard case let .failure(errorMessage) = viewModel.content else {
             return nil
         }
 
         return VStack(alignment: .leading, spacing: 16) {
-            Text("Could not load shortcuts.")
-            Text("An unexpected error occured (\(error)). Please try again, or try using the Shortcuts app directly.")
+            Text(errorMessage.title)
+            Text(errorMessage.localizedDescription)
+            Text(errorMessage.diagnosticMessage)
 
             RoundedButton(
                 title: Text("Try Again"),

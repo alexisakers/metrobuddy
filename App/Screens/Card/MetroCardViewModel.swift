@@ -201,6 +201,10 @@ class MetroCardViewModel: ObservableObject {
 
     // MARK: - Intents
 
+    func makeShortcutListViewModel() -> ShortcutListViewModel {
+        return ShortcutListViewModel(voiceShortcutsCenter: INVoiceShortcutCenter.shared)
+    }
+
     private static func donateSwipeInteraction(requestedBalance: Decimal, completion: Subscribers.Completion<Error>) {
         let response: MBYSwipeCardIntentResponse
         switch completion {

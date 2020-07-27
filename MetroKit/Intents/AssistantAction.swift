@@ -19,7 +19,7 @@ public enum AssistantAction: Int, CaseIterable {
     public var localizedDescription: String {
         switch self {
         case .swipeCard:
-            return NSLocalizedString("Ask Siri to swipe your card and update your balance.", comment: "")
+            return NSLocalizedString("Tell Siri when you swipe your card to update your balance in MetroBuddy.", comment: "")
         case .checkBalance:
             return NSLocalizedString("Ask Siri to check how much money you have left on your MetroCard.", comment: "")
         }
@@ -30,7 +30,7 @@ public enum AssistantAction: Int, CaseIterable {
         let format: String
         switch self {
         case .swipeCard:
-            format = NSLocalizedString("Tell Siri “%@” to swipe your card and update your balance.", comment: "The first argument is the phrase the user selected for the shortcut.")
+            format = NSLocalizedString("Tell Siri “%@” when you swipe your card to update your balance in MetroBuddy.", comment: "The first argument is the phrase the user selected for the shortcut.")
         case .checkBalance:
             format = NSLocalizedString("Tell Siri “%@” to check how much money you have left on your MetroCard.", comment: "The first argument is the phrase the user selected for the shortcut.")
         }

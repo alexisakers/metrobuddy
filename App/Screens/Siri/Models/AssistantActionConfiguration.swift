@@ -17,7 +17,7 @@ enum AssistantActionConfigurationOption: Identifiable {
             case .userActivity(let userActivity):
                 return ObjectIdentifier(userActivity)
             @unknown default:
-                fatalError()
+                fatalError("All INShortcut cases must be handled explicitly.")
             }
 
         case .edit(let voiceShortcut):

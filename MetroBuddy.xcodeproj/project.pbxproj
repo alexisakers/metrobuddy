@@ -95,13 +95,12 @@
 		5E936E3024C7323700F7807E /* MetroIntents.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5E936E2824C7323700F7807E /* MetroIntents.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5E936E3924C7338D00F7807E /* SwipeMetroCardIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E3824C7338D00F7807E /* SwipeMetroCardIntentHandler.swift */; };
 		5E936E4024C73F0600F7807E /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E3424C7324C00F7807E /* Intents.intentdefinition */; };
-		5E936E4224C73F0D00F7807E /* AppIntentVocabulary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E936E3D24C73AD300F7807E /* AppIntentVocabulary.plist */; };
 		5E936E4824C743DC00F7807E /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E3424C7324C00F7807E /* Intents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
 		5E936E4924C743DE00F7807E /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E3424C7324C00F7807E /* Intents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
 		5E936E4B24C7445C00F7807E /* PersistentStore+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E4A24C7445C00F7807E /* PersistentStore+Default.swift */; };
 		5E936E4F24C749EA00F7807E /* NewSiriFeaturesTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E4D24C7498B00F7807E /* NewSiriFeaturesTipView.swift */; };
-		5E936E5624C79ABE00F7807E /* ShorcutsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E5524C79ABE00F7807E /* ShorcutsView.swift */; };
-		5E936E5824C79B1800F7807E /* ShortcutsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E5724C79B1800F7807E /* ShortcutsViewModel.swift */; };
+		5E936E5624C79ABE00F7807E /* ShortcutList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E5524C79ABE00F7807E /* ShortcutList.swift */; };
+		5E936E5824C79B1800F7807E /* ShortcutListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E5724C79B1800F7807E /* ShortcutListViewModel.swift */; };
 		5E936E5A24C7A59E00F7807E /* SheetNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E5924C7A59E00F7807E /* SheetNavigationBar.swift */; };
 		5E936E5C24C86F9300F7807E /* AssistantAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E5B24C86F9300F7807E /* AssistantAction.swift */; };
 		5E936E5E24C873B300F7807E /* INShortcut+VoiceAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E5D24C873B300F7807E /* INShortcut+VoiceAction.swift */; };
@@ -111,6 +110,8 @@
 		5E936E6A24C9D05400F7807E /* SafeAreaSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E6924C9D05300F7807E /* SafeAreaSpacer.swift */; };
 		5E936E6C24C9D40100F7807E /* AssistantActionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E6B24C9D40100F7807E /* AssistantActionConfiguration.swift */; };
 		5E936E6E24C9D44A00F7807E /* AssistantActionListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E6D24C9D44A00F7807E /* AssistantActionListItem.swift */; };
+		5E936E7324CF1BE300F7807E /* VoiceShortcutCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E7224CF1BE200F7807E /* VoiceShortcutCenter.swift */; };
+		5E936E7624CF204700F7807E /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E7424CF1F5A00F7807E /* ActivityIndicator.swift */; };
 		5EC7A60824BDE8F200E3ED39 /* Design+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */; };
 		5EC7A60B24BDEF0300E3ED39 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */; };
 		5EC7A60D24BDF15800E3ED39 /* PropertyListRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */; };
@@ -311,12 +312,11 @@
 		5E936E3424C7324C00F7807E /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
 		5E936E3824C7338D00F7807E /* SwipeMetroCardIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeMetroCardIntentHandler.swift; sourceTree = "<group>"; };
 		5E936E3A24C7368900F7807E /* MetroIntents.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MetroIntents.xcconfig; sourceTree = "<group>"; };
-		5E936E3D24C73AD300F7807E /* AppIntentVocabulary.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AppIntentVocabulary.plist; sourceTree = "<group>"; };
 		5E936E4A24C7445C00F7807E /* PersistentStore+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistentStore+Default.swift"; sourceTree = "<group>"; };
 		5E936E4C24C7457800F7807E /* MetroIntents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MetroIntents.entitlements; sourceTree = "<group>"; };
 		5E936E4D24C7498B00F7807E /* NewSiriFeaturesTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSiriFeaturesTipView.swift; sourceTree = "<group>"; };
-		5E936E5524C79ABE00F7807E /* ShorcutsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShorcutsView.swift; sourceTree = "<group>"; };
-		5E936E5724C79B1800F7807E /* ShortcutsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsViewModel.swift; sourceTree = "<group>"; };
+		5E936E5524C79ABE00F7807E /* ShortcutList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutList.swift; sourceTree = "<group>"; };
+		5E936E5724C79B1800F7807E /* ShortcutListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutListViewModel.swift; sourceTree = "<group>"; };
 		5E936E5924C7A59E00F7807E /* SheetNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetNavigationBar.swift; sourceTree = "<group>"; };
 		5E936E5B24C86F9300F7807E /* AssistantAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantAction.swift; sourceTree = "<group>"; };
 		5E936E5D24C873B300F7807E /* INShortcut+VoiceAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "INShortcut+VoiceAction.swift"; sourceTree = "<group>"; };
@@ -326,6 +326,8 @@
 		5E936E6924C9D05300F7807E /* SafeAreaSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaSpacer.swift; sourceTree = "<group>"; };
 		5E936E6B24C9D40100F7807E /* AssistantActionConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantActionConfiguration.swift; sourceTree = "<group>"; };
 		5E936E6D24C9D44A00F7807E /* AssistantActionListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantActionListItem.swift; sourceTree = "<group>"; };
+		5E936E7224CF1BE200F7807E /* VoiceShortcutCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceShortcutCenter.swift; sourceTree = "<group>"; };
+		5E936E7424CF1F5A00F7807E /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Fonts.swift"; sourceTree = "<group>"; };
 		5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListRepresentable.swift; sourceTree = "<group>"; };
@@ -695,6 +697,7 @@
 				5E936E3424C7324C00F7807E /* Intents.intentdefinition */,
 				5E936E5B24C86F9300F7807E /* AssistantAction.swift */,
 				5E936E5D24C873B300F7807E /* INShortcut+VoiceAction.swift */,
+				5E936E7224CF1BE200F7807E /* VoiceShortcutCenter.swift */,
 			);
 			path = Intents;
 			sourceTree = "<group>";
@@ -730,7 +733,7 @@
 		5E936E7024C9DBDD00F7807E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5E936E5524C79ABE00F7807E /* ShorcutsView.swift */,
+				5E936E5524C79ABE00F7807E /* ShortcutList.swift */,
 				5E936E6724C880D300F7807E /* AssistantActionView.swift */,
 				5E936E5124C74F7300F7807E /* Components */,
 			);
@@ -740,7 +743,7 @@
 		5E936E7124C9DBE400F7807E /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-				5E936E5724C79B1800F7807E /* ShortcutsViewModel.swift */,
+				5E936E5724C79B1800F7807E /* ShortcutListViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -767,6 +770,7 @@
 				5E421A6F24C1D70D00AB8ED4 /* FlexibleStack.swift */,
 				5E2F16FE24C504C60097D0EB /* FullWidthScrollView.swift */,
 				5E936E6924C9D05300F7807E /* SafeAreaSpacer.swift */,
+				5E936E7424CF1F5A00F7807E /* ActivityIndicator.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -819,7 +823,6 @@
 				5EC7A61224BE003200E3ED39 /* Localizable.stringsdict */,
 				5E936E2224C5C18300F7807E /* Settings.bundle */,
 				5E497D4B24B8F32D00EE584E /* LaunchScreen.storyboard */,
-				5E936E3D24C73AD300F7807E /* AppIntentVocabulary.plist */,
 				5ED4E28D24B3E33D00B37946 /* Assets.xcassets */,
 				5ED4E28F24B3E33D00B37946 /* Preview Content */,
 			);
@@ -1137,7 +1140,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E936E4224C73F0D00F7807E /* AppIntentVocabulary.plist in Resources */,
 				5E03304624BF3C29001D86D1 /* App.Configuration.plist in Resources */,
 				5E497D4C24B8F32D00EE584E /* LaunchScreen.storyboard in Resources */,
 				5EC7A61324BE003200E3ED39 /* Localizable.stringsdict in Resources */,
@@ -1249,7 +1251,7 @@
 				5E03304824BF3C53001D86D1 /* AppConfiguration.swift in Sources */,
 				5E03305B24BF6069001D86D1 /* View+Helpers.swift in Sources */,
 				5E03303E24BE117B001D86D1 /* ToastQueue.swift in Sources */,
-				5E936E5624C79ABE00F7807E /* ShorcutsView.swift in Sources */,
+				5E936E5624C79ABE00F7807E /* ShortcutList.swift in Sources */,
 				5E936E6C24C9D40100F7807E /* AssistantActionConfiguration.swift in Sources */,
 				5E497D6124B9433600EE584E /* RootView.swift in Sources */,
 				5E2F16FF24C504C60097D0EB /* FullWidthScrollView.swift in Sources */,
@@ -1273,6 +1275,7 @@
 				5E497DA024BD167C00EE584E /* MetroCardActionButton.swift in Sources */,
 				5E497D4824B8CF1500EE584E /* MetroCardView.swift in Sources */,
 				5ED4E28A24B3E33300B37946 /* AppDelegate.swift in Sources */,
+				5E936E7624CF204700F7807E /* ActivityIndicator.swift in Sources */,
 				5E497D9A24BD083B00EE584E /* RootViewModel.swift in Sources */,
 				5E17D37D24C0BE97003E99D1 /* TextFieldAlertWrapper.swift in Sources */,
 				5E03304E24BF49A4001D86D1 /* MailComposer.swift in Sources */,
@@ -1283,7 +1286,7 @@
 				5E936E6824C880D300F7807E /* AssistantActionView.swift in Sources */,
 				5E57161224C4AB6F0068F20B /* AppFactory.swift in Sources */,
 				5E03305424BF5FBA001D86D1 /* Haptics.swift in Sources */,
-				5E936E5824C79B1800F7807E /* ShortcutsViewModel.swift in Sources */,
+				5E936E5824C79B1800F7807E /* ShortcutListViewModel.swift in Sources */,
 				5E497D9624BC866C00EE584E /* ModalSheet.swift in Sources */,
 				5E936E6524C87A3500F7807E /* AddVoiceShortcutView.swift in Sources */,
 				5E497D6324B9503300EE584E /* TextFieldAlert.swift in Sources */,
@@ -1302,6 +1305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E497D7324BA5EE500EE584E /* SymbolicLocation.swift in Sources */,
+				5E936E7324CF1BE300F7807E /* VoiceShortcutCenter.swift in Sources */,
 				5E497D7024BA5D9900EE584E /* NSManagedObjectModel+Helpers.swift in Sources */,
 				5EC7A60B24BDEF0300E3ED39 /* UserPreferences.swift in Sources */,
 				5EC7A60F24BDF2B900E3ED39 /* UserPreferenceKey.swift in Sources */,

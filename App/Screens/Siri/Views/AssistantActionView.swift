@@ -5,15 +5,6 @@ struct AssistantActionView: View {
     let item: AssistantActionListItem
     @Binding var activeConfiguration: AssistantActionConfigurationOption?
 
-    var buttonTitle: Text {
-        switch item.configurationOption {
-        case .add:
-            return Text("Add to Siri")
-        case .edit:
-            return Text("Edit Shortcut")
-        }
-    }
-
     var subtitle: Text {
         switch item.configurationOption {
         case .add:
