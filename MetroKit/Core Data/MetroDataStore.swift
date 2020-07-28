@@ -3,6 +3,10 @@ import CoreData
 
 /// An interface to get and update the user's Metro Card.
 public protocol MetroCardDataStore {
+    /// Call this method when the `appWillEnterForeground` notification fires to merge potential changes from app extensions that occured while the app
+    /// was in the background.
+    func mergeExternalChanges()
+
     /// Returns the user's current Metro Card, or creates one if needed.
     func currentCard() throws -> ObjectReference<MetroCard>
     
@@ -17,7 +21,7 @@ public protocol MetroCardDataStore {
 public class PersistentMetroCardDataStore: MetroCardDataStore {
     let container: NSPersistentContainer
     let saveContext: NSManagedObjectContext
-    
+
     // MARK: - Initialization
     
     /// Creates a persistent data store using the specified options.
@@ -37,11 +41,15 @@ public class PersistentMetroCardDataStore: MetroCardDataStore {
         
         try container.loadPersistentStoresAndWait()
         container.viewContext.automaticallyMergesChangesFromParent = true
-        container.viewContext.retainsRegisteredObjects = true
     
         saveContext = container.newBackgroundContext()
     }
-    
+
+    // MARK: - History Tracking
+
+    public func mergeExternalChanges() {
+    }
+
     // MARK: - Get Card
     
     public func currentCard() throws -> ObjectReference<MetroCard> {

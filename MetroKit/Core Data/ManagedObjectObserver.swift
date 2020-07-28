@@ -26,7 +26,7 @@ class ManagedObjectObserver<Object: NSManagedObject>: NSObject, Publisher {
         self.context = context
         self.underlyingSubject = CurrentValueSubject(object)
         super.init()
-        
+
         NotificationCenter.default
             .addObserver(
                 self,

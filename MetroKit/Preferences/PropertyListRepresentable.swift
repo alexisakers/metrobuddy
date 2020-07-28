@@ -26,3 +26,5 @@ extension Bool: PropertyListRepresentable {}
 
 extension Data: PropertyListRepresentable {}
 extension NSData: PropertyListRepresentable {}
+
+extension Date: PropertyListRepresentable {}

@@ -31,4 +31,8 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         return true
     }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        dataStore.mergeExternalChanges()
+    }
 }
