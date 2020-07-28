@@ -49,11 +49,11 @@
 				<array>
 					<dict>
 						<key>INIntentResponseCodeConciseFormatString</key>
-						<string>Your new balance is ${balance}. Save travels!</string>
+						<string>Your new balance is ${balance}. Safe travels!</string>
 						<key>INIntentResponseCodeConciseFormatStringID</key>
 						<string>Qry24V</string>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>Your new balance is ${balance}. Save travels!</string>
+						<string>Your new balance is ${balance}. Safe travels!</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>Yx8Opk</string>
 						<key>INIntentResponseCodeName</key>
