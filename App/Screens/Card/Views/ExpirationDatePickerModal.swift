@@ -59,6 +59,7 @@ struct ExpirationDatePickerModal: View {
             }
 
             SafeAreaSpacer(edge: .bottom)
+                .padding(.bottom, 12)
         }.background(Color.contentBackground)
         .mask(RoundedRectangle.defaultStyle)
     }

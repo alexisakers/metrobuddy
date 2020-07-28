@@ -1,22 +1,20 @@
 import SwiftUI
 
 /// A view that displays modal content on top of a view that dims the content underneath.
-private struct DrawerViewModifier<Source: View, Sheet: View>: ViewModifier {
+private struct ModalDrawerContainer<Source: View, Sheet: View>: View {
     let source: Source
     let content: Sheet
     @Binding var isPresented: Bool
 
-    func body(content: Content) -> AnyView {
-        return ZStack(alignment: .bottom) {
+    var body: some View {
+        ZStack(alignment: .bottom) {
             source
                 .zIndex(0)
 
             Color.black.opacity(isPresented ? 0.75 : 0)
-                .disabled(!isPresented)
                 .onTapGesture(perform: closeActionActivated)
+                .disabled(!isPresented)
                 .edgesIgnoringSafeArea(.all)
-
-                .transition(.opacity)
                 .zIndex(1)
 
             if isPresented {
@@ -25,7 +23,6 @@ private struct DrawerViewModifier<Source: View, Sheet: View>: ViewModifier {
                     .zIndex(2)
             }
         }.edgesIgnoringSafeArea(.bottom)
-        .animation(.spring())
         .eraseToAnyView()
     }
 
@@ -39,6 +36,6 @@ private struct DrawerViewModifier<Source: View, Sheet: View>: ViewModifier {
 extension View {
     /// Presents the specified content as a modal drawer.
     func modalDrawer<Content: View>(isPresented: Binding<Bool>, @ViewBuilder content: () -> Content) -> some View {
-        modifier(DrawerViewModifier(source: self, content: content(), isPresented: isPresented))
+        ModalDrawerContainer(source: self, content: content(), isPresented: isPresented)
     }
 }
