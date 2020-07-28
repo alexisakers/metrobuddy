@@ -132,8 +132,6 @@
 			<dict>
 				<key></key>
 				<dict>
-					<key>INIntentParameterCombinationIsPrimary</key>
-					<true/>
 					<key>INIntentParameterCombinationSubtitle</key>
 					<string>See how much money you have on your MetroCard.</string>
 					<key>INIntentParameterCombinationSubtitleID</key>
@@ -213,6 +211,8 @@
 					</dict>
 				</array>
 			</dict>
+			<key>INIntentRestrictions</key>
+			<integer>1</integer>
 			<key>INIntentTitle</key>
 			<string>Check my MetroCard Balance</string>
 			<key>INIntentTitleID</key>

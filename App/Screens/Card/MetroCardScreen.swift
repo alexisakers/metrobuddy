@@ -1,5 +1,6 @@
 import SwiftUI
 import MetroKit
+import MetroUI
 
 /// The screen that displays the user's Metro Card.
 struct MetroCardScreen: View {
@@ -49,7 +50,7 @@ struct MetroCardScreen: View {
                         ShortcutsButton(action: shortcutsButtonTapped)
                     }
 
-                    MetroCardView(formattedBalance: viewModel.data.formattedBalance)
+                    MetroCardView(formattedBalance: viewModel.data.formattedBalance, roundCorners: true)
                         .offset(offset)
                         .animation(enableAnimations ? Animation.spring() : nil, value: offset)
                         .onTapGesture(perform: cardTapped)

@@ -15,9 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5E936E2724C7323700F7807E"
-               BuildableName = "MetroIntents.appex"
-               BlueprintName = "MetroIntents"
+               BlueprintIdentifier = "5E936E8E24D0E53800F7807E"
+               BuildableName = "MetroIntentsUI.appex"
+               BlueprintName = "MetroIntentsUI"
                ReferencedContainer = "container:MetroBuddy.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -73,9 +73,9 @@
          BundleIdentifier = "com.apple.notificationcenterui">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5E936E2724C7323700F7807E"
-            BuildableName = "MetroIntents.appex"
-            BlueprintName = "MetroIntents"
+            BlueprintIdentifier = "5E936E8E24D0E53800F7807E"
+            BuildableName = "MetroIntentsUI.appex"
+            BlueprintName = "MetroIntentsUI"
             ReferencedContainer = "container:MetroBuddy.xcodeproj">
          </BuildableReference>
       </RemoteRunnable>

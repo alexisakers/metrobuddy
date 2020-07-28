@@ -2,37 +2,37 @@ import Foundation
 import SwiftUI
 
 extension Font {
-    static var cardBalance: Font {
+    public static var cardBalance: Font {
         Font.system(size: 50, weight: .bold, design: .rounded)
             .monospacedDigit()
     }
     
-    static var screenTitle: Font {
+    public static var screenTitle: Font {
         Font.largeTitle
             .bold()
     }
     
-    static var sheetTitle: Font {
+    public static var sheetTitle: Font {
         Font.title
             .bold()
     }
     
-    static var contentCardTitle: Font {
+    public static var contentCardTitle: Font {
         Font.headline.bold()
     }
     
-    static var cardActionTitle: Font {
+    public static var cardActionTitle: Font {
         Font.caption
             .weight(.medium)
             .uppercaseSmallCaps()
     }
     
-    static var buttonTitle: Font {
+    public static var buttonTitle: Font {
         Font.body
             .weight(.semibold)
     }
 
-    static var toastText: UIFont {
+    public static var toastText: UIFont {
         let fontDescriptor = UIFont.preferredFont(forTextStyle: .body)
             .fontDescriptor
             .withDesign(.monospaced)!
@@ -58,14 +58,14 @@ struct ScaleFontModifier: ViewModifier {
 }
 
 extension View {
-    func font(_ uiFont: UIFont, textStyle: UIFont.TextStyle) -> some View {
+    public func font(_ uiFont: UIFont, textStyle: UIFont.TextStyle) -> some View {
         let scaleFont = ScaleFontModifier(font: uiFont, textStyle: textStyle)
         return modifier(scaleFont)
     }
 }
 
 extension UIFontDescriptor {
-    func withWeight(_ weight: UIFont.Weight) -> UIFontDescriptor {
+    public func withWeight(_ weight: UIFont.Weight) -> UIFontDescriptor {
         var traits = self.fontAttributes[.traits, default: [:]] as! [TraitKey: Any]
         traits[.weight] = weight.rawValue
         return self.addingAttributes([.traits: traits])

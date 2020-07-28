@@ -1,0 +1,4 @@
+#include "Base.xcconfig"
+
+PRODUCT_BUNDLE_IDENTIFIER = ${DOMAIN}.${PRODUCT_NAME};
+INFOPLIST_FILE = Configs/${PRODUCT_NAME}.Info.plist;
