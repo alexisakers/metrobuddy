@@ -14,6 +14,7 @@ class MetroCardViewModel: ObservableObject {
     
     private let dataStore: MetroCardDataStore
     private let updateSubject = PassthroughSubject<MetroCardUpdate, Never>()
+    private let donateCheckBalanceSubject = PassthroughSubject<Void, Never>()
     private let swipeSubject = PassthroughSubject<Void, Never>()
     private var tasks: Set<AnyCancellable> = []
 
@@ -116,7 +117,14 @@ class MetroCardViewModel: ObservableObject {
                 }
             }.assign(to: \.errorMessage, on: self)
             .store(in: &tasks)
-        
+
+        // Donate check balance intent
+        donateCheckBalanceSubject
+            .withLatestFrom(cardPublisher) { _, card in card }
+            .sink {
+                AssistantActionDonationCenter.donate(action: .checkBalance(balance: $0.balance))
+            }.store(in: &tasks)
+
         // Process and Display Card Changes
         cardPublisher
             .receive(on: DispatchQueue.global(qos: .userInteractive))
@@ -207,26 +215,16 @@ class MetroCardViewModel: ObservableObject {
         return ShortcutListViewModel(voiceShortcutsCenter: INVoiceShortcutCenter.shared)
     }
 
+    func donateCurrentBalance() {
+        donateCheckBalanceSubject.send(())
+    }
+
     private static func donateSwipeInteraction(requestedBalance: Decimal, completion: Subscribers.Completion<Error>) {
-        let response: MBYSwipeCardIntentResponse
-        switch completion {
-        case .finished:
-            response = MBYSwipeCardIntentResponse(code: .success, userActivity: nil)
-            response.balance = INCurrencyAmount(amount: requestedBalance as NSDecimalNumber, currencyCode: "USD")
-
-        case .failure(let error):
-            switch error {
-            case MetroCardBalanceError.insufficientFunds(let currentBalance):
-                response = MBYSwipeCardIntentResponse(code: .insufficientFunds, userActivity: nil)
-                response.balance = INCurrencyAmount(amount: currentBalance as NSDecimalNumber, currencyCode: "USD")
-
-            default:
-                response = MBYSwipeCardIntentResponse(code: .failure, userActivity: nil)
-            }
+        guard case .finished = completion else {
+            return
         }
 
-        let interaction = INInteraction(intent: MBYSwipeCardIntent(), response: response)
-        interaction.donate()
+        AssistantActionDonationCenter.donate(action: .swipeCard(balance: requestedBalance))
     }
 }
 

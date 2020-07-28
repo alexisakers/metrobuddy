@@ -92,6 +92,7 @@ struct MetroCardScreen: View {
                  .edgesIgnoringSafeArea(.all)
                  .zIndex(1)
         }.accessibilityElement(children: .contain)
+        .onAppear(perform: viewModel.donateCurrentBalance)
         .onReceive(viewModel.toast, perform: toastQueue.displayToast)
         .onReceive(viewModel.taskCompletion, perform: haptics.notify)
         .sheet(isPresented: $isShowingShorcutList, content: makeShortcutList)
