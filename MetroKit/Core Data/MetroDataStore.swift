@@ -27,6 +27,7 @@ public class PersistentMetroCardDataStore: MetroCardDataStore {
     // MARK: - Initialization
     
     /// Creates a persistent data store using the specified options.
+    /// - parameter preferences: The user preferences object used across targets.
     /// - parameter persistentStore: The type of persistent store to use.
     /// - parameter useCloudKit: Whether to use automatic CloudKit syncing.
     /// - throws: Any error thrown while resolving the persistent store. See `PersistentStore` for the possible errors.
@@ -58,7 +59,7 @@ public class PersistentMetroCardDataStore: MetroCardDataStore {
     // MARK: - Get Card
     
     public func currentCard() throws -> ObjectReference<MetroCard> {
-        return try getOrCreateCard()
+        try getOrCreateCard()
             .map { $0.makeReferenceSnapshot() }
             .get()
     }

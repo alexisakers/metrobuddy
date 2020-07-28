@@ -55,7 +55,7 @@ struct ShortcutListCell: View {
 
                 Image.Symbols.chevronRight
                     .font(.body)
-        }.padding(16)
+            }.padding(16)
             .frame(maxWidth: .infinity)
             .background(background)
             .accentColor(.white)
