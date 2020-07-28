@@ -25,6 +25,10 @@ public final class MockMetroCardDataStore: MetroCardDataStore {
 
     // MARK: - MetroCardDataStore
 
+    public func mergeExternalChanges() {
+        // no-op
+    }
+
     public func currentCard() throws -> ObjectReference<MetroCard> {
         if let card = cardPublisher.value {
             return ObjectReference(objectID: id, snapshot: card)

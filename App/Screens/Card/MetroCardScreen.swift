@@ -12,6 +12,7 @@ struct MetroCardScreen: View {
 
     @State private var textFieldAlert: TextFieldAlert?
     @State private var isShowingDatePicker = false
+    @State private var isShowingShorcutList = false
     @State private var expirationDate = Date()
     @State private var emailConfiguration: MailComposer.Configuration?
 
@@ -40,8 +41,13 @@ struct MetroCardScreen: View {
         ZStack(alignment: .top) {
             FullWidthScrollView(bounce: []) {
                 VStack(alignment: .leading, spacing: 16) {
-                    NavigationBar(subtitle: viewModel.data.formattedRemainingSwipes)
-                        .accessibility(sortPriority: 0)
+                    HStack {
+                        NavigationBar(subtitle: viewModel.data.formattedRemainingSwipes)
+                            .accessibility(sortPriority: 0)
+
+                        Spacer()
+                        ShortcutsButton(action: shortcutsButtonTapped)
+                    }
 
                     MetroCardView(formattedBalance: viewModel.data.formattedBalance)
                         .offset(offset)
@@ -65,7 +71,7 @@ struct MetroCardScreen: View {
                                 isShowingDatePicker: $isShowingDatePicker
                             )
                         }.transition(.opacity)
-                            .animation(.easeInOut)
+                          .animation(.easeInOut)
                     } else {
                         OnboardingTipView()
                             .transition(.opacity)
@@ -85,23 +91,12 @@ struct MetroCardScreen: View {
              }.fixedSize(horizontal: false, vertical: true)
                  .edgesIgnoringSafeArea(.all)
                  .zIndex(1)
-
-            if isShowingDatePicker {
-                ModalSheet(isPresented: $isShowingDatePicker) {
-                    ExpirationDatePickerSheet(
-                        initialValue: viewModel.data.expirationDate,
-                        isPresented: $isShowingDatePicker,
-                        saveHandler: { self.viewModel.saveExpirationDate($0) },
-                        resetHandler: { self.viewModel.saveExpirationDate(nil) }
-                    )
-                }.transition(AnyTransition.opacity
-                    .animation(enableAnimations ? Animation.easeInOut(duration: 0.25) : nil)
-                ).accessibility(sortPriority: 1)
-                .zIndex(2)
-            }
         }.accessibilityElement(children: .contain)
+        .onAppear(perform: viewModel.donateCurrentBalance)
         .onReceive(viewModel.toast, perform: toastQueue.displayToast)
         .onReceive(viewModel.taskCompletion, perform: haptics.notify)
+        .sheet(isPresented: $isShowingShorcutList, content: makeShortcutList)
+        .modalDrawer(isPresented: $isShowingDatePicker, content: makeDatePickerModal)
         .textFieldAlert(item: $textFieldAlert)
         .mailComposer(configuration: $emailConfiguration)
         .alert(item: $viewModel.errorMessage) {
@@ -143,5 +138,37 @@ struct MetroCardScreen: View {
             self.viewModel.recordSwipe()
             self.isPerformingSwipe = false
         }
+    }
+
+    private func shortcutsButtonTapped() {
+        withAnimation {
+            isShowingShorcutList.toggle()
+        }
+    }
+
+    // MARK: - Sheet
+
+    private func makeShortcutList() -> some View {
+        NavigationView {
+            ShortcutList(
+                viewModel: viewModel.makeShortcutListViewModel(),
+                isPresented: $isShowingShorcutList
+            ).navigationBarTitle("Siri Shortcuts", displayMode: .inline)
+            .navigationBarItems(trailing: CloseButton(action: closeShortcutsButtonTapped))
+        }.colorScheme(.dark)
+        .accentColor(.metroCardOrange)
+    }
+
+    private func makeDatePickerModal() -> some View {
+        ExpirationDatePickerModal(
+            initialValue: viewModel.data.expirationDate,
+            isPresented: $isShowingDatePicker,
+            saveHandler: { self.viewModel.saveExpirationDate($0) },
+            resetHandler: { self.viewModel.saveExpirationDate(nil) }
+        )
+    }
+
+    private func closeShortcutsButtonTapped() {
+        isShowingShorcutList = false
     }
 }

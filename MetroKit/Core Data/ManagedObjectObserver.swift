@@ -26,7 +26,7 @@ class ManagedObjectObserver<Object: NSManagedObject>: NSObject, Publisher {
         self.context = context
         self.underlyingSubject = CurrentValueSubject(object)
         super.init()
-        
+
         NotificationCenter.default
             .addObserver(
                 self,
@@ -40,15 +40,15 @@ class ManagedObjectObserver<Object: NSManagedObject>: NSObject, Publisher {
     
     @objc private func managedObjectContextObjectsDidChange(notification: Notification) {
         let changes = notification.managedObjectContextChanges
-        let matchesPredicate: (NSManagedObject) -> Bool = {
+        let predicate: (NSManagedObject) -> Bool = {
             $0.objectID == self.underlyingSubject.value.objectID
         }
-        
-        if let updatedObject = (changes.updated.first(where: matchesPredicate)
-            ?? changes.refreshed.first(where: matchesPredicate))
-            .flatMap({ $0 as? Object }) {
-            underlyingSubject.send(updatedObject)
-        } else if changes.deleted.contains(where: matchesPredicate) {
+
+        if let object = changes.updated.first(where: predicate) ?? changes.refreshed.first(where: predicate) {
+            if let updatedObject = object as? Object {
+                underlyingSubject.send(updatedObject)
+            }
+        } else if changes.deleted.contains(where: predicate) {
             underlyingSubject.send(completion: .finished)
         }
     }

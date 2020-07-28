@@ -16,7 +16,11 @@ extension Color {
     static var prominentContainerBackground: Color {
         Color("ProminentContainerBackground")
     }
-    
+
+    static var siriPurple: Color {
+        Color("SiriPurple")
+    }
+
     static var toastText: Color {
         Color(.systemTeal)
     }

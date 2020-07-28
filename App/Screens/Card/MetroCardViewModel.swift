@@ -1,19 +1,20 @@
 import Combine
 import CombineExt
-import Foundation
+import Intents
 import SwiftUI
 import MetroKit
 
 /// An object responsible for computing the, and which side effects to display when the data changes.
 class MetroCardViewModel: ObservableObject {
     private enum MetroCardBalanceError: Error {
-        case insufficientFunds
+        case insufficientFunds(Decimal)
     }
     
     // MARK: - Properties
     
     private let dataStore: MetroCardDataStore
     private let updateSubject = PassthroughSubject<MetroCardUpdate, Never>()
+    private let donateCheckBalanceSubject = PassthroughSubject<Void, Never>()
     private let swipeSubject = PassthroughSubject<Void, Never>()
     private var tasks: Set<AnyCancellable> = []
 
@@ -59,18 +60,22 @@ class MetroCardViewModel: ObservableObject {
             .withLatestFrom(cardPublisher) { ($0, $1) }
             .flatMap { _, card -> Publishers.Materialize<AnyPublisher<Void, Error>> in
                 guard card.balance >= card.fare else {
-                    return Fail<Void, Error>(error: MetroCardBalanceError.insufficientFunds as Error)
+                    return Fail<Void, Error>(error: MetroCardBalanceError.insufficientFunds(card.balance) as Error)
                         .eraseToAnyPublisher()
                         .materialize()
                 }
-                
+
+                let newBalance = card.balance - card.fare
                 let update = MetroCardUpdate.balance(card.balance - card.fare)
                 return dataStore.applyUpdates([update], to: card)
+                    .handleEvents(receiveCompletion: {
+                        Self.donateSwipeInteraction(requestedBalance: newBalance, completion: $0)
+                    })
                     .receive(on: DispatchQueue.main)
                     .eraseToAnyPublisher()
                     .materialize()
             }
-        
+
         // Set Up Completion/Failure Publishers
         let taskEvents = updateElements
             .merge(with: swipeElements)
@@ -103,13 +108,23 @@ class MetroCardViewModel: ObservableObject {
                 case .failure(MetroCardBalanceError.insufficientFunds):
                     return nil
                 case .failure(let error):
-                    return ErrorMessage(title: "Cannot Save Changes", error: error)
+                    return ErrorMessage(
+                        title: NSLocalizedString("Cannot Save Changes", comment: ""),
+                        error: error
+                    )
                 default:
                     return nil
                 }
             }.assign(to: \.errorMessage, on: self)
             .store(in: &tasks)
-        
+
+        // Donate check balance intent
+        donateCheckBalanceSubject
+            .withLatestFrom(cardPublisher) { _, card in card }
+            .sink {
+                AssistantActionDonationCenter.donate(action: .checkBalance(balance: $0.balance))
+            }.store(in: &tasks)
+
         // Process and Display Card Changes
         cardPublisher
             .receive(on: DispatchQueue.global(qos: .userInteractive))
@@ -192,6 +207,24 @@ class MetroCardViewModel: ObservableObject {
         }
 
         return update(number)
+    }
+
+    // MARK: - Intents
+
+    func makeShortcutListViewModel() -> ShortcutListViewModel {
+        return ShortcutListViewModel(voiceShortcutsCenter: INVoiceShortcutCenter.shared)
+    }
+
+    func donateCurrentBalance() {
+        donateCheckBalanceSubject.send(())
+    }
+
+    private static func donateSwipeInteraction(requestedBalance: Decimal, completion: Subscribers.Completion<Error>) {
+        guard case .finished = completion else {
+            return
+        }
+
+        AssistantActionDonationCenter.donate(action: .swipeCard(balance: requestedBalance))
     }
 }
 

@@ -24,6 +24,13 @@
 	<true/>
 	<key>MBYAppGroupName</key>
 	<string>group.$(DOMAIN)</string>
+	<key>NSSiriUsageDescription</key>
+	<string>This enables you to check and update your MetroCard balance using Siri Shortcuts.</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>MBYCheckBalanceIntent</string>
+		<string>MBYSwipeCardIntent</string>
+	</array>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchScreen</key>

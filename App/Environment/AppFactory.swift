@@ -31,14 +31,13 @@ enum AppFactory {
     #endif
 
     private static func loadDefaultStores() -> (MetroCardDataStore, UserPreferences) {
-        let groupID = Bundle.main.infoValue(forKey: AppGroupNameInfoPlistKey.self)!
+        let userDefaults = UserDefaults.sharedSuite
         let dataStore = try! PersistentMetroCardDataStore(
-            persistentStore: .onDisk(
-                .securityGroupContainer(id: groupID, path: ["Data"])
-            ),
+            preferences: userDefaults,
+            persistentStore: .sharedContainer,
             useCloudKit: true
         )
-        let userDefaults = UserDefaults(suiteName: groupID)!
+
         return (dataStore, userDefaults)
     }
 }

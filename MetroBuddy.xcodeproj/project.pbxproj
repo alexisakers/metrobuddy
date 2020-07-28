@@ -67,8 +67,8 @@
 		5E497D8A24BB4BDC00EE584E /* PersistentStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D8924BB4BDC00EE584E /* PersistentStoreTests.swift */; };
 		5E497D8C24BB4C2E00EE584E /* FileBasedTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D8B24BB4C2E00EE584E /* FileBasedTestCase.swift */; };
 		5E497D9024BB504000EE584E /* MetroCard+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D8F24BB504000EE584E /* MetroCard+Mock.swift */; };
-		5E497D9424BC822D00EE584E /* DatePickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D9324BC822B00EE584E /* DatePickerSheet.swift */; };
-		5E497D9624BC866C00EE584E /* ModalSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D9524BC866C00EE584E /* ModalSheet.swift */; };
+		5E497D9424BC822D00EE584E /* ExpirationDatePickerModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D9324BC822B00EE584E /* ExpirationDatePickerModal.swift */; };
+		5E497D9624BC866C00EE584E /* ModalDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D9524BC866C00EE584E /* ModalDrawer.swift */; };
 		5E497D9A24BD083B00EE584E /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D9924BD083A00EE584E /* RootViewModel.swift */; };
 		5E497D9C24BD0AAA00EE584E /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D9B24BD0AAA00EE584E /* BackgroundView.swift */; };
 		5E497D9E24BD164300EE584E /* ErrorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D9D24BD164300EE584E /* ErrorScreen.swift */; };
@@ -91,6 +91,32 @@
 		5E936E1F24C5210600F7807E /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E1E24C5210600F7807E /* SnapshotHelper.swift */; };
 		5E936E2124C5214E00F7807E /* SnapshotsTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E2024C5214E00F7807E /* SnapshotsTestCase.swift */; };
 		5E936E2324C5C18300F7807E /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5E936E2224C5C18300F7807E /* Settings.bundle */; };
+		5E936E2B24C7323700F7807E /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E2A24C7323700F7807E /* IntentHandler.swift */; };
+		5E936E3024C7323700F7807E /* MetroIntents.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5E936E2824C7323700F7807E /* MetroIntents.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5E936E3924C7338D00F7807E /* SwipeMetroCardIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E3824C7338D00F7807E /* SwipeMetroCardIntentHandler.swift */; };
+		5E936E4024C73F0600F7807E /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E3424C7324C00F7807E /* Intents.intentdefinition */; };
+		5E936E4824C743DC00F7807E /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E3424C7324C00F7807E /* Intents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
+		5E936E4924C743DE00F7807E /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E3424C7324C00F7807E /* Intents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
+		5E936E4B24C7445C00F7807E /* PersistentStore+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E4A24C7445C00F7807E /* PersistentStore+Default.swift */; };
+		5E936E5624C79ABE00F7807E /* ShortcutList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E5524C79ABE00F7807E /* ShortcutList.swift */; };
+		5E936E5824C79B1800F7807E /* ShortcutListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E5724C79B1800F7807E /* ShortcutListViewModel.swift */; };
+		5E936E5A24C7A59E00F7807E /* ModalTitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E5924C7A59E00F7807E /* ModalTitleBar.swift */; };
+		5E936E5C24C86F9300F7807E /* AssistantAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E5B24C86F9300F7807E /* AssistantAction.swift */; };
+		5E936E5E24C873B300F7807E /* INShortcut+VoiceAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E5D24C873B300F7807E /* INShortcut+VoiceAction.swift */; };
+		5E936E6524C87A3500F7807E /* AddVoiceShortcutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E6124C8798900F7807E /* AddVoiceShortcutView.swift */; };
+		5E936E6624C87A3800F7807E /* EditVoiceShortcutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E6324C879EB00F7807E /* EditVoiceShortcutView.swift */; };
+		5E936E6824C880D300F7807E /* ShortcutListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E6724C880D300F7807E /* ShortcutListCell.swift */; };
+		5E936E6C24C9D40100F7807E /* AssistantActionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E6B24C9D40100F7807E /* AssistantActionConfiguration.swift */; };
+		5E936E6E24C9D44A00F7807E /* ShortcutListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E6D24C9D44A00F7807E /* ShortcutListItem.swift */; };
+		5E936E7324CF1BE300F7807E /* VoiceShortcutCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E7224CF1BE200F7807E /* VoiceShortcutCenter.swift */; };
+		5E936E7624CF204700F7807E /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E7424CF1F5A00F7807E /* ActivityIndicator.swift */; };
+		5E936E7A24CF2C8400F7807E /* ShortcutsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E7924CF2C8400F7807E /* ShortcutsButton.swift */; };
+		5E936E7C24CF4EAA00F7807E /* ShortcutListErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E7B24CF4EA900F7807E /* ShortcutListErrorView.swift */; };
+		5E936E7E24CF59F600F7807E /* CheckBalanceIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E7D24CF59F600F7807E /* CheckBalanceIntentHandler.swift */; };
+		5E936E8324CF8C1100F7807E /* SafeAreaSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E8124CF8B4800F7807E /* SafeAreaSpacer.swift */; };
+		5E936E8624D0723C00F7807E /* PersistentHistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E8424D070E600F7807E /* PersistentHistoryService.swift */; };
+		5E936E8824D0C31C00F7807E /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E8724D0C31B00F7807E /* CloseButton.swift */; };
+		5E936E8A24D0C77400F7807E /* IntentDonationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E8924D0C77400F7807E /* IntentDonationCenter.swift */; };
 		5EC7A60824BDE8F200E3ED39 /* Design+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */; };
 		5EC7A60B24BDEF0300E3ED39 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */; };
 		5EC7A60D24BDF15800E3ED39 /* PropertyListRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */; };
@@ -138,6 +164,20 @@
 			remoteGlobalIDString = 5ED4E28524B3E33300B37946;
 			remoteInfo = "Metro Buddy";
 		};
+		5E936E2D24C7323700F7807E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5ED4E27E24B3E33300B37946 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E936E2724C7323700F7807E;
+			remoteInfo = MetroIntents;
+		};
+		5E936E4524C7435A00F7807E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5ED4E27E24B3E33300B37946 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5ED4E29C24B3E3B400B37946;
+			remoteInfo = MetroKit;
+		};
 		5ED4E2A724B3E3B400B37946 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5ED4E27E24B3E33300B37946 /* Project object */;
@@ -155,6 +195,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		5E936E2F24C7323700F7807E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5E936E3024C7323700F7807E /* MetroIntents.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5ED4E2B724B3E3B400B37946 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -230,8 +281,8 @@
 		5E497D8924BB4BDC00EE584E /* PersistentStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStoreTests.swift; sourceTree = "<group>"; };
 		5E497D8B24BB4C2E00EE584E /* FileBasedTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileBasedTestCase.swift; sourceTree = "<group>"; };
 		5E497D8F24BB504000EE584E /* MetroCard+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MetroCard+Mock.swift"; sourceTree = "<group>"; };
-		5E497D9324BC822B00EE584E /* DatePickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerSheet.swift; sourceTree = "<group>"; };
-		5E497D9524BC866C00EE584E /* ModalSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSheet.swift; sourceTree = "<group>"; };
+		5E497D9324BC822B00EE584E /* ExpirationDatePickerModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpirationDatePickerModal.swift; sourceTree = "<group>"; };
+		5E497D9524BC866C00EE584E /* ModalDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalDrawer.swift; sourceTree = "<group>"; };
 		5E497D9924BD083A00EE584E /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		5E497D9B24BD0AAA00EE584E /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		5E497D9D24BD164300EE584E /* ErrorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorScreen.swift; sourceTree = "<group>"; };
@@ -260,6 +311,33 @@
 		5E936E1E24C5210600F7807E /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		5E936E2024C5214E00F7807E /* SnapshotsTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotsTestCase.swift; sourceTree = "<group>"; };
 		5E936E2224C5C18300F7807E /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		5E936E2824C7323700F7807E /* MetroIntents.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MetroIntents.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E936E2A24C7323700F7807E /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		5E936E2C24C7323700F7807E /* MetroIntents.Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MetroIntents.Info.plist; sourceTree = "<group>"; };
+		5E936E3424C7324C00F7807E /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
+		5E936E3824C7338D00F7807E /* SwipeMetroCardIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeMetroCardIntentHandler.swift; sourceTree = "<group>"; };
+		5E936E3A24C7368900F7807E /* MetroIntents.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MetroIntents.xcconfig; sourceTree = "<group>"; };
+		5E936E4A24C7445C00F7807E /* PersistentStore+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistentStore+Default.swift"; sourceTree = "<group>"; };
+		5E936E4C24C7457800F7807E /* MetroIntents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MetroIntents.entitlements; sourceTree = "<group>"; };
+		5E936E5524C79ABE00F7807E /* ShortcutList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutList.swift; sourceTree = "<group>"; };
+		5E936E5724C79B1800F7807E /* ShortcutListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutListViewModel.swift; sourceTree = "<group>"; };
+		5E936E5924C7A59E00F7807E /* ModalTitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTitleBar.swift; sourceTree = "<group>"; };
+		5E936E5B24C86F9300F7807E /* AssistantAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantAction.swift; sourceTree = "<group>"; };
+		5E936E5D24C873B300F7807E /* INShortcut+VoiceAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "INShortcut+VoiceAction.swift"; sourceTree = "<group>"; };
+		5E936E6124C8798900F7807E /* AddVoiceShortcutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVoiceShortcutView.swift; sourceTree = "<group>"; };
+		5E936E6324C879EB00F7807E /* EditVoiceShortcutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVoiceShortcutView.swift; sourceTree = "<group>"; };
+		5E936E6724C880D300F7807E /* ShortcutListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutListCell.swift; sourceTree = "<group>"; };
+		5E936E6B24C9D40100F7807E /* AssistantActionConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantActionConfiguration.swift; sourceTree = "<group>"; };
+		5E936E6D24C9D44A00F7807E /* ShortcutListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutListItem.swift; sourceTree = "<group>"; };
+		5E936E7224CF1BE200F7807E /* VoiceShortcutCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceShortcutCenter.swift; sourceTree = "<group>"; };
+		5E936E7424CF1F5A00F7807E /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		5E936E7924CF2C8400F7807E /* ShortcutsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsButton.swift; sourceTree = "<group>"; };
+		5E936E7B24CF4EA900F7807E /* ShortcutListErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutListErrorView.swift; sourceTree = "<group>"; };
+		5E936E7D24CF59F600F7807E /* CheckBalanceIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBalanceIntentHandler.swift; sourceTree = "<group>"; };
+		5E936E8124CF8B4800F7807E /* SafeAreaSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaSpacer.swift; sourceTree = "<group>"; };
+		5E936E8424D070E600F7807E /* PersistentHistoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentHistoryService.swift; sourceTree = "<group>"; };
+		5E936E8724D0C31B00F7807E /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
+		5E936E8924D0C77400F7807E /* IntentDonationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentDonationCenter.swift; sourceTree = "<group>"; };
 		5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Fonts.swift"; sourceTree = "<group>"; };
 		5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListRepresentable.swift; sourceTree = "<group>"; };
@@ -299,6 +377,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5E5715F424C3AC0F0068F20B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E936E2524C7323700F7807E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -380,6 +465,7 @@
 				5E03305624BF5FD3001D86D1 /* Root */,
 				5E03305724BF5FDE001D86D1 /* Error */,
 				5E03305824BF5FF3001D86D1 /* Card */,
+				5E936E5024C74F6E00F7807E /* Siri */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -429,6 +515,8 @@
 				5E497D4524B7EFF500EE584E /* MetroCardShape.swift */,
 				5E497DA124BD378200EE584E /* MetroCardActionGrid.swift */,
 				5E497D9F24BD167C00EE584E /* MetroCardActionButton.swift */,
+				5E497D9324BC822B00EE584E /* ExpirationDatePickerModal.swift */,
+				5E936E7924CF2C8400F7807E /* ShortcutsButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -512,6 +600,7 @@
 				5E497D7424BA617400EE584E /* MetroCardDataStoreError.swift */,
 				5E497D6624BA278500EE584E /* ManagedObjectObserver.swift */,
 				5E497D7124BA5ECC00EE584E /* Helpers */,
+				5E936E8424D070E600F7807E /* PersistentHistoryService.swift */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -520,6 +609,7 @@
 			isa = PBXGroup;
 			children = (
 				5E497D5E24B93E0B00EE584E /* PersistentStore.swift */,
+				5E936E4A24C7445C00F7807E /* PersistentStore+Default.swift */,
 				5E497D7224BA5EE500EE584E /* SymbolicLocation.swift */,
 				5E497D6D24BA5A9D00EE584E /* NSPersistentContainer+Helpers.swift */,
 				5E497D6F24BA5D9900EE584E /* NSManagedObjectModel+Helpers.swift */,
@@ -534,10 +624,12 @@
 				5ED4E2C724B400BF00B37946 /* App.xcconfig */,
 				5E497D8424BB401100EE584E /* MetroKit.xcconfig */,
 				5E57160924C4A3720068F20B /* MetroTesting.xcconfig */,
+				5E936E3A24C7368900F7807E /* MetroIntents.xcconfig */,
 				5ED4E29224B3E33D00B37946 /* App.Info.plist */,
 				5ED4E2A024B3E3B400B37946 /* MetroKit.Info.plist */,
 				5E5715D724C3AA500068F20B /* MetroTesting.Info.plist */,
 				5E03304524BF3C29001D86D1 /* App.Configuration.plist */,
+				5E936E2C24C7323700F7807E /* MetroIntents.Info.plist */,
 				5E421A4024C106F100AB8ED4 /* MetroBuddy.entitlements */,
 			);
 			path = Configs;
@@ -600,13 +692,82 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
+		5E936E2924C7323700F7807E /* MetroIntents */ = {
+			isa = PBXGroup;
+			children = (
+				5E936E2A24C7323700F7807E /* IntentHandler.swift */,
+				5E936E3824C7338D00F7807E /* SwipeMetroCardIntentHandler.swift */,
+				5E936E7D24CF59F600F7807E /* CheckBalanceIntentHandler.swift */,
+				5E936E4C24C7457800F7807E /* MetroIntents.entitlements */,
+			);
+			path = MetroIntents;
+			sourceTree = "<group>";
+		};
+		5E936E3F24C73E0400F7807E /* Intents */ = {
+			isa = PBXGroup;
+			children = (
+				5E936E3424C7324C00F7807E /* Intents.intentdefinition */,
+				5E936E5B24C86F9300F7807E /* AssistantAction.swift */,
+				5E936E5D24C873B300F7807E /* INShortcut+VoiceAction.swift */,
+				5E936E7224CF1BE200F7807E /* VoiceShortcutCenter.swift */,
+				5E936E8924D0C77400F7807E /* IntentDonationCenter.swift */,
+			);
+			path = Intents;
+			sourceTree = "<group>";
+		};
+		5E936E5024C74F6E00F7807E /* Siri */ = {
+			isa = PBXGroup;
+			children = (
+				5E936E6F24C9D9A400F7807E /* Models */,
+				5E936E7124C9DBE400F7807E /* View Models */,
+				5E936E7024C9DBDD00F7807E /* Views */,
+			);
+			path = Siri;
+			sourceTree = "<group>";
+		};
+		5E936E5124C74F7300F7807E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				5E936E6724C880D300F7807E /* ShortcutListCell.swift */,
+				5E936E7B24CF4EA900F7807E /* ShortcutListErrorView.swift */,
+				5E936E6124C8798900F7807E /* AddVoiceShortcutView.swift */,
+				5E936E6324C879EB00F7807E /* EditVoiceShortcutView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		5E936E6F24C9D9A400F7807E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5E936E6B24C9D40100F7807E /* AssistantActionConfiguration.swift */,
+				5E936E6D24C9D44A00F7807E /* ShortcutListItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5E936E7024C9DBDD00F7807E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5E936E5524C79ABE00F7807E /* ShortcutList.swift */,
+				5E936E5124C74F7300F7807E /* Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5E936E7124C9DBE400F7807E /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				5E936E5724C79B1800F7807E /* ShortcutListViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
 		5EC4EDEC24C0E7FA00747DA3 /* Sheets */ = {
 			isa = PBXGroup;
 			children = (
 				5E03304D24BF49A4001D86D1 /* MailComposer.swift */,
 				5E497D6224B9503300EE584E /* TextFieldAlert.swift */,
-				5E497D9324BC822B00EE584E /* DatePickerSheet.swift */,
-				5E497D9524BC866C00EE584E /* ModalSheet.swift */,
+				5E497D9524BC866C00EE584E /* ModalDrawer.swift */,
 			);
 			path = Sheets;
 			sourceTree = "<group>";
@@ -619,8 +780,12 @@
 				5E17B45E24C0FEBD000FA57E /* ScaleButtonStyle.swift */,
 				5E497D9B24BD0AAA00EE584E /* BackgroundView.swift */,
 				5E497D4F24B9104000EE584E /* NavigationBar.swift */,
+				5E936E5924C7A59E00F7807E /* ModalTitleBar.swift */,
 				5E421A6F24C1D70D00AB8ED4 /* FlexibleStack.swift */,
 				5E2F16FE24C504C60097D0EB /* FullWidthScrollView.swift */,
+				5E936E7424CF1F5A00F7807E /* ActivityIndicator.swift */,
+				5E936E8124CF8B4800F7807E /* SafeAreaSpacer.swift */,
+				5E936E8724D0C31B00F7807E /* CloseButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -642,6 +807,7 @@
 				5ED4E28824B3E33300B37946 /* App */,
 				5ED4E29E24B3E3B400B37946 /* MetroKit */,
 				5E57160824C4A2F90068F20B /* Tests */,
+				5E936E2924C7323700F7807E /* MetroIntents */,
 				5ED4E28724B3E33300B37946 /* Products */,
 				5E421A4124C1070400AB8ED4 /* Frameworks */,
 			);
@@ -656,6 +822,7 @@
 				5E5715C324C3A4AA0068F20B /* MetroBuddyUITests.xctest */,
 				5E5715D424C3AA500068F20B /* MetroTesting.framework */,
 				5E5715F724C3AC0F0068F20B /* MetroBuddyTests.xctest */,
+				5E936E2824C7323700F7807E /* MetroIntents.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -691,6 +858,7 @@
 				5ED4E2C324B3E52C00B37946 /* Models */,
 				5E497D6C24BA5A8700EE584E /* Core Data */,
 				5EC7A60924BDEEF400E3ED39 /* Preferences */,
+				5E936E3F24C73E0400F7807E /* Intents */,
 				5E17D37524BFCF28003E99D1 /* Helpers */,
 			);
 			path = MetroKit;
@@ -807,6 +975,24 @@
 			productReference = 5E5715F724C3AC0F0068F20B /* MetroBuddyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		5E936E2724C7323700F7807E /* MetroIntents */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E936E3324C7323800F7807E /* Build configuration list for PBXNativeTarget "MetroIntents" */;
+			buildPhases = (
+				5E936E2424C7323700F7807E /* Sources */,
+				5E936E2524C7323700F7807E /* Frameworks */,
+				5E936E2624C7323700F7807E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5E936E4624C7435A00F7807E /* PBXTargetDependency */,
+			);
+			name = MetroIntents;
+			productName = MetroIntents;
+			productReference = 5E936E2824C7323700F7807E /* MetroIntents.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		5ED4E28524B3E33300B37946 /* MetroBuddy */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5ED4E29524B3E33D00B37946 /* Build configuration list for PBXNativeTarget "MetroBuddy" */;
@@ -816,12 +1002,14 @@
 				5ED4E28424B3E33300B37946 /* Resources */,
 				5ED4E2B724B3E3B400B37946 /* Embed Frameworks */,
 				5E2F16FD24C4E8A80097D0EB /* Embed Debug Frameworks */,
+				5E936E2F24C7323700F7807E /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				5ED4E2B124B3E3B400B37946 /* PBXTargetDependency */,
 				5E5715E824C3AA500068F20B /* PBXTargetDependency */,
+				5E936E2E24C7323700F7807E /* PBXTargetDependency */,
 			);
 			name = MetroBuddy;
 			packageProductDependencies = (
@@ -876,7 +1064,7 @@
 		5ED4E27E24B3E33300B37946 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1200;
+				LastSwiftUpdateCheck = 1160;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
 					5E5715C224C3A4AA0068F20B = {
@@ -890,6 +1078,9 @@
 					5E5715F624C3AC0F0068F20B = {
 						CreatedOnToolsVersion = 12.0;
 						TestTargetID = 5ED4E28524B3E33300B37946;
+					};
+					5E936E2724C7323700F7807E = {
+						CreatedOnToolsVersion = 11.6;
 					};
 					5ED4E28524B3E33300B37946 = {
 						CreatedOnToolsVersion = 12.0;
@@ -923,6 +1114,7 @@
 				5ED4E28524B3E33300B37946 /* MetroBuddy */,
 				5ED4E29C24B3E3B400B37946 /* MetroKit */,
 				5E5715D324C3AA500068F20B /* MetroTesting */,
+				5E936E2724C7323700F7807E /* MetroIntents */,
 				5ED4E2A424B3E3B400B37946 /* MetroKitTests */,
 				5E5715C224C3A4AA0068F20B /* MetroBuddyUITests */,
 				5E5715F624C3AC0F0068F20B /* MetroBuddyTests */,
@@ -946,6 +1138,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5E5715F524C3AC0F0068F20B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E936E2624C7323700F7807E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1046,20 +1245,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5E936E2424C7323700F7807E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E936E4924C743DE00F7807E /* Intents.intentdefinition in Sources */,
+				5E936E3924C7338D00F7807E /* SwipeMetroCardIntentHandler.swift in Sources */,
+				5E936E7E24CF59F600F7807E /* CheckBalanceIntentHandler.swift in Sources */,
+				5E936E2B24C7323700F7807E /* IntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5ED4E28224B3E33300B37946 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E936E4824C743DC00F7807E /* Intents.intentdefinition in Sources */,
 				5E17B45F24C0FEBD000FA57E /* ScaleButtonStyle.swift in Sources */,
+				5E936E5A24C7A59E00F7807E /* ModalTitleBar.swift in Sources */,
 				5E421A3D24C103FE00AB8ED4 /* Design+Images.swift in Sources */,
 				5E03304824BF3C53001D86D1 /* AppConfiguration.swift in Sources */,
 				5E03305B24BF6069001D86D1 /* View+Helpers.swift in Sources */,
 				5E03303E24BE117B001D86D1 /* ToastQueue.swift in Sources */,
+				5E936E5624C79ABE00F7807E /* ShortcutList.swift in Sources */,
+				5E936E6C24C9D40100F7807E /* AssistantActionConfiguration.swift in Sources */,
 				5E497D6124B9433600EE584E /* RootView.swift in Sources */,
 				5E2F16FF24C504C60097D0EB /* FullWidthScrollView.swift in Sources */,
 				5E421A3B24C103E200AB8ED4 /* Design+Colors.swift in Sources */,
+				5E936E7A24CF2C8400F7807E /* ShortcutsButton.swift in Sources */,
 				5E17D37924BFD1A7003E99D1 /* Alert+ErrorMessage.swift in Sources */,
 				5E497D5424B92D4F00EE584E /* MetroCardViewModel.swift in Sources */,
+				5E936E8824D0C31C00F7807E /* CloseButton.swift in Sources */,
 				5EC7A60824BDE8F200E3ED39 /* Design+Fonts.swift in Sources */,
 				5E17D37B24C0AE04003E99D1 /* TextFieldAlert+UIAlertController.swift in Sources */,
 				5E421A7424C1F12A00AB8ED4 /* ColorScheme+Helpers.swift in Sources */,
@@ -1071,26 +1287,34 @@
 				5E497D9E24BD164300EE584E /* ErrorScreen.swift in Sources */,
 				5E421A7024C1D70D00AB8ED4 /* FlexibleStack.swift in Sources */,
 				5E497D4A24B8E1BC00EE584E /* RoundedButton.swift in Sources */,
+				5E936E6624C87A3800F7807E /* EditVoiceShortcutView.swift in Sources */,
 				5EC7A61124BDF68100E3ED39 /* OnboardingTipView.swift in Sources */,
 				5E497DA024BD167C00EE584E /* MetroCardActionButton.swift in Sources */,
 				5E497D4824B8CF1500EE584E /* MetroCardView.swift in Sources */,
 				5ED4E28A24B3E33300B37946 /* AppDelegate.swift in Sources */,
+				5E936E7624CF204700F7807E /* ActivityIndicator.swift in Sources */,
 				5E497D9A24BD083B00EE584E /* RootViewModel.swift in Sources */,
 				5E17D37D24C0BE97003E99D1 /* TextFieldAlertWrapper.swift in Sources */,
 				5E03304E24BF49A4001D86D1 /* MailComposer.swift in Sources */,
 				5E17D37124BF6234003E99D1 /* MetroCardData.swift in Sources */,
 				5E497D4624B7EFF500EE584E /* MetroCardShape.swift in Sources */,
-				5E497D9424BC822D00EE584E /* DatePickerSheet.swift in Sources */,
+				5E497D9424BC822D00EE584E /* ExpirationDatePickerModal.swift in Sources */,
 				5E421A7224C1D7D900AB8ED4 /* ContentSize+UIKit.swift in Sources */,
+				5E936E7C24CF4EAA00F7807E /* ShortcutListErrorView.swift in Sources */,
+				5E936E6824C880D300F7807E /* ShortcutListCell.swift in Sources */,
 				5E57161224C4AB6F0068F20B /* AppFactory.swift in Sources */,
 				5E03305424BF5FBA001D86D1 /* Haptics.swift in Sources */,
-				5E497D9624BC866C00EE584E /* ModalSheet.swift in Sources */,
+				5E936E5824C79B1800F7807E /* ShortcutListViewModel.swift in Sources */,
+				5E497D9624BC866C00EE584E /* ModalDrawer.swift in Sources */,
+				5E936E6524C87A3500F7807E /* AddVoiceShortcutView.swift in Sources */,
 				5E497D6324B9503300EE584E /* TextFieldAlert.swift in Sources */,
 				5E497D5024B9104000EE584E /* NavigationBar.swift in Sources */,
 				5E17D36F24BF611A003E99D1 /* Decimal+Helpers.swift in Sources */,
+				5E936E8324CF8C1100F7807E /* SafeAreaSpacer.swift in Sources */,
 				5E497DA624BD3CC400EE584E /* TextFieldAlert+Factory.swift in Sources */,
 				5E03303C24BE055B001D86D1 /* Toast.swift in Sources */,
 				5E421A3F24C1041700AB8ED4 /* Design+Shapes.swift in Sources */,
+				5E936E6E24C9D44A00F7807E /* ShortcutListItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1099,19 +1323,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E497D7324BA5EE500EE584E /* SymbolicLocation.swift in Sources */,
+				5E936E7324CF1BE300F7807E /* VoiceShortcutCenter.swift in Sources */,
 				5E497D7024BA5D9900EE584E /* NSManagedObjectModel+Helpers.swift in Sources */,
 				5EC7A60B24BDEF0300E3ED39 /* UserPreferences.swift in Sources */,
 				5EC7A60F24BDF2B900E3ED39 /* UserPreferenceKey.swift in Sources */,
+				5E936E5E24C873B300F7807E /* INShortcut+VoiceAction.swift in Sources */,
+				5E936E4B24C7445C00F7807E /* PersistentStore+Default.swift in Sources */,
 				5E497D5724B92DA300EE584E /* MetroModels.xcdatamodeld in Sources */,
 				5E497D7524BA617400EE584E /* MetroCardDataStoreError.swift in Sources */,
 				5E03304A24BF4120001D86D1 /* UserFacingError.swift in Sources */,
 				5E497D6E24BA5A9D00EE584E /* NSPersistentContainer+Helpers.swift in Sources */,
+				5E936E5C24C86F9300F7807E /* AssistantAction.swift in Sources */,
+				5E936E8624D0723C00F7807E /* PersistentHistoryService.swift in Sources */,
 				5E497D6724BA278600EE584E /* ManagedObjectObserver.swift in Sources */,
 				5E497D5B24B9305A00EE584E /* MetroCardUpdate.swift in Sources */,
 				5E497D5924B92F6D00EE584E /* ObjectReference.swift in Sources */,
 				5EC7A60D24BDF15800E3ED39 /* PropertyListRepresentable.swift in Sources */,
+				5E936E4024C73F0600F7807E /* Intents.intentdefinition in Sources */,
 				5E497D5F24B93E0B00EE584E /* PersistentStore.swift in Sources */,
 				5E03304C24BF47E9001D86D1 /* ErrorMessage.swift in Sources */,
+				5E936E8A24D0C77400F7807E /* IntentDonationCenter.swift in Sources */,
 				5E17D37724BFCF34003E99D1 /* TaskCompletion.swift in Sources */,
 				5ED4E2BC24B3E3D500B37946 /* MetroDataStore.swift in Sources */,
 				5ED4E2C024B3E3EB00B37946 /* MetroCard.swift in Sources */,
@@ -1155,6 +1386,16 @@
 			isa = PBXTargetDependency;
 			target = 5ED4E28524B3E33300B37946 /* MetroBuddy */;
 			targetProxy = 5E5715FC24C3AC0F0068F20B /* PBXContainerItemProxy */;
+		};
+		5E936E2E24C7323700F7807E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5E936E2724C7323700F7807E /* MetroIntents */;
+			targetProxy = 5E936E2D24C7323700F7807E /* PBXContainerItemProxy */;
+		};
+		5E936E4624C7435A00F7807E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5ED4E29C24B3E3B400B37946 /* MetroKit */;
+			targetProxy = 5E936E4524C7435A00F7807E /* PBXContainerItemProxy */;
 		};
 		5ED4E2A824B3E3B400B37946 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1305,6 +1546,46 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Metro Buddy.app/Metro Buddy";
+			};
+			name = Release;
+		};
+		5E936E3124C7323700F7807E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E936E3A24C7368900F7807E /* MetroIntents.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MetroIntents/MetroIntents.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 75E8K39Z38;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.alexisonline.MetroBuddy.App.MetroIntents;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		5E936E3224C7323700F7807E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E936E3A24C7368900F7807E /* MetroIntents.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MetroIntents/MetroIntents.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 75E8K39Z38;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.alexisonline.MetroBuddy.App.MetroIntents;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1472,6 +1753,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5E497D8424BB401100EE584E /* MetroKit.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -1498,6 +1780,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5E497D8424BB401100EE584E /* MetroKit.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -1584,6 +1867,15 @@
 			buildConfigurations = (
 				5E5715FF24C3AC0F0068F20B /* Debug */,
 				5E57160024C3AC0F0068F20B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E936E3324C7323800F7807E /* Build configuration list for PBXNativeTarget "MetroIntents" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E936E3124C7323700F7807E /* Debug */,
+				5E936E3224C7323700F7807E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

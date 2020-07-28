@@ -1,7 +1,7 @@
 import SwiftUI
 
 /// A sheet that lets the user pick an expiration date for their card.
-struct ExpirationDatePickerSheet: View {
+struct ExpirationDatePickerModal: View {
     @Binding var isPresented: Bool
     let saveHandler: (Date) -> Void
     let resetHandler: () -> Void
@@ -23,23 +23,10 @@ struct ExpirationDatePickerSheet: View {
     
     var body: some View {
         VStack(spacing: 10) {
-            HStack {
-                Text("Expiration Date")
-                    .font(.sheetTitle)
-                    .minimumScaleFactor(0.1)
-                    .lineLimit(1)
-                    .accessibility(addTraits: .isHeader)
-
-                Spacer()
-
-                Button(action: closeButtonTapped) {
-                    Image.Symbols.closeButton
-                        .resizable()
-                        .frame(width: 24, height: 24, alignment: .trailing)
-                        .padding(8)
-                }.accessibility(label: Text("Close"))
-                .accessibility(identifier: "close-button")
-            }.padding(.horizontal, 16)
+            ModalTitleBar(
+                title: Text("Expiration Date"),
+                isPresented: $isPresented
+            ).padding(.horizontal, 16)
             .padding(.top, 16)
 
             DatePicker("Expiration Date", selection: $selectedDate, displayedComponents: [.date])
@@ -70,9 +57,11 @@ struct ExpirationDatePickerSheet: View {
                 .padding(.bottom, 8)
                 .accessibility(identifier: "remove-date-button")
             }
+
+            SafeAreaSpacer(edge: .bottom)
+                .padding(.bottom, 12)
         }.background(Color.contentBackground)
         .mask(RoundedRectangle.defaultStyle)
-        .padding(.horizontal, UIDatePicker.isUltraCompact ? 0 : 16)
     }
     
     // MARK: - Input
