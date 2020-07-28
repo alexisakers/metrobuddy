@@ -10,20 +10,23 @@ private struct ModalDrawerContainer<Source: View, Sheet: View>: View {
         ZStack(alignment: .bottom) {
             source
                 .zIndex(0)
+                .accessibility(hidden: isPresented)
 
             Color.black.opacity(isPresented ? 0.75 : 0)
                 .onTapGesture(perform: closeActionActivated)
                 .disabled(!isPresented)
                 .edgesIgnoringSafeArea(.all)
+                .accessibility(hidden: true)
                 .zIndex(1)
 
             if isPresented {
                 content
                     .edgesIgnoringSafeArea(.bottom)
+                    .accessibility(sortPriority: 1)
                     .zIndex(2)
             }
         }.edgesIgnoringSafeArea(.bottom)
-        .eraseToAnyView()
+        .accessibilityAction(.escape, closeActionActivated)
     }
 
     func closeActionActivated() {
