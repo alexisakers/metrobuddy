@@ -9,6 +9,13 @@ extension PersistentStore {
     }
 }
 
+extension UserDefaults {
+    /// Returns the user defaults suite that can be shared across targets of the app.
+    public static var sharedSuite: UserDefaults {
+        UserDefaults(suiteName: Bundle.sharedContainerID)!
+    }
+}
+
 extension Bundle {
     fileprivate static var sharedContainerID: String {
         Bundle(for: PersistentMetroCardDataStore.self)

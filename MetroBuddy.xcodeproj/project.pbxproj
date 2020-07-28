@@ -114,6 +114,7 @@
 		5E936E7C24CF4EAA00F7807E /* ShortcutListErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E7B24CF4EA900F7807E /* ShortcutListErrorView.swift */; };
 		5E936E7E24CF59F600F7807E /* CheckBalanceIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E7D24CF59F600F7807E /* CheckBalanceIntentHandler.swift */; };
 		5E936E8324CF8C1100F7807E /* SafeAreaSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E8124CF8B4800F7807E /* SafeAreaSpacer.swift */; };
+		5E936E8624D0723C00F7807E /* PersistentHistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E8424D070E600F7807E /* PersistentHistoryService.swift */; };
 		5EC7A60824BDE8F200E3ED39 /* Design+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */; };
 		5EC7A60B24BDEF0300E3ED39 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */; };
 		5EC7A60D24BDF15800E3ED39 /* PropertyListRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */; };
@@ -332,6 +333,7 @@
 		5E936E7B24CF4EA900F7807E /* ShortcutListErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutListErrorView.swift; sourceTree = "<group>"; };
 		5E936E7D24CF59F600F7807E /* CheckBalanceIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBalanceIntentHandler.swift; sourceTree = "<group>"; };
 		5E936E8124CF8B4800F7807E /* SafeAreaSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaSpacer.swift; sourceTree = "<group>"; };
+		5E936E8424D070E600F7807E /* PersistentHistoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentHistoryService.swift; sourceTree = "<group>"; };
 		5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Fonts.swift"; sourceTree = "<group>"; };
 		5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListRepresentable.swift; sourceTree = "<group>"; };
@@ -594,6 +596,7 @@
 				5E497D7424BA617400EE584E /* MetroCardDataStoreError.swift */,
 				5E497D6624BA278500EE584E /* ManagedObjectObserver.swift */,
 				5E497D7124BA5ECC00EE584E /* Helpers */,
+				5E936E8424D070E600F7807E /* PersistentHistoryService.swift */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -1324,6 +1327,7 @@
 				5E03304A24BF4120001D86D1 /* UserFacingError.swift in Sources */,
 				5E497D6E24BA5A9D00EE584E /* NSPersistentContainer+Helpers.swift in Sources */,
 				5E936E5C24C86F9300F7807E /* AssistantAction.swift in Sources */,
+				5E936E8624D0723C00F7807E /* PersistentHistoryService.swift in Sources */,
 				5E497D6724BA278600EE584E /* ManagedObjectObserver.swift in Sources */,
 				5E497D5B24B9305A00EE584E /* MetroCardUpdate.swift in Sources */,
 				5E497D5924B92F6D00EE584E /* ObjectReference.swift in Sources */,

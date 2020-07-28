@@ -4,6 +4,7 @@ import MetroKit
 class IntentHandler: INExtension {
     override func handler(for intent: INIntent) -> Any {
         let dataStore = try! PersistentMetroCardDataStore(
+            preferences: UserDefaults.sharedSuite,
             persistentStore: .sharedContainer,
             useCloudKit: true
         )

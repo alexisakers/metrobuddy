@@ -4,9 +4,9 @@ import SwiftUI
 @UIApplicationMain
 final class AppDelegate: NSObject, UIApplicationDelegate {
     var window: UIWindow?
+    let (dataStore, preferences) = AppFactory.loadDataStores()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        let (dataStore, preferences) = AppFactory.loadDataStores()
         let viewModel = RootViewModel(dataStore: dataStore, preferences: preferences)
 
         let contentView = RootView(viewModel: viewModel)

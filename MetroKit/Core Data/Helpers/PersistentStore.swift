@@ -29,6 +29,7 @@ public enum PersistentStore {
             
             storeDescription = NSPersistentStoreDescription(url: url)
             storeDescription.type = NSSQLiteStoreType
+            storeDescription.setOption(true as NSNumber, forKey: NSPersistentHistoryTrackingKey)
         }
         
         storeDescription.shouldAddStoreAsynchronously = false

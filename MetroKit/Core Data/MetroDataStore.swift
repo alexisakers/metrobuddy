@@ -1,5 +1,6 @@
 import Combine
 import CoreData
+import os.log
 
 /// An interface to get and update the user's Metro Card.
 public protocol MetroCardDataStore {
@@ -21,6 +22,7 @@ public protocol MetroCardDataStore {
 public class PersistentMetroCardDataStore: MetroCardDataStore {
     let container: NSPersistentContainer
     let saveContext: NSManagedObjectContext
+    let historyService: PersistentHistoryService
 
     // MARK: - Initialization
     
@@ -28,7 +30,7 @@ public class PersistentMetroCardDataStore: MetroCardDataStore {
     /// - parameter persistentStore: The type of persistent store to use.
     /// - parameter useCloudKit: Whether to use automatic CloudKit syncing.
     /// - throws: Any error thrown while resolving the persistent store. See `PersistentStore` for the possible errors.
-    public init(persistentStore: PersistentStore, useCloudKit: Bool) throws {
+    public init(preferences: UserPreferences, persistentStore: PersistentStore, useCloudKit: Bool) throws {
         if useCloudKit {
             container = NSPersistentCloudKitContainer(name: "Metro", managedObjectModel: .metroModels)
         } else {
@@ -38,22 +40,25 @@ public class PersistentMetroCardDataStore: MetroCardDataStore {
         container.persistentStoreDescriptions = [
             try persistentStore.makePersistentStoreDescriptor(in: .default, name: "Metro")
         ]
-        
+
         try container.loadPersistentStoresAndWait()
         container.viewContext.automaticallyMergesChangesFromParent = true
-    
+
         saveContext = container.newBackgroundContext()
+        historyService = PersistentHistoryService(context: container.viewContext, preferences: preferences)
     }
 
     // MARK: - History Tracking
 
+    /// Attemps to merge any external changes after the last known merge into the target context. Call this method from `applicationDidFinishLaunching`.
     public func mergeExternalChanges() {
+        historyService.mergeExternalChanges()
     }
 
     // MARK: - Get Card
     
     public func currentCard() throws -> ObjectReference<MetroCard> {
-        try getOrCreateCard()
+        return try getOrCreateCard()
             .map { $0.makeReferenceSnapshot() }
             .get()
     }
