@@ -33,11 +33,11 @@ class PersistentHistoryService: NSObject {
             let historyResult = try context.execute(fetchHistoryRequest) as! NSPersistentHistoryResult
             let history = historyResult.result as! [NSPersistentHistoryTransaction]
 
+            let previousStalenessInterval = context.stalenessInterval
             for transaction in history.reversed() {
-                context.stalenessInterval = 0
                 context.mergeChanges(fromContextDidSave: transaction.objectIDNotification())
-                context.stalenessInterval = -1
             }
+            context.stalenessInterval = previousStalenessInterval
 
             if let lastTimestamp = history.last?.timestamp {
                 let purgeHistoryRequest = NSPersistentHistoryChangeRequest.deleteHistory(before: lastTimestamp)

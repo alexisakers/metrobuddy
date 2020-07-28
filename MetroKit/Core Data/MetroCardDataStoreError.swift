@@ -31,7 +31,7 @@ public enum MetroCardDataStoreError: UserFacingError {
 
         case .cannotSave(let error):
             let format = NSLocalizedString(
-                "You changes could not be saved due to an error. The error code is %1$@ %2$ld. We suggest trying to force-quit the app and reopening it.",
+                "Your changes could not be saved due to an error. The error code is %1$@ %2$ld. We suggest trying to force-quit the app and reopening it.",
                 comment: "A message to inform the user that their changes were not saved. The first parameter is the domain code of the error, and the second parameter is the code of the error."
             )
             
