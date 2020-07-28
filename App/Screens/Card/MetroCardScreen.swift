@@ -91,24 +91,11 @@ struct MetroCardScreen: View {
              }.fixedSize(horizontal: false, vertical: true)
                  .edgesIgnoringSafeArea(.all)
                  .zIndex(1)
-
-            if isShowingDatePicker {
-                ModalSheet(isPresented: $isShowingDatePicker) {
-                    ExpirationDatePickerModal(
-                        initialValue: viewModel.data.expirationDate,
-                        isPresented: $isShowingDatePicker,
-                        saveHandler: { self.viewModel.saveExpirationDate($0) },
-                        resetHandler: { self.viewModel.saveExpirationDate(nil) }
-                    )
-                }.transition(AnyTransition.opacity
-                    .animation(enableAnimations ? Animation.easeInOut(duration: 0.25) : nil)
-                ).accessibility(sortPriority: 1)
-                .zIndex(2)
-            }
         }.accessibilityElement(children: .contain)
         .onReceive(viewModel.toast, perform: toastQueue.displayToast)
         .onReceive(viewModel.taskCompletion, perform: haptics.notify)
         .sheet(isPresented: $isShowingShorcutList, content: makeShortcutList)
+        .modalDrawer(isPresented: $isShowingDatePicker, content: makeDatePickerModal)
         .textFieldAlert(item: $textFieldAlert)
         .mailComposer(configuration: $emailConfiguration)
         .alert(item: $viewModel.errorMessage) {
@@ -167,5 +154,14 @@ struct MetroCardScreen: View {
                 isPresented: $isShowingShorcutList
             ).navigationBarTitle("Siri Shortcuts", displayMode: .inline)
         }.colorScheme(.dark)
+    }
+
+    private func makeDatePickerModal() -> some View {
+        ExpirationDatePickerModal(
+            initialValue: viewModel.data.expirationDate,
+            isPresented: $isShowingDatePicker,
+            saveHandler: { self.viewModel.saveExpirationDate($0) },
+            resetHandler: { self.viewModel.saveExpirationDate(nil) }
+        )
     }
 }

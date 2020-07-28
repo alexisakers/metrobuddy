@@ -26,6 +26,8 @@ struct ModalTitleBar: View {
     }
 
     private func closeButtonTapped() {
-        isPresented = false
+        withAnimation {
+            isPresented = false
+        }
     }
 }

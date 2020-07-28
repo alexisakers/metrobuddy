@@ -68,7 +68,7 @@
 		5E497D8C24BB4C2E00EE584E /* FileBasedTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D8B24BB4C2E00EE584E /* FileBasedTestCase.swift */; };
 		5E497D9024BB504000EE584E /* MetroCard+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D8F24BB504000EE584E /* MetroCard+Mock.swift */; };
 		5E497D9424BC822D00EE584E /* ExpirationDatePickerModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D9324BC822B00EE584E /* ExpirationDatePickerModal.swift */; };
-		5E497D9624BC866C00EE584E /* ModalSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D9524BC866C00EE584E /* ModalSheet.swift */; };
+		5E497D9624BC866C00EE584E /* ModalDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D9524BC866C00EE584E /* ModalDrawer.swift */; };
 		5E497D9A24BD083B00EE584E /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D9924BD083A00EE584E /* RootViewModel.swift */; };
 		5E497D9C24BD0AAA00EE584E /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D9B24BD0AAA00EE584E /* BackgroundView.swift */; };
 		5E497D9E24BD164300EE584E /* ErrorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E497D9D24BD164300EE584E /* ErrorScreen.swift */; };
@@ -113,6 +113,8 @@
 		5E936E7A24CF2C8400F7807E /* ShortcutsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E7924CF2C8400F7807E /* ShortcutsButton.swift */; };
 		5E936E7C24CF4EAA00F7807E /* ShortcutListErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E7B24CF4EA900F7807E /* ShortcutListErrorView.swift */; };
 		5E936E7E24CF59F600F7807E /* CheckBalanceIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E7D24CF59F600F7807E /* CheckBalanceIntentHandler.swift */; };
+		5E936E8024CF76A200F7807E /* CoreDataTransactionTimestampKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E7F24CF76A200F7807E /* CoreDataTransactionTimestampKey.swift */; };
+		5E936E8324CF8C1100F7807E /* SafeAreaSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E8124CF8B4800F7807E /* SafeAreaSpacer.swift */; };
 		5EC7A60824BDE8F200E3ED39 /* Design+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */; };
 		5EC7A60B24BDEF0300E3ED39 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */; };
 		5EC7A60D24BDF15800E3ED39 /* PropertyListRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */; };
@@ -278,7 +280,7 @@
 		5E497D8B24BB4C2E00EE584E /* FileBasedTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileBasedTestCase.swift; sourceTree = "<group>"; };
 		5E497D8F24BB504000EE584E /* MetroCard+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MetroCard+Mock.swift"; sourceTree = "<group>"; };
 		5E497D9324BC822B00EE584E /* ExpirationDatePickerModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpirationDatePickerModal.swift; sourceTree = "<group>"; };
-		5E497D9524BC866C00EE584E /* ModalSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSheet.swift; sourceTree = "<group>"; };
+		5E497D9524BC866C00EE584E /* ModalDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalDrawer.swift; sourceTree = "<group>"; };
 		5E497D9924BD083A00EE584E /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		5E497D9B24BD0AAA00EE584E /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		5E497D9D24BD164300EE584E /* ErrorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorScreen.swift; sourceTree = "<group>"; };
@@ -330,6 +332,8 @@
 		5E936E7924CF2C8400F7807E /* ShortcutsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsButton.swift; sourceTree = "<group>"; };
 		5E936E7B24CF4EA900F7807E /* ShortcutListErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutListErrorView.swift; sourceTree = "<group>"; };
 		5E936E7D24CF59F600F7807E /* CheckBalanceIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBalanceIntentHandler.swift; sourceTree = "<group>"; };
+		5E936E7F24CF76A200F7807E /* CoreDataTransactionTimestampKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTransactionTimestampKey.swift; sourceTree = "<group>"; };
+		5E936E8124CF8B4800F7807E /* SafeAreaSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaSpacer.swift; sourceTree = "<group>"; };
 		5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Fonts.swift"; sourceTree = "<group>"; };
 		5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListRepresentable.swift; sourceTree = "<group>"; };
@@ -604,6 +608,7 @@
 				5E497D7224BA5EE500EE584E /* SymbolicLocation.swift */,
 				5E497D6D24BA5A9D00EE584E /* NSPersistentContainer+Helpers.swift */,
 				5E497D6F24BA5D9900EE584E /* NSManagedObjectModel+Helpers.swift */,
+				5E936E7F24CF76A200F7807E /* CoreDataTransactionTimestampKey.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -757,7 +762,7 @@
 			children = (
 				5E03304D24BF49A4001D86D1 /* MailComposer.swift */,
 				5E497D6224B9503300EE584E /* TextFieldAlert.swift */,
-				5E497D9524BC866C00EE584E /* ModalSheet.swift */,
+				5E497D9524BC866C00EE584E /* ModalDrawer.swift */,
 			);
 			path = Sheets;
 			sourceTree = "<group>";
@@ -774,6 +779,7 @@
 				5E421A6F24C1D70D00AB8ED4 /* FlexibleStack.swift */,
 				5E2F16FE24C504C60097D0EB /* FullWidthScrollView.swift */,
 				5E936E7424CF1F5A00F7807E /* ActivityIndicator.swift */,
+				5E936E8124CF8B4800F7807E /* SafeAreaSpacer.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1292,11 +1298,12 @@
 				5E57161224C4AB6F0068F20B /* AppFactory.swift in Sources */,
 				5E03305424BF5FBA001D86D1 /* Haptics.swift in Sources */,
 				5E936E5824C79B1800F7807E /* ShortcutListViewModel.swift in Sources */,
-				5E497D9624BC866C00EE584E /* ModalSheet.swift in Sources */,
+				5E497D9624BC866C00EE584E /* ModalDrawer.swift in Sources */,
 				5E936E6524C87A3500F7807E /* AddVoiceShortcutView.swift in Sources */,
 				5E497D6324B9503300EE584E /* TextFieldAlert.swift in Sources */,
 				5E497D5024B9104000EE584E /* NavigationBar.swift in Sources */,
 				5E17D36F24BF611A003E99D1 /* Decimal+Helpers.swift in Sources */,
+				5E936E8324CF8C1100F7807E /* SafeAreaSpacer.swift in Sources */,
 				5E497DA624BD3CC400EE584E /* TextFieldAlert+Factory.swift in Sources */,
 				5E03303C24BE055B001D86D1 /* Toast.swift in Sources */,
 				5E421A3F24C1041700AB8ED4 /* Design+Shapes.swift in Sources */,
@@ -1321,6 +1328,7 @@
 				5E497D6E24BA5A9D00EE584E /* NSPersistentContainer+Helpers.swift in Sources */,
 				5E936E5C24C86F9300F7807E /* AssistantAction.swift in Sources */,
 				5E497D6724BA278600EE584E /* ManagedObjectObserver.swift in Sources */,
+				5E936E8024CF76A200F7807E /* CoreDataTransactionTimestampKey.swift in Sources */,
 				5E497D5B24B9305A00EE584E /* MetroCardUpdate.swift in Sources */,
 				5E497D5924B92F6D00EE584E /* ObjectReference.swift in Sources */,
 				5EC7A60D24BDF15800E3ED39 /* PropertyListRepresentable.swift in Sources */,

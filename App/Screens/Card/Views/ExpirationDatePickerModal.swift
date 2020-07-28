@@ -57,6 +57,8 @@ struct ExpirationDatePickerModal: View {
                 .padding(.bottom, 8)
                 .accessibility(identifier: "remove-date-button")
             }
+
+            SafeAreaSpacer(edge: .bottom)
         }.background(Color.contentBackground)
         .mask(RoundedRectangle.defaultStyle)
     }
