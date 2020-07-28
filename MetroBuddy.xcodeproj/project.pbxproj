@@ -115,6 +115,7 @@
 		5E936E7E24CF59F600F7807E /* CheckBalanceIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E7D24CF59F600F7807E /* CheckBalanceIntentHandler.swift */; };
 		5E936E8324CF8C1100F7807E /* SafeAreaSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E8124CF8B4800F7807E /* SafeAreaSpacer.swift */; };
 		5E936E8624D0723C00F7807E /* PersistentHistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E8424D070E600F7807E /* PersistentHistoryService.swift */; };
+		5E936E8824D0C31C00F7807E /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936E8724D0C31B00F7807E /* CloseButton.swift */; };
 		5EC7A60824BDE8F200E3ED39 /* Design+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */; };
 		5EC7A60B24BDEF0300E3ED39 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */; };
 		5EC7A60D24BDF15800E3ED39 /* PropertyListRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */; };
@@ -334,6 +335,7 @@
 		5E936E7D24CF59F600F7807E /* CheckBalanceIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBalanceIntentHandler.swift; sourceTree = "<group>"; };
 		5E936E8124CF8B4800F7807E /* SafeAreaSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaSpacer.swift; sourceTree = "<group>"; };
 		5E936E8424D070E600F7807E /* PersistentHistoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentHistoryService.swift; sourceTree = "<group>"; };
+		5E936E8724D0C31B00F7807E /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Fonts.swift"; sourceTree = "<group>"; };
 		5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListRepresentable.swift; sourceTree = "<group>"; };
@@ -780,6 +782,7 @@
 				5E2F16FE24C504C60097D0EB /* FullWidthScrollView.swift */,
 				5E936E7424CF1F5A00F7807E /* ActivityIndicator.swift */,
 				5E936E8124CF8B4800F7807E /* SafeAreaSpacer.swift */,
+				5E936E8724D0C31B00F7807E /* CloseButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1269,6 +1272,7 @@
 				5E936E7A24CF2C8400F7807E /* ShortcutsButton.swift in Sources */,
 				5E17D37924BFD1A7003E99D1 /* Alert+ErrorMessage.swift in Sources */,
 				5E497D5424B92D4F00EE584E /* MetroCardViewModel.swift in Sources */,
+				5E936E8824D0C31C00F7807E /* CloseButton.swift in Sources */,
 				5EC7A60824BDE8F200E3ED39 /* Design+Fonts.swift in Sources */,
 				5E17D37B24C0AE04003E99D1 /* TextFieldAlert+UIAlertController.swift in Sources */,
 				5E421A7424C1F12A00AB8ED4 /* ColorScheme+Helpers.swift in Sources */,

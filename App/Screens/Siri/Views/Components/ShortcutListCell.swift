@@ -42,7 +42,7 @@ struct ShortcutListCell: View {
                     HStack {
                         accessoryIcon
 
-                        Text(item.action.title)
+                        Text(verbatim: item.action.title)
                             .font(.headline)
                             .bold()
                     }
@@ -60,6 +60,10 @@ struct ShortcutListCell: View {
             .background(background)
             .accentColor(.white)
         }.buttonStyle(ScaleButtonStyle())
+        .accessibility(addTraits: .isButton)
+        .accessibilityElement(children: .ignore)
+        .accessibility(label: Text(verbatim: item.accessibilityLabel))
+        .accessibility(value: subtitle)
     }
 
     // MARK: - Input

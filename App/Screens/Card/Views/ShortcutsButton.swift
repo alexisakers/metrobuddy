@@ -11,5 +11,6 @@ struct ShortcutsButton: View {
         .accessibilityElement(children: .ignore)
         .accessibility(identifier: "shortcuts-button")
         .accessibility(label: Text("Siri Shortcuts"))
+        .accessibility(addTraits: .isButton)
     }
 }

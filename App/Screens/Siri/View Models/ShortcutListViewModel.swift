@@ -63,9 +63,15 @@ final class ShortcutListViewModel: ObservableObject {
 
         return AssistantAction.allCases.map {
             if let voiceShortcut = shortcutsByAction[$0] {
-                return ShortcutListItem(action: $0, configurationOption: .edit(voiceShortcut))
+                let accessibilityLabelFormat = NSLocalizedString("Edit '%@' shortcut", comment: "The first parameter is the title of the shortcut.")
+                let accessibilityLabel = String(format: accessibilityLabelFormat, $0.title)
+
+                return ShortcutListItem(action: $0, configurationOption: .edit(voiceShortcut), accessibilityLabel: accessibilityLabel)
             } else {
-                return ShortcutListItem(action: $0, configurationOption: .add(INShortcut($0)))
+                let accessibilityLabelFormat = NSLocalizedString("Add '%@' shortcut", comment: "The first parameter is the title of the shortcut.")
+                let accessibilityLabel = String(format: accessibilityLabelFormat, $0.title)
+
+                return ShortcutListItem(action: $0, configurationOption: .add(INShortcut($0)), accessibilityLabel: accessibilityLabel)
             }
         }
     }

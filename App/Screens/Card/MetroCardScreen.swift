@@ -153,7 +153,9 @@ struct MetroCardScreen: View {
                 viewModel: viewModel.makeShortcutListViewModel(),
                 isPresented: $isShowingShorcutList
             ).navigationBarTitle("Siri Shortcuts", displayMode: .inline)
+            .navigationBarItems(trailing: CloseButton(action: closeShortcutsButtonTapped))
         }.colorScheme(.dark)
+        .accentColor(.metroCardOrange)
     }
 
     private func makeDatePickerModal() -> some View {
@@ -163,5 +165,9 @@ struct MetroCardScreen: View {
             saveHandler: { self.viewModel.saveExpirationDate($0) },
             resetHandler: { self.viewModel.saveExpirationDate(nil) }
         )
+    }
+
+    private func closeShortcutsButtonTapped() {
+        isShowingShorcutList = false
     }
 }

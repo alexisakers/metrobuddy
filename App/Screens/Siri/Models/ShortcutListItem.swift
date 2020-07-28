@@ -9,10 +9,14 @@ struct ShortcutListItem: Identifiable {
     /// The option available for the action.
     let configurationOption: AssistantActionConfigurationOption
 
+    /// The accessibility label of the cell.
+    let accessibilityLabel: String
+
     var id: Int {
         var hasher = Hasher()
         hasher.combine(action)
         hasher.combine(configurationOption.id)
+        hasher.combine(accessibilityLabel)
         return hasher.finalize()
     }
 }
