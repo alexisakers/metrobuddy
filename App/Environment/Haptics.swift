@@ -26,6 +26,13 @@ class Haptics {
             failure()
         }
     }
+
+    /// Requests a haptic feedback for an impact between UI components.
+    func impact(style: UIImpactFeedbackGenerator.FeedbackStyle) {
+        let feedbackGenerator = UIImpactFeedbackGenerator(style: style)
+        feedbackGenerator.prepare()
+        feedbackGenerator.impactOccurred()
+    }
 }
 
 // MARK: - Environment

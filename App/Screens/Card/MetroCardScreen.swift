@@ -19,6 +19,7 @@ struct MetroCardScreen: View {
 
     // MARK: - Gestures
 
+    private let cardSwipeThreshold: CGFloat = -100
     @State private var isPerformingSwipe: Bool = false
     @State private var drag: CGFloat = 0
 
@@ -117,13 +118,19 @@ struct MetroCardScreen: View {
     private func dragGestureChanged(gesture: DragGesture.Value) {
         let xTranslation = gesture.translation.width
         if xTranslation < 0 {
+            if xTranslation <= cardSwipeThreshold && drag > cardSwipeThreshold {
+                haptics.impact(style: .rigid)
+            } else if xTranslation >= cardSwipeThreshold && drag < cardSwipeThreshold {
+                haptics.impact(style: .soft)
+            }
+
             drag = xTranslation
         }
     }
     
     private func dragGestureEnded(gesture: DragGesture.Value) {
         let xTranslation = gesture.translation.width
-        if xTranslation < -100 {
+        if xTranslation < cardSwipeThreshold {
             recordSwipe()
             drag = 0
         } else {
