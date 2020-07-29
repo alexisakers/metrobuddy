@@ -55,6 +55,7 @@ struct MetroCardScreen: View {
                         .animation(enableAnimations ? Animation.spring() : nil, value: offset)
                         .onTapGesture(perform: cardTapped)
                         .gesture(dragGesture)
+                        .accessibility(addTraits: .isButton)
                         .accessibilityAction(named: Text("Swipe Card"), recordSwipe)
 
                     if viewModel.data.isOnboarded {
