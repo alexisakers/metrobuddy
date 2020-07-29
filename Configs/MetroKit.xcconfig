@@ -1,4 +1,0 @@
-#include "Base.xcconfig"
-
-PRODUCT_BUNDLE_IDENTIFIER = ${DOMAIN}.MetroKit;
-INFOPLIST_FILE = Configs/MetroKit.Info.plist;

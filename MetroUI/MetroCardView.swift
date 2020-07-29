@@ -1,12 +1,24 @@
 import SwiftUI
 
 /// A view that mimics the appearance of a Metro Card, and displays its current balance.
-struct MetroCardView: View {
-    let formattedBalance: String
+public struct MetroCardView: View {
+    public static let aspectRatioMultiplier: CGFloat = 1.585
+
+    public let formattedBalance: String
+    public let roundCorners: Bool
+    public let aspectRatio: CGFloat
+
+    // MARK: - Initialization
+
+    public init(formattedBalance: String, roundCorners: Bool, aspectRatio: CGFloat = Self.aspectRatioMultiplier) {
+        self.formattedBalance = formattedBalance
+        self.roundCorners = roundCorners
+        self.aspectRatio = aspectRatio
+    }
 
     // MARK: - View
     
-    var body: some View {
+    public var body: some View {
         VStack(spacing: 0) {
             Spacer()
 
@@ -33,14 +45,13 @@ struct MetroCardView: View {
                 startPoint: .top,
                 endPoint: .bottom
             )
-        ).aspectRatio(1.585, contentMode: .fill)
+        ).aspectRatio(aspectRatio, contentMode: .fill)
         .fixedSize(horizontal: false, vertical: true)
-        .mask(MetroCardShape())
+        .mask(MetroCardShape(roundCorners: roundCorners))
         .accessibilityElement(children: .ignore)
         .accessibility(addTraits: .isButton)
         .accessibility(label: Text("Card Balance"))
         .accessibility(value: Text(formattedBalance))
-        .accessibility(addTraits: .isButton)
         .accessibility(identifier: "card")
     }
 }
