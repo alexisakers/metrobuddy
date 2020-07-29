@@ -31,6 +31,8 @@
 			<dict>
 				<key></key>
 				<dict>
+					<key>INIntentParameterCombinationIsPrimary</key>
+					<true/>
 					<key>INIntentParameterCombinationSubtitle</key>
 					<string>Update your MetroCard balance after a swipe.</string>
 					<key>INIntentParameterCombinationSubtitleID</key>
@@ -132,6 +134,8 @@
 			<dict>
 				<key></key>
 				<dict>
+					<key>INIntentParameterCombinationIsPrimary</key>
+					<true/>
 					<key>INIntentParameterCombinationSubtitle</key>
 					<string>See how much money you have on your MetroCard.</string>
 					<key>INIntentParameterCombinationSubtitleID</key>
