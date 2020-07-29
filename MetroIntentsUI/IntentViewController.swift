@@ -4,13 +4,9 @@ import MetroKit
 import MetroUI
 
 class IntentViewController: UIViewController, INUIHostedViewControlling {
-    let padding: CGFloat = 8
-
-    // MARK: - INUIHostedViewControlling
-
     var desiredSize: CGSize {
         let maxWidth = self.extensionContext!.hostedViewMaximumAllowedSize.width
-        return CGSize(width: maxWidth, height: maxWidth / MetroCardView.aspectRatioMultiplier + padding * 2)
+        return CGSize(width: maxWidth, height: maxWidth / MetroCardView.aspectRatioMultiplier)
     }
 
     // Prepare your view controller for the interaction to handle.
@@ -45,7 +41,6 @@ class IntentViewController: UIViewController, INUIHostedViewControlling {
         let rootView = IntentResponseView(formattedBalance: formattedBalance)
 
         let hostingController = UIHostingController(rootView: rootView)
-        hostingController.willMove(toParent: self)
         addChild(hostingController)
         view.addSubview(hostingController.view)
         hostingController.didMove(toParent: self)

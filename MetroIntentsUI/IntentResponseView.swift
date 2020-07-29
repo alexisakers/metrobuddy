@@ -10,7 +10,8 @@ struct IntentResponseView: View {
             Color.contentBackground
 
             MetroCardView(formattedBalance: formattedBalance, roundCorners: true)
-                .padding(8)
+                .padding(.vertical, 8)
+                .padding(.horizontal, 8 * MetroCardView.aspectRatioMultiplier)
         }
     }
 }
