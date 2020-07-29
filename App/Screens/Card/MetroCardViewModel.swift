@@ -31,6 +31,9 @@ class MetroCardViewModel: ObservableObject {
     
     /// Emits a value when a task was completed.
     let taskCompletion: AnyPublisher<TaskCompletion, Never>
+
+    /// Emits a value when a VoiceOver announcement must be made.
+    let announcement: AnyPublisher<String, Never>
                 
     // MARK: - Initialization
     
@@ -92,7 +95,15 @@ class MetroCardViewModel: ObservableObject {
                     return nil
                 }
             }.eraseToAnyPublisher()
-                
+
+        announcement = swipeElements
+            .withLatestFrom(cardPublisher) { _, card in card }
+            .map { card -> String in
+                let format = NSLocalizedString("Updated balance: %@", comment: "The first argument is the formatted balance in dollars.")
+                let formattedBalance = Self.currencyFormatter.string(from: card.balance as NSDecimalNumber)!
+                return String(format: format, formattedBalance)
+            }.eraseToAnyPublisher()
+
         toast = taskEvents
             .compactMap {
                 guard case .failure(MetroCardBalanceError.insufficientFunds) = $0 else {

@@ -94,9 +94,11 @@ struct MetroCardScreen: View {
                  .edgesIgnoringSafeArea(.all)
                  .zIndex(1)
         }.accessibilityElement(children: .contain)
+        .accessibilityAction(.magicTap, viewModel.recordSwipe)
         .onAppear(perform: viewModel.donateCurrentBalance)
         .onReceive(viewModel.toast, perform: toastQueue.displayToast)
         .onReceive(viewModel.taskCompletion, perform: haptics.notify)
+        .onReceive(viewModel.announcement, perform: handleAnnouncement)
         .sheet(isPresented: $isShowingShorcutList, content: makeShortcutList)
         .modalDrawer(isPresented: $isShowingDatePicker, content: makeDatePickerModal)
         .textFieldAlert(item: $textFieldAlert)
@@ -146,6 +148,10 @@ struct MetroCardScreen: View {
         withAnimation {
             isShowingShorcutList.toggle()
         }
+    }
+
+    private func handleAnnouncement(_ text: String) {
+        UIAccessibility.post(notification: .announcement, argument: text)
     }
 
     // MARK: - Sheet
