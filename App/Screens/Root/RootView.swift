@@ -11,8 +11,8 @@ struct RootView: View {
         ZStack(alignment: .top) {
             contentView
                 .edgesIgnoringSafeArea(.all)
-                .zIndex(0)
                 .accessibilityElement(children: .contain)
+                .zIndex(0)
 
             toastQueue.toastText.map { toastText in
                 Toast(text: toastText)

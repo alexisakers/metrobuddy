@@ -53,7 +53,7 @@ struct MetroCardScreen: View {
 
                     MetroCardView(formattedBalance: viewModel.data.formattedBalance, roundCorners: true)
                         .offset(offset)
-                        .animation(enableAnimations ? Animation.spring() : nil, value: offset)
+                        .animation(enableAnimations ? .spring() : nil, value: offset)
                         .onTapGesture(perform: cardTapped)
                         .gesture(dragGesture)
                         .accessibility(addTraits: .isButton)
@@ -92,8 +92,8 @@ struct MetroCardScreen: View {
                  Color.contentBackground
                      .frame(width: geometry.size.width, height: geometry.safeAreaInsets.top + 1)
              }.fixedSize(horizontal: false, vertical: true)
-                 .edgesIgnoringSafeArea(.all)
-                 .zIndex(1)
+            .edgesIgnoringSafeArea(.all)
+            .zIndex(1)
         }.accessibilityElement(children: .contain)
         .accessibilityAction(.magicTap, viewModel.recordSwipe)
         .onAppear(perform: viewModel.donateCurrentBalance)
