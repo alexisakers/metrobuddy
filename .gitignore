@@ -79,6 +79,7 @@ Dependencies/
 
 fastlane/report.xml
 fastlane/Preview.html
+fastlane/screenshots/fonts/**/*.ttf
 fastlane/screenshots/**/*.png
 fastlane/screenshots/**/*.html
 fastlane/test_output

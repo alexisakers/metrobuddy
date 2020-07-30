@@ -128,6 +128,7 @@
 		5E936ED024D0EF0900F7807E /* Bundle+MetroUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936ECF24D0EF0900F7807E /* Bundle+MetroUI.swift */; };
 		5E936ED224D0F41500F7807E /* BalanceProvidingIntentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936ED124D0F41500F7807E /* BalanceProvidingIntentResponse.swift */; };
 		5E936ED424D0F47500F7807E /* IntentResponseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936ED324D0F47500F7807E /* IntentResponseView.swift */; };
+		5E936EDF24D2FC6F00F7807E /* ShortcutsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936EDD24D2FC5E00F7807E /* ShortcutsPage.swift */; };
 		5EC7A60B24BDEF0300E3ED39 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */; };
 		5EC7A60D24BDF15800E3ED39 /* PropertyListRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */; };
 		5EC7A60F24BDF2B900E3ED39 /* UserPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60E24BDF2B900E3ED39 /* UserPreferenceKey.swift */; };
@@ -208,6 +209,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 5E936EA324D0EAAD00F7807E;
 			remoteInfo = MetroUI;
+		};
+		5E936EE024D3082000F7807E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5ED4E27E24B3E33300B37946 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5ED4E29C24B3E3B400B37946;
+			remoteInfo = MetroKit;
 		};
 		5ED4E2A724B3E3B400B37946 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -380,6 +388,7 @@
 		5E936ECF24D0EF0900F7807E /* Bundle+MetroUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+MetroUI.swift"; sourceTree = "<group>"; };
 		5E936ED124D0F41500F7807E /* BalanceProvidingIntentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceProvidingIntentResponse.swift; sourceTree = "<group>"; };
 		5E936ED324D0F47500F7807E /* IntentResponseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentResponseView.swift; sourceTree = "<group>"; };
+		5E936EDD24D2FC5E00F7807E /* ShortcutsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsPage.swift; sourceTree = "<group>"; };
 		5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Fonts.swift"; sourceTree = "<group>"; };
 		5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListRepresentable.swift; sourceTree = "<group>"; };
@@ -626,6 +635,7 @@
 				5E5715CD24C3A6740068F20B /* MetroCardPage.swift */,
 				5E57160324C3AE6F0068F20B /* TextFieldAlertPage.swift */,
 				5E2F16F624C4D9F20097D0EB /* ExpirationDatePickerPage.swift */,
+				5E936EDD24D2FC5E00F7807E /* ShortcutsPage.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -1094,6 +1104,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5E936EE124D3082000F7807E /* PBXTargetDependency */,
 				5E936ED824D0F70500F7807E /* PBXTargetDependency */,
 			);
 			name = MetroIntentsUI;
@@ -1368,6 +1379,7 @@
 				5E2F16F824C4DA030097D0EB /* ExpirationDatePickerPage.swift in Sources */,
 				5E2F16E224C4C3C40097D0EB /* XCUIApplication+Helpers.swift in Sources */,
 				5E5715C624C3A4AA0068F20B /* MetroBuddyUITests.swift in Sources */,
+				5E936EDF24D2FC6F00F7807E /* ShortcutsPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1581,6 +1593,11 @@
 			isa = PBXTargetDependency;
 			target = 5E936EA324D0EAAD00F7807E /* MetroUI */;
 			targetProxy = 5E936ED724D0F70500F7807E /* PBXContainerItemProxy */;
+		};
+		5E936EE124D3082000F7807E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5ED4E29C24B3E3B400B37946 /* MetroKit */;
+			targetProxy = 5E936EE024D3082000F7807E /* PBXContainerItemProxy */;
 		};
 		5ED4E2A824B3E3B400B37946 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

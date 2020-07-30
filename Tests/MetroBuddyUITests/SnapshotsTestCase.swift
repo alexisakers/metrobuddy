@@ -27,12 +27,12 @@ final class SnapshotsTestCase: XCTestCase {
 
         // 2) Add extra details
         let dateAlert = page.tapExpirationButton()
-        snapshot("02ExtraDetails")
+        snapshot("04ExtraDetails")
         dateAlert.tapCloseButton()
 
         // 3) Customize your fare
         let fareAlert = page.tapFareButton()
-        snapshot("03CustomFare")
+        snapshot("05CustomFare")
         fareAlert.tapCancel()
 
         // 4) Know when it's time to refill
@@ -42,6 +42,11 @@ final class SnapshotsTestCase: XCTestCase {
 
         page.tapSwipeButton()
         sleep(1)
-        snapshot("04NoSwipesLeft")
+        snapshot("02NoSwipesLeft")
+
+        // 3) Create powerful shortcuts
+        let shortcuts = page.tapShortcutsButton()
+        snapshot("03Shortcuts")
+        shortcuts.close()
     }
 }

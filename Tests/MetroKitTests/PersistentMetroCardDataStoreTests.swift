@@ -8,7 +8,7 @@ final class PersistentMetroCardDataStoreTests: XCTestCase {
     
     override func setUpWithError() throws {
         super.setUp()
-        sut = try PersistentMetroCardDataStore(persistentStore: .inMemory, useCloudKit: false)
+        sut = try PersistentMetroCardDataStore(preferences: UserDefaults(suiteName: UUID().uuidString)!, persistentStore: .inMemory, useCloudKit: false)
     }
     
     override func tearDown() {

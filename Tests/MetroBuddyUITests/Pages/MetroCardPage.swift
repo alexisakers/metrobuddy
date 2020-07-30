@@ -11,6 +11,7 @@ class MetroCardPage: AppPage {
     private let cardNumberButtonID = "card-number-button"
     private let tipTitleID = "tip-title"
     private let tipMessageID = "tip-message"
+    private let shortcutsButtonID = "shortcuts-button"
 
     // MARK: - State
 
@@ -79,5 +80,10 @@ class MetroCardPage: AppPage {
     func tapCardNumberButton() -> TextFieldAlertPage {
         app.buttons[cardNumberButtonID].tap()
         return TextFieldAlertPage(app: app)
+    }
+
+    func tapShortcutsButton() -> ShortcutsPage {
+        app.buttons[shortcutsButtonID].tap()
+        return ShortcutsPage(app: app)
     }
 }
