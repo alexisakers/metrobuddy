@@ -32,6 +32,10 @@ public extension Image {
             Image("MetroCardArrows", bundle: .metroUI)
         }
 
+        public static var singleArrow: Image {
+            Image("SingleArrow", bundle: .metroUI)
+        }
+
         public static var siriButton: Image {
             Image("SiriButton", bundle: .metroUI)
         }
