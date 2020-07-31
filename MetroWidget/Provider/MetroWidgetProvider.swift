@@ -33,7 +33,8 @@ class MetroTimelineProvider: TimelineProvider {
 
             let status = MetroTimelineEntry.CardStatus(
                 balance: formattedBalance,
-                remainingSwipes: formattedSwipes
+                remainingSwipes: formattedSwipes,
+                isPlaceholder: false
             )
 
             return MetroTimelineEntry(date: Date(), cardStatus: status)
@@ -42,10 +43,19 @@ class MetroTimelineProvider: TimelineProvider {
         }
     }
 
-    func snapshot(with context: Context, completion: @escaping (MetroTimelineEntry) -> ()) {
-        completion(currentEntry())
+    // MARK: - TimelineProvider
+
+    func placeholder(with: Context) -> MetroTimelineEntry {
+        return MetroTimelineEntry(date: Date(), cardStatus: .placeholder)
     }
 
+    func snapshot(with context: Context, completion: @escaping (MetroTimelineEntry) -> ()) {
+        if context.isPreview {
+            completion(placeholder(with: context))
+        } else {
+            completion(currentEntry())
+        }
+    }
 
     func timeline(with context: Context, completion: @escaping (Timeline<MetroTimelineEntry>) -> ()) {
         completion(Timeline(entries: [currentEntry()], policy: .never))

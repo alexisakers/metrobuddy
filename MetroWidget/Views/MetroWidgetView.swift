@@ -26,6 +26,7 @@ struct MetroWidgetView : View {
                     .font(.cardBalance)
                     .minimumScaleFactor(0.1)
                     .lineLimit(1)
+                    .enableRedaction(entry.cardStatus.isPlaceholder)
 
                 if !widgetFamily.isCompact {
                     Spacer()
@@ -42,6 +43,7 @@ struct MetroWidgetView : View {
 
                     Spacer()
                 }.padding(.vertical, 12)
+                .enableRedaction(entry.cardStatus.isPlaceholder)
                 .background(Color.black.padding(.horizontal, -20))
             }
 

@@ -16,6 +16,7 @@
 		5E03304E24BF49A4001D86D1 /* MailComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03304D24BF49A4001D86D1 /* MailComposer.swift */; };
 		5E03305024BF5001001D86D1 /* MailComposer+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03304F24BF5001001D86D1 /* MailComposer+Factory.swift */; };
 		5E03305424BF5FBA001D86D1 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03305324BF5FBA001D86D1 /* Haptics.swift */; };
+		5E0DFEF024D46E2000198070 /* View+Redaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0DFEEF24D46E2000198070 /* View+Redaction.swift */; };
 		5E17B45F24C0FEBD000FA57E /* ScaleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E17B45E24C0FEBD000FA57E /* ScaleButtonStyle.swift */; };
 		5E17D37124BF6234003E99D1 /* MetroCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E17D37024BF6234003E99D1 /* MetroCardData.swift */; };
 		5E17D37424BF659D003E99D1 /* InfoPlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E17D37324BF659D003E99D1 /* InfoPlist.swift */; };
@@ -85,7 +86,6 @@
 		5E6CC53024D394D800DE9C9D /* WidgetFamily+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6CC52C24D3945100DE9C9D /* WidgetFamily+Helpers.swift */; };
 		5E6CC53124D3950900DE9C9D /* MetroWidgetBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6CC52E24D3949200DE9C9D /* MetroWidgetBackgroundView.swift */; };
 		5E6CC53424D3951B00DE9C9D /* MetroWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6CC53224D3951800DE9C9D /* MetroWidgetView.swift */; };
-		5E6CC53724D3959100DE9C9D /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6CC53524D3956100DE9C9D /* PlaceholderView.swift */; };
 		5E7456AE24C50CCF00BDEF9C /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 5E7456AD24C50CCF00BDEF9C /* Introspect */; };
 		5E87C77324D35772003EA325 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E87C77224D35772003EA325 /* WidgetKit.framework */; };
 		5E87C77524D35772003EA325 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E87C77424D35772003EA325 /* SwiftUI.framework */; };
@@ -308,6 +308,8 @@
 		5E03304F24BF5001001D86D1 /* MailComposer+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MailComposer+Factory.swift"; sourceTree = "<group>"; };
 		5E03305324BF5FBA001D86D1 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		5E03305A24BF6069001D86D1 /* View+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Helpers.swift"; sourceTree = "<group>"; };
+		5E0DFEEE24D4626B00198070 /* MetroWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MetroWidgetExtension.entitlements; sourceTree = "<group>"; };
+		5E0DFEEF24D46E2000198070 /* View+Redaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Redaction.swift"; sourceTree = "<group>"; };
 		5E17B45E24C0FEBD000FA57E /* ScaleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleButtonStyle.swift; sourceTree = "<group>"; };
 		5E17D36E24BF611A003E99D1 /* Decimal+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Helpers.swift"; sourceTree = "<group>"; };
 		5E17D37024BF6234003E99D1 /* MetroCardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroCardData.swift; sourceTree = "<group>"; };
@@ -388,7 +390,6 @@
 		5E6CC52C24D3945100DE9C9D /* WidgetFamily+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetFamily+Helpers.swift"; sourceTree = "<group>"; };
 		5E6CC52E24D3949200DE9C9D /* MetroWidgetBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroWidgetBackgroundView.swift; sourceTree = "<group>"; };
 		5E6CC53224D3951800DE9C9D /* MetroWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroWidgetView.swift; sourceTree = "<group>"; };
-		5E6CC53524D3956100DE9C9D /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 		5E87C77124D35772003EA325 /* MetroWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MetroWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E87C77224D35772003EA325 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		5E87C77424D35772003EA325 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -839,7 +840,6 @@
 			children = (
 				5E6CC52E24D3949200DE9C9D /* MetroWidgetBackgroundView.swift */,
 				5E6CC53224D3951800DE9C9D /* MetroWidgetView.swift */,
-				5E6CC53524D3956100DE9C9D /* PlaceholderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -848,6 +848,7 @@
 			isa = PBXGroup;
 			children = (
 				5E6CC52C24D3945100DE9C9D /* WidgetFamily+Helpers.swift */,
+				5E0DFEEF24D46E2000198070 /* View+Redaction.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -860,6 +861,7 @@
 				5E6CC53924D395EC00DE9C9D /* Views */,
 				5E6CC53A24D395F800DE9C9D /* Helpers */,
 				5E87C77924D35777003EA325 /* Assets.xcassets */,
+				5E0DFEEE24D4626B00198070 /* MetroWidgetExtension.entitlements */,
 			);
 			path = MetroWidget;
 			sourceTree = "<group>";
@@ -1565,10 +1567,10 @@
 			files = (
 				5E87C77824D35772003EA325 /* MetroWidget.swift in Sources */,
 				5E6CC53424D3951B00DE9C9D /* MetroWidgetView.swift in Sources */,
+				5E0DFEF024D46E2000198070 /* View+Redaction.swift in Sources */,
 				5E6CC53024D394D800DE9C9D /* WidgetFamily+Helpers.swift in Sources */,
 				5E6CC53124D3950900DE9C9D /* MetroWidgetBackgroundView.swift in Sources */,
 				5E87C78D24D35E0A003EA325 /* MetroWidgetProvider.swift in Sources */,
-				5E6CC53724D3959100DE9C9D /* PlaceholderView.swift in Sources */,
 				5E87C78C24D35E0A003EA325 /* MetroTimelineEntry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1868,9 +1870,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dev.alexisonline.MetroTesting;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1898,7 +1901,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1951,6 +1954,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MetroWidget/MetroWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 75E8K39Z38;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1963,7 +1967,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1973,6 +1977,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MetroWidget/MetroWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 75E8K39Z38;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1985,7 +1990,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -2180,7 +2185,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2235,7 +2240,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
