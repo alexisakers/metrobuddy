@@ -37,7 +37,9 @@ struct AddVoiceShortcutView: UIViewControllerRepresentable {
     }
 
     func makeUIViewController(context: Context) -> INUIAddVoiceShortcutViewController {
-        return INUIAddVoiceShortcutViewController(shortcut: shortcut)
+        let addShortcutViewController = INUIAddVoiceShortcutViewController(shortcut: shortcut)
+        addShortcutViewController.overrideUserInterfaceStyle = .dark
+        return addShortcutViewController
     }
 
     func updateUIViewController(_ uiViewController: INUIAddVoiceShortcutViewController, context: Context) {

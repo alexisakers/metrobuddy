@@ -3,8 +3,6 @@ import MetroKit
 
 /// A view that displays a list of available Siri shortcuts, and allows the user to add/edit them.
 struct ShortcutList: View {
-    private typealias ShortcutList = ForEach<[ShortcutListItem], ShortcutListItem.ID, ShortcutListCell>
-
     @ObservedObject var viewModel: ShortcutListViewModel
     @Binding var isPresented: Bool
 
@@ -22,14 +20,15 @@ struct ShortcutList: View {
         return ActivityIndicator(style: .medium)
     }
 
-    private var list: ShortcutList? {
+    private var list: AnyView? {
         guard case let .loaded(items) = viewModel.content else {
             return nil
         }
 
         return ForEach(items) { item in
             ShortcutListCell(item: item, activeConfiguration: self.$activeConfiguration)
-        }
+                .padding(.bottom, 16)
+        }.eraseToAnyView()
     }
 
     private var errorMessage: ShortcutListErrorView? {
