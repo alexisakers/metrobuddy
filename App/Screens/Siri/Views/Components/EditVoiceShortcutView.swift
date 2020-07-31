@@ -41,7 +41,9 @@ struct EditVoiceShortcutView: UIViewControllerRepresentable {
     }
 
     func makeUIViewController(context: Context) -> INUIEditVoiceShortcutViewController {
-        return INUIEditVoiceShortcutViewController(voiceShortcut: shortcut)
+        let editShortcutViewController = INUIEditVoiceShortcutViewController(voiceShortcut: shortcut)
+        editShortcutViewController.overrideUserInterfaceStyle = .dark
+        return editShortcutViewController
     }
 
     func updateUIViewController(_ uiViewController: INUIEditVoiceShortcutViewController, context: Context) {
