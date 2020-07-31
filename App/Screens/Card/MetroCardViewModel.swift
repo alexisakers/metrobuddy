@@ -37,13 +37,19 @@ class MetroCardViewModel: ObservableObject {
                 
     // MARK: - Initialization
     
-    public init(card: ObjectReference<MetroCard>, dataStore: MetroCardDataStore, preferences: UserPreferences) {
+    public init(card: ObjectReference<MetroCard>, dataStore: MetroCardDataStore, preferences: UserPreferences, widgetCenter: WidgetCenterType?) {
         self.dataStore = dataStore
         self.data = Self.makeData(for: card, preferences: preferences)
 
         let cardPublisher = dataStore
             .publisher(for: card)
             .share(replay: 1)
+
+        // Notify widget center of changes
+        cardPublisher
+            .sink(receiveValue: { _ in
+                widgetCenter?.reloadTimelines(ofKind: .card)
+            }).store(in: &tasks)
 
         // Set Up Update Publishers
         let updateElements = updateSubject
@@ -272,14 +278,9 @@ extension MetroCardViewModel {
         
         let formattedFare = Self.currencyFormatter
             .string(from: card.fare as NSDecimalNumber)!
-        
-        let remainingSwipes = card.balance
-            .quotientAndRemainer(dividingBy: card.fare)
-            .quotient
-        
-        let formattedRemainingSwipesFormat = NSLocalizedString("remaining_swipes", comment: "")
+
         let formattedRemainingSwipes = String
-            .localizedStringWithFormat(formattedRemainingSwipesFormat, remainingSwipes)
+            .localizedStringWithFormat(String.LocalizationFormats.remainingSwipes, card.remainingSwipes)
         
         let userDidOnboard = preferences
             .value(forKey: UserDidOnboardPreferenceKey.self)

@@ -2,6 +2,10 @@ import Combine
 import Foundation
 import MetroKit
 
+#if canImport(WidgetKit)
+import WidgetKit
+#endif
+
 /// The view model of the root view, responsible for calculating the state of the app.
 class RootViewModel {
     /// The possible contents that can be displayed by the app.
@@ -21,7 +25,15 @@ class RootViewModel {
     init(dataStore: MetroCardDataStore, preferences: UserPreferences) {
         do {
             let initialCard = try dataStore.currentCard()
-            let viewModel = MetroCardViewModel(card: initialCard, dataStore: dataStore, preferences: preferences)
+            let widgetCenter: WidgetCenterType?
+
+            if #available(iOS 14, *) {
+                widgetCenter = WidgetCenter.shared
+            } else {
+                widgetCenter = nil
+            }
+
+            let viewModel = MetroCardViewModel(card: initialCard, dataStore: dataStore, preferences: preferences, widgetCenter: widgetCenter)
             content = .card(viewModel)
         } catch {
             let errorTitle = NSLocalizedString("Unexpected Issue", comment: "")

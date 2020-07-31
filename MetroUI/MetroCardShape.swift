@@ -3,11 +3,13 @@ import SwiftUI
 /// A shape with a clipped corner that matches the design of a Metro Card.
 public struct MetroCardShape: Shape {
     public let roundCorners: Bool
+    public let cornerSizeMultiplier: CGFloat
 
     // MARK: - Initialization
 
-    public init(roundCorners: Bool) {
+    public init(roundCorners: Bool, cornerSizeMultiplier: CGFloat = 0.1) {
         self.roundCorners = roundCorners
+        self.cornerSizeMultiplier = cornerSizeMultiplier
     }
 
     // MARK: - Shape
@@ -26,7 +28,7 @@ public struct MetroCardShape: Shape {
         )
         
         let topRightPath = Path { path in
-            let cornerSize = 0.1 * rect.width
+            let cornerSize = self.cornerSizeMultiplier * rect.width
             let topLeft = CGPoint(x: rect.midX, y: 0)
             let highCorner = CGPoint(x: rect.maxX - cornerSize, y: 0)
             let lowCorner = CGPoint(x: rect.maxX, y: cornerSize)
