@@ -48,7 +48,7 @@ class SwipeMetroCardIntentHandler: NSObject, MBYSwipeCardIntentHandling {
                     if case let .failure(error) = $0 {
                         return completion(.failure(error))
                     } else {
-                        self.widgetCenter?.reloadTimelines(ofKind: .card)
+                        self.widgetCenter?.reloadTimelines(ofKind: .cardBalance)
                         return completion(.success(newBalance))
                     }
                 }, receiveValue: { _ in })

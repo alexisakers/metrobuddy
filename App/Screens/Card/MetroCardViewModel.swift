@@ -48,7 +48,7 @@ class MetroCardViewModel: ObservableObject {
         // Notify widget center of changes
         cardPublisher
             .sink(receiveValue: { _ in
-                widgetCenter?.reloadTimelines(ofKind: .card)
+                widgetCenter?.reloadTimelines(ofKind: .cardBalance)
             }).store(in: &tasks)
 
         // Set Up Update Publishers

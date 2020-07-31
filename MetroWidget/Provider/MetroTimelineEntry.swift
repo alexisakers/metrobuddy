@@ -7,6 +7,7 @@ struct MetroTimelineEntry: TimelineEntry {
     struct CardStatus {
         let balance: String
         let remainingSwipes: String
+        let isPlaceholder: Bool
     }
 
     var date: Date
@@ -18,6 +19,6 @@ struct MetroTimelineEntry: TimelineEntry {
 extension MetroTimelineEntry.CardStatus {
     /// The card status to display when we are showing a placeholder.
     static var placeholder: Self {
-        Self(balance: "–", remainingSwipes: NSLocalizedString("Open App", comment: ""))
+        Self(balance: "$25.00", remainingSwipes: "0 swipes", isPlaceholder: true)
     }
 }
