@@ -50,11 +50,7 @@ class MetroTimelineProvider: TimelineProvider {
     }
 
     func snapshot(with context: Context, completion: @escaping (MetroTimelineEntry) -> ()) {
-        if context.isPreview {
-            completion(placeholder(with: context))
-        } else {
-            completion(currentEntry())
-        }
+        completion(currentEntry())
     }
 
     func timeline(with context: Context, completion: @escaping (Timeline<MetroTimelineEntry>) -> ()) {
