@@ -28,7 +28,7 @@ class MetroTimelineProvider: TimelineProvider {
             let remainingSwipes = currentCard.remainingSwipes
             let formattedBalance = balanceFormatter.string(from: currentCard.balance as NSDecimalNumber)!
 
-            let remainingSwipesFormat = NSLocalizedString("%ld left", comment: "The first argument is the number of swipes left.")
+            let remainingSwipesFormat = NSLocalizedString("%ld left", comment: "The first argument is the number of rides left.")
             let formattedSwipes = String.localizedStringWithFormat(remainingSwipesFormat, remainingSwipes)
 
             let status = MetroTimelineEntry.CardStatus(

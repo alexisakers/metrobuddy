@@ -13,11 +13,11 @@
 			<key>NSStringFormatValueTypeKey</key>
 			<string>ld</string>
 			<key>zero</key>
-			<string>No swipes left</string>
+			<string>No rides left</string>
 			<key>one</key>
-			<string>1 swipe left</string>
+			<string>1 ride left</string>
 			<key>other</key>
-			<string>%ld swipes left</string>
+			<string>%ld rides left</string>
 		</dict>
 	</dict>
 </dict>
