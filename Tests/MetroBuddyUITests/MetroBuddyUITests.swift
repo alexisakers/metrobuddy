@@ -17,7 +17,7 @@ class MetroBuddyUITests: ScenarioBasedTestCase<MetroCardPage> {
 
         // The initial value is 2.75
         XCTAssertEqual(page.fareValue, "$2.75")
-        XCTAssertEqual(page.subtitle, "9 swipes left")
+        XCTAssertEqual(page.subtitle, "9 rides left")
 
         // Tapping on the button and cancelling has no effect
         var alert = page.tapFareButton()
@@ -39,7 +39,7 @@ class MetroBuddyUITests: ScenarioBasedTestCase<MetroCardPage> {
         XCTAssertEqual(page.fareValue, "$3.00")
 
         // The number of remaining swipes is updated
-        XCTAssertEqual(page.subtitle, "8 swipes left")
+        XCTAssertEqual(page.subtitle, "8 rides left")
     }
 
     func testUpdateBalanceAction() {
@@ -47,7 +47,7 @@ class MetroBuddyUITests: ScenarioBasedTestCase<MetroCardPage> {
 
         // The initial value is $25
         XCTAssertEqual(page.balanceValue, "$25.00")
-        XCTAssertEqual(page.subtitle, "9 swipes left")
+        XCTAssertEqual(page.subtitle, "9 rides left")
 
         // Tapping on the button and cancelling has no effect
         var alert = page.tapBalanceButton()
@@ -124,12 +124,12 @@ class MetroBuddyUITests: ScenarioBasedTestCase<MetroCardPage> {
         // When swiping the last swipe, the balance and subtitle are updated
         page.tapSwipeButton()
         XCTAssertEqual(page.balanceValue, "$0.00")
-        XCTAssertEqual(page.subtitle, "No swipes left")
+        XCTAssertEqual(page.subtitle, "No rides left")
 
         // When swiping again, we show the toast
         page.tapSwipeButton()
         XCTAssertEqual(page.balanceValue, "$0.00")
-        XCTAssertEqual(page.subtitle, "No swipes left")
+        XCTAssertEqual(page.subtitle, "No rides left")
         XCTAssertEqual(page.toastText, "INSUFFICIENT FARE")
     }
 }
