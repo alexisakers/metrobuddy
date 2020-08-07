@@ -8,10 +8,10 @@ struct ShortcutListErrorView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(errorMessage.title)
+            Text(verbatim: errorMessage.title)
                 .font(.headline)
 
-            Text(errorMessage.localizedDescription)
+            Text(verbatim: errorMessage.localizedDescription)
                 .font(.body)
 
             Spacer(minLength: 8)

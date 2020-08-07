@@ -631,13 +631,6 @@
 			path = Card;
 			sourceTree = "<group>";
 		};
-		5E03305924BF6060001D86D1 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		5E03305C24BF60A5001D86D1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1069,7 +1062,6 @@
 				5E03305524BF5FCE001D86D1 /* Screens */,
 				5E03305224BF5FA9001D86D1 /* Environment */,
 				5E03305124BF5F5F001D86D1 /* Components */,
-				5E03305924BF6060001D86D1 /* Helpers */,
 				5E936E2224C5C18300F7807E /* Settings.bundle */,
 				5E497D4B24B8F32D00EE584E /* LaunchScreen.storyboard */,
 				5ED4E28D24B3E33D00B37946 /* Assets.xcassets */,

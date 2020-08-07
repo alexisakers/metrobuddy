@@ -21,12 +21,12 @@ struct ErrorScreen: View {
             } .font(.sheetTitle)
             .padding(.bottom, 16)
 
-            Text(error.localizedDescription)
+            Text(verbatim: error.localizedDescription)
                 .font(.body)
                 .multilineTextAlignment(.leading)
 
             if canSendMail {
-                Text(error.contactCTA)
+                Text(verbatim: error.contactCTA)
                     .font(.body)
                     .multilineTextAlignment(.leading)
                     .padding(.bottom, 16)
