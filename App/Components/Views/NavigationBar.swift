@@ -17,7 +17,7 @@ struct NavigationBar: View {
                 Spacer()
             }
 
-            Text(subtitle)
+            Text(verbatim: subtitle)
                 .font(.subheadline)
                 .foregroundColor(.white)
                 .lineLimit(nil)

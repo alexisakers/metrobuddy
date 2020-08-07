@@ -31,7 +31,7 @@ struct MetroCardActionButton: View {
         self.action = action
         
         if let value = value {
-            buttonText = Text(value)
+            buttonText = Text(verbatim: value)
         } else {
             buttonText = actionLabel.text
         }
@@ -41,7 +41,7 @@ struct MetroCardActionButton: View {
     
     var body: some View {
         VStack(spacing: 8) {
-            Text(title)
+            Text(verbatim: title)
                 .font(.caption)
                 .fontWeight(.medium)
                 .lineLimit(1)
@@ -55,7 +55,7 @@ struct MetroCardActionButton: View {
                 action: actionButtonTapped
             )
         }.accessibilityElement(children: .ignore)
-        .accessibility(label: Text(title))
+        .accessibility(label: Text(verbatim: title))
         .accessibility(value: buttonText)
         .accessibility(addTraits: .isButton)
     }
