@@ -1,18 +1,24 @@
 import Foundation
 
 /// A key that contains the information needed to store a value in `UserPreferences`.
-public protocol UserPreferenceKey {
-    /// The type of the value that this key stores. Must be a plist type.
-    associatedtype Value: PropertyListRepresentable
-    
+public struct UserPreferenceKey<Value: PropertyListRepresentable> {
     /// The name of the key.
-    static var name: String { get }
+    public let name: String
     
     /// The default value to return when the key hasn't been set yet.
-    static var defaultValue: Value { get }
+    public let defaultValue: Value
+
+    public init(name: String, defaultValue: Value) {
+        self.name = name
+        self.defaultValue = defaultValue
+    }
 }
 
-public enum UserDidOnboardPreferenceKey: UserPreferenceKey {
-    public static let name: String = "UserDidOnboard"
-    public static let defaultValue: Bool = false
+// MARK: - Shared Keys
+
+extension UserPreferenceKey {
+    /// A key indicating whether the user finished onboarding.
+    public static var userDidOnboard: UserPreferenceKey<Bool> {
+        UserPreferenceKey<Bool>(name: "UserDidOnboard", defaultValue: false)
+    }
 }

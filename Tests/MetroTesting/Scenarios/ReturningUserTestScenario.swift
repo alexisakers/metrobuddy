@@ -29,7 +29,7 @@ public class ReturningUserTestScenario: NSObject, TestScenario {
 
     public static func makePreferences() -> UserPreferences {
         let userDefaults = MockPreferences()
-        userDefaults.setValue(true, forKey: UserDidOnboardPreferenceKey.self)
+        userDefaults.setValue(true, forKey: .userDidOnboard)
         return userDefaults
     }
 }
