@@ -735,8 +735,8 @@
 				5ED4E2BB24B3E3D500B37946 /* MetroDataStore.swift */,
 				5E497D7424BA617400EE584E /* MetroCardDataStoreError.swift */,
 				5E497D6624BA278500EE584E /* ManagedObjectObserver.swift */,
-				5E497D7124BA5ECC00EE584E /* Helpers */,
 				5E936E8424D070E600F7807E /* PersistentHistoryService.swift */,
+				5E497D7124BA5ECC00EE584E /* Helpers */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -867,6 +867,15 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		5E84844224DDBD3700F47854 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5E936ECF24D0EF0900F7807E /* Bundle+MetroUI.swift */,
+				5E03305A24BF6069001D86D1 /* View+Helpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		5E87C77624D35772003EA325 /* MetroWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -974,10 +983,9 @@
 			isa = PBXGroup;
 			children = (
 				5E497D4724B8CF1500EE584E /* MetroCardView.swift */,
-				5E936ECF24D0EF0900F7807E /* Bundle+MetroUI.swift */,
 				5E497D4524B7EFF500EE584E /* MetroCardShape.swift */,
-				5E03305A24BF6069001D86D1 /* View+Helpers.swift */,
 				5E17B46024C10366000FA57E /* Design */,
+				5E84844224DDBD3700F47854 /* Helpers */,
 				5E936EC124D0EAD900F7807E /* Assets.xcassets */,
 			);
 			path = MetroUI;
