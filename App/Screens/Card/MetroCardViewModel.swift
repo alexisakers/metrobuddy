@@ -5,7 +5,7 @@ import SwiftUI
 import MetroKit
 
 /// An object responsible for computing the, and which side effects to display when the data changes.
-class MetroCardViewModel: ObservableObject {
+final class MetroCardViewModel: ObservableObject {
     private enum MetroCardBalanceError: Error {
         case insufficientFunds(Decimal)
     }
