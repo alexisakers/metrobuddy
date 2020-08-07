@@ -20,7 +20,7 @@ struct MetroWidget: Widget {
 #if DEBUG
 extension MetroTimelineEntry.CardStatus {
     static var preview: Self {
-        Self(balance: "$25.00", remainingSwipes: "8 left", isPlaceholder: false)
+        Self(balance: "$25.00", remainingSwipes: "8 left", isPlaceholder: false, accessibilityValue: "$25, 8 rides left")
     }
 }
 

@@ -87,6 +87,8 @@
 		5E6CC53124D3950900DE9C9D /* MetroWidgetBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6CC52E24D3949200DE9C9D /* MetroWidgetBackgroundView.swift */; };
 		5E6CC53424D3951B00DE9C9D /* MetroWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6CC53224D3951800DE9C9D /* MetroWidgetView.swift */; };
 		5E7456AE24C50CCF00BDEF9C /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 5E7456AD24C50CCF00BDEF9C /* Introspect */; };
+		5E84843E24DD9BDE00F47854 /* FontScalingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E84843D24DD9BDE00F47854 /* FontScalingModifier.swift */; };
+		5E84844024DD9F1F00F47854 /* TextStyle+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E84843F24DD9F1F00F47854 /* TextStyle+UIKit.swift */; };
 		5E87C77324D35772003EA325 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E87C77224D35772003EA325 /* WidgetKit.framework */; };
 		5E87C77524D35772003EA325 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E87C77424D35772003EA325 /* SwiftUI.framework */; };
 		5E87C77824D35772003EA325 /* MetroWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E87C77724D35772003EA325 /* MetroWidget.swift */; };
@@ -390,6 +392,8 @@
 		5E6CC52C24D3945100DE9C9D /* WidgetFamily+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetFamily+Helpers.swift"; sourceTree = "<group>"; };
 		5E6CC52E24D3949200DE9C9D /* MetroWidgetBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroWidgetBackgroundView.swift; sourceTree = "<group>"; };
 		5E6CC53224D3951800DE9C9D /* MetroWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroWidgetView.swift; sourceTree = "<group>"; };
+		5E84843D24DD9BDE00F47854 /* FontScalingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontScalingModifier.swift; sourceTree = "<group>"; };
+		5E84843F24DD9F1F00F47854 /* TextStyle+UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextStyle+UIKit.swift"; sourceTree = "<group>"; };
 		5E87C77124D35772003EA325 /* MetroWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MetroWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E87C77224D35772003EA325 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		5E87C77424D35772003EA325 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -649,11 +653,10 @@
 		5E17B46024C10366000FA57E /* Design */ = {
 			isa = PBXGroup;
 			children = (
-				5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */,
 				5E421A3A24C103E200AB8ED4 /* Design+Colors.swift */,
 				5E421A3C24C103FE00AB8ED4 /* Design+Images.swift */,
 				5E421A3E24C1041700AB8ED4 /* Design+Shapes.swift */,
-				5E421A7124C1D7D900AB8ED4 /* ContentSize+UIKit.swift */,
+				5E84844124DD9F2C00F47854 /* Fonts */,
 			);
 			path = Design;
 			sourceTree = "<group>";
@@ -851,6 +854,17 @@
 				5E0DFEEF24D46E2000198070 /* View+Redaction.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5E84844124DD9F2C00F47854 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */,
+				5E84843D24DD9BDE00F47854 /* FontScalingModifier.swift */,
+				5E421A7124C1D7D900AB8ED4 /* ContentSize+UIKit.swift */,
+				5E84843F24DD9F1F00F47854 /* TextStyle+UIKit.swift */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		5E87C77624D35772003EA325 /* MetroWidget */ = {
@@ -1604,9 +1618,11 @@
 				5E936ED024D0EF0900F7807E /* Bundle+MetroUI.swift in Sources */,
 				5E936ECC24D0EC3B00F7807E /* Design+Images.swift in Sources */,
 				5E936ECB24D0EC3B00F7807E /* Design+Colors.swift in Sources */,
+				5E84843E24DD9BDE00F47854 /* FontScalingModifier.swift in Sources */,
 				5E936EC324D0EB2600F7807E /* MetroCardShape.swift in Sources */,
 				5E936ECA24D0EC3B00F7807E /* Design+Fonts.swift in Sources */,
 				5E936ECD24D0EC3B00F7807E /* Design+Shapes.swift in Sources */,
+				5E84844024DD9F1F00F47854 /* TextStyle+UIKit.swift in Sources */,
 				5E936ECE24D0EC3B00F7807E /* ContentSize+UIKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

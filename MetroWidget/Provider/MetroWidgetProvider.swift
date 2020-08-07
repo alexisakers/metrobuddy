@@ -31,10 +31,16 @@ class MetroTimelineProvider: TimelineProvider {
             let remainingSwipesFormat = NSLocalizedString("%ld left", comment: "The first argument is the number of rides left.")
             let formattedSwipes = String.localizedStringWithFormat(remainingSwipesFormat, remainingSwipes)
 
+            let accessibleFormattedRides = String.localizedStringWithFormat(
+                String.LocalizationFormats.remainingSwipes,
+                currentCard.remainingSwipes
+            )
+
             let status = MetroTimelineEntry.CardStatus(
                 balance: formattedBalance,
                 remainingSwipes: formattedSwipes,
-                isPlaceholder: false
+                isPlaceholder: false,
+                accessibilityValue: [formattedBalance, accessibleFormattedRides].joined(separator: ", ")
             )
 
             return MetroTimelineEntry(date: Date(), cardStatus: status)
