@@ -1,4 +1,5 @@
 import Combine
+import CombineExt
 import CoreData
 import os.log
 
@@ -109,12 +110,10 @@ public class PersistentMetroCardDataStore: MetroCardDataStore {
     
     // MARK: - Update Card
     
-    public func applyUpdates(
-        _ updates: [MetroCardUpdate],
-        to cardReference: ObjectReference<MetroCard>
-    ) -> AnyPublisher<Void, Error> {
+    public func applyUpdates(_ updates: [MetroCardUpdate], to cardReference: ObjectReference<MetroCard>) -> AnyPublisher<Void, Error> {
         let completionSubject = PassthroughSubject<Void, Error>()
-        saveContext.performAndWait { [saveContext] in
+
+        saveContext.perform { [saveContext] in
             do {
                 guard let card = saveContext.object(with: cardReference.objectID) as? MBYMetroCard else {
                     return completionSubject.send(completion: .failure(MetroCardDataStoreError.cardNotFound))
@@ -140,7 +139,9 @@ public class PersistentMetroCardDataStore: MetroCardDataStore {
                 completionSubject.send(completion: .failure(MetroCardDataStoreError.cannotSave(error as NSError)))
             }
         }
+
         return completionSubject
+            .share(replay: 1)
             .eraseToAnyPublisher()
     }
 }
