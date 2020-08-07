@@ -59,7 +59,7 @@ class MetroCardViewModel: ObservableObject {
                     .receive(on: DispatchQueue.main)
                     .handleEvents(receiveCompletion: {
                         if case .finished = $0, case .balance = update {
-                            preferences.setValue(true, forKey: UserDidOnboardPreferenceKey.self)
+                            preferences.setValue(true, forKey: .userDidOnboard)
                         }
                     })
                     .materialize()
@@ -282,8 +282,7 @@ extension MetroCardViewModel {
         let formattedRemainingSwipes = String
             .localizedStringWithFormat(String.LocalizationFormats.remainingSwipes, card.remainingSwipes)
         
-        let userDidOnboard = preferences
-            .value(forKey: UserDidOnboardPreferenceKey.self)
+        let userDidOnboard = preferences.value(forKey: .userDidOnboard)
         
         return MetroCardData(
             isOnboarded: userDidOnboard || card.balance != 0,
