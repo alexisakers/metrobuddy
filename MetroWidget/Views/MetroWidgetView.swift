@@ -40,6 +40,8 @@ struct MetroWidgetView : View {
 
                     Text(verbatim: entry.cardStatus.remainingSwipes)
                         .foregroundColor(.white)
+                        .font(textStyle: .body, maximumPointSize: 30)
+                        .minimumScaleFactor(0.1)
 
                     Spacer()
                 }.padding(.vertical, 12)
@@ -49,5 +51,9 @@ struct MetroWidgetView : View {
 
             Spacer()
         }.background(MetroWidgetBackgroundView())
+        .accessibilityElement(children: .ignore)
+        .accessibility(label: Text("MetroCard Balance"))
+        .accessibility(value: Text(verbatim: entry.cardStatus.accessibilityValue))
+        .accessibility(hidden: entry.cardStatus.isPlaceholder)
     }
 }
