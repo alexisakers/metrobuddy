@@ -3,7 +3,7 @@ import SwiftUI
 /// The main view of the app, presenting different screens at its state changes.
 struct RootView: View {
     let viewModel: RootViewModel
-    @EnvironmentObject var toastQueue: ToastQueue
+    @EnvironmentObject private var toastQueue: ToastQueue
 
     // MARK: - View
 
@@ -22,7 +22,6 @@ struct RootView: View {
                     .move(edge: .top)
                     .combined(with: .opacity)
             )
-
         }.background(BackgroundView())
         .accessibilityElement(children: .contain)
     }

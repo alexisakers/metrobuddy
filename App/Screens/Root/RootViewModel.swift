@@ -7,7 +7,7 @@ import WidgetKit
 #endif
 
 /// The view model of the root view, responsible for calculating the state of the app.
-class RootViewModel {
+final class RootViewModel {
     /// The possible contents that can be displayed by the app.
     enum Content {
         /// The app is not available because of an error, described by the given message.
