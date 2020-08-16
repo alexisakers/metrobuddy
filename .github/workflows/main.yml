@@ -1,6 +1,6 @@
 name: CI
 env:
-  DEVELOPER_DIR: /Applications/Xcode_11.6.app/Contents/Developer
+  DEVELOPER_DIR: /Applications/Xcode_12_beta.app/Contents/Developer
 
 on:
   push:
@@ -21,6 +21,10 @@ jobs:
     - name: Install Dependencies
       run: bundle install
 
-    # 3) Build and test the app
+    # 3) Set up Code Signing
+    - name: Set Up Code Signing
+      run: bundle exec fastlane run setup_ci
+
+    # 4) Build and test the app
     - name: Run Tests
       run: bundle exec fastlane test

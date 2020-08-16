@@ -12,6 +12,16 @@ platform :ios do
     )
   end
 
+  desc "Prepare the GitHub Actions environment for a release build"
+  lane :prepare_release_ci do
+    setup_ci
+    sh("git config --global credential.helper osxkeychain", log: false)
+
+    credentials = "protocol=https\nhost=github.com\nusername=#{ENV["BOT_USERNAME"]}\npassword=#{ENV["BOT_TOKEN"]}"
+    sh("echo '#{credentials}' | git credential-osxkeychain store", log: false)
+    update_certs
+  end
+
   desc "Runs tests"
   lane :test do
     run_tests(scheme: "MetroBuddy")
@@ -20,18 +30,32 @@ platform :ios do
   desc "Push a new release build to the App Store"
   lane :release do
     build_number = (latest_testflight_build_number + 1).to_s
-    version = ENV['APP_VERSION']
-
     set_xcconfig_value(
         path: "Configs/Base.xcconfig",
         name: "CURRENT_PROJECT_VERSION",
         value: build_number
     )
 
-    build_app(scheme: "MetroBuddy")
-    upload_to_app_store(skip_metadata: true)
+    build_app(scheme: "MetroBuddy", include_bitcode: false)
+    upload_to_app_store(
+        skip_metadata: true,
+        force: true
+    )
 
     git_commit(path: "./Configs/Base.xcconfig", message: "Version Bump")
-    add_git_tag(tag: version + "-build." + build_number)
+    sh("git push")
+  end
+
+  desc "Updates the certificates and provisioning profiles in the match repo"
+  lane :update_certs do
+    app_identifiers = [
+      "dev.alexisonline.MetroBuddy.App",
+      "dev.alexisonline.MetroBuddy.App.MetroIntents",
+      "dev.alexisonline.MetroBuddy.App.MetroIntentsUI",
+      "dev.alexisonline.MetroBuddy.App.MetroWidget"
+    ]
+
+    match(app_identifier: app_identifiers, type: "development")
+    match(app_identifier: app_identifiers, type: "appstore")
   end
 end
