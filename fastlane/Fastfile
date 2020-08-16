@@ -19,7 +19,19 @@ platform :ios do
 
   desc "Push a new release build to the App Store"
   lane :release do
+    set_xcconfig_value(
+        path: "Configs/Base.xcconfig",
+        name: "CURRENT_PROJECT_VERSION",
+        value: ENV['BUILD_NUMBER']
+    )
+
+    set_xcconfig_value(
+        path: "Configs/Base.xcconfig",
+        name: "SHORT_VERSION_STRING",
+        value: ENV['APP_VERSION']
+    )
+
     build_app(scheme: "MetroBuddy")
-    upload_to_app_store
+    upload_to_app_store(skip_metadata: true)
   end
 end
