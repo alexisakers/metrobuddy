@@ -14,7 +14,7 @@ jobs:
 
     steps:
     # 1) Check out the repository
-    - name: Clone repository
+    - name: Clone Repository
       uses: actions/checkout@v2
 
     # 2) Install dependencies
