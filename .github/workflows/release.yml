@@ -3,13 +3,13 @@ name: Release
 on:
   workflow_dispatch:
     inputs:
-      - build_number:
+      build_number:
         description: 'Build Number'
         required: true
-      - app_version:
+      app_version:
         description: 'App Version'
         required: true
-      - branch:
+      branch:
         description: 'Branch'
         default: 'main'
         required: true
