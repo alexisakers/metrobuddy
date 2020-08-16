@@ -13,7 +13,7 @@ platform :ios do
   end
 
   desc "Runs tests"
-  lane :tests do
+  lane :test do
     run_tests(scheme: "MetroBuddy")
   end
 
