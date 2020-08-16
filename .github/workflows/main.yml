@@ -14,6 +14,9 @@ jobs:
     runs-on: macos-10.15
 
     steps:
+    - name: Debug Action
+      uses: hmarr/debug-action@v1.0.0
+
     # 1) Check out the repository
     - name: Clone Repository
       uses: actions/checkout@v2
