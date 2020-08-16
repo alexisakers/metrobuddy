@@ -12,6 +12,11 @@ platform :ios do
     )
   end
 
+  desc "Runs tests"
+  lane :tests do
+    run_tests(scheme: "MetroBuddy")
+  end
+
   desc "Push a new release build to the App Store"
   lane :release do
     build_app(scheme: "MetroBuddy")

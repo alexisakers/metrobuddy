@@ -21,6 +21,11 @@ or alternatively using `brew install fastlane`
 fastlane ios screenshots
 ```
 Generates screenshots and uploads them to the App Store
+### ios tests
+```
+fastlane ios tests
+```
+Runs tests
 ### ios release
 ```
 fastlane ios release
