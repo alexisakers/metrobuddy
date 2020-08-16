@@ -19,19 +19,19 @@ platform :ios do
 
   desc "Push a new release build to the App Store"
   lane :release do
-    set_xcconfig_value(
-        path: "Configs/Base.xcconfig",
-        name: "CURRENT_PROJECT_VERSION",
-        value: ENV['BUILD_NUMBER']
-    )
+    build_number = (latest_testflight_build_number + 1).to_s
+    version = ENV['APP_VERSION']
 
     set_xcconfig_value(
         path: "Configs/Base.xcconfig",
-        name: "SHORT_VERSION_STRING",
-        value: ENV['APP_VERSION']
+        name: "CURRENT_PROJECT_VERSION",
+        value: build_number
     )
 
     build_app(scheme: "MetroBuddy")
     upload_to_app_store(skip_metadata: true)
+
+    git_commit(path: "./Configs/Base.xcconfig", message: "Version Bump")
+    add_git_tag(tag: version + "-build." + build_number)
   end
 end
