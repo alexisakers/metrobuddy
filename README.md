@@ -2,6 +2,8 @@
 
 # MetroBuddy
 
+![Build status](https://github.com/alexaubry/metrobuddy/workflows/CI/badge.svg?branch=main)
+
 MetroBuddy is an iOS app that allows you to track the balance of your transit card, with a primary focus on New York's MetroCard. As a New Yorker (even though 2020 is not exactly the year of subway-riding), seeing this message is rather frustrating...
 
 ![Insufficient fare](.github/fare.png)
