@@ -13,9 +13,6 @@ jobs:
     runs-on: macos-10.15
 
     steps:
-    - name: Debug Action
-      run: cat "$GITHUB_EVENT_PATH" | jq -M .
-
     # 1) Check out the repository
     - name: Clone Repository
       uses: actions/checkout@v2
