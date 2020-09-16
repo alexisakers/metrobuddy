@@ -13,6 +13,7 @@ public protocol WidgetCenterType {
 #if canImport(WidgetKit)
 import WidgetKit
 
+@available(iOS 14.0, *)
 extension WidgetCenter: WidgetCenterType {
     public func reloadTimelines(ofKind kind: WidgetKind) {
         reloadTimelines(ofKind: kind.rawValue)
