@@ -36,7 +36,7 @@ platform :ios do
         value: build_number
     )
 
-    build_app(scheme: "MetroBuddy", include_bitcode: false)
+    build_app(scheme: "MetroBuddy")
     upload_to_app_store(
         skip_metadata: true,
         force: true

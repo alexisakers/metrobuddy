@@ -51,15 +51,15 @@ class MetroTimelineProvider: TimelineProvider {
 
     // MARK: - TimelineProvider
 
-    func placeholder(with: Context) -> MetroTimelineEntry {
+    func placeholder(in context: Context) -> MetroTimelineEntry {
         return MetroTimelineEntry(date: Date(), cardStatus: .placeholder)
     }
 
-    func snapshot(with context: Context, completion: @escaping (MetroTimelineEntry) -> ()) {
+    func getSnapshot(in context: Context, completion: @escaping (MetroTimelineEntry) -> ()) {
         completion(currentEntry())
     }
 
-    func timeline(with context: Context, completion: @escaping (Timeline<MetroTimelineEntry>) -> ()) {
+    func getTimeline(in context: Context, completion: @escaping (Timeline<MetroTimelineEntry>) -> ()) {
         completion(Timeline(entries: [currentEntry()], policy: .never))
     }
 }

@@ -89,13 +89,13 @@ final class SymbolicLocationTests: FileBasedTestCase {
     
     // MARK: - Helpers
     
-    func assertDirectoryExists(at url: URL, file: StaticString = #file, line: UInt = #line) {
+    func assertDirectoryExists(at url: URL, file: StaticString = #filePath, line: UInt = #line) {
         var isDirectory: ObjCBool = false
         XCTAssertTrue(fileManager.fileExists(atPath: url.path, isDirectory: &isDirectory), file: file, line: line)
         XCTAssertTrue(isDirectory.boolValue, file: file, line: line)
     }
     
-    func assertCocoaError(_ error: Error, code: CocoaError.Code, file: StaticString = #file, line: UInt = #line) {
+    func assertCocoaError(_ error: Error, code: CocoaError.Code, file: StaticString = #filePath, line: UInt = #line) {
         if let cocoaError = error as? CocoaError {
             XCTAssertEqual(cocoaError.code, code, file: file, line: line)
         } else {

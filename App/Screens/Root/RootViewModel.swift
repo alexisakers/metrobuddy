@@ -25,15 +25,23 @@ final class RootViewModel {
     init(dataStore: MetroCardDataStore, preferences: UserPreferences) {
         do {
             let initialCard = try dataStore.currentCard()
-            let widgetCenter: WidgetCenterType?
+            var widgetCenter: WidgetCenterType? = nil
 
+            #if canImport(WidgetKit)
             if #available(iOS 14, *) {
                 widgetCenter = WidgetCenter.shared
             } else {
                 widgetCenter = nil
             }
+            #endif
 
-            let viewModel = MetroCardViewModel(card: initialCard, dataStore: dataStore, preferences: preferences, widgetCenter: widgetCenter)
+            let viewModel = MetroCardViewModel(
+                card: initialCard,
+                dataStore: dataStore,
+                preferences: preferences,
+                widgetCenter: widgetCenter
+            )
+            
             content = .card(viewModel)
         } catch {
             let errorTitle = NSLocalizedString("Unexpected Issue", comment: "")
