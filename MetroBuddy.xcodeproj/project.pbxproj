@@ -71,8 +71,6 @@
 		5E5715C624C3A4AA0068F20B /* MetroBuddyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5715C524C3A4AA0068F20B /* MetroBuddyUITests.swift */; };
 		5E5715CE24C3A6740068F20B /* MetroCardPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5715CD24C3A6740068F20B /* MetroCardPage.swift */; };
 		5E5715F224C3AA680068F20B /* MockMetroCardDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5715F124C3AA680068F20B /* MockMetroCardDataStore.swift */; };
-		5E5715FA24C3AC0F0068F20B /* MetroBuddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5715F924C3AC0F0068F20B /* MetroBuddyTests.swift */; };
-		5E57160224C3AC240068F20B /* RootViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E57160124C3AC240068F20B /* RootViewModelTests.swift */; };
 		5E57160424C3AE6F0068F20B /* TextFieldAlertPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E57160324C3AE6F0068F20B /* TextFieldAlertPage.swift */; };
 		5E57160724C4A0520068F20B /* TestScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E57160624C4A0520068F20B /* TestScenario.swift */; };
 		5E57160B24C4A62F0068F20B /* MetroCard+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E57160A24C4A62F0068F20B /* MetroCard+Helpers.swift */; };
@@ -184,13 +182,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 5E5715D324C3AA500068F20B;
 			remoteInfo = MetroTesting;
-		};
-		5E5715FC24C3AC0F0068F20B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5ED4E27E24B3E33300B37946 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5ED4E28524B3E33300B37946;
-			remoteInfo = "Metro Buddy";
 		};
 		5E87C77C24D35777003EA325 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -378,10 +369,6 @@
 		5E5715D424C3AA500068F20B /* MetroTesting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MetroTesting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E5715D724C3AA500068F20B /* MetroTesting.Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MetroTesting.Info.plist; sourceTree = "<group>"; };
 		5E5715F124C3AA680068F20B /* MockMetroCardDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMetroCardDataStore.swift; sourceTree = "<group>"; };
-		5E5715F724C3AC0F0068F20B /* MetroBuddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetroBuddyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E5715F924C3AC0F0068F20B /* MetroBuddyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroBuddyTests.swift; sourceTree = "<group>"; };
-		5E5715FB24C3AC0F0068F20B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5E57160124C3AC240068F20B /* RootViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModelTests.swift; sourceTree = "<group>"; };
 		5E57160324C3AE6F0068F20B /* TextFieldAlertPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAlertPage.swift; sourceTree = "<group>"; };
 		5E57160624C4A0520068F20B /* TestScenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScenario.swift; sourceTree = "<group>"; };
 		5E57160A24C4A62F0068F20B /* MetroCard+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MetroCard+Helpers.swift"; sourceTree = "<group>"; };
@@ -479,13 +466,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5E5715D124C3AA500068F20B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5E5715F424C3AC0F0068F20B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -789,16 +769,6 @@
 			path = MetroTesting;
 			sourceTree = "<group>";
 		};
-		5E5715F824C3AC0F0068F20B /* MetroBuddyTests */ = {
-			isa = PBXGroup;
-			children = (
-				5E5715F924C3AC0F0068F20B /* MetroBuddyTests.swift */,
-				5E57160124C3AC240068F20B /* RootViewModelTests.swift */,
-				5E5715FB24C3AC0F0068F20B /* Info.plist */,
-			);
-			path = MetroBuddyTests;
-			sourceTree = "<group>";
-		};
 		5E57160524C4A03E0068F20B /* Scenarios */ = {
 			isa = PBXGroup;
 			children = (
@@ -817,7 +787,6 @@
 				5E5715D524C3AA500068F20B /* MetroTesting */,
 				5ED4E2AB24B3E3B400B37946 /* MetroKitTests */,
 				5E5715C424C3A4AA0068F20B /* MetroBuddyUITests */,
-				5E5715F824C3AC0F0068F20B /* MetroBuddyTests */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1046,7 +1015,6 @@
 				5ED4E2A524B3E3B400B37946 /* MetroKitTests.xctest */,
 				5E5715C324C3A4AA0068F20B /* MetroBuddyUITests.xctest */,
 				5E5715D424C3AA500068F20B /* MetroTesting.framework */,
-				5E5715F724C3AC0F0068F20B /* MetroBuddyTests.xctest */,
 				5E936E2824C7323700F7807E /* MetroIntents.appex */,
 				5E936E8F24D0E53800F7807E /* MetroIntentsUI.appex */,
 				5E936EA424D0EAAD00F7807E /* MetroUI.framework */,
@@ -1190,24 +1158,6 @@
 			productName = MetroTesting;
 			productReference = 5E5715D424C3AA500068F20B /* MetroTesting.framework */;
 			productType = "com.apple.product-type.framework";
-		};
-		5E5715F624C3AC0F0068F20B /* MetroBuddyTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5E5715FE24C3AC0F0068F20B /* Build configuration list for PBXNativeTarget "MetroBuddyTests" */;
-			buildPhases = (
-				5E5715F324C3AC0F0068F20B /* Sources */,
-				5E5715F424C3AC0F0068F20B /* Frameworks */,
-				5E5715F524C3AC0F0068F20B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5E5715FD24C3AC0F0068F20B /* PBXTargetDependency */,
-			);
-			name = MetroBuddyTests;
-			productName = MetroBuddyTests;
-			productReference = 5E5715F724C3AC0F0068F20B /* MetroBuddyTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		5E87C77024D35772003EA325 /* MetroWidgetExtension */ = {
 			isa = PBXNativeTarget;
@@ -1368,10 +1318,6 @@
 						CreatedOnToolsVersion = 12.0;
 						LastSwiftMigration = 1200;
 					};
-					5E5715F624C3AC0F0068F20B = {
-						CreatedOnToolsVersion = 12.0;
-						TestTargetID = 5ED4E28524B3E33300B37946;
-					};
 					5E87C77024D35772003EA325 = {
 						CreatedOnToolsVersion = 12.0;
 					};
@@ -1422,7 +1368,6 @@
 				5E87C77024D35772003EA325 /* MetroWidgetExtension */,
 				5ED4E2A424B3E3B400B37946 /* MetroKitTests */,
 				5E5715C224C3A4AA0068F20B /* MetroBuddyUITests */,
-				5E5715F624C3AC0F0068F20B /* MetroBuddyTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1436,13 +1381,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5E5715D224C3AA500068F20B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5E5715F524C3AC0F0068F20B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1563,15 +1501,6 @@
 				5E2F16D924C4BFC00097D0EB /* ReturningUserTestScenario.swift in Sources */,
 				5E57160724C4A0520068F20B /* TestScenario.swift in Sources */,
 				5E2F16F524C4D77A0097D0EB /* ExistingCardAttributesTestScenario.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5E5715F324C3AC0F0068F20B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5E57160224C3AC240068F20B /* RootViewModelTests.swift in Sources */,
-				5E5715FA24C3AC0F0068F20B /* MetroBuddyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1750,11 +1679,6 @@
 			target = 5E5715D324C3AA500068F20B /* MetroTesting */;
 			targetProxy = 5E5715E724C3AA500068F20B /* PBXContainerItemProxy */;
 		};
-		5E5715FD24C3AC0F0068F20B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5ED4E28524B3E33300B37946 /* MetroBuddy */;
-			targetProxy = 5E5715FC24C3AC0F0068F20B /* PBXContainerItemProxy */;
-		};
 		5E87C77D24D35777003EA325 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5E87C77024D35772003EA325 /* MetroWidgetExtension */;
@@ -1920,47 +1844,6 @@
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		5E5715FF24C3AC0F0068F20B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5ED4E2C424B3E56200B37946 /* Base.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 75E8K39Z38;
-				INFOPLIST_FILE = Tests/MetroBuddyTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = dev.alexisonline.MetroBuddyTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Metro Buddy.app/Metro Buddy";
-			};
-			name = Debug;
-		};
-		5E57160024C3AC0F0068F20B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 75E8K39Z38;
-				INFOPLIST_FILE = Tests/MetroBuddyTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = dev.alexisonline.MetroBuddyTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Metro Buddy.app/Metro Buddy";
 			};
 			name = Release;
 		};
@@ -2431,15 +2314,6 @@
 			buildConfigurations = (
 				5E5715EC24C3AA500068F20B /* Debug */,
 				5E5715ED24C3AA500068F20B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5E5715FE24C3AC0F0068F20B /* Build configuration list for PBXNativeTarget "MetroBuddyTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5E5715FF24C3AC0F0068F20B /* Debug */,
-				5E57160024C3AC0F0068F20B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
