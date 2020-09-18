@@ -24,6 +24,7 @@ struct MetroWidgetView : View {
 
                 Text(verbatim: entry.cardStatus.balance)
                     .font(.cardBalance)
+                    .foregroundColor(.black)
                     .minimumScaleFactor(0.1)
                     .lineLimit(1)
                     .enableRedaction(entry.cardStatus.isPlaceholder)
