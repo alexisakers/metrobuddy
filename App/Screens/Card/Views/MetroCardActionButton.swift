@@ -15,7 +15,7 @@ struct MetroCardActionButton: View {
         }
     }
     
-    let title: LocalizedStringKey
+    let title: Text
     let buttonText: Text
     let action: () -> Void
 
@@ -26,12 +26,12 @@ struct MetroCardActionButton: View {
     /// - parameter value: The localized value that is currently associated with the action.
     /// - parameter actionLabel: The label to use in the action button if there is no value.
     /// - parameter action: The action to execute when the button is pressed.
-    init(title: LocalizedStringKey, value: String?, actionLabel: ActionLabel, action: @escaping () -> Void) {
+    init(title: Text, value: Text?, actionLabel: ActionLabel, action: @escaping () -> Void) {
         self.title = title
         self.action = action
         
         if let value = value {
-            buttonText = Text(value)
+            buttonText = value
         } else {
             buttonText = actionLabel.text
         }
@@ -41,7 +41,7 @@ struct MetroCardActionButton: View {
     
     var body: some View {
         VStack(spacing: 8) {
-            Text(title)
+            title
                 .font(.caption)
                 .fontWeight(.medium)
                 .lineLimit(1)
@@ -55,7 +55,7 @@ struct MetroCardActionButton: View {
                 action: actionButtonTapped
             )
         }.accessibilityElement(children: .ignore)
-        .accessibility(label: Text(title))
+        .accessibility(label: title)
         .accessibility(value: buttonText)
         .accessibility(addTraits: .isButton)
     }

@@ -1,5 +1,5 @@
 #include "Base.xcconfig"
 
-PRODUCT_BUNDLE_IDENTIFIER = ${DOMAIN}.App;
-INFOPLIST_FILE = Configs/App.Info.plist;
-CODE_SIGN_ENTITLEMENTS = Configs/MetroBuddy.entitlements;
+PRODUCT_BUNDLE_IDENTIFIER = ${DOMAIN}.App
+INFOPLIST_FILE = Configs/App.Info.plist
+CODE_SIGN_ENTITLEMENTS = Configs/MetroBuddy.entitlements

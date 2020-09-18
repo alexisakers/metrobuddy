@@ -11,9 +11,9 @@ struct ShortcutListCell: View {
     private var subtitle: Text {
         switch item.configurationOption {
         case .add:
-            return Text(item.action.localizedDescription)
+            return Text(verbatim: item.action.localizedDescription)
         case .edit(let voiceShortcut):
-            return Text(item.action.localizedDescription(withPhrase: voiceShortcut.invocationPhrase))
+            return Text(verbatim: item.action.localizedDescription(withPhrase: voiceShortcut.invocationPhrase))
         }
     }
 

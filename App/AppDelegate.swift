@@ -14,7 +14,6 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
             .environmentObject(ToastQueue())
 
         let hostingController = UIHostingController(rootView: contentView)
-        hostingController.overrideUserInterfaceStyle = .dark
 
         UIScrollView.appearance(whenContainedInInstancesOf: [type(of: hostingController)])
             .backgroundColor = .contentBackground
@@ -25,6 +24,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         self.window = {
             let window = UIWindow(frame: UIScreen.main.bounds)
             window.rootViewController = hostingController
+            window.tintColor = .metroCardOrange
             return window
         }()
 

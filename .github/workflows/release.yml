@@ -1,11 +1,7 @@
 name: Release
-
-on:
-  workflow_dispatch:
-    inputs:
-      app_version:
-        description: 'App Version'
-        required: true
+on: workflow_dispatch
+env:
+  DEVELOPER_DIR: /Applications/Xcode_12.app/Contents/Developer
 
 jobs:
   release:
@@ -14,14 +10,27 @@ jobs:
     steps:
     # 1) Clone the Repository
     - name: Checkout
-      uses: actions/checkout@v2.3.2
+      uses: actions/checkout@v2
       with:
         ref: ${{ github.event.inputs.branch }}
 
-    # 2) Set Environment
-    - name: Set Environment
-      run: export APP_VERSION="${{ github.event.inputs.app_version }}
+    # 2) Install Dependencies
+    - name: Install Dependencies
+      run: bundle install
 
-    # 3) Build and Upload the App
+    # 3) Set up Code Signing
+    - name: Set Up Code Signing
+      run: bundle exec fastlane prepare_release_ci
+      env:
+        BOT_USERNAME: "${{ secrets.BOT_USERNAME }}"
+        BOT_TOKEN: "${{ secrets.BOT_TOKEN }}"
+        MATCH_PASSWORD: "${{ secrets.MATCH_PASSWORD }}"
+
+    # 4) Build and Upload the App
     - name: Create Release Build
       run: bundle exec fastlane release
+      env:
+        FASTLANE_USER: "${{ secrets.FASTLANE_USER }}"
+        FASTLANE_PASSWORD: "${{ secrets.FASTLANE_PASSWORD }}"
+        FASTLANE_ITC_TEAM_ID: "${{ secrets.FASTLANE_TEAM_ID }}"
+        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"

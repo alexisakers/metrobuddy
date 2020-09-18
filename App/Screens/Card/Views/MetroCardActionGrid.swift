@@ -12,15 +12,15 @@ struct MetroCardActionGrid: View {
         VStack(alignment: .leading, spacing: 16) {
             FlexibleStack(hStackAlignment: .top, vStackAlignment: .leading) {
                 MetroCardActionButton(
-                    title: "BALANCE",
+                    title: Text("BALANCE"),
                     value: nil,
                     actionLabel: .update,
                     action: updateBalanceButtonTapped
                 ).accessibility(identifier: "balance-button")
 
                 MetroCardActionButton(
-                    title: "FARE",
-                    value: viewModel.data.formattedFare,
+                    title: Text("FARE"),
+                    value: Text(verbatim: viewModel.data.formattedFare),
                     actionLabel: .update,
                     action: updateFareButtonTapped
                 ).accessibility(identifier: "fare-button")
@@ -28,15 +28,15 @@ struct MetroCardActionGrid: View {
             
             FlexibleStack(hStackAlignment: .top, vStackAlignment: .leading) {
                 MetroCardActionButton(
-                    title: "EXPIRATION",
-                    value: viewModel.data.formattedExpirationDate,
+                    title: Text("EXPIRATION"),
+                    value: viewModel.data.formattedExpirationDate.map(Text.init(verbatim:)),
                     actionLabel: .add,
                     action: updateExpirationDateButtonTapped
                 ).accessibility(identifier: "expiration-button")
 
                 MetroCardActionButton(
-                    title: "CARD NUMBER",
-                    value: viewModel.data.formattedSerialNumber,
+                    title: Text("CARD NUMBER"),
+                    value: viewModel.data.formattedSerialNumber.map(Text.init(verbatim:)),
                     actionLabel: .add,
                     action: updateSerialNumberButtonTapped
                 ).accessibility(identifier: "card-number-button")

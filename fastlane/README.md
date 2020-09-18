@@ -21,6 +21,11 @@ or alternatively using `brew install fastlane`
 fastlane ios screenshots
 ```
 Generates screenshots and uploads them to the App Store
+### ios prepare_release_ci
+```
+fastlane ios prepare_release_ci
+```
+Prepare the GitHub Actions environment for a release build
 ### ios test
 ```
 fastlane ios test
@@ -31,6 +36,11 @@ Runs tests
 fastlane ios release
 ```
 Push a new release build to the App Store
+### ios update_certs
+```
+fastlane ios update_certs
+```
+Updates the certificates and provisioning profiles in the match repo
 
 ----
 

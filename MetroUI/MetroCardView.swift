@@ -22,7 +22,7 @@ public struct MetroCardView: View {
         VStack(spacing: 0) {
             Spacer()
 
-            Text(formattedBalance)
+            Text(verbatim: formattedBalance)
                 .font(.cardBalance)
                 .foregroundColor(.black)
                 .padding(.horizontal, 16)
@@ -51,7 +51,7 @@ public struct MetroCardView: View {
         .accessibilityElement(children: .ignore)
         .accessibility(addTraits: .isButton)
         .accessibility(label: Text("Card Balance"))
-        .accessibility(value: Text(formattedBalance))
+        .accessibility(value: Text(verbatim: formattedBalance))
         .accessibility(identifier: "card")
     }
 }

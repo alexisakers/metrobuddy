@@ -2,8 +2,12 @@ import Combine
 import Foundation
 import MetroKit
 
+#if canImport(WidgetKit)
+import WidgetKit
+#endif
+
 /// The view model of the root view, responsible for calculating the state of the app.
-class RootViewModel {
+final class RootViewModel {
     /// The possible contents that can be displayed by the app.
     enum Content {
         /// The app is not available because of an error, described by the given message.
@@ -21,7 +25,23 @@ class RootViewModel {
     init(dataStore: MetroCardDataStore, preferences: UserPreferences) {
         do {
             let initialCard = try dataStore.currentCard()
-            let viewModel = MetroCardViewModel(card: initialCard, dataStore: dataStore, preferences: preferences)
+            var widgetCenter: WidgetCenterType? = nil
+
+            #if canImport(WidgetKit)
+            if #available(iOS 14, *) {
+                widgetCenter = WidgetCenter.shared
+            } else {
+                widgetCenter = nil
+            }
+            #endif
+
+            let viewModel = MetroCardViewModel(
+                card: initialCard,
+                dataStore: dataStore,
+                preferences: preferences,
+                widgetCenter: widgetCenter
+            )
+            
             content = .card(viewModel)
         } catch {
             let errorTitle = NSLocalizedString("Unexpected Issue", comment: "")

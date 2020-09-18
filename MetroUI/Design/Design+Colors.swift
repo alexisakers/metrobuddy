@@ -30,4 +30,8 @@ extension UIColor {
     public static var contentBackground: UIColor {
         UIColor(named: "BackgroundColor", in: .metroUI, compatibleWith: nil)!
     }
+
+    public static var metroCardOrange: UIColor {
+        UIColor(named: "MetroCardOrange", in: .metroUI, compatibleWith: nil)!
+    }
 }

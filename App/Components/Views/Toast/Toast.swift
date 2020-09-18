@@ -7,7 +7,7 @@ struct Toast: View {
     let text: String
     
     var body: some View {
-        Text(text)
+        Text(verbatim: text)
             .foregroundColor(.toastText)
             .font(Font.toastText, textStyle: .body)
             .lineLimit(2)

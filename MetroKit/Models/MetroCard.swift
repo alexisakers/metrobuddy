@@ -16,7 +16,7 @@ public struct MetroCard: Equatable, Identifiable {
     
     /// The fare for a single swipe.
     public let fare: Decimal
-    
+
     // MARK: - Initialization
     
     public init(id: UUID, balance: Decimal, expirationDate: Date?, serialNumber: String?, fare: Decimal) {
@@ -25,6 +25,16 @@ public struct MetroCard: Equatable, Identifiable {
         self.expirationDate = expirationDate
         self.serialNumber = serialNumber
         self.fare = fare
+    }
+
+    // MARK: - Helpers
+
+    /// Returns the number of swipes the user can perform with the specified fare.
+    public var remainingSwipes: Int {
+        guard fare > 0 else { return 0 }
+        return balance
+            .quotientAndRemainer(dividingBy: fare)
+            .quotient
     }
 }
 

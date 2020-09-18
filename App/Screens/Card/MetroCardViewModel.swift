@@ -5,7 +5,7 @@ import SwiftUI
 import MetroKit
 
 /// An object responsible for computing the, and which side effects to display when the data changes.
-class MetroCardViewModel: ObservableObject {
+final class MetroCardViewModel: ObservableObject {
     private enum MetroCardBalanceError: Error {
         case insufficientFunds(Decimal)
     }
@@ -37,13 +37,19 @@ class MetroCardViewModel: ObservableObject {
                 
     // MARK: - Initialization
     
-    public init(card: ObjectReference<MetroCard>, dataStore: MetroCardDataStore, preferences: UserPreferences) {
+    public init(card: ObjectReference<MetroCard>, dataStore: MetroCardDataStore, preferences: UserPreferences, widgetCenter: WidgetCenterType?) {
         self.dataStore = dataStore
         self.data = Self.makeData(for: card, preferences: preferences)
 
         let cardPublisher = dataStore
             .publisher(for: card)
             .share(replay: 1)
+
+        // Notify widget center of changes
+        cardPublisher
+            .sink(receiveValue: { _ in
+                widgetCenter?.reloadTimelines(ofKind: .cardBalance)
+            }).store(in: &tasks)
 
         // Set Up Update Publishers
         let updateElements = updateSubject
@@ -53,7 +59,7 @@ class MetroCardViewModel: ObservableObject {
                     .receive(on: DispatchQueue.main)
                     .handleEvents(receiveCompletion: {
                         if case .finished = $0, case .balance = update {
-                            preferences.setValue(true, forKey: UserDidOnboardPreferenceKey.self)
+                            preferences.setValue(true, forKey: .userDidOnboard)
                         }
                     })
                     .materialize()
@@ -272,17 +278,11 @@ extension MetroCardViewModel {
         
         let formattedFare = Self.currencyFormatter
             .string(from: card.fare as NSDecimalNumber)!
-        
-        let remainingSwipes = card.balance
-            .quotientAndRemainer(dividingBy: card.fare)
-            .quotient
-        
-        let formattedRemainingSwipesFormat = NSLocalizedString("remaining_swipes", comment: "")
+
         let formattedRemainingSwipes = String
-            .localizedStringWithFormat(formattedRemainingSwipesFormat, remainingSwipes)
+            .localizedStringWithFormat(String.LocalizationFormats.remainingSwipes, card.remainingSwipes)
         
-        let userDidOnboard = preferences
-            .value(forKey: UserDidOnboardPreferenceKey.self)
+        let userDidOnboard = preferences.value(forKey: .userDidOnboard)
         
         return MetroCardData(
             isOnboarded: userDidOnboard || card.balance != 0,

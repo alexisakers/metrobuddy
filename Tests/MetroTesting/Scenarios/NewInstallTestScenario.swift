@@ -14,7 +14,7 @@ public final class NewInstallTestScenario: NSObject, TestScenario {
 
     public static func makePreferences() -> UserPreferences {
         let userDefaults = MockPreferences()
-        userDefaults.setValue(false, forKey: UserDidOnboardPreferenceKey.self)
+        userDefaults.setValue(false, forKey: .userDidOnboard)
         return userDefaults
     }
 }

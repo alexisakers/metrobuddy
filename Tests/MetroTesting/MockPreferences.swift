@@ -8,11 +8,11 @@ public final class MockPreferences: UserPreferences {
         self.storage = [:]
     }
 
-    public func setValue<Key: UserPreferenceKey>(_ value: Key.Value, forKey key: Key.Type) {
+    public func setValue<Value>(_ value: Value, forKey key: UserPreferenceKey<Value>) where Value : PropertyListRepresentable {
         storage[key.name] = value
     }
 
-    public func value<Key: UserPreferenceKey>(forKey key: Key.Type) -> Key.Value {
-        return storage[key.name] as? Key.Value ?? Key.defaultValue
+    public func value<Value>(forKey key: UserPreferenceKey<Value>) -> Value where Value : PropertyListRepresentable {
+        return storage[key.name] as? Value ?? key.defaultValue
     }
 }

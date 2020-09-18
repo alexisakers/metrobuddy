@@ -12,7 +12,7 @@ final class FirstLaunchUITests: ScenarioBasedTestCase<MetroCardPage> {
         // When swiping, we show the toast
         page.performSwipe()
         XCTAssertEqual(page.balanceValue, "$0.00")
-        XCTAssertEqual(page.subtitle, "No swipes left")
+        XCTAssertEqual(page.subtitle, "No rides left")
         XCTAssertEqual(page.toastText, "INSUFFICIENT FARE")
     }
 
