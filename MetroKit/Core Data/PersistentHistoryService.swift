@@ -33,6 +33,7 @@ class PersistentHistoryService: NSObject {
             let history = historyResult.result as! [NSPersistentHistoryTransaction]
 
             let previousStalenessInterval = context.stalenessInterval
+            context.stalenessInterval = 0
             for transaction in history.reversed() {
                 context.mergeChanges(fromContextDidSave: transaction.objectIDNotification())
             }
