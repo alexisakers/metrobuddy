@@ -106,7 +106,7 @@ final class MetroCardViewModel: ObservableObject {
             .withLatestFrom(cardPublisher) { _, card in card }
             .map { card -> String in
                 let format = NSLocalizedString("Updated balance: %@", comment: "The first argument is the formatted balance in dollars.")
-                let formattedBalance = Self.currencyFormatter.string(from: card.balance as NSDecimalNumber)!
+                let formattedBalance = NumberFormatter.currencyFormatter.string(from: card.balance as NSDecimalNumber)!
                 return String(format: format, formattedBalance)
             }.eraseToAnyPublisher()
 
@@ -248,13 +248,6 @@ final class MetroCardViewModel: ObservableObject {
 // MARK: - Helpers
 
 extension MetroCardViewModel {
-    private static let currencyFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.currencyCode = "USD"
-        formatter.numberStyle = .currency
-        return formatter
-    }()
-    
     private static let shortDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.timeStyle = .none
@@ -270,17 +263,17 @@ extension MetroCardViewModel {
 
     /// Creates a `MetroCardData` object from an underlying card data,
     private static func makeData(for card: ObjectReference<MetroCard>, preferences: UserPreferences) -> MetroCardData {
-        let formattedBalance = Self.currencyFormatter
+        let formattedBalance = NumberFormatter.currencyFormatter
             .string(from: card.balance as NSDecimalNumber)!
         
         let formattedDate = card.expirationDate
             .map(shortDateFormatter.string(from:))
         
-        let formattedFare = Self.currencyFormatter
+        let formattedFare = NumberFormatter.currencyFormatter
             .string(from: card.fare as NSDecimalNumber)!
 
-        let formattedRemainingSwipes = String
-            .localizedStringWithFormat(String.LocalizationFormats.remainingSwipes, card.remainingSwipes)
+        let formattedRemainingRides = String
+            .localizedStringWithFormat(String.LocalizationFormats.remainingRides, card.remainingRides)
         
         let userDidOnboard = preferences.value(forKey: .userDidOnboard)
         
@@ -291,7 +284,7 @@ extension MetroCardViewModel {
             formattedExpirationDate: formattedDate,
             formattedSerialNumber: card.serialNumber,
             formattedFare: formattedFare,
-            formattedRemainingSwipes: formattedRemainingSwipes
+            formattedRemainingRides: formattedRemainingRides
         )
     }
 }

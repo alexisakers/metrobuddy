@@ -145,6 +145,7 @@
 		5E936ED224D0F41500F7807E /* BalanceProvidingIntentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936ED124D0F41500F7807E /* BalanceProvidingIntentResponse.swift */; };
 		5E936ED424D0F47500F7807E /* IntentResponseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936ED324D0F47500F7807E /* IntentResponseView.swift */; };
 		5E936EDF24D2FC6F00F7807E /* ShortcutsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936EDD24D2FC5E00F7807E /* ShortcutsPage.swift */; };
+		5E9B955B2523990600E99B03 /* NumberFormatter+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B955A2523990600E99B03 /* NumberFormatter+Helpers.swift */; };
 		5EC7A60B24BDEF0300E3ED39 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */; };
 		5EC7A60D24BDF15800E3ED39 /* PropertyListRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */; };
 		5EC7A60F24BDF2B900E3ED39 /* UserPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60E24BDF2B900E3ED39 /* UserPreferenceKey.swift */; };
@@ -434,6 +435,7 @@
 		5E936ED124D0F41500F7807E /* BalanceProvidingIntentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceProvidingIntentResponse.swift; sourceTree = "<group>"; };
 		5E936ED324D0F47500F7807E /* IntentResponseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentResponseView.swift; sourceTree = "<group>"; };
 		5E936EDD24D2FC5E00F7807E /* ShortcutsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsPage.swift; sourceTree = "<group>"; };
+		5E9B955A2523990600E99B03 /* NumberFormatter+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Helpers.swift"; sourceTree = "<group>"; };
 		5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Fonts.swift"; sourceTree = "<group>"; };
 		5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListRepresentable.swift; sourceTree = "<group>"; };
@@ -654,6 +656,7 @@
 				5E87C79624D36D38003EA325 /* Bundle+Helpers.swift */,
 				5E17D36E24BF611A003E99D1 /* Decimal+Helpers.swift */,
 				5E87C79424D36CDA003EA325 /* LocalizedString.swift */,
+				5E9B955A2523990600E99B03 /* NumberFormatter+Helpers.swift */,
 				5EC7A61224BE003200E3ED39 /* Localizable.stringsdict */,
 			);
 			path = Helpers;
@@ -1626,6 +1629,7 @@
 				5E87C79524D36CDB003EA325 /* LocalizedString.swift in Sources */,
 				5E03304A24BF4120001D86D1 /* UserFacingError.swift in Sources */,
 				5E497D6E24BA5A9D00EE584E /* NSPersistentContainer+Helpers.swift in Sources */,
+				5E9B955B2523990600E99B03 /* NumberFormatter+Helpers.swift in Sources */,
 				5E936E5C24C86F9300F7807E /* AssistantAction.swift in Sources */,
 				5E936E8624D0723C00F7807E /* PersistentHistoryService.swift in Sources */,
 				5E497D6724BA278600EE584E /* ManagedObjectObserver.swift in Sources */,

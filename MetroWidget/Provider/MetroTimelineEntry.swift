@@ -6,7 +6,7 @@ struct MetroTimelineEntry: TimelineEntry {
     /// Contains formatted details for the card status.
     struct CardStatus {
         let balance: String
-        let remainingSwipes: String
+        let remainingRides: String
         let isPlaceholder: Bool
         let accessibilityValue: String
     }
@@ -20,6 +20,6 @@ struct MetroTimelineEntry: TimelineEntry {
 extension MetroTimelineEntry.CardStatus {
     /// The card status to display when we are showing a placeholder.
     static var placeholder: Self {
-        Self(balance: "$25.00", remainingSwipes: "0 left", isPlaceholder: true, accessibilityValue: "$25, 0 rides left")
+        Self(balance: "$25.00", remainingRides: "0 left", isPlaceholder: true, accessibilityValue: "$25, 0 rides left")
     }
 }

@@ -61,7 +61,12 @@ class MetroCardPage: AppPage {
         sleep(1)
     }
 
-    func tapBalanceButton() -> TextFieldAlertPage{
+    func tapCard() -> TextFieldAlertPage {
+        app.buttons[cardID].tap()
+        return TextFieldAlertPage(app: app)
+    }
+
+    func tapBalanceButton() -> TextFieldAlertPage {
         app.buttons[balanceButtonID].tap()
         return TextFieldAlertPage(app: app)
     }

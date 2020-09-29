@@ -14,7 +14,7 @@ public struct MetroCard: Equatable, Identifiable {
     /// The number at the back of the card.
     public let serialNumber: String?
     
-    /// The fare for a single swipe.
+    /// The fare for a single ride.
     public let fare: Decimal
 
     // MARK: - Initialization
@@ -29,8 +29,8 @@ public struct MetroCard: Equatable, Identifiable {
 
     // MARK: - Helpers
 
-    /// Returns the number of swipes the user can perform with the specified fare.
-    public var remainingSwipes: Int {
+    /// Returns the number of rides the user can perform with the specified fare.
+    public var remainingRides: Int {
         guard fare > 0 else { return 0 }
         return balance
             .quotientAndRemainer(dividingBy: fare)

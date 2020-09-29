@@ -21,6 +21,6 @@ struct MetroCardData {
     /// The current fare, formatted for display.
     let formattedFare: String
 
-    /// The number of remaining swipes, formatted for display and pluralized if needed.
-    let formattedRemainingSwipes: String
+    /// The number of remaining rides, formatted for display and pluralized if needed.
+    let formattedRemainingRides: String
 }

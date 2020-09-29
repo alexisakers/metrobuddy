@@ -2,11 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>remaining_swipes</key>
+	<key>remaining_rides</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@swipes@</string>
-		<key>swipes</key>
+		<string>%#@rides@</string>
+		<key>rides</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
