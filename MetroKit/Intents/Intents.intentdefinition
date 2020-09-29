@@ -5,22 +5,22 @@
 	<key>INEnums</key>
 	<array/>
 	<key>INIntentDefinitionModelVersion</key>
-	<string>1.1</string>
+	<string>1.2</string>
 	<key>INIntentDefinitionNamespace</key>
 	<string>8DVrPl</string>
 	<key>INIntentDefinitionSystemVersion</key>
-	<string>19E287</string>
+	<string>19G2021</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
-	<string>11E708</string>
+	<string>12A7209</string>
 	<key>INIntentDefinitionToolsVersion</key>
-	<string>11.6</string>
+	<string>12.0</string>
 	<key>INIntents</key>
 	<array>
 		<dict>
 			<key>INIntentCategory</key>
 			<string>checkIn</string>
 			<key>INIntentDescription</key>
-			<string>Update your MetroCard balance after a swipe.</string>
+			<string>Update your MetroCard balance after you swipe it.</string>
 			<key>INIntentDescriptionID</key>
 			<string>ngnWHC</string>
 			<key>INIntentLastParameterTag</key>
@@ -34,7 +34,7 @@
 					<key>INIntentParameterCombinationIsPrimary</key>
 					<true/>
 					<key>INIntentParameterCombinationSubtitle</key>
-					<string>Update your MetroCard balance after a swipe.</string>
+					<string>Update your MetroCard balance after you swipe it.</string>
 					<key>INIntentParameterCombinationSubtitleID</key>
 					<string>0dxmO0</string>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
@@ -154,11 +154,11 @@
 				<array>
 					<dict>
 						<key>INIntentResponseCodeConciseFormatString</key>
-						<string>You have ${balance} on your MetroCard. That's ${formattedSwipeCount} with your current fare.</string>
+						<string>You have ${balance} on your MetroCard. That's ${formattedRideCount} with your current fare.</string>
 						<key>INIntentResponseCodeConciseFormatStringID</key>
 						<string>DF988u</string>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>You have ${balance} on your MetroCard. That's ${formattedSwipeCount} with your current fare.</string>
+						<string>You have ${balance} on your MetroCard. That's ${formattedRideCount} with your current fare.</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>VX6iyG</string>
 						<key>INIntentResponseCodeName</key>
@@ -180,7 +180,7 @@
 					</dict>
 				</array>
 				<key>INIntentResponseLastParameterTag</key>
-				<integer>8</integer>
+				<integer>9</integer>
 				<key>INIntentResponseOutput</key>
 				<string>balance</string>
 				<key>INIntentResponseParameters</key>
@@ -201,15 +201,15 @@
 					</dict>
 					<dict>
 						<key>INIntentResponseParameterDisplayName</key>
-						<string>Formatted Swipe Count</string>
+						<string>Formatted Ride Count</string>
 						<key>INIntentResponseParameterDisplayNameID</key>
-						<string>pXfrPL</string>
+						<string>cYGpZ4</string>
 						<key>INIntentResponseParameterDisplayPriority</key>
 						<integer>2</integer>
 						<key>INIntentResponseParameterName</key>
-						<string>formattedSwipeCount</string>
+						<string>formattedRideCount</string>
 						<key>INIntentResponseParameterTag</key>
-						<integer>8</integer>
+						<integer>9</integer>
 						<key>INIntentResponseParameterType</key>
 						<string>String</string>
 					</dict>

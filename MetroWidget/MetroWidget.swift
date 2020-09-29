@@ -10,7 +10,7 @@ struct MetroWidget: Widget {
             provider: MetroTimelineProvider(),
             content: MetroWidgetView.init
         ).configurationDisplayName("MetroCard Balance")
-        .description("Displays your MetroCard balance and how many swipes are left.")
+        .description("Displays your MetroCard balance and how many rides are left.")
         .supportedFamilies([.systemSmall, .systemMedium])
     }
 }
@@ -20,7 +20,7 @@ struct MetroWidget: Widget {
 #if DEBUG
 extension MetroTimelineEntry.CardStatus {
     static var preview: Self {
-        Self(balance: "$25.00", remainingSwipes: "8 left", isPlaceholder: false, accessibilityValue: "$25, 8 rides left")
+        Self(balance: "$25.00", remainingRides: "8 left", isPlaceholder: false, accessibilityValue: "$25, 8 rides left")
     }
 }
 

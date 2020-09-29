@@ -39,7 +39,7 @@ struct MetroWidgetView : View {
                     Image.Assets.singleArrow
                         .padding(.leading, -12)
 
-                    Text(verbatim: entry.cardStatus.remainingSwipes)
+                    Text(verbatim: entry.cardStatus.remainingRides)
                         .foregroundColor(.white)
                         .font(textStyle: .body, maximumPointSize: 30)
                         .minimumScaleFactor(0.1)

@@ -5,7 +5,6 @@ import MetroKit
 /// An object that provides the current card details to the widget timeline.
 class MetroTimelineProvider: TimelineProvider {
     let dataStore: MetroCardDataStore
-    let balanceFormatter: NumberFormatter
 
     init() {
         self.dataStore = try! PersistentMetroCardDataStore(
@@ -13,32 +12,25 @@ class MetroTimelineProvider: TimelineProvider {
             persistentStore: .sharedContainer,
             useCloudKit: true
         )
-
-        self.balanceFormatter = {
-            let formatter = NumberFormatter()
-            formatter.numberStyle = .currency
-            formatter.currencyCode = "USD"
-            return formatter
-        }()
     }
 
     func currentEntry() -> MetroTimelineEntry {
         do {
             let currentCard = try dataStore.currentCard()
-            let remainingSwipes = currentCard.remainingSwipes
-            let formattedBalance = balanceFormatter.string(from: currentCard.balance as NSDecimalNumber)!
+            let remainingRides = currentCard.remainingRides
+            let formattedBalance = NumberFormatter.currencyFormatter.string(from: currentCard.balance as NSDecimalNumber)!
 
-            let remainingSwipesFormat = NSLocalizedString("%ld left", comment: "The first argument is the number of rides left.")
-            let formattedSwipes = String.localizedStringWithFormat(remainingSwipesFormat, remainingSwipes)
+            let remainingRidesFormat = NSLocalizedString("%ld left", comment: "The first argument is the number of rides left.")
+            let formattedRides = String.localizedStringWithFormat(remainingRidesFormat, remainingRides)
 
             let accessibleFormattedRides = String.localizedStringWithFormat(
-                String.LocalizationFormats.remainingSwipes,
-                currentCard.remainingSwipes
+                String.LocalizationFormats.remainingRides,
+                currentCard.remainingRides
             )
 
             let status = MetroTimelineEntry.CardStatus(
                 balance: formattedBalance,
-                remainingSwipes: formattedSwipes,
+                remainingRides: formattedRides,
                 isPlaceholder: false,
                 accessibilityValue: [formattedBalance, accessibleFormattedRides].joined(separator: ", ")
             )

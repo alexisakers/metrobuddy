@@ -44,7 +44,7 @@ struct MetroCardScreen: View {
             FullWidthScrollView(bounce: []) {
                 VStack(alignment: .leading, spacing: 16) {
                     HStack {
-                        NavigationBar(subtitle: viewModel.data.formattedRemainingSwipes)
+                        NavigationBar(subtitle: viewModel.data.formattedRemainingRides)
                             .accessibility(sortPriority: 0)
 
                         Spacer()

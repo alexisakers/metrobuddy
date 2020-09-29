@@ -38,7 +38,7 @@ class MetroBuddyUITests: ScenarioBasedTestCase<MetroCardPage> {
         alert.tapSave()
         XCTAssertEqual(page.fareValue, "$3.00")
 
-        // The number of remaining swipes is updated
+        // The number of remaining rides is updated
         XCTAssertEqual(page.subtitle, "8 rides left")
     }
 
@@ -68,8 +68,8 @@ class MetroBuddyUITests: ScenarioBasedTestCase<MetroCardPage> {
         alert.tapSave()
         XCTAssertEqual(page.balanceValue, "$5.25")
 
-        // The number of remaining swipes is updated
-        XCTAssertEqual(page.subtitle, "1 swipe left")
+        // The number of remaining rides is updated
+        XCTAssertEqual(page.subtitle, "1 ride left")
     }
 
     func testSerialNumberAction() {
@@ -119,9 +119,9 @@ class MetroBuddyUITests: ScenarioBasedTestCase<MetroCardPage> {
 
         // The initial balance is $2.75
         XCTAssertEqual(page.balanceValue, "$2.75")
-        XCTAssertEqual(page.subtitle, "1 swipe left")
+        XCTAssertEqual(page.subtitle, "1 ride left")
 
-        // When swiping the last swipe, the balance and subtitle are updated
+        // When swiping the last ride, the balance and subtitle are updated
         page.tapSwipeButton()
         XCTAssertEqual(page.balanceValue, "$0.00")
         XCTAssertEqual(page.subtitle, "No rides left")
