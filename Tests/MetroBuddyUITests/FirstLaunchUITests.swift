@@ -7,7 +7,6 @@ final class FirstLaunchUITests: ScenarioBasedTestCase<MetroCardPage> {
 
         // The correct initial values are displayed
         XCTAssertEqual(page.balanceValue, "$0.00")
-        XCTAssertEqual(page.fareValue, "$2.75")
 
         // When swiping, we show the toast
         page.performSwipe()
@@ -25,7 +24,7 @@ final class FirstLaunchUITests: ScenarioBasedTestCase<MetroCardPage> {
         XCTAssertFalse(page.swipeButton.exists)
 
         // After adding balance, the tip is hidden
-        let alert = page.tapBalanceButton()
+        let alert = page.tapCard()
         alert.enterText("25")
         alert.tapSave()
         XCTAssertFalse(page.tipTitle.exists)
