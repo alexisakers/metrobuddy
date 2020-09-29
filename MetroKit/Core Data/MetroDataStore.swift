@@ -111,37 +111,32 @@ public class PersistentMetroCardDataStore: MetroCardDataStore {
     // MARK: - Update Card
     
     public func applyUpdates(_ updates: [MetroCardUpdate], to cardReference: ObjectReference<MetroCard>) -> AnyPublisher<Void, Error> {
-        let completionSubject = PassthroughSubject<Void, Error>()
-
-        saveContext.perform { [saveContext] in
-            do {
-                guard let card = saveContext.object(with: cardReference.objectID) as? MBYMetroCard else {
-                    return completionSubject.send(completion: .failure(MetroCardDataStoreError.cardNotFound))
-                }
-                
-                for update in updates {
-                    switch update {
-                    case .balance(let newValue):
-                        card.balance = newValue as NSDecimalNumber
-                    case .expirationDate(let newValue):
-                        card.expirationDate = newValue
-                    case .serialNumber(let newValue):
-                        card.serialNumber = newValue
-                    case .fare(let newValue):
-                        card.fare = newValue as NSDecimalNumber
+        return Future { [saveContext] completion in
+            saveContext.perform {
+                do {
+                    guard let card = saveContext.object(with: cardReference.objectID) as? MBYMetroCard else {
+                        return completion(.failure(MetroCardDataStoreError.cardNotFound))
                     }
+
+                    for update in updates {
+                        switch update {
+                        case .balance(let newValue):
+                            card.balance = newValue as NSDecimalNumber
+                        case .expirationDate(let newValue):
+                            card.expirationDate = newValue
+                        case .serialNumber(let newValue):
+                            card.serialNumber = newValue
+                        case .fare(let newValue):
+                            card.fare = newValue as NSDecimalNumber
+                        }
+                    }
+
+                    try saveContext.save()
+                    completion(.success(()))
+                } catch {
+                    completion(.failure(MetroCardDataStoreError.cannotSave(error as NSError)))
                 }
-
-                try saveContext.save()
-                completionSubject.send(())
-                completionSubject.send(completion: .finished)
-            } catch {
-                completionSubject.send(completion: .failure(MetroCardDataStoreError.cannotSave(error as NSError)))
             }
-        }
-
-        return completionSubject
-            .share(replay: 1)
-            .eraseToAnyPublisher()
+        }.eraseToAnyPublisher()
     }
 }
