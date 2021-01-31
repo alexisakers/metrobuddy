@@ -24,6 +24,7 @@
 		5E17D37924BFD1A7003E99D1 /* Alert+ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E17D37824BFD1A7003E99D1 /* Alert+ErrorMessage.swift */; };
 		5E17D37B24C0AE04003E99D1 /* TextFieldAlert+UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E17D37A24C0AE03003E99D1 /* TextFieldAlert+UIAlertController.swift */; };
 		5E17D37D24C0BE97003E99D1 /* TextFieldAlertWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E17D37C24C0BE97003E99D1 /* TextFieldAlertWrapper.swift */; };
+		5E1D1D1E2574672C00EBC91E /* StatusBarCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1D1D142574672800EBC91E /* StatusBarCover.swift */; };
 		5E2F16D924C4BFC00097D0EB /* ReturningUserTestScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2F16D724C4BF9A0097D0EB /* ReturningUserTestScenario.swift */; };
 		5E2F16E124C4C26B0097D0EB /* AppPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2F16DE24C4C23A0097D0EB /* AppPage.swift */; };
 		5E2F16E224C4C3C40097D0EB /* XCUIApplication+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2F16DB24C4C1CD0097D0EB /* XCUIApplication+Helpers.swift */; };
@@ -312,6 +313,7 @@
 		5E17D37824BFD1A7003E99D1 /* Alert+ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+ErrorMessage.swift"; sourceTree = "<group>"; };
 		5E17D37A24C0AE03003E99D1 /* TextFieldAlert+UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldAlert+UIAlertController.swift"; sourceTree = "<group>"; };
 		5E17D37C24C0BE97003E99D1 /* TextFieldAlertWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAlertWrapper.swift; sourceTree = "<group>"; };
+		5E1D1D142574672800EBC91E /* StatusBarCover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarCover.swift; sourceTree = "<group>"; };
 		5E2F16D724C4BF9A0097D0EB /* ReturningUserTestScenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturningUserTestScenario.swift; sourceTree = "<group>"; };
 		5E2F16DB24C4C1CD0097D0EB /* XCUIApplication+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Helpers.swift"; sourceTree = "<group>"; };
 		5E2F16DE24C4C23A0097D0EB /* AppPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPage.swift; sourceTree = "<group>"; };
@@ -980,6 +982,7 @@
 				5E936E7424CF1F5A00F7807E /* ActivityIndicator.swift */,
 				5E936E8124CF8B4800F7807E /* SafeAreaSpacer.swift */,
 				5E936E8724D0C31B00F7807E /* CloseButton.swift */,
+				5E1D1D142574672800EBC91E /* StatusBarCover.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1595,6 +1598,7 @@
 				5E17D37D24C0BE97003E99D1 /* TextFieldAlertWrapper.swift in Sources */,
 				5E03304E24BF49A4001D86D1 /* MailComposer.swift in Sources */,
 				5E17D37124BF6234003E99D1 /* MetroCardData.swift in Sources */,
+				5E1D1D1E2574672C00EBC91E /* StatusBarCover.swift in Sources */,
 				5E497D9424BC822D00EE584E /* ExpirationDatePickerModal.swift in Sources */,
 				5E936E7C24CF4EAA00F7807E /* ShortcutListErrorView.swift in Sources */,
 				5E936E6824C880D300F7807E /* ShortcutListCell.swift in Sources */,

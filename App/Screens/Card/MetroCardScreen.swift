@@ -40,61 +40,55 @@ struct MetroCardScreen: View {
     // MARK: - View
     
     var body: some View {
-        ZStack(alignment: .top) {
-            FullWidthScrollView(bounce: []) {
-                VStack(alignment: .leading, spacing: 16) {
-                    HStack {
-                        NavigationBar(subtitle: viewModel.data.formattedRemainingRides)
-                            .accessibility(sortPriority: 0)
-
-                        Spacer()
-                        ShortcutsButton(action: shortcutsButtonTapped)
-                    }
-
-                    MetroCardView(formattedBalance: viewModel.data.formattedBalance, roundCorners: true)
-                        .offset(offset)
-                        .animation(enableAnimations ? .spring() : nil, value: offset)
-                        .onTapGesture(perform: cardTapped)
-                        .gesture(dragGesture)
-                        .accessibility(addTraits: .isButton)
-                        .accessibilityAction(named: Text("Swipe Card"), recordSwipe)
-
-                    if viewModel.data.isOnboarded {
-                        Group {
-                            RoundedButton(
-                                title: Text("Swipe"),
-                                titleColor: .white,
-                                background: Color.prominentContainerBackground,
-                                design: .standard,
-                                action: recordSwipe
-                            ).accessibility(identifier: "swipe-button")
-
-                            MetroCardActionGrid(
-                                textFieldAlert: $textFieldAlert,
-                                isShowingDatePicker: $isShowingDatePicker
-                            )
-                        }.transition(.opacity)
-                          .animation(.easeInOut)
-                    } else {
-                        OnboardingTipView()
-                            .transition(.opacity)
-                            .animation(.easeInOut)
-                    }
+        FullWidthScrollView(bounce: []) {
+            VStack(alignment: .leading, spacing: 16) {
+                HStack {
+                    NavigationBar(subtitle: viewModel.data.formattedRemainingRides)
+                        .accessibility(sortPriority: 0)
 
                     Spacer()
-                }.padding(.all, 16)
-                    .background(BackgroundView())
+                    ShortcutsButton(action: shortcutsButtonTapped)
+                }
 
-            }.accessibility(hidden: isShowingDatePicker)
-            .zIndex(0)
+                MetroCardView(formattedBalance: viewModel.data.formattedBalance, roundCorners: true)
+                    .offset(offset)
+                    .animation(enableAnimations ? .spring() : nil, value: offset)
+                    .onTapGesture(perform: cardTapped)
+                    .gesture(dragGesture)
+                    .accessibility(addTraits: .isButton)
+                    .accessibilityAction(named: Text("Swipe Card"), recordSwipe)
 
-            GeometryReader { geometry in
-                 Color.contentBackground
-                     .frame(width: geometry.size.width, height: geometry.safeAreaInsets.top + 1)
-             }.fixedSize(horizontal: false, vertical: true)
-            .edgesIgnoringSafeArea(.all)
-            .zIndex(1)
-        }.accessibilityElement(children: .contain)
+                if viewModel.data.isOnboarded {
+                    Group {
+                        RoundedButton(
+                            title: Text("Swipe"),
+                            titleColor: .white,
+                            background: Color.prominentContainerBackground,
+                            design: .standard,
+                            action: recordSwipe
+                        )
+                        .accessibility(identifier: "swipe-button")
+
+                        MetroCardActionGrid(
+                            textFieldAlert: $textFieldAlert,
+                            isShowingDatePicker: $isShowingDatePicker
+                        )
+                    }
+                    .transition(.opacity)
+                    .animation(.easeInOut)
+                } else {
+                    OnboardingTipView()
+                        .transition(.opacity)
+                        .animation(.easeInOut)
+                }
+
+                Spacer()
+            }
+            .padding(.all, 16)
+            .background(BackgroundView())
+        }
+        .accessibility(hidden: isShowingDatePicker)
+        .accessibilityElement(children: .contain)
         .accessibilityAction(.magicTap, viewModel.recordSwipe)
         .onAppear(perform: viewModel.donateCurrentBalance)
         .onReceive(viewModel.toast, perform: toastQueue.displayToast)

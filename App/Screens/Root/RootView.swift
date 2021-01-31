@@ -14,19 +14,23 @@ struct RootView: View {
                 .accessibilityElement(children: .contain)
                 .zIndex(0)
 
+            StatusBarCover()
+                .zIndex(1)
+
             toastQueue.toastText.map { toastText in
                 Toast(text: toastText)
-                    .zIndex(1)
+                    .zIndex(2)
             }.transition(
                 AnyTransition
                     .move(edge: .top)
                     .combined(with: .opacity)
             )
-        }.background(BackgroundView())
+        }
+        .background(BackgroundView())
         .accessibilityElement(children: .contain)
     }
     
-    var contentView: some View {
+    @ViewBuilder var contentView: some View {
         switch viewModel.content {
         case .card(let viewModel):
             return MetroCardScreen()
