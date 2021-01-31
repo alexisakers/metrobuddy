@@ -61,6 +61,7 @@ final class MBYMetroCard: NSManagedObject {
     @NSManaged var expirationDate: Date?
     @NSManaged var serialNumber: String?
     @NSManaged var fare: NSDecimalNumber
+    @NSManaged var balanceUpdates: Set<MBYBalanceUpdate>
 }
 
 extension MetroCard {

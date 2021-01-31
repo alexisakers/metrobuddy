@@ -32,14 +32,23 @@ struct RootView: View {
     
     @ViewBuilder var contentView: some View {
         switch viewModel.content {
-        case .card(let viewModel):
-            return MetroCardScreen()
-                .environmentObject(viewModel)
-                .eraseToAnyView()
+        case .card(let viewModels):
+            TabView {
+                MetroCardScreen()
+                    .environmentObject(viewModels.card)
+                    .tabItem {
+                        TabItem(title: "My Card", symbolName: "creditcard.fill")
+                    }
+
+                HistoryScreen()
+                    .environmentObject(viewModels.history)
+                    .tabItem {
+                        TabItem(title: "History", symbolName: "calendar")
+                    }
+            }
 
         case .appUnavailable(let error):
-            return ErrorScreen(error: error)
-                .eraseToAnyView()
+            ErrorScreen(error: error)
         }
     }
 }

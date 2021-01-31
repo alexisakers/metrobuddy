@@ -3,10 +3,10 @@ import MetroKit
 
 extension MetroCard {
     /// Creates a new Metro Card object with a different balance.
-    func withBalance(_ balance: Decimal) -> MetroCard {
+    func applyingUpdate(_ balanceUpdate: BalanceUpdate) -> MetroCard {
         return MetroCard(
             id: self.id,
-            balance: balance,
+            balance: balance - balanceUpdate.amount,
             expirationDate: self.expirationDate,
             serialNumber: self.serialNumber,
             fare: self.fare

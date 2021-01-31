@@ -43,8 +43,11 @@ struct MetroCardScreen: View {
         FullWidthScrollView(bounce: []) {
             VStack(alignment: .leading, spacing: 16) {
                 HStack {
-                    NavigationBar(subtitle: viewModel.data.formattedRemainingRides)
-                        .accessibility(sortPriority: 0)
+                    NavigationBar(
+                        title: "My Card",
+                        subtitle: viewModel.data.formattedRemainingRides
+                    )
+                    .accessibility(sortPriority: 0)
 
                     Spacer()
                     ShortcutsButton(action: shortcutsButtonTapped)

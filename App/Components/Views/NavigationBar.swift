@@ -2,12 +2,13 @@ import SwiftUI
 
 /// A view that displays a title for the screen.
 struct NavigationBar: View {
-    let subtitle: String
+    let title: LocalizedStringKey
+    let subtitle: String?
     
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("My Card")
+                Text(title)
                     .font(.screenTitle)
                     .foregroundColor(.white)
                     .minimumScaleFactor(0.1)
@@ -17,13 +18,16 @@ struct NavigationBar: View {
                 Spacer()
             }
 
-            Text(verbatim: subtitle)
-                .font(.subheadline)
-                .foregroundColor(.white)
-                .lineLimit(nil)
-                .accessibility(addTraits: .isStaticText)
-                .accessibility(identifier: "subtitle")
+            if let subtitle = subtitle {
+                Text(verbatim: subtitle)
+                    .font(.subheadline)
+                    .foregroundColor(.white)
+                    .lineLimit(nil)
+                    .accessibility(addTraits: .isStaticText)
+                    .accessibility(identifier: "subtitle")
+            }
         }.fixedSize(horizontal: false, vertical: true)
+        .padding(.leading, 8)
     }
 }
 
@@ -31,7 +35,7 @@ struct NavigationBar: View {
 
 struct NavigationBar_Preview: PreviewProvider {
     static var previews: some View {
-        NavigationBar(subtitle: "1 swipe left")
+        NavigationBar(title: "My Card", subtitle: "1 swipe left")
             .background(BackgroundView())
     }
 }

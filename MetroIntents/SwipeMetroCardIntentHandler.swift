@@ -42,8 +42,15 @@ class SwipeMetroCardIntentHandler: NSObject, MBYSwipeCardIntentHandling {
                 return completion(.insufficientFunds(currentCard.balance))
             }
 
+            let balanceUpdate = BalanceUpdate(
+                id: UUID(),
+                updateType: .swipe,
+                amount: currentCard.fare,
+                timestamp: Date()
+            )
+
             let newBalance = currentCard.balance - currentCard.fare
-            dataStore.applyUpdates([.balance(newBalance)], to: currentCard)
+            dataStore.applyUpdates([.balance(balanceUpdate)], to: currentCard)
                 .sink(receiveCompletion: {
                     if case let .failure(error) = $0 {
                         return completion(.failure(error))

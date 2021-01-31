@@ -16,6 +16,12 @@
 		5E03304E24BF49A4001D86D1 /* MailComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03304D24BF49A4001D86D1 /* MailComposer.swift */; };
 		5E03305024BF5001001D86D1 /* MailComposer+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03304F24BF5001001D86D1 /* MailComposer+Factory.swift */; };
 		5E03305424BF5FBA001D86D1 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03305324BF5FBA001D86D1 /* Haptics.swift */; };
+		5E0D0C6A25AB758700C8BA96 /* BalanceUpdateListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1D1D4A25746AD400EBC91E /* BalanceUpdateListItem.swift */; };
+		5E0D0C7C25AB7B5600C8BA96 /* FetchedResultsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0D0C7B25AB7B5600C8BA96 /* FetchedResultsPublisher.swift */; };
+		5E0D0C8E25AB7CBE00C8BA96 /* Publisher+MapArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0D0C8D25AB7CBE00C8BA96 /* Publisher+MapArray.swift */; };
+		5E0D0CB925AB8CA000C8BA96 /* BalanceUpdateRowContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0D0C9F25AB8C2900C8BA96 /* BalanceUpdateRowContent.swift */; };
+		5E0D0CCB25B5FAC300C8BA96 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0D0CCA25B5FAC200C8BA96 /* Row.swift */; };
+		5E0D0CD525B5FCF800C8BA96 /* PartialRoundedRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0D0CD425B5FCF800C8BA96 /* PartialRoundedRectangle.swift */; };
 		5E0DFEF024D46E2000198070 /* View+Redaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0DFEEF24D46E2000198070 /* View+Redaction.swift */; };
 		5E17B45F24C0FEBD000FA57E /* ScaleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E17B45E24C0FEBD000FA57E /* ScaleButtonStyle.swift */; };
 		5E17D37124BF6234003E99D1 /* MetroCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E17D37024BF6234003E99D1 /* MetroCardData.swift */; };
@@ -24,7 +30,14 @@
 		5E17D37924BFD1A7003E99D1 /* Alert+ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E17D37824BFD1A7003E99D1 /* Alert+ErrorMessage.swift */; };
 		5E17D37B24C0AE04003E99D1 /* TextFieldAlert+UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E17D37A24C0AE03003E99D1 /* TextFieldAlert+UIAlertController.swift */; };
 		5E17D37D24C0BE97003E99D1 /* TextFieldAlertWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E17D37C24C0BE97003E99D1 /* TextFieldAlertWrapper.swift */; };
+		5E1D1CBF257443B000EBC91E /* ModelVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1D1CBE257443B000EBC91E /* ModelVersion.swift */; };
+		5E1D1CCA257443F900EBC91E /* BalanceUpdateMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1D1CC9257443F900EBC91E /* BalanceUpdateMigration.swift */; };
+		5E1D1CD42574443100EBC91E /* Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1D1CD32574443100EBC91E /* Migration.swift */; };
+		5E1D1CE62574446900EBC91E /* MigrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1D1CE52574446900EBC91E /* MigrationService.swift */; };
+		5E1D1CF02574470800EBC91E /* PreferenceRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1D1CEF2574470800EBC91E /* PreferenceRepresentable.swift */; };
+		5E1D1D0325744AD300EBC91E /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1D1CF925744A3200EBC91E /* TabItem.swift */; };
 		5E1D1D1E2574672C00EBC91E /* StatusBarCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1D1D142574672800EBC91E /* StatusBarCover.swift */; };
+		5E1D1D3925746A9000EBC91E /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1D1D2F25746A5F00EBC91E /* HistoryViewModel.swift */; };
 		5E2F16D924C4BFC00097D0EB /* ReturningUserTestScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2F16D724C4BF9A0097D0EB /* ReturningUserTestScenario.swift */; };
 		5E2F16E124C4C26B0097D0EB /* AppPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2F16DE24C4C23A0097D0EB /* AppPage.swift */; };
 		5E2F16E224C4C3C40097D0EB /* XCUIApplication+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2F16DB24C4C1CD0097D0EB /* XCUIApplication+Helpers.swift */; };
@@ -85,6 +98,8 @@
 		5E6CC53024D394D800DE9C9D /* WidgetFamily+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6CC52C24D3945100DE9C9D /* WidgetFamily+Helpers.swift */; };
 		5E6CC53124D3950900DE9C9D /* MetroWidgetBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6CC52E24D3949200DE9C9D /* MetroWidgetBackgroundView.swift */; };
 		5E6CC53424D3951B00DE9C9D /* MetroWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6CC53224D3951800DE9C9D /* MetroWidgetView.swift */; };
+		5E703762256B0D9C0022A357 /* HistoryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E703761256B0D9C0022A357 /* HistoryScreen.swift */; };
+		5E703774256B0E640022A357 /* BalanceUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E703773256B0E640022A357 /* BalanceUpdate.swift */; };
 		5E7456AE24C50CCF00BDEF9C /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 5E7456AD24C50CCF00BDEF9C /* Introspect */; };
 		5E84843E24DD9BDE00F47854 /* FontScalingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E84843D24DD9BDE00F47854 /* FontScalingModifier.swift */; };
 		5E84844024DD9F1F00F47854 /* TextStyle+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E84843F24DD9F1F00F47854 /* TextStyle+UIKit.swift */; };
@@ -305,6 +320,11 @@
 		5E03304F24BF5001001D86D1 /* MailComposer+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MailComposer+Factory.swift"; sourceTree = "<group>"; };
 		5E03305324BF5FBA001D86D1 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		5E03305A24BF6069001D86D1 /* View+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Helpers.swift"; sourceTree = "<group>"; };
+		5E0D0C7B25AB7B5600C8BA96 /* FetchedResultsPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedResultsPublisher.swift; sourceTree = "<group>"; };
+		5E0D0C8D25AB7CBE00C8BA96 /* Publisher+MapArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+MapArray.swift"; sourceTree = "<group>"; };
+		5E0D0C9F25AB8C2900C8BA96 /* BalanceUpdateRowContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceUpdateRowContent.swift; sourceTree = "<group>"; };
+		5E0D0CCA25B5FAC200C8BA96 /* Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
+		5E0D0CD425B5FCF800C8BA96 /* PartialRoundedRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialRoundedRectangle.swift; sourceTree = "<group>"; };
 		5E0DFEEE24D4626B00198070 /* MetroWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MetroWidgetExtension.entitlements; sourceTree = "<group>"; };
 		5E0DFEEF24D46E2000198070 /* View+Redaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Redaction.swift"; sourceTree = "<group>"; };
 		5E17B45E24C0FEBD000FA57E /* ScaleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleButtonStyle.swift; sourceTree = "<group>"; };
@@ -315,7 +335,16 @@
 		5E17D37824BFD1A7003E99D1 /* Alert+ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+ErrorMessage.swift"; sourceTree = "<group>"; };
 		5E17D37A24C0AE03003E99D1 /* TextFieldAlert+UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFieldAlert+UIAlertController.swift"; sourceTree = "<group>"; };
 		5E17D37C24C0BE97003E99D1 /* TextFieldAlertWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAlertWrapper.swift; sourceTree = "<group>"; };
+		5E1D1CAD257442B200EBC91E /* MetroModels 1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MetroModels 1.1.xcdatamodel"; sourceTree = "<group>"; };
+		5E1D1CBE257443B000EBC91E /* ModelVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelVersion.swift; sourceTree = "<group>"; };
+		5E1D1CC9257443F900EBC91E /* BalanceUpdateMigration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceUpdateMigration.swift; sourceTree = "<group>"; };
+		5E1D1CD32574443100EBC91E /* Migration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Migration.swift; sourceTree = "<group>"; };
+		5E1D1CE52574446900EBC91E /* MigrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationService.swift; sourceTree = "<group>"; };
+		5E1D1CEF2574470800EBC91E /* PreferenceRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceRepresentable.swift; sourceTree = "<group>"; };
+		5E1D1CF925744A3200EBC91E /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		5E1D1D142574672800EBC91E /* StatusBarCover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarCover.swift; sourceTree = "<group>"; };
+		5E1D1D2F25746A5F00EBC91E /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		5E1D1D4A25746AD400EBC91E /* BalanceUpdateListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceUpdateListItem.swift; sourceTree = "<group>"; };
 		5E2F16D724C4BF9A0097D0EB /* ReturningUserTestScenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturningUserTestScenario.swift; sourceTree = "<group>"; };
 		5E2F16DB24C4C1CD0097D0EB /* XCUIApplication+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Helpers.swift"; sourceTree = "<group>"; };
 		5E2F16DE24C4C23A0097D0EB /* AppPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPage.swift; sourceTree = "<group>"; };
@@ -384,6 +413,8 @@
 		5E6CC52C24D3945100DE9C9D /* WidgetFamily+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetFamily+Helpers.swift"; sourceTree = "<group>"; };
 		5E6CC52E24D3949200DE9C9D /* MetroWidgetBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroWidgetBackgroundView.swift; sourceTree = "<group>"; };
 		5E6CC53224D3951800DE9C9D /* MetroWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroWidgetView.swift; sourceTree = "<group>"; };
+		5E703761256B0D9C0022A357 /* HistoryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryScreen.swift; sourceTree = "<group>"; };
+		5E703773256B0E640022A357 /* BalanceUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceUpdate.swift; sourceTree = "<group>"; };
 		5E84843D24DD9BDE00F47854 /* FontScalingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontScalingModifier.swift; sourceTree = "<group>"; };
 		5E84843F24DD9F1F00F47854 /* TextStyle+UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextStyle+UIKit.swift"; sourceTree = "<group>"; };
 		5E87C77124D35772003EA325 /* MetroWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MetroWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -583,6 +614,7 @@
 		5E03305524BF5FCE001D86D1 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				5E703758256B0D8C0022A357 /* History */,
 				5E03305624BF5FD3001D86D1 /* Root */,
 				5E03305724BF5FDE001D86D1 /* Error */,
 				5E03305824BF5FF3001D86D1 /* Card */,
@@ -664,8 +696,19 @@
 				5E87C79424D36CDA003EA325 /* LocalizedString.swift */,
 				5E9B955A2523990600E99B03 /* NumberFormatter+Helpers.swift */,
 				5EC7A61224BE003200E3ED39 /* Localizable.stringsdict */,
+				5E0D0C8D25AB7CBE00C8BA96 /* Publisher+MapArray.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5E1D1CC8257443E500EBC91E /* Migrations */ = {
+			isa = PBXGroup;
+			children = (
+				5E1D1CC9257443F900EBC91E /* BalanceUpdateMigration.swift */,
+				5E1D1CD32574443100EBC91E /* Migration.swift */,
+				5E1D1CE52574446900EBC91E /* MigrationService.swift */,
+			);
+			path = Migrations;
 			sourceTree = "<group>";
 		};
 		5E2F16DA24C4C1C20097D0EB /* Helpers */ = {
@@ -717,7 +760,9 @@
 				5ED4E2BB24B3E3D500B37946 /* MetroDataStore.swift */,
 				5E497D7424BA617400EE584E /* MetroCardDataStoreError.swift */,
 				5E497D6624BA278500EE584E /* ManagedObjectObserver.swift */,
+				5E0D0C7B25AB7B5600C8BA96 /* FetchedResultsPublisher.swift */,
 				5E936E8424D070E600F7807E /* PersistentHistoryService.swift */,
+				5E1D1CC8257443E500EBC91E /* Migrations */,
 				5E497D7124BA5ECC00EE584E /* Helpers */,
 			);
 			path = "Core Data";
@@ -732,6 +777,7 @@
 				5E497D7224BA5EE500EE584E /* SymbolicLocation.swift */,
 				5E497D6D24BA5A9D00EE584E /* NSPersistentContainer+Helpers.swift */,
 				5E497D6F24BA5D9900EE584E /* NSManagedObjectModel+Helpers.swift */,
+				5E1D1CBE257443B000EBC91E /* ModelVersion.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -826,6 +872,17 @@
 				5E0DFEEF24D46E2000198070 /* View+Redaction.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5E703758256B0D8C0022A357 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				5E703761256B0D9C0022A357 /* HistoryScreen.swift */,
+				5E1D1D2F25746A5F00EBC91E /* HistoryViewModel.swift */,
+				5E1D1D4A25746AD400EBC91E /* BalanceUpdateListItem.swift */,
+				5E0D0C9F25AB8C2900C8BA96 /* BalanceUpdateRowContent.swift */,
+			);
+			path = History;
 			sourceTree = "<group>";
 		};
 		5E84844124DD9F2C00F47854 /* Fonts */ = {
@@ -987,7 +1044,10 @@
 				5E936E7424CF1F5A00F7807E /* ActivityIndicator.swift */,
 				5E936E8124CF8B4800F7807E /* SafeAreaSpacer.swift */,
 				5E936E8724D0C31B00F7807E /* CloseButton.swift */,
+				5E1D1CF925744A3200EBC91E /* TabItem.swift */,
 				5E1D1D142574672800EBC91E /* StatusBarCover.swift */,
+				5E0D0CCA25B5FAC200C8BA96 /* Row.swift */,
+				5E0D0CD425B5FCF800C8BA96 /* PartialRoundedRectangle.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -998,6 +1058,7 @@
 				5EB179E625C744F8006B8978 /* PreferenceRepresentable.swift */,
 				5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */,
 				5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */,
+				5E1D1CEF2574470800EBC91E /* PreferenceRepresentable.swift */,
 				5EC7A60E24BDF2B900E3ED39 /* UserPreferenceKey.swift */,
 			);
 			path = Preferences;
@@ -1090,6 +1151,7 @@
 			children = (
 				5E497D5524B92DA300EE584E /* MetroModels.xcdatamodeld */,
 				5ED4E2BF24B3E3EB00B37946 /* MetroCard.swift */,
+				5E703773256B0E640022A357 /* BalanceUpdate.swift */,
 				5E497D5A24B9305A00EE584E /* MetroCardUpdate.swift */,
 				5E497D5824B92F6D00EE584E /* ObjectReference.swift */,
 				5E03304B24BF4137001D86D1 /* Error */,
@@ -1575,6 +1637,7 @@
 				5E936E4824C743DC00F7807E /* Intents.intentdefinition in Sources */,
 				5E17B45F24C0FEBD000FA57E /* ScaleButtonStyle.swift in Sources */,
 				5E936E5A24C7A59E00F7807E /* ModalTitleBar.swift in Sources */,
+				5E703762256B0D9C0022A357 /* HistoryScreen.swift in Sources */,
 				5E03304824BF3C53001D86D1 /* AppConfiguration.swift in Sources */,
 				5E03303E24BE117B001D86D1 /* ToastQueue.swift in Sources */,
 				5E936E5624C79ABE00F7807E /* ShortcutList.swift in Sources */,
@@ -1585,6 +1648,7 @@
 				5E17D37924BFD1A7003E99D1 /* Alert+ErrorMessage.swift in Sources */,
 				5E497D5424B92D4F00EE584E /* MetroCardViewModel.swift in Sources */,
 				5E936E8824D0C31C00F7807E /* CloseButton.swift in Sources */,
+				5E1D1D0325744AD300EBC91E /* TabItem.swift in Sources */,
 				5E17D37B24C0AE04003E99D1 /* TextFieldAlert+UIAlertController.swift in Sources */,
 				5E421A7424C1F12A00AB8ED4 /* ColorScheme+Helpers.swift in Sources */,
 				5E17D37424BF659D003E99D1 /* InfoPlist.swift in Sources */,
@@ -1597,14 +1661,17 @@
 				5E497D4A24B8E1BC00EE584E /* RoundedButton.swift in Sources */,
 				5E936E6624C87A3800F7807E /* EditVoiceShortcutView.swift in Sources */,
 				5EC7A61124BDF68100E3ED39 /* OnboardingTipView.swift in Sources */,
+				5E0D0CD525B5FCF800C8BA96 /* PartialRoundedRectangle.swift in Sources */,
 				5E497DA024BD167C00EE584E /* MetroCardActionButton.swift in Sources */,
 				5ED4E28A24B3E33300B37946 /* AppDelegate.swift in Sources */,
 				5E936E7624CF204700F7807E /* ActivityIndicator.swift in Sources */,
 				5E497D9A24BD083B00EE584E /* RootViewModel.swift in Sources */,
 				5E17D37D24C0BE97003E99D1 /* TextFieldAlertWrapper.swift in Sources */,
 				5E03304E24BF49A4001D86D1 /* MailComposer.swift in Sources */,
+				5E0D0CCB25B5FAC300C8BA96 /* Row.swift in Sources */,
 				5E17D37124BF6234003E99D1 /* MetroCardData.swift in Sources */,
 				5E1D1D1E2574672C00EBC91E /* StatusBarCover.swift in Sources */,
+				5E1D1D3925746A9000EBC91E /* HistoryViewModel.swift in Sources */,
 				5E497D9424BC822D00EE584E /* ExpirationDatePickerModal.swift in Sources */,
 				5E936E7C24CF4EAA00F7807E /* ShortcutListErrorView.swift in Sources */,
 				5E936E6824C880D300F7807E /* ShortcutListCell.swift in Sources */,
@@ -1614,6 +1681,8 @@
 				5E497D9624BC866C00EE584E /* ModalDrawer.swift in Sources */,
 				5E936E6524C87A3500F7807E /* AddVoiceShortcutView.swift in Sources */,
 				5E497D6324B9503300EE584E /* TextFieldAlert.swift in Sources */,
+				5E0D0C6A25AB758700C8BA96 /* BalanceUpdateListItem.swift in Sources */,
+				5E0D0CB925AB8CA000C8BA96 /* BalanceUpdateRowContent.swift in Sources */,
 				5E497D5024B9104000EE584E /* NavigationBar.swift in Sources */,
 				5E936E8324CF8C1100F7807E /* SafeAreaSpacer.swift in Sources */,
 				5E497DA624BD3CC400EE584E /* TextFieldAlert+Factory.swift in Sources */,
@@ -1632,15 +1701,20 @@
 				5EB179E725C744F8006B8978 /* PreferenceRepresentable.swift in Sources */,
 				5E497D7024BA5D9900EE584E /* NSManagedObjectModel+Helpers.swift in Sources */,
 				5EC7A60B24BDEF0300E3ED39 /* UserPreferences.swift in Sources */,
+				5E1D1CD42574443100EBC91E /* Migration.swift in Sources */,
+				5E0D0C8E25AB7CBE00C8BA96 /* Publisher+MapArray.swift in Sources */,
 				5EC7A60F24BDF2B900E3ED39 /* UserPreferenceKey.swift in Sources */,
 				5E936E5E24C873B300F7807E /* INShortcut+VoiceAction.swift in Sources */,
 				5E936E4B24C7445C00F7807E /* PersistentStore+Default.swift in Sources */,
 				5E497D5724B92DA300EE584E /* MetroModels.xcdatamodeld in Sources */,
+				5E703774256B0E640022A357 /* BalanceUpdate.swift in Sources */,
 				5E497D7524BA617400EE584E /* MetroCardDataStoreError.swift in Sources */,
 				5E87C79524D36CDB003EA325 /* LocalizedString.swift in Sources */,
 				5E03304A24BF4120001D86D1 /* UserFacingError.swift in Sources */,
 				5E497D6E24BA5A9D00EE584E /* NSPersistentContainer+Helpers.swift in Sources */,
 				5E9B955B2523990600E99B03 /* NumberFormatter+Helpers.swift in Sources */,
+				5E1D1CE62574446900EBC91E /* MigrationService.swift in Sources */,
+				5E1D1CF02574470800EBC91E /* PreferenceRepresentable.swift in Sources */,
 				5E936E5C24C86F9300F7807E /* AssistantAction.swift in Sources */,
 				5E936E8624D0723C00F7807E /* PersistentHistoryService.swift in Sources */,
 				5E497D6724BA278600EE584E /* ManagedObjectObserver.swift in Sources */,
@@ -1654,10 +1728,12 @@
 				5E936E4024C73F0600F7807E /* Intents.intentdefinition in Sources */,
 				5E497D5F24B93E0B00EE584E /* PersistentStore.swift in Sources */,
 				5E03304C24BF47E9001D86D1 /* ErrorMessage.swift in Sources */,
+				5E1D1CCA257443F900EBC91E /* BalanceUpdateMigration.swift in Sources */,
 				5E87C79324D360C0003EA325 /* WidgetCenterType.swift in Sources */,
 				5E936E8A24D0C77400F7807E /* IntentDonationCenter.swift in Sources */,
 				5E17D37724BFCF34003E99D1 /* TaskCompletion.swift in Sources */,
 				5ED4E2BC24B3E3D500B37946 /* MetroDataStore.swift in Sources */,
+				5E0D0C7C25AB7B5600C8BA96 /* FetchedResultsPublisher.swift in Sources */,
 				5ED4E2C024B3E3EB00B37946 /* MetroCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2185,6 +2261,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"App/Preview Content\"";
 				DEVELOPMENT_TEAM = 75E8K39Z38;
 				ENABLE_PREVIEWS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2211,6 +2288,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"App/Preview Content\"";
 				DEVELOPMENT_TEAM = 75E8K39Z38;
 				ENABLE_PREVIEWS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2444,9 +2522,10 @@
 		5E497D5524B92DA300EE584E /* MetroModels.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				5E1D1CAD257442B200EBC91E /* MetroModels 1.1.xcdatamodel */,
 				5E497D5624B92DA300EE584E /* MetroModels.xcdatamodel */,
 			);
-			currentVersion = 5E497D5624B92DA300EE584E /* MetroModels.xcdatamodel */;
+			currentVersion = 5E1D1CAD257442B200EBC91E /* MetroModels 1.1.xcdatamodel */;
 			path = MetroModels.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

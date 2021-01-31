@@ -48,6 +48,10 @@ public final class MockMetroCardDataStore: MetroCardDataStore {
             }.eraseToAnyPublisher()
     }
 
+    public func balanceUpdatesPublisher(for card: ObjectReference<MetroCard>) -> AnyPublisher<[ObjectReference<BalanceUpdate>], Never> {
+        return Empty().eraseToAnyPublisher()
+    }
+
     public func applyUpdates(_ updates: [MetroCardUpdate], to cardReference: ObjectReference<MetroCard>) -> AnyPublisher<Void, Error> {
         guard var card = cardPublisher.value else {
             return Fail(error: MetroCardDataStoreError.cardNotFound)
@@ -62,8 +66,8 @@ public final class MockMetroCardDataStore: MetroCardDataStore {
 
         for update in updates {
             switch update {
-            case .balance(let newBalance):
-                card = card.withBalance(newBalance)
+            case .balance(let update):
+                card = card.applyingUpdate(update)
             case .expirationDate(let newDate):
                 card = card.withExpirationDate(newDate)
             case .fare(let newFare):

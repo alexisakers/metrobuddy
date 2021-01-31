@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17162" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="20B29" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="1.0.0">
     <entity name="MetroCard" representedClassName="MBYMetroCard" syncable="YES">
         <attribute name="balance" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
         <attribute name="expirationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -8,6 +8,6 @@
         <attribute name="serialNumber" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="MetroCard" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="MetroCard" positionX="-63" positionY="-18" width="128" height="104"/>
     </elements>
 </model>
