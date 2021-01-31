@@ -22,9 +22,3 @@ extension UserPreferenceKey {
         UserPreferenceKey<Bool>(name: "UserDidOnboard", defaultValue: false)
     }
 }
-
-extension UserPreferenceKey {
-    static var dataModelVersion: UserPreferenceKey<ModelVersion> {
-        UserPreferenceKey<ModelVersion>(name: "DataModelVersion", defaultValue: .v1_0_0)
-    }
-}

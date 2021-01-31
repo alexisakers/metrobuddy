@@ -27,6 +27,7 @@ public class PersistentMetroCardDataStore: MetroCardDataStore {
     let container: NSPersistentContainer
     let saveContext: NSManagedObjectContext
     let historyService: PersistentHistoryService
+    let migrationService: MigrationService
 
     // MARK: - Initialization
     
@@ -36,10 +37,11 @@ public class PersistentMetroCardDataStore: MetroCardDataStore {
     /// - parameter useCloudKit: Whether to use automatic CloudKit syncing.
     /// - throws: Any error thrown while resolving the persistent store. See `PersistentStore` for the possible errors.
     public init(preferences: UserPreferences, persistentStore: PersistentStore, useCloudKit: Bool) throws {
+        let managedObjectModel = NSManagedObjectModel.metroModels
         if useCloudKit {
-            container = NSPersistentCloudKitContainer(name: "Metro", managedObjectModel: .metroModels)
+            container = NSPersistentCloudKitContainer(name: "Metro", managedObjectModel: managedObjectModel)
         } else {
-            container = NSPersistentContainer(name: "Metro", managedObjectModel: .metroModels)
+            container = NSPersistentContainer(name: "Metro", managedObjectModel: managedObjectModel)
         }
         
         container.persistentStoreDescriptions = [
@@ -47,12 +49,14 @@ public class PersistentMetroCardDataStore: MetroCardDataStore {
         ]
 
         try! container.loadPersistentStoresAndWait()
-        preferences.setValue(.v1_0_0, forKey: .dataModelVersion)
-
         container.viewContext.automaticallyMergesChangesFromParent = true
 
         saveContext = container.newBackgroundContext()
         historyService = PersistentHistoryService(context: container.viewContext, preferences: preferences)
+
+        // Run migrations if needed
+        migrationService = MigrationService(preferences: preferences, managedObjectModel: managedObjectModel)
+        try! migrationService.run(in: container.viewContext)
     }
 
     // MARK: - History Tracking
