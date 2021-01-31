@@ -47,7 +47,7 @@ extension FileManager {
                 throw CocoaError(.fileReadCorruptFile)
             }
         } else {
-            try createDirectory(at: url, withIntermediateDirectories: true)
+            try! createDirectory(at: url, withIntermediateDirectories: true)
         }
         
         return url

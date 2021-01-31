@@ -22,7 +22,7 @@ public enum PersistentStore {
             storeDescription = NSPersistentStoreDescription()
             storeDescription.type = NSInMemoryStoreType
         case .onDisk(let location):
-            let url = try fileManager
+            let url = try! fileManager
                 .resolve(location)
                 .appendingPathComponent(name)
                 .appendingPathExtension("sqlite")
