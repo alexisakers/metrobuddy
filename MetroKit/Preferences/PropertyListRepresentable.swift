@@ -1,7 +1,7 @@
 import Foundation
 
 /// An object for types that can be included in a property list file.
-public protocol PropertyListRepresentable {}
+public protocol PropertyListRepresentable: PreferenceRepresentable {}
 
 // MARK: - Default Types
 

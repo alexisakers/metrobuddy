@@ -43,7 +43,9 @@ public class PersistentMetroCardDataStore: MetroCardDataStore {
             try persistentStore.makePersistentStoreDescriptor(in: .default, name: "Metro")
         ]
 
-        try container.loadPersistentStoresAndWait()
+        try! container.loadPersistentStoresAndWait()
+        preferences.setValue(.v1_0_0, forKey: .dataModelVersion)
+
         container.viewContext.automaticallyMergesChangesFromParent = true
 
         saveContext = container.newBackgroundContext()

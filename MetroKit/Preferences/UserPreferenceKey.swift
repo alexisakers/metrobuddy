@@ -1,7 +1,7 @@
 import Foundation
 
 /// A key that contains the information needed to store a value in `UserPreferences`.
-public struct UserPreferenceKey<Value: PropertyListRepresentable> {
+public struct UserPreferenceKey<Value: PreferenceRepresentable> {
     /// The name of the key.
     public let name: String
     
@@ -20,5 +20,11 @@ extension UserPreferenceKey {
     /// A key indicating whether the user finished onboarding.
     public static var userDidOnboard: UserPreferenceKey<Bool> {
         UserPreferenceKey<Bool>(name: "UserDidOnboard", defaultValue: false)
+    }
+}
+
+extension UserPreferenceKey {
+    static var dataModelVersion: UserPreferenceKey<ModelVersion> {
+        UserPreferenceKey<ModelVersion>(name: "DataModelVersion", defaultValue: .v1_0_0)
     }
 }

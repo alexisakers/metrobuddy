@@ -147,6 +147,8 @@
 		5E936ED424D0F47500F7807E /* IntentResponseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936ED324D0F47500F7807E /* IntentResponseView.swift */; };
 		5E936EDF24D2FC6F00F7807E /* ShortcutsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936EDD24D2FC5E00F7807E /* ShortcutsPage.swift */; };
 		5E9B955B2523990600E99B03 /* NumberFormatter+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B955A2523990600E99B03 /* NumberFormatter+Helpers.swift */; };
+		5EB179E725C744F8006B8978 /* PreferenceRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB179E625C744F8006B8978 /* PreferenceRepresentable.swift */; };
+		5EB179F125C74534006B8978 /* ModelVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB179F025C74534006B8978 /* ModelVersion.swift */; };
 		5EC7A60B24BDEF0300E3ED39 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */; };
 		5EC7A60D24BDF15800E3ED39 /* PropertyListRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */; };
 		5EC7A60F24BDF2B900E3ED39 /* UserPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60E24BDF2B900E3ED39 /* UserPreferenceKey.swift */; };
@@ -438,6 +440,8 @@
 		5E936ED324D0F47500F7807E /* IntentResponseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentResponseView.swift; sourceTree = "<group>"; };
 		5E936EDD24D2FC5E00F7807E /* ShortcutsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsPage.swift; sourceTree = "<group>"; };
 		5E9B955A2523990600E99B03 /* NumberFormatter+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Helpers.swift"; sourceTree = "<group>"; };
+		5EB179E625C744F8006B8978 /* PreferenceRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceRepresentable.swift; sourceTree = "<group>"; };
+		5EB179F025C74534006B8978 /* ModelVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelVersion.swift; sourceTree = "<group>"; };
 		5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Fonts.swift"; sourceTree = "<group>"; };
 		5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListRepresentable.swift; sourceTree = "<group>"; };
@@ -722,6 +726,7 @@
 		5E497D7124BA5ECC00EE584E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				5EB179F025C74534006B8978 /* ModelVersion.swift */,
 				5E497D5E24B93E0B00EE584E /* PersistentStore.swift */,
 				5E936E4A24C7445C00F7807E /* PersistentStore+Default.swift */,
 				5E497D7224BA5EE500EE584E /* SymbolicLocation.swift */,
@@ -990,6 +995,7 @@
 		5EC7A60924BDEEF400E3ED39 /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
+				5EB179E625C744F8006B8978 /* PreferenceRepresentable.swift */,
 				5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */,
 				5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */,
 				5EC7A60E24BDF2B900E3ED39 /* UserPreferenceKey.swift */,
@@ -1623,6 +1629,7 @@
 				5E497D7324BA5EE500EE584E /* SymbolicLocation.swift in Sources */,
 				5E936ED224D0F41500F7807E /* BalanceProvidingIntentResponse.swift in Sources */,
 				5E936E7324CF1BE300F7807E /* VoiceShortcutCenter.swift in Sources */,
+				5EB179E725C744F8006B8978 /* PreferenceRepresentable.swift in Sources */,
 				5E497D7024BA5D9900EE584E /* NSManagedObjectModel+Helpers.swift in Sources */,
 				5EC7A60B24BDEF0300E3ED39 /* UserPreferences.swift in Sources */,
 				5EC7A60F24BDF2B900E3ED39 /* UserPreferenceKey.swift in Sources */,
@@ -1641,6 +1648,7 @@
 				5E6CC52924D36EC100DE9C9D /* Decimal+Helpers.swift in Sources */,
 				5E497D5924B92F6D00EE584E /* ObjectReference.swift in Sources */,
 				5E87C79724D36D38003EA325 /* Bundle+Helpers.swift in Sources */,
+				5EB179F125C74534006B8978 /* ModelVersion.swift in Sources */,
 				5E87C79024D36060003EA325 /* WidgetKind.swift in Sources */,
 				5EC7A60D24BDF15800E3ED39 /* PropertyListRepresentable.swift in Sources */,
 				5E936E4024C73F0600F7807E /* Intents.intentdefinition in Sources */,
