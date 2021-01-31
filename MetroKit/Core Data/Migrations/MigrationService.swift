@@ -16,7 +16,7 @@ final class MigrationService {
         self.managedObjectModel = managedObjectModel
     }
 
-    func run(in managedObjectContent: NSManagedObjectContext) throws {
+    func run(in managedObjectContext: NSManagedObjectContext) throws {
         let currentVersion = preferences.value(forKey: .dataModelVersion)
         let missedVersions = ModelVersion
             .allCases
@@ -24,12 +24,12 @@ final class MigrationService {
             .drop { $0 <= currentVersion }
 
         var migrationError: Error?
-        managedObjectContent.performAndWait {
+        managedObjectContext.performAndWait {
             for version in missedVersions {
                 do {
                     try Self.migrations[version]?.forEach {
                         print("Running", type(of: $0))
-                        try $0.apply(in: managedObjectContent)
+                        try $0.apply(in: managedObjectContext)
                     }
                 } catch {
                     migrationError = error
@@ -38,7 +38,7 @@ final class MigrationService {
             }
 
             do {
-                try managedObjectContent.save()
+                try managedObjectContext.save()
             } catch {
                 migrationError = error
             }

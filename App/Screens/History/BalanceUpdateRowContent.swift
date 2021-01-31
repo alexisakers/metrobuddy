@@ -6,7 +6,7 @@ struct BalanceUpdateRowContent: View {
     let item: BalanceUpdateListItem
 
     var body: some View {
-        HStack(spacing: 10) {
+        FlexibleStack(hStackAlignment: .center, vStackAlignment: .leading) { axis in
             Image.updateSymbol(for: item.updateType)
                 .accentColor(.accentColor)
 
@@ -18,7 +18,10 @@ struct BalanceUpdateRowContent: View {
                 Text.subtitle(for: item.updateType)
             }
 
-            Spacer()
+            if axis == .horizontal {
+                Spacer()
+            }
+
             Text(item.formattedTimestamp)
                 .font(.caption)
                 .foregroundColor(Color(.secondaryLabel))

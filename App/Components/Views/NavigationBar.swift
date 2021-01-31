@@ -27,7 +27,7 @@ struct NavigationBar: View {
                     .accessibility(identifier: "subtitle")
             }
         }.fixedSize(horizontal: false, vertical: true)
-        .padding(.leading, 8)
+        .padding(.leading, 10)
     }
 }
 

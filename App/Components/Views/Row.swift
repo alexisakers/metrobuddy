@@ -2,6 +2,8 @@ import SwiftUI
 
 /// A view that contains the basics of a list row, with a spacer around the content and a separator if needed.
 struct Row<Content: View>: View {
+    @Environment(\.sizeCategory) var sizeCategory
+
     let content: Content
     let needsSeparator: Bool
     let roundedCorners: UIRectCorner
@@ -16,7 +18,7 @@ struct Row<Content: View>: View {
         ZStack(alignment: .bottom) {
             content
                 .padding(.horizontal, 16)
-                .padding(.vertical, 8)
+                .padding(.vertical, sizeCategory.mby_isAccessibilityCategory ? 16 : 8)
 
             if needsSeparator {
                 Rectangle()
