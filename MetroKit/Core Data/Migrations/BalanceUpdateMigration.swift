@@ -18,9 +18,8 @@ struct BalanceUpdateMigration: Migration {
         update.amount = existingCard.balance
         update.timestamp = Date()
         update.updateType = BalanceUpdate.UpdateType.adjustment.rawValue
+        update.card = existingCard
 
-        existingCard.balanceUpdates
-            .insert(update)
     }
 }
 

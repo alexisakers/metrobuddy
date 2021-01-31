@@ -30,10 +30,6 @@
 		5E17D37924BFD1A7003E99D1 /* Alert+ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E17D37824BFD1A7003E99D1 /* Alert+ErrorMessage.swift */; };
 		5E17D37B24C0AE04003E99D1 /* TextFieldAlert+UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E17D37A24C0AE03003E99D1 /* TextFieldAlert+UIAlertController.swift */; };
 		5E17D37D24C0BE97003E99D1 /* TextFieldAlertWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E17D37C24C0BE97003E99D1 /* TextFieldAlertWrapper.swift */; };
-		5E1D1CBF257443B000EBC91E /* ModelVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1D1CBE257443B000EBC91E /* ModelVersion.swift */; };
-		5E1D1CCA257443F900EBC91E /* BalanceUpdateMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1D1CC9257443F900EBC91E /* BalanceUpdateMigration.swift */; };
-		5E1D1CD42574443100EBC91E /* Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1D1CD32574443100EBC91E /* Migration.swift */; };
-		5E1D1CE62574446900EBC91E /* MigrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1D1CE52574446900EBC91E /* MigrationService.swift */; };
 		5E1D1CF02574470800EBC91E /* PreferenceRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1D1CEF2574470800EBC91E /* PreferenceRepresentable.swift */; };
 		5E1D1D0325744AD300EBC91E /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1D1CF925744A3200EBC91E /* TabItem.swift */; };
 		5E1D1D1E2574672C00EBC91E /* StatusBarCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1D1D142574672800EBC91E /* StatusBarCover.swift */; };
@@ -163,7 +159,10 @@
 		5E936EDF24D2FC6F00F7807E /* ShortcutsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936EDD24D2FC5E00F7807E /* ShortcutsPage.swift */; };
 		5E9B955B2523990600E99B03 /* NumberFormatter+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B955A2523990600E99B03 /* NumberFormatter+Helpers.swift */; };
 		5EB179E725C744F8006B8978 /* PreferenceRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB179E625C744F8006B8978 /* PreferenceRepresentable.swift */; };
-		5EB179F125C74534006B8978 /* ModelVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB179F025C74534006B8978 /* ModelVersion.swift */; };
+		5EB17A1A25C74616006B8978 /* ModelVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB179F025C74534006B8978 /* ModelVersion.swift */; };
+		5EB17A2725C74648006B8978 /* MigrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB17A2425C74648006B8978 /* MigrationService.swift */; };
+		5EB17A2825C74648006B8978 /* BalanceUpdateMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB17A2525C74648006B8978 /* BalanceUpdateMigration.swift */; };
+		5EB17A2925C74648006B8978 /* Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB17A2625C74648006B8978 /* Migration.swift */; };
 		5EC7A60B24BDEF0300E3ED39 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */; };
 		5EC7A60D24BDF15800E3ED39 /* PropertyListRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */; };
 		5EC7A60F24BDF2B900E3ED39 /* UserPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60E24BDF2B900E3ED39 /* UserPreferenceKey.swift */; };
@@ -337,9 +336,6 @@
 		5E17D37C24C0BE97003E99D1 /* TextFieldAlertWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAlertWrapper.swift; sourceTree = "<group>"; };
 		5E1D1CAD257442B200EBC91E /* MetroModels 1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MetroModels 1.1.xcdatamodel"; sourceTree = "<group>"; };
 		5E1D1CBE257443B000EBC91E /* ModelVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelVersion.swift; sourceTree = "<group>"; };
-		5E1D1CC9257443F900EBC91E /* BalanceUpdateMigration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceUpdateMigration.swift; sourceTree = "<group>"; };
-		5E1D1CD32574443100EBC91E /* Migration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Migration.swift; sourceTree = "<group>"; };
-		5E1D1CE52574446900EBC91E /* MigrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationService.swift; sourceTree = "<group>"; };
 		5E1D1CEF2574470800EBC91E /* PreferenceRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceRepresentable.swift; sourceTree = "<group>"; };
 		5E1D1CF925744A3200EBC91E /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		5E1D1D142574672800EBC91E /* StatusBarCover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarCover.swift; sourceTree = "<group>"; };
@@ -473,6 +469,9 @@
 		5E9B955A2523990600E99B03 /* NumberFormatter+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Helpers.swift"; sourceTree = "<group>"; };
 		5EB179E625C744F8006B8978 /* PreferenceRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceRepresentable.swift; sourceTree = "<group>"; };
 		5EB179F025C74534006B8978 /* ModelVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelVersion.swift; sourceTree = "<group>"; };
+		5EB17A2425C74648006B8978 /* MigrationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MigrationService.swift; sourceTree = "<group>"; };
+		5EB17A2525C74648006B8978 /* BalanceUpdateMigration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceUpdateMigration.swift; sourceTree = "<group>"; };
+		5EB17A2625C74648006B8978 /* Migration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Migration.swift; sourceTree = "<group>"; };
 		5EC7A60724BDE8F200E3ED39 /* Design+Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Design+Fonts.swift"; sourceTree = "<group>"; };
 		5EC7A60A24BDEF0300E3ED39 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListRepresentable.swift; sourceTree = "<group>"; };
@@ -701,16 +700,6 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		5E1D1CC8257443E500EBC91E /* Migrations */ = {
-			isa = PBXGroup;
-			children = (
-				5E1D1CC9257443F900EBC91E /* BalanceUpdateMigration.swift */,
-				5E1D1CD32574443100EBC91E /* Migration.swift */,
-				5E1D1CE52574446900EBC91E /* MigrationService.swift */,
-			);
-			path = Migrations;
-			sourceTree = "<group>";
-		};
 		5E2F16DA24C4C1C20097D0EB /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -762,7 +751,7 @@
 				5E497D6624BA278500EE584E /* ManagedObjectObserver.swift */,
 				5E0D0C7B25AB7B5600C8BA96 /* FetchedResultsPublisher.swift */,
 				5E936E8424D070E600F7807E /* PersistentHistoryService.swift */,
-				5E1D1CC8257443E500EBC91E /* Migrations */,
+				5EB17A2325C74648006B8978 /* Migrations */,
 				5E497D7124BA5ECC00EE584E /* Helpers */,
 			);
 			path = "Core Data";
@@ -1018,6 +1007,16 @@
 				5E936EC124D0EAD900F7807E /* Assets.xcassets */,
 			);
 			path = MetroUI;
+			sourceTree = "<group>";
+		};
+		5EB17A2325C74648006B8978 /* Migrations */ = {
+			isa = PBXGroup;
+			children = (
+				5EB17A2425C74648006B8978 /* MigrationService.swift */,
+				5EB17A2525C74648006B8978 /* BalanceUpdateMigration.swift */,
+				5EB17A2625C74648006B8978 /* Migration.swift */,
+			);
+			path = Migrations;
 			sourceTree = "<group>";
 		};
 		5EC4EDEC24C0E7FA00747DA3 /* Sheets */ = {
@@ -1696,13 +1695,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E497D7324BA5EE500EE584E /* SymbolicLocation.swift in Sources */,
+				5EB17A1A25C74616006B8978 /* ModelVersion.swift in Sources */,
 				5E936ED224D0F41500F7807E /* BalanceProvidingIntentResponse.swift in Sources */,
 				5E936E7324CF1BE300F7807E /* VoiceShortcutCenter.swift in Sources */,
 				5EB179E725C744F8006B8978 /* PreferenceRepresentable.swift in Sources */,
 				5E497D7024BA5D9900EE584E /* NSManagedObjectModel+Helpers.swift in Sources */,
 				5EC7A60B24BDEF0300E3ED39 /* UserPreferences.swift in Sources */,
-				5E1D1CD42574443100EBC91E /* Migration.swift in Sources */,
 				5E0D0C8E25AB7CBE00C8BA96 /* Publisher+MapArray.swift in Sources */,
+				5EB17A2825C74648006B8978 /* BalanceUpdateMigration.swift in Sources */,
 				5EC7A60F24BDF2B900E3ED39 /* UserPreferenceKey.swift in Sources */,
 				5E936E5E24C873B300F7807E /* INShortcut+VoiceAction.swift in Sources */,
 				5E936E4B24C7445C00F7807E /* PersistentStore+Default.swift in Sources */,
@@ -1713,22 +1713,21 @@
 				5E03304A24BF4120001D86D1 /* UserFacingError.swift in Sources */,
 				5E497D6E24BA5A9D00EE584E /* NSPersistentContainer+Helpers.swift in Sources */,
 				5E9B955B2523990600E99B03 /* NumberFormatter+Helpers.swift in Sources */,
-				5E1D1CE62574446900EBC91E /* MigrationService.swift in Sources */,
 				5E1D1CF02574470800EBC91E /* PreferenceRepresentable.swift in Sources */,
+				5EB17A2925C74648006B8978 /* Migration.swift in Sources */,
 				5E936E5C24C86F9300F7807E /* AssistantAction.swift in Sources */,
 				5E936E8624D0723C00F7807E /* PersistentHistoryService.swift in Sources */,
 				5E497D6724BA278600EE584E /* ManagedObjectObserver.swift in Sources */,
 				5E497D5B24B9305A00EE584E /* MetroCardUpdate.swift in Sources */,
 				5E6CC52924D36EC100DE9C9D /* Decimal+Helpers.swift in Sources */,
+				5EB17A2725C74648006B8978 /* MigrationService.swift in Sources */,
 				5E497D5924B92F6D00EE584E /* ObjectReference.swift in Sources */,
 				5E87C79724D36D38003EA325 /* Bundle+Helpers.swift in Sources */,
-				5EB179F125C74534006B8978 /* ModelVersion.swift in Sources */,
 				5E87C79024D36060003EA325 /* WidgetKind.swift in Sources */,
 				5EC7A60D24BDF15800E3ED39 /* PropertyListRepresentable.swift in Sources */,
 				5E936E4024C73F0600F7807E /* Intents.intentdefinition in Sources */,
 				5E497D5F24B93E0B00EE584E /* PersistentStore.swift in Sources */,
 				5E03304C24BF47E9001D86D1 /* ErrorMessage.swift in Sources */,
-				5E1D1CCA257443F900EBC91E /* BalanceUpdateMigration.swift in Sources */,
 				5E87C79324D360C0003EA325 /* WidgetCenterType.swift in Sources */,
 				5E936E8A24D0C77400F7807E /* IntentDonationCenter.swift in Sources */,
 				5E17D37724BFCF34003E99D1 /* TaskCompletion.swift in Sources */,

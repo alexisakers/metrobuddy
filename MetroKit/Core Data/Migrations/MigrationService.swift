@@ -4,7 +4,7 @@ import CoreData
 /// - note: Update `MigrationService.migrations` to add a new migration to the list.
 final class MigrationService {
     static var migrations: [ModelVersion: [Migration]] = [
-        .v1_0_0: [
+        .v1_1_0: [
             BalanceUpdateMigration()
         ]
     ]
@@ -28,6 +28,7 @@ final class MigrationService {
             for version in missedVersions {
                 do {
                     try Self.migrations[version]?.forEach {
+                        print("Running", type(of: $0))
                         try $0.apply(in: managedObjectContent)
                     }
                 } catch {

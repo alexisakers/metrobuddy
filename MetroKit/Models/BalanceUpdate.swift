@@ -39,6 +39,7 @@ final class MBYBalanceUpdate: NSManagedObject {
     @NSManaged var amount: NSDecimalNumber
     @NSManaged var timestamp: Date
     @NSManaged var updateType: Int16
+    @NSManaged var card: MBYMetroCard?
 }
 
 extension BalanceUpdate {

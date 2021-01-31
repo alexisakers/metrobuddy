@@ -53,10 +53,7 @@ public class PersistentMetroCardDataStore: MetroCardDataStore {
 
         saveContext = container.newBackgroundContext()
         historyService = PersistentHistoryService(context: container.viewContext, preferences: preferences)
-
-        // Run migrations if needed
         migrationService = MigrationService(preferences: preferences, managedObjectModel: managedObjectModel)
-        try! migrationService.run(in: container.viewContext)
     }
 
     // MARK: - History Tracking
@@ -90,6 +87,7 @@ public class PersistentMetroCardDataStore: MetroCardDataStore {
 
         do {
             if let existingCard = try context.fetch(fetchRequest).first {
+                try migrationService.run(in: container.viewContext)
                 return .success(existingCard)
             } else {
                 return createFirstCard()
