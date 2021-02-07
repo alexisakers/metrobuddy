@@ -11,7 +11,14 @@ struct HistoryScreen: View {
                     .padding(.bottom, 12)
                     .accessibility(sortPriority: 0)
 
-                if case let .history(items) = viewModel.content {
+                switch viewModel.content {
+                case .loading:
+                    EmptyView()
+
+                case .empty:
+                    EmptyHistoryTipView()
+
+                case .history(let items):
                     ForEach(Array(items.enumerated()), id: \.1.id) { (index, item) -> Row<BalanceUpdateRowContent> in
                         let isLast = index == items.endIndex - 1
                         var roundedCorners: UIRectCorner = []

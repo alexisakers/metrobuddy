@@ -35,7 +35,13 @@ class HistoryViewModel: ObservableObject {
                         updateType: update.updateType
                     )
                 }
-            }.map(Content.history)
+            }.map {
+                if $0.isEmpty {
+                    return .empty
+                } else {
+                    return .history($0)
+                }
+            }
             .share()
             .assign(to: \.content, on: self)
             .store(in: &cancellables)

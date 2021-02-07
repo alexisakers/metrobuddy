@@ -176,6 +176,7 @@
 		5ED4E2BC24B3E3D500B37946 /* MetroDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED4E2BB24B3E3D500B37946 /* MetroDataStore.swift */; };
 		5ED4E2C024B3E3EB00B37946 /* MetroCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED4E2BF24B3E3EB00B37946 /* MetroCard.swift */; };
 		5ED4E2CE24B408AA00B37946 /* MockFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED4E2CD24B408AA00B37946 /* MockFileManager.swift */; };
+		5ED6459D25D0A391007E9746 /* EmptyHistoryTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED6459C25D0A391007E9746 /* EmptyHistoryTipView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -492,6 +493,7 @@
 		5ED4E2C424B3E56200B37946 /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
 		5ED4E2C724B400BF00B37946 /* App.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = App.xcconfig; sourceTree = "<group>"; };
 		5ED4E2CD24B408AA00B37946 /* MockFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFileManager.swift; sourceTree = "<group>"; };
+		5ED6459C25D0A391007E9746 /* EmptyHistoryTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyHistoryTipView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -868,7 +870,7 @@
 				5E703761256B0D9C0022A357 /* HistoryScreen.swift */,
 				5E1D1D2F25746A5F00EBC91E /* HistoryViewModel.swift */,
 				5E1D1D4A25746AD400EBC91E /* BalanceUpdateListItem.swift */,
-				5E0D0C9F25AB8C2900C8BA96 /* BalanceUpdateRowContent.swift */,
+				5ED6459B25D0A37C007E9746 /* Views */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -1165,6 +1167,15 @@
 				5E497D8F24BB504000EE584E /* MetroCard+Mock.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5ED6459B25D0A37C007E9746 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5E0D0C9F25AB8C2900C8BA96 /* BalanceUpdateRowContent.swift */,
+				5ED6459C25D0A391007E9746 /* EmptyHistoryTipView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1667,6 +1678,7 @@
 				5E17D37D24C0BE97003E99D1 /* TextFieldAlertWrapper.swift in Sources */,
 				5E03304E24BF49A4001D86D1 /* MailComposer.swift in Sources */,
 				5E0D0CCB25B5FAC300C8BA96 /* Row.swift in Sources */,
+				5ED6459D25D0A391007E9746 /* EmptyHistoryTipView.swift in Sources */,
 				5E17D37124BF6234003E99D1 /* MetroCardData.swift in Sources */,
 				5E1D1D1E2574672C00EBC91E /* StatusBarCover.swift in Sources */,
 				5E1D1D3925746A9000EBC91E /* HistoryViewModel.swift in Sources */,
