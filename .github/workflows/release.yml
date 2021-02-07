@@ -1,7 +1,8 @@
 name: Release
 on: workflow_dispatch
 env:
-  DEVELOPER_DIR: /Applications/Xcode_12.app/Contents/Developer
+  - DEVELOPER_DIR: /Applications/Xcode_12.app/Contents/Developer
+  - SPACESHIP_SKIP_2FA_UPGRADE = 1
 
 jobs:
   release:

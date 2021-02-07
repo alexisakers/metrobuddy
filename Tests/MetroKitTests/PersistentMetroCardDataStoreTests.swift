@@ -59,7 +59,7 @@ final class PersistentMetroCardDataStoreTests: XCTestCase {
         receiveUpdateExpectation.assertForOverFulfill = true
 
         let finishUpdatingCardsExpectation = applyUpdates([
-            .balance(22),
+            .balance(BalanceUpdate(id: UUID(), updateType: .adjustment, amount: 22, timestamp: Date())),
             .expirationDate(expirationDate),
             .serialNumber("0987654321"),
             .fare(3)
@@ -91,7 +91,13 @@ final class PersistentMetroCardDataStoreTests: XCTestCase {
 
         receiveUpdateExpectation.assertForOverFulfill = true
                 
-        let finishUpdateExpectation = applyUpdates([.balance(22)], to: cards[0])
+        let finishUpdateExpectation = applyUpdates(
+            [
+                .balance(BalanceUpdate(id: UUID(), updateType: .adjustment, amount: 22, timestamp: Date())),
+            ],
+            to: cards[0]
+        )
+        
         finishUpdateExpectation.expectedFulfillmentCount = 1
         finishUpdateExpectation.assertForOverFulfill = true
         
