@@ -36,6 +36,5 @@ struct HistoryScreen: View {
             .background(BackgroundView())
         }
         .accessibilityElement(children: .contain)
-        .onAppear(perform: viewModel.load)
     }
 }

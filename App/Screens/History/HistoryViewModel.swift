@@ -24,9 +24,7 @@ class HistoryViewModel: ObservableObject {
         self.dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
-    }
 
-    func load() {
         dataStore.balanceUpdatesPublisher(for: card)
             .map {
                 $0.map { update in
@@ -38,6 +36,7 @@ class HistoryViewModel: ObservableObject {
                     )
                 }
             }.map(Content.history)
+            .share()
             .assign(to: \.content, on: self)
             .store(in: &cancellables)
     }
