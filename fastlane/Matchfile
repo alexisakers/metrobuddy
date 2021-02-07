@@ -1,2 +1,2 @@
-git_url("https://github.com/alexaubry/match-alexisonline.git")
+git_url("https://github.com/alexisakers/match-alexisonline.git")
 storage_mode("git")

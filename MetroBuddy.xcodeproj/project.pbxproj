@@ -158,7 +158,6 @@
 		5E936ED424D0F47500F7807E /* IntentResponseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936ED324D0F47500F7807E /* IntentResponseView.swift */; };
 		5E936EDF24D2FC6F00F7807E /* ShortcutsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E936EDD24D2FC5E00F7807E /* ShortcutsPage.swift */; };
 		5E9B955B2523990600E99B03 /* NumberFormatter+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B955A2523990600E99B03 /* NumberFormatter+Helpers.swift */; };
-		5EB179E725C744F8006B8978 /* PreferenceRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB179E625C744F8006B8978 /* PreferenceRepresentable.swift */; };
 		5EB17A1A25C74616006B8978 /* ModelVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB179F025C74534006B8978 /* ModelVersion.swift */; };
 		5EB17A2725C74648006B8978 /* MigrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB17A2425C74648006B8978 /* MigrationService.swift */; };
 		5EB17A2825C74648006B8978 /* BalanceUpdateMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB17A2525C74648006B8978 /* BalanceUpdateMigration.swift */; };
@@ -1698,7 +1697,6 @@
 				5EB17A1A25C74616006B8978 /* ModelVersion.swift in Sources */,
 				5E936ED224D0F41500F7807E /* BalanceProvidingIntentResponse.swift in Sources */,
 				5E936E7324CF1BE300F7807E /* VoiceShortcutCenter.swift in Sources */,
-				5EB179E725C744F8006B8978 /* PreferenceRepresentable.swift in Sources */,
 				5E497D7024BA5D9900EE584E /* NSManagedObjectModel+Helpers.swift in Sources */,
 				5EC7A60B24BDEF0300E3ED39 /* UserPreferences.swift in Sources */,
 				5E0D0C8E25AB7CBE00C8BA96 /* Publisher+MapArray.swift in Sources */,
