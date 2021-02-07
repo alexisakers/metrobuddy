@@ -20,7 +20,7 @@ struct FlexibleStack<Content: View>: View {
     }
 
     var body: some View {
-        if sizeCategory.mby_isAccessibilityCategory {
+        if sizeCategory.isAccessibilityCategory {
             VStack(alignment: vStackAlignment, spacing: 16) {
                 contentBuilder(.vertical)
             }

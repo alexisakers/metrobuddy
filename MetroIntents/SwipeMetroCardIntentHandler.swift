@@ -1,10 +1,7 @@
 import Combine
 import Intents
 import MetroKit
-
-#if canImport(WidgetKit)
 import WidgetKit
-#endif
 
 /// An object that handles the `MBYSwipeCardIntent` by attempting to update the card details.
 class SwipeMetroCardIntentHandler: NSObject, MBYSwipeCardIntentHandling {
@@ -15,17 +12,12 @@ class SwipeMetroCardIntentHandler: NSObject, MBYSwipeCardIntentHandling {
     }
 
     let dataStore: MetroCardDataStore
-    let widgetCenter: WidgetCenterType?
+    let widgetCenter: WidgetCenterType
     private var tasks: Set<AnyCancellable> = []
 
     init(dataStore: MetroCardDataStore) {
         self.dataStore = dataStore
-
-        if #available(iOS 14, *) {
-            self.widgetCenter = WidgetCenter.shared
-        } else {
-            self.widgetCenter = nil
-        }
+        self.widgetCenter = WidgetCenter.shared
     }
 
     func handle(intent: MBYSwipeCardIntent, completion: @escaping (MBYSwipeCardIntentResponse) -> Void) {
@@ -55,7 +47,7 @@ class SwipeMetroCardIntentHandler: NSObject, MBYSwipeCardIntentHandling {
                     if case let .failure(error) = $0 {
                         return completion(.failure(error))
                     } else {
-                        self.widgetCenter?.reloadTimelines(ofKind: .cardBalance)
+                        self.widgetCenter.reloadTimelines(ofKind: .cardBalance)
                         return completion(.success(newBalance))
                     }
                 }, receiveValue: { _ in })

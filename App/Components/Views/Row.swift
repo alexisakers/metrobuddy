@@ -21,7 +21,7 @@ struct Row<Content: View>: View {
                 Spacer()
             }
             .padding(.horizontal, 16)
-            .padding(.vertical, sizeCategory.mby_isAccessibilityCategory ? 16 : 8)
+            .padding(.vertical, sizeCategory.isAccessibilityCategory ? 16 : 8)
             .accessibilityElement(children: .combine)
 
             if needsSeparator {

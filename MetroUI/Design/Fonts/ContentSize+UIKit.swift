@@ -34,14 +34,3 @@ extension UIContentSizeCategory {
         }
     }
 }
-
-extension ContentSizeCategory {
-    /// A reimplementation of `isAccessibilityCategory` that works on iOS 13.0 to iOS 13.3.
-    public var mby_isAccessibilityCategory: Bool {
-        if #available(iOS 13.4, *) {
-            return isAccessibilityCategory
-        } else {
-            return UIContentSizeCategory(self).isAccessibilityCategory
-        }
-    }
-}

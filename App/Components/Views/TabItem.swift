@@ -6,13 +6,6 @@ struct TabItem: View {
     let symbolName: String
 
     var body: some View {
-        if #available(iOS 14, *) {
-            Label(title, systemImage: symbolName)
-        } else {
-            VStack {
-                Image(systemName: symbolName)
-                Text(title)
-            }
-        }
+        Label(title, systemImage: symbolName)
     }
 }

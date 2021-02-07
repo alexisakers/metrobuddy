@@ -1,10 +1,7 @@
 import Combine
 import Foundation
 import MetroKit
-
-#if canImport(WidgetKit)
 import WidgetKit
-#endif
 
 /// The view model of the root view, responsible for calculating the state of the app.
 final class RootViewModel {
@@ -34,15 +31,7 @@ final class RootViewModel {
     init(dataStore: MetroCardDataStore, preferences: UserPreferences) {
         do {
             let initialCard = try dataStore.currentCard()
-            var widgetCenter: WidgetCenterType? = nil
-
-            #if canImport(WidgetKit)
-            if #available(iOS 14, *) {
-                widgetCenter = WidgetCenter.shared
-            } else {
-                widgetCenter = nil
-            }
-            #endif
+            let widgetCenter: WidgetCenterType = WidgetCenter.shared
 
             let viewModels = ViewModels(
                 card: MetroCardViewModel(
