@@ -39,7 +39,7 @@ struct ShortcutListCell: View {
         Button(action: buttonTapped) {
             HStack(spacing: 12) {
                 VStack(alignment: .leading, spacing: 8) {
-                    HStack {
+                    FlexibleStack(hStackAlignment: .center, vStackAlignment: .leading) {
                         accessoryIcon
 
                         Text(verbatim: item.action.title)

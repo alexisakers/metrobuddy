@@ -16,10 +16,13 @@ struct Row<Content: View>: View {
 
     var body: some View {
         ZStack(alignment: .bottom) {
-            content
-                .padding(.horizontal, 16)
-                .padding(.vertical, sizeCategory.mby_isAccessibilityCategory ? 16 : 8)
-                .accessibilityElement(children: .combine)
+            HStack {
+                content
+                Spacer()
+            }
+            .padding(.horizontal, 16)
+            .padding(.vertical, sizeCategory.mby_isAccessibilityCategory ? 16 : 8)
+            .accessibilityElement(children: .combine)
 
             if needsSeparator {
                 Rectangle()
