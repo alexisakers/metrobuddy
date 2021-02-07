@@ -29,6 +29,7 @@ private struct ModalDrawerContainer<Source: View, Sheet: View>: View {
 
             if let drawer = drawer {
                 drawer.builder()
+                    .transition(.move(edge: .bottom))
                     .edgesIgnoringSafeArea(.bottom)
                     .accessibility(sortPriority: 1)
                     .zIndex(2)

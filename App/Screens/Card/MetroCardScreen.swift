@@ -14,7 +14,6 @@ struct MetroCardScreen: View {
     @Binding var drawer: ModalDrawer<AnyView>?
 
     @State private var textFieldAlert: TextFieldAlert?
-    @State private var isShowingDatePicker = false
     @State private var isShowingShorcutList = false
     @State private var expirationDate = Date()
     @State private var emailConfiguration: MailComposer.Configuration?
@@ -92,7 +91,7 @@ struct MetroCardScreen: View {
             .padding(.all, 16)
             .background(BackgroundView())
         }
-        .accessibility(hidden: isShowingDatePicker)
+        .accessibility(hidden: drawer != nil)
         .accessibilityElement(children: .contain)
         .accessibilityAction(.magicTap, viewModel.recordSwipe)
         .onAppear(perform: viewModel.donateCurrentBalance)
