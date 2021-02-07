@@ -21,13 +21,15 @@ struct FlexibleStack<Content: View>: View {
 
     var body: some View {
         if sizeCategory.mby_isAccessibilityCategory {
-            return VStack(alignment: vStackAlignment, spacing: 16) {
+            VStack(alignment: vStackAlignment, spacing: 16) {
                 contentBuilder(.vertical)
-            }.eraseToAnyView()
+            }
+            .eraseToAnyView()
         } else {
-            return HStack(alignment: hStackAlignment, spacing: 8) {
+            HStack(alignment: hStackAlignment, spacing: 8) {
                 contentBuilder(.horizontal)
-            }.eraseToAnyView()
+            }
+            .eraseToAnyView()
         }
     }
 }

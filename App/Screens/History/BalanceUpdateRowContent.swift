@@ -15,7 +15,10 @@ struct BalanceUpdateRowContent: View {
                     .foregroundColor(Color(.label))
                     .fontWeight(.semibold)
 
-                Text.subtitle(for: item.updateType)
+                item.updateType
+                    .text
+                    .font(.caption)
+                    .foregroundColor(Color(.secondaryLabel))
             }
 
             if axis == .horizontal {
@@ -26,6 +29,9 @@ struct BalanceUpdateRowContent: View {
                 .font(.caption)
                 .foregroundColor(Color(.secondaryLabel))
         }
+        .accessibilityElement(children: .ignore)
+        .accessibility(label: item.updateType.text)
+        .accessibility(value: Text("\(item.formattedAmount), \(item.formattedTimestamp)"))
     }
 }
 
@@ -50,23 +56,17 @@ extension Image {
     }
 }
 
-extension Text {
-    static func subtitle(for updateType: BalanceUpdate.UpdateType) -> Text {
-        let text: Text = {
-            switch updateType {
-            case .unknown:
-                return Text("Update")
-            case .adjustment:
-                return Text("Adjustment")
-            case .reload:
-                return Text("Reload")
-            case .swipe:
-                return Text("Swipe")
-            }
-        }()
-
-        return text
-            .font(.caption)
-            .foregroundColor(Color(.secondaryLabel))
+extension BalanceUpdate.UpdateType {
+    var text: Text {
+        switch self {
+        case .unknown:
+            return Text("Update")
+        case .adjustment:
+            return Text("Adjustment")
+        case .reload:
+            return Text("Reload")
+        case .swipe:
+            return Text("Swipe")
+        }
     }
 }
