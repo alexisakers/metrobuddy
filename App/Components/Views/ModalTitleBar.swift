@@ -3,7 +3,7 @@ import SwiftUI
 /// A view that contains a title and a close button for a modal.
 struct ModalTitleBar: View {
     let title: Text
-    @Binding var isPresented: Bool
+    let closeHandler: () -> Void
 
     var body: some View {
         HStack {
@@ -20,7 +20,7 @@ struct ModalTitleBar: View {
 
     private func closeButtonTapped() {
         withAnimation {
-            isPresented = false
+            closeHandler()
         }
     }
 }

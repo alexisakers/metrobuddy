@@ -1,10 +1,18 @@
 import SwiftUI
 
+/// A structure that contains the necessary elements to draw a sheet card.
+struct ModalDrawer<Content: View> {
+    let builder: () -> Content
+}
+
 /// A view that displays modal content on top of a view that dims the content underneath.
 private struct ModalDrawerContainer<Source: View, Sheet: View>: View {
     let source: Source
-    let content: Sheet
-    @Binding var isPresented: Bool
+    @Binding var drawer: ModalDrawer<Sheet>?
+
+    var isPresented: Bool {
+        drawer != nil
+    }
 
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -19,26 +27,27 @@ private struct ModalDrawerContainer<Source: View, Sheet: View>: View {
                 .accessibility(hidden: true)
                 .zIndex(1)
 
-            if isPresented {
-                content
+            if let drawer = drawer {
+                drawer.builder()
                     .edgesIgnoringSafeArea(.bottom)
                     .accessibility(sortPriority: 1)
                     .zIndex(2)
             }
-        }.edgesIgnoringSafeArea(.bottom)
+        }
+        .edgesIgnoringSafeArea(.bottom)
         .accessibilityAction(.escape, closeActionActivated)
     }
 
     func closeActionActivated() {
         withAnimation {
-            isPresented = false
+            drawer = nil
         }
     }
 }
 
 extension View {
     /// Presents the specified content as a modal drawer.
-    func modalDrawer<Content: View>(isPresented: Binding<Bool>, @ViewBuilder content: () -> Content) -> some View {
-        ModalDrawerContainer(source: self, content: content(), isPresented: isPresented)
+    func modalDrawer<Sheet: View>(drawer: Binding<ModalDrawer<Sheet>?>) -> some View {
+        ModalDrawerContainer(source: self, drawer: drawer)
     }
 }

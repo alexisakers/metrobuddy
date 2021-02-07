@@ -3,7 +3,7 @@ import SwiftUI
 /// A view that displays a grid of actions for the card.
 struct MetroCardActionGrid: View {
     @Binding var textFieldAlert: TextFieldAlert?
-    @Binding var isShowingDatePicker: Bool
+    @Binding var datePicker: ModalDrawer<AnyView>?
     @EnvironmentObject private var viewModel: MetroCardViewModel
 
     // MARK: - View
@@ -16,14 +16,16 @@ struct MetroCardActionGrid: View {
                     value: nil,
                     actionLabel: .update,
                     action: updateBalanceButtonTapped
-                ).accessibility(identifier: "balance-button")
+                )
+                .accessibility(identifier: "balance-button")
 
                 MetroCardActionButton(
                     title: Text("FARE"),
                     value: Text(verbatim: viewModel.data.formattedFare),
                     actionLabel: .update,
                     action: updateFareButtonTapped
-                ).accessibility(identifier: "fare-button")
+                )
+                .accessibility(identifier: "fare-button")
             }
             
             FlexibleStack(hStackAlignment: .top, vStackAlignment: .leading) {
@@ -32,14 +34,16 @@ struct MetroCardActionGrid: View {
                     value: viewModel.data.formattedExpirationDate.map(Text.init(verbatim:)),
                     actionLabel: .add,
                     action: updateExpirationDateButtonTapped
-                ).accessibility(identifier: "expiration-button")
+                )
+                .accessibility(identifier: "expiration-button")
 
                 MetroCardActionButton(
                     title: Text("CARD NUMBER"),
                     value: viewModel.data.formattedSerialNumber.map(Text.init(verbatim:)),
                     actionLabel: .add,
                     action: updateSerialNumberButtonTapped
-                ).accessibility(identifier: "card-number-button")
+                )
+                .accessibility(identifier: "card-number-button")
             }
         }
     }
@@ -56,7 +60,17 @@ struct MetroCardActionGrid: View {
     
     private func updateExpirationDateButtonTapped() {
         withAnimation {
-            isShowingDatePicker.toggle()
+            datePicker = ModalDrawer {
+                ExpirationDatePickerModal(
+                    initialValue: viewModel.data.expirationDate,
+                    closeHandler: {
+                        withAnimation { datePicker = nil }
+                    },
+                    saveHandler: { self.viewModel.saveExpirationDate($0) },
+                    resetHandler: { self.viewModel.saveExpirationDate(nil) }
+                )
+                .eraseToAnyView()
+            }
         }
     }
     
