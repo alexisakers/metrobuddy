@@ -73,6 +73,7 @@ final class PersistentMetroCardDataStoreTests: XCTestCase {
         XCTAssertEqual(cards.last?.snapshot.expirationDate, expirationDate)
         XCTAssertEqual(cards.last?.snapshot.serialNumber, "0987654321")
         XCTAssertEqual(cards.last?.snapshot.fare, 3)
+        XCTAssertEqual(cards.last?.snapshot.remainingRides, 7)
     }
     
     func testThatItNotifiesOfUpdates() throws {

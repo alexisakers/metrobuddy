@@ -170,6 +170,7 @@
 		5ECE5F2825D704900043463C /* BalanceUpdate+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE5F2725D704900043463C /* BalanceUpdate+Helpers.swift */; };
 		5ECE5F4325D7063D0043463C /* HistoryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE5F3125D7062C0043463C /* HistoryPage.swift */; };
 		5ECE5F5E25D71AE50043463C /* MigrationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE5F5425D71AE10043463C /* MigrationServiceTests.swift */; };
+		5ECE5F8925D728C90043463C /* MetroCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE5F7725D728BD0043463C /* MetroCardTests.swift */; };
 		5ED4E28A24B3E33300B37946 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED4E28924B3E33300B37946 /* AppDelegate.swift */; };
 		5ED4E28C24B3E33400B37946 /* MetroCardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED4E28B24B3E33400B37946 /* MetroCardScreen.swift */; };
 		5ED4E28E24B3E33D00B37946 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ED4E28D24B3E33D00B37946 /* Assets.xcassets */; };
@@ -486,6 +487,7 @@
 		5ECE5F2725D704900043463C /* BalanceUpdate+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BalanceUpdate+Helpers.swift"; sourceTree = "<group>"; };
 		5ECE5F3125D7062C0043463C /* HistoryPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPage.swift; sourceTree = "<group>"; };
 		5ECE5F5425D71AE10043463C /* MigrationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationServiceTests.swift; sourceTree = "<group>"; };
+		5ECE5F7725D728BD0043463C /* MetroCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroCardTests.swift; sourceTree = "<group>"; };
 		5ED4E28624B3E33300B37946 /* MetroBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetroBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ED4E28924B3E33300B37946 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5ED4E28B24B3E33400B37946 /* MetroCardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroCardScreen.swift; sourceTree = "<group>"; };
@@ -1152,6 +1154,7 @@
 				5E421A4424C1160B00AB8ED4 /* ObjectReferenceTests.swift */,
 				5E421A4624C117DD00AB8ED4 /* UserPreferencesTests.swift */,
 				5ECE5F5425D71AE10043463C /* MigrationServiceTests.swift */,
+				5ECE5F7725D728BD0043463C /* MetroCardTests.swift */,
 				5ED4E2CC24B4089C00B37946 /* Helpers */,
 				5ED4E2AE24B3E3B400B37946 /* Info.plist */,
 			);
@@ -1769,6 +1772,7 @@
 				5E421A4524C1160B00AB8ED4 /* ObjectReferenceTests.swift in Sources */,
 				5E421A4724C117DD00AB8ED4 /* UserPreferencesTests.swift in Sources */,
 				5ECE5F5E25D71AE50043463C /* MigrationServiceTests.swift in Sources */,
+				5ECE5F8925D728C90043463C /* MetroCardTests.swift in Sources */,
 				5E497D8624BB444200EE584E /* PersistentMetroCardDataStoreTests.swift in Sources */,
 				5E497D8824BB456100EE584E /* SymbolicLocationTests.swift in Sources */,
 				5E497D8A24BB4BDC00EE584E /* PersistentStoreTests.swift in Sources */,

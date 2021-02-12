@@ -36,6 +36,14 @@ public struct MetroCard: Equatable, Identifiable {
             .quotientAndRemainer(dividingBy: fare)
             .quotient
     }
+
+    /// The remaining rides, formatted as a string.
+    public var formattedRemainingRides: String {
+        String.localizedStringWithFormat(
+            String.LocalizationFormats.remainingRides,
+            remainingRides
+        )
+    }
 }
 
 // MARK: - Default Card

@@ -294,9 +294,6 @@ extension MetroCardViewModel {
         let formattedFare = NumberFormatter.currencyFormatter
             .string(from: card.fare as NSDecimalNumber)!
 
-        let formattedRemainingRides = String
-            .localizedStringWithFormat(String.LocalizationFormats.remainingRides, card.remainingRides)
-        
         let userDidOnboard = preferences.value(forKey: .userDidOnboard)
         
         return MetroCardData(
@@ -306,7 +303,7 @@ extension MetroCardViewModel {
             formattedExpirationDate: formattedDate,
             formattedSerialNumber: card.serialNumber,
             formattedFare: formattedFare,
-            formattedRemainingRides: formattedRemainingRides
+            formattedRemainingRides: card.formattedRemainingRides
         )
     }
 }

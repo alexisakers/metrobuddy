@@ -33,4 +33,18 @@ final class UserPreferencesTests: XCTestCase {
         userDefaults.setValue("Brown Cow", forKey: .testKey)
         XCTAssertEqual(userDefaults.string(forKey: "SelectedAnimal"), "Brown Cow")
     }
+
+    func testThatItFallsBackToDefaultValue() {
+        // #1: Unknown value
+        do {
+            userDefaults.setValue("0_0_0", forKey: UserPreferenceKey<ModelVersion>.dataModelVersion.name)
+            XCTAssertEqual(userDefaults.value(forKey: .dataModelVersion), UserPreferenceKey<ModelVersion>.dataModelVersion.defaultValue)
+        }
+
+        // #2: Wrong type
+        do {
+            userDefaults.setValue(false, forKey: UserPreferenceKey<ModelVersion>.dataModelVersion.name)
+            XCTAssertEqual(userDefaults.value(forKey: .dataModelVersion), UserPreferenceKey<ModelVersion>.dataModelVersion.defaultValue)
+        }
+    }
 }
