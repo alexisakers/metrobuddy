@@ -26,4 +26,19 @@ extension PersistentMetroCardDataStore {
         }
         return id
     }
+
+    func insert(snapshot: BalanceUpdate, forCard cardID: NSManagedObjectID) -> NSManagedObjectID {
+        var id = NSManagedObjectID()
+        let context = saveContext
+        context.performAndWait {
+            let update = MBYBalanceUpdate(context: context)
+            update.populateFields(with: snapshot)
+            update.card = context.object(with: cardID) as? MBYMetroCard
+
+            try! context.save()
+            try! context.obtainPermanentIDs(for: [update])
+            id = update.objectID
+        }
+        return id
+    }
 }
