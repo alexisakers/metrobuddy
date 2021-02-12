@@ -9,9 +9,16 @@ final class MigrationService {
         ]
     ]
 
+    let migrations: [ModelVersion: [Migration]]
     let preferences: UserPreferences
     let managedObjectModel: NSManagedObjectModel
-    init(preferences: UserPreferences, managedObjectModel: NSManagedObjectModel) {
+
+    init(
+        migrations: [ModelVersion: [Migration]] = MigrationService.migrations,
+        preferences: UserPreferences,
+        managedObjectModel: NSManagedObjectModel
+    ) {
+        self.migrations = migrations
         self.preferences = preferences
         self.managedObjectModel = managedObjectModel
     }
@@ -27,7 +34,7 @@ final class MigrationService {
         managedObjectContext.performAndWait {
             for version in missedVersions {
                 do {
-                    try Self.migrations[version]?.forEach {
+                    try self.migrations[version]?.forEach {
                         print("Running", type(of: $0))
                         try $0.apply(in: managedObjectContext)
                     }
