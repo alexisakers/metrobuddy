@@ -2,8 +2,6 @@ import MetroKit
 import XCTest
 
 final class MetroCardTests: XCTestCase {
-    func testF
-
     func testRemainingSwipes() {
         // #1: Multiple rides left
         do {
