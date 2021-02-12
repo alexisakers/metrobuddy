@@ -11,8 +11,9 @@ struct MetroCardScreen: View {
     @EnvironmentObject var toastQueue: ToastQueue
     @EnvironmentObject var viewModel: MetroCardViewModel
 
+    @Binding var drawer: ModalDrawer<AnyView>?
+
     @State private var textFieldAlert: TextFieldAlert?
-    @State private var isShowingDatePicker = false
     @State private var isShowingShorcutList = false
     @State private var expirationDate = Date()
     @State private var emailConfiguration: MailComposer.Configuration?
@@ -43,8 +44,11 @@ struct MetroCardScreen: View {
         FullWidthScrollView(bounce: []) {
             VStack(alignment: .leading, spacing: 16) {
                 HStack {
-                    NavigationBar(subtitle: viewModel.data.formattedRemainingRides)
-                        .accessibility(sortPriority: 0)
+                    NavigationBar(
+                        title: "My Card",
+                        subtitle: viewModel.data.formattedRemainingRides
+                    )
+                    .accessibility(sortPriority: 0)
 
                     Spacer()
                     ShortcutsButton(action: shortcutsButtonTapped)
@@ -71,7 +75,7 @@ struct MetroCardScreen: View {
 
                         MetroCardActionGrid(
                             textFieldAlert: $textFieldAlert,
-                            isShowingDatePicker: $isShowingDatePicker
+                            datePicker: $drawer
                         )
                     }
                     .transition(.opacity)
@@ -87,7 +91,7 @@ struct MetroCardScreen: View {
             .padding(.all, 16)
             .background(BackgroundView())
         }
-        .accessibility(hidden: isShowingDatePicker)
+        .accessibility(hidden: drawer != nil)
         .accessibilityElement(children: .contain)
         .accessibilityAction(.magicTap, viewModel.recordSwipe)
         .onAppear(perform: viewModel.donateCurrentBalance)
@@ -95,7 +99,6 @@ struct MetroCardScreen: View {
         .onReceive(viewModel.taskCompletion, perform: haptics.notify)
         .onReceive(viewModel.announcement, perform: handleAnnouncement)
         .sheet(isPresented: $isShowingShorcutList, content: makeShortcutList)
-        .modalDrawer(isPresented: $isShowingDatePicker, content: makeDatePickerModal)
         .textFieldAlert(item: $textFieldAlert)
         .mailComposer(configuration: $emailConfiguration)
         .alert(item: $viewModel.errorMessage) {
@@ -166,15 +169,6 @@ struct MetroCardScreen: View {
             .navigationBarItems(trailing: CloseButton(action: closeShortcutsButtonTapped))
         }.colorScheme(.dark)
         .accentColor(.metroCardOrange)
-    }
-
-    private func makeDatePickerModal() -> some View {
-        ExpirationDatePickerModal(
-            initialValue: viewModel.data.expirationDate,
-            isPresented: $isShowingDatePicker,
-            saveHandler: { self.viewModel.saveExpirationDate($0) },
-            resetHandler: { self.viewModel.saveExpirationDate(nil) }
-        )
     }
 
     private func closeShortcutsButtonTapped() {

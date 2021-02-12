@@ -23,7 +23,7 @@ fileprivate struct AlertWrapper<Content: View>: UIViewControllerRepresentable {
     
     func updateUIViewController(_ uiViewController: UIHostingController<Content>, context: Context) {
         uiViewController.rootView = content
-        
+
         if let alert = alert, uiViewController.presentedViewController == nil {
             let alertController = ValidatingTextFieldAlertController(textFieldAlert: alert, dismiss: dismissAlert)
             context.coordinator.alertController = alertController
@@ -48,5 +48,6 @@ extension View {
     /// Wraps the content inside an alert presenter, to enable to view to show any alert emitted by the binding.
     public func textFieldAlert(item: Binding<TextFieldAlert?>) -> some View {
         return AlertWrapper(content: self, alert: item)
+            .edgesIgnoringSafeArea(.bottom)
     }
 }

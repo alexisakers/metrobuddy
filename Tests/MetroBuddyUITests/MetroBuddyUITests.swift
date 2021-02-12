@@ -132,4 +132,14 @@ class MetroBuddyUITests: ScenarioBasedTestCase<MetroCardPage> {
         XCTAssertEqual(page.subtitle, "No rides left")
         XCTAssertEqual(page.toastText, "INSUFFICIENT FARE")
     }
+
+    // MARK: - History
+
+    func testThatItShowsHistoryList() {
+        let page = rootPageWithScenario(ReturningUserTestScenario.self)
+        let historyPage = page.tapHistoryTab()
+
+        XCTAssertEqual(historyPage.title, "History")
+        XCTAssertFalse(historyPage.hasEmptyTipView)
+    }
 }

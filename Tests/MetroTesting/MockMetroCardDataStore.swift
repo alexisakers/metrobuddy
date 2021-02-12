@@ -5,6 +5,7 @@ import MetroKit
 /// A concrete data store that can be used to configure in tests. You can configure the card's data, and what operations should fail.
 public final class MockMetroCardDataStore: MetroCardDataStore {
     let cardPublisher: CurrentValueSubject<MetroCard?, Never>
+    let updatesPublisher: CurrentValueSubject<[BalanceUpdate], Never>
     let id: NSManagedObjectID
     let createsCardAutomatically: Bool
     let allowUpdates: Bool
@@ -13,11 +14,13 @@ public final class MockMetroCardDataStore: MetroCardDataStore {
 
     /// Creates a new mock data store with the specified options.
     /// - parameter card: The card data to use. Pass `nil` if you want to simulate a fresh install.
+    /// - parameter balanceUpdates: The history of balance updatesn for the card. Pass an empty array for a fresh install.
     /// - parameter createsCardAutomatically: Whether we should create the card when first queried. Pass `false` if you want to simulate an
     /// app-unavailable error.
     /// - parameter allowUpdates: Whether updates should succeed. Pass `false` if you want to simulate save failures.
-    init(card: MetroCard?, createsCardAutomatically: Bool, allowUpdates: Bool) {
+    init(card: MetroCard?, balanceUpdates: [BalanceUpdate], createsCardAutomatically: Bool, allowUpdates: Bool) {
         self.cardPublisher = CurrentValueSubject(card)
+        self.updatesPublisher = CurrentValueSubject(balanceUpdates)
         self.id = FakeManagedObjectID()
         self.createsCardAutomatically = createsCardAutomatically
         self.allowUpdates = allowUpdates
@@ -42,10 +45,19 @@ public final class MockMetroCardDataStore: MetroCardDataStore {
     }
 
     public func publisher(for card: ObjectReference<MetroCard>) -> AnyPublisher<ObjectReference<MetroCard>, Never> {
-        return cardPublisher
+        cardPublisher
             .compactMap {
                 $0.map { ObjectReference(objectID: self.id, snapshot: $0) }
-            }.eraseToAnyPublisher()
+            }
+            .eraseToAnyPublisher()
+    }
+
+    public func balanceUpdatesPublisher(for card: ObjectReference<MetroCard>) -> AnyPublisher<[ObjectReference<BalanceUpdate>], Never> {
+        updatesPublisher
+            .compactMap {
+                $0.map { ObjectReference(objectID: self.id, snapshot: $0) }
+            }
+            .eraseToAnyPublisher()
     }
 
     public func applyUpdates(_ updates: [MetroCardUpdate], to cardReference: ObjectReference<MetroCard>) -> AnyPublisher<Void, Error> {
@@ -62,8 +74,9 @@ public final class MockMetroCardDataStore: MetroCardDataStore {
 
         for update in updates {
             switch update {
-            case .balance(let newBalance):
-                card = card.withBalance(newBalance)
+            case .balance(let update):
+                card = card.applyingUpdate(update)
+                insertBalanceUpdateAndSort(update)
             case .expirationDate(let newDate):
                 card = card.withExpirationDate(newDate)
             case .fare(let newFare):
@@ -78,5 +91,12 @@ public final class MockMetroCardDataStore: MetroCardDataStore {
         return Just(())
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()
+    }
+
+    private func insertBalanceUpdateAndSort(_ update: BalanceUpdate) {
+        var updates = updatesPublisher.value
+        updates.append(update)
+        updates.sort(by: { $0.timestamp < $1.timestamp })
+        updatesPublisher.send(updates)
     }
 }

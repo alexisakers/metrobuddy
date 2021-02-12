@@ -24,3 +24,11 @@ public struct ObjectReference<Snapshot> {
         return snapshot[keyPath: keyPath]
     }
 }
+
+// MARK: - Equatable
+
+extension ObjectReference: Equatable where Snapshot: Equatable {
+    public static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.objectID == rhs.objectID && lhs.snapshot == rhs.snapshot
+    }
+}

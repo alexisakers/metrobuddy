@@ -19,9 +19,24 @@ public class ReturningUserTestScenario: NSObject, TestScenario {
         )
     }
 
+    private static func makeUpdates() -> [BalanceUpdate] {
+        [
+            .adjustment(timestamp: .test(2021, 2, 15)),
+            .swipe(timestamp: .test(2021, 2, 2)),
+            .swipe(timestamp: .test(2021, 2, 1)),
+            .swipe(timestamp: .test(2021, 1, 30)),
+            .swipe(timestamp: .test(2021, 1, 30)),
+            .swipe(timestamp: .test(2021, 1, 20)),
+            .swipe(timestamp: .test(2021, 1, 20)),
+            .swipe(timestamp: .test(2021, 1, 10)),
+            .swipe(timestamp: .test(2021, 1, 10)),
+        ]
+    }
+
     public static func makeDataStore() -> MetroCardDataStore {
         return MockMetroCardDataStore(
             card: makeCard(),
+            balanceUpdates: makeUpdates(),
             createsCardAutomatically: true,
             allowUpdates: true
         )

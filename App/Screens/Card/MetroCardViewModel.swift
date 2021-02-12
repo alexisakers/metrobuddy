@@ -4,7 +4,7 @@ import Intents
 import SwiftUI
 import MetroKit
 
-/// An object responsible for computing the, and which side effects to display when the data changes.
+/// An object responsible for computing the contents of the card screen, and which side effects to display when the data changes.
 final class MetroCardViewModel: ObservableObject {
     private enum MetroCardBalanceError: Error {
         case insufficientFunds(Decimal)
@@ -74,16 +74,22 @@ final class MetroCardViewModel: ObservableObject {
                         .materialize()
                 }
 
+                let balanceUpdate = BalanceUpdate(
+                    id: UUID(),
+                    updateType: .swipe,
+                    amount: card.fare,
+                    timestamp: Date()
+                )
+
                 let newBalance = card.balance - card.fare
-                let update = MetroCardUpdate.balance(card.balance - card.fare)
-                return dataStore.applyUpdates([update], to: card)
+                return dataStore.applyUpdates([.balance(balanceUpdate)], to: card)
                     .handleEvents(receiveCompletion: {
                         Self.donateSwipeInteraction(requestedBalance: newBalance, completion: $0)
                     })
                     .receive(on: DispatchQueue.main)
                     .eraseToAnyPublisher()
                     .materialize()
-            }
+            }.share()
 
         // Set Up Completion/Failure Publishers
         let taskEvents = updateElements
@@ -100,7 +106,8 @@ final class MetroCardViewModel: ObservableObject {
                 case .value:
                     return nil
                 }
-            }.eraseToAnyPublisher()
+            }.share()
+            .eraseToAnyPublisher()
 
         announcement = swipeElements
             .withLatestFrom(cardPublisher) { _, card in card }
@@ -108,7 +115,8 @@ final class MetroCardViewModel: ObservableObject {
                 let format = NSLocalizedString("Updated balance: %@", comment: "The first argument is the formatted balance in dollars.")
                 let formattedBalance = NumberFormatter.currencyFormatter.string(from: card.balance as NSDecimalNumber)!
                 return String(format: format, formattedBalance)
-            }.eraseToAnyPublisher()
+            }.share()
+            .eraseToAnyPublisher()
 
         toast = taskEvents
             .compactMap {
@@ -117,7 +125,8 @@ final class MetroCardViewModel: ObservableObject {
                 }
                 
                 return NSLocalizedString("Insufficient Fare", comment: "").localizedUppercase
-            }.eraseToAnyPublisher()
+            }.share()
+            .eraseToAnyPublisher()
         
         taskEvents
             .compactMap { event -> ErrorMessage? in
@@ -155,16 +164,12 @@ final class MetroCardViewModel: ObservableObject {
         
     /// Validates the input for the balance field. Returns `true` if the input is a valid number.
     func validateBalance(_ input: String?) -> Bool {
-        if case .balance = parseInput(input, to: MetroCardUpdate.balance) {
-            return true
-        } else {
-            return false
-        }
+        return number(from: input) != nil
     }
     
     /// Saves the new validated balance.
     func saveBalance(_ input: String?) {
-        guard let update = parseInput(input, to: MetroCardUpdate.balance) else {
+        guard let update = parseInput(input, to: makeManualBalanceUpdate) else {
             return
         }
 
@@ -218,12 +223,29 @@ final class MetroCardViewModel: ObservableObject {
         swipeSubject.send(())
     }
 
+    // MARK: - Helpers
+
+    private func number(from input: String?) -> Decimal? {
+        return input.flatMap(Self.inputNumberFormatter.number) as? Decimal
+    }
+
     private func parseInput(_ input: String?, to update: (Decimal) -> MetroCardUpdate) -> MetroCardUpdate? {
         guard let number = input.flatMap(Self.inputNumberFormatter.number) as? Decimal else {
             return nil
         }
 
         return update(number)
+    }
+
+    private func makeManualBalanceUpdate(from amount: Decimal) -> MetroCardUpdate {
+        let update = BalanceUpdate(
+            id: UUID(),
+            updateType: .adjustment,
+            amount: amount,
+            timestamp: Date()
+        )
+
+        return .balance(update)
     }
 
     // MARK: - Intents
@@ -272,9 +294,6 @@ extension MetroCardViewModel {
         let formattedFare = NumberFormatter.currencyFormatter
             .string(from: card.fare as NSDecimalNumber)!
 
-        let formattedRemainingRides = String
-            .localizedStringWithFormat(String.LocalizationFormats.remainingRides, card.remainingRides)
-        
         let userDidOnboard = preferences.value(forKey: .userDidOnboard)
         
         return MetroCardData(
@@ -284,7 +303,7 @@ extension MetroCardViewModel {
             formattedExpirationDate: formattedDate,
             formattedSerialNumber: card.serialNumber,
             formattedFare: formattedFare,
-            formattedRemainingRides: formattedRemainingRides
+            formattedRemainingRides: card.formattedRemainingRides
         )
     }
 }

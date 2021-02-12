@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A sheet that lets the user pick an expiration date for their card.
 struct ExpirationDatePickerModal: View {
-    @Binding var isPresented: Bool
+    let closeHandler: () -> Void
     let saveHandler: (Date) -> Void
     let resetHandler: () -> Void
     let hasInitialSelection: Bool
@@ -11,11 +11,11 @@ struct ExpirationDatePickerModal: View {
 
     // MARK: - Initialization
     
-    init(initialValue: Date?, isPresented: Binding<Bool>, saveHandler: @escaping (Date) -> Void, resetHandler: @escaping () -> Void) {
+    init(initialValue: Date?, closeHandler: @escaping () -> Void, saveHandler: @escaping (Date) -> Void, resetHandler: @escaping () -> Void) {
         self.saveHandler = saveHandler
         self.resetHandler = resetHandler
         self.hasInitialSelection = initialValue != nil
-        self._isPresented = isPresented
+        self.closeHandler = closeHandler
         self._selectedDate = State(initialValue: initialValue ?? Date())
     }
     
@@ -25,7 +25,7 @@ struct ExpirationDatePickerModal: View {
         VStack(spacing: 10) {
             ModalTitleBar(
                 title: Text("Expiration Date"),
-                isPresented: $isPresented
+                closeHandler: closeHandler
             ).padding(.horizontal, 16)
             .padding(.top, 16)
 
@@ -65,19 +65,15 @@ struct ExpirationDatePickerModal: View {
     }
     
     // MARK: - Input
-    
-    private func closeButtonTapped() {
-        isPresented = false
-    }
-    
+
     private func resetButtonTapped() {
         resetHandler()
-        isPresented = false
+        closeHandler()
     }
     
     private func saveButtonTapped() {
         saveHandler(selectedDate)
-        isPresented = false
+        closeHandler()
     }
 }
 

@@ -4,13 +4,13 @@ import SwiftUI
 struct RootView: View {
     let viewModel: RootViewModel
     @EnvironmentObject private var toastQueue: ToastQueue
+    @State private var drawer: ModalDrawer<AnyView>?
 
     // MARK: - View
 
     var body: some View {
         ZStack(alignment: .top) {
             contentView
-                .edgesIgnoringSafeArea(.all)
                 .accessibilityElement(children: .contain)
                 .zIndex(0)
 
@@ -27,19 +27,29 @@ struct RootView: View {
             )
         }
         .background(BackgroundView())
+        .modalDrawer(drawer: $drawer)
         .accessibilityElement(children: .contain)
     }
     
     @ViewBuilder var contentView: some View {
         switch viewModel.content {
-        case .card(let viewModel):
-            return MetroCardScreen()
-                .environmentObject(viewModel)
-                .eraseToAnyView()
+        case .card(let viewModels):
+            TabView {
+                MetroCardScreen(drawer: $drawer)
+                    .environmentObject(viewModels.card)
+                    .tabItem {
+                        TabItem(title: "My Card", icon: .asset("CardTabIcon"))
+                    }
+
+                HistoryScreen()
+                    .environmentObject(viewModels.history)
+                    .tabItem {
+                        TabItem(title: "History", icon: .symbol("calendar"))
+                    }
+            }
 
         case .appUnavailable(let error):
-            return ErrorScreen(error: error)
-                .eraseToAnyView()
+            ErrorScreen(error: error)
         }
     }
 }

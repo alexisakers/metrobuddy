@@ -59,7 +59,7 @@ final class PersistentMetroCardDataStoreTests: XCTestCase {
         receiveUpdateExpectation.assertForOverFulfill = true
 
         let finishUpdatingCardsExpectation = applyUpdates([
-            .balance(22),
+            .balance(BalanceUpdate(id: UUID(), updateType: .adjustment, amount: 22, timestamp: Date())),
             .expirationDate(expirationDate),
             .serialNumber("0987654321"),
             .fare(3)
@@ -73,6 +73,7 @@ final class PersistentMetroCardDataStoreTests: XCTestCase {
         XCTAssertEqual(cards.last?.snapshot.expirationDate, expirationDate)
         XCTAssertEqual(cards.last?.snapshot.serialNumber, "0987654321")
         XCTAssertEqual(cards.last?.snapshot.fare, 3)
+        XCTAssertEqual(cards.last?.snapshot.remainingRides, 7)
     }
     
     func testThatItNotifiesOfUpdates() throws {
@@ -91,7 +92,13 @@ final class PersistentMetroCardDataStoreTests: XCTestCase {
 
         receiveUpdateExpectation.assertForOverFulfill = true
                 
-        let finishUpdateExpectation = applyUpdates([.balance(22)], to: cards[0])
+        let finishUpdateExpectation = applyUpdates(
+            [
+                .balance(BalanceUpdate(id: UUID(), updateType: .adjustment, amount: 22, timestamp: Date())),
+            ],
+            to: cards[0]
+        )
+        
         finishUpdateExpectation.expectedFulfillmentCount = 1
         finishUpdateExpectation.assertForOverFulfill = true
         
@@ -131,6 +138,140 @@ final class PersistentMetroCardDataStoreTests: XCTestCase {
         XCTAssertEqual(cards.count, 2)
         XCTAssertEqual(cards.last?.snapshot.balance, 0)
     }
+
+    func testThatItEmitsInitialBalanceUpdates() {
+        // GIVEN
+        let cardSnapshot = MetroCard.fake
+        let balanceUpdate = BalanceUpdate(id: UUID(), updateType: .adjustment, amount: 25, timestamp: Date())
+
+        let cardObjectID = sut.insert(snapshot: cardSnapshot)
+        let balanceUpdateObjectID = sut.insert(snapshot: balanceUpdate, forCard: cardObjectID)
+        let card = ObjectReference(objectID: cardObjectID, snapshot: cardSnapshot)
+
+        // WHEN
+        var updates: [[ObjectReference<BalanceUpdate>]] = []
+        let receiveUpdateExpectation = observeBalanceUpdates(for: card, receiveValue: {
+            updates.append($0)
+            return updates.count == 1
+        })
+
+        wait(for: [receiveUpdateExpectation], timeout: 1)
+
+        // THEN
+        XCTAssertEqual(updates.count, 1)
+        XCTAssertEqual(updates[0], [ObjectReference(objectID: balanceUpdateObjectID, snapshot: balanceUpdate)])
+    }
+
+    func testThatItNotifiesOfBalanceUpdates() {
+        // GIVEN
+        let cardSnapshot = MetroCard.fake
+        let balanceUpdate = BalanceUpdate(id: UUID(), updateType: .adjustment, amount: 25, timestamp: Date())
+
+        let cardObjectID = sut.insert(snapshot: cardSnapshot)
+        let balanceUpdateObjectID = sut.insert(snapshot: balanceUpdate, forCard: cardObjectID)
+        let card = ObjectReference(objectID: cardObjectID, snapshot: cardSnapshot)
+
+        // WHEN
+        var updates: [[ObjectReference<BalanceUpdate>]] = []
+        let receiveUpdateExpectation = observeBalanceUpdates(for: card, receiveValue: {
+            updates.append($0)
+            return updates.count == 2
+        })
+
+        let update2 = BalanceUpdate(id: UUID(), updateType: .swipe, amount: 2.75, timestamp: Date())
+        let update2ObjectID = sut.insert(snapshot: update2, forCard: cardObjectID)
+
+        wait(for: [receiveUpdateExpectation], timeout: 1)
+
+        // THEN
+        XCTAssertEqual(updates.count, 2)
+        XCTAssertEqual(
+            updates,
+            [
+                [
+                    ObjectReference(objectID: balanceUpdateObjectID, snapshot: balanceUpdate)
+                ],
+                [
+                    ObjectReference(objectID: update2ObjectID, snapshot: update2),
+                    ObjectReference(objectID: balanceUpdateObjectID, snapshot: balanceUpdate)
+                ]
+            ]
+        )
+    }
+
+    func testThatItAppliesCorrectAmounts() {
+        // #1: Adjustment
+        do {
+            let cardSnapshot = MetroCard(id: UUID(), balance: 10, expirationDate: nil, serialNumber: nil, fare: 2.75)
+            let cardID = sut.insert(snapshot: cardSnapshot)
+            let cardReference = ObjectReference(objectID: cardID, snapshot: cardSnapshot)
+
+            let update = BalanceUpdate(id: UUID(), updateType: .adjustment, amount: 20, timestamp: Date())
+            let updateCompleted = expectation(description: "Swipe update completes")
+
+            // WHEN
+            var latestCard = cardSnapshot
+            let cardUpdates = observe(cardReference) {
+                latestCard = $0.snapshot
+                return latestCard.balance == 20
+            }
+
+            sut.applyUpdates([.balance(update)], to: cardReference)
+                .sink(receiveCompletion: { _ in }, receiveValue: updateCompleted.fulfill)
+                .store(in: &cancellables)
+
+            // THEN
+            wait(for: [updateCompleted, cardUpdates], timeout: 1)
+        }
+
+        // #2: Reload
+        do {
+            let cardSnapshot = MetroCard(id: UUID(), balance: 10, expirationDate: nil, serialNumber: nil, fare: 2.75)
+            let cardID = sut.insert(snapshot: cardSnapshot)
+            let cardReference = ObjectReference(objectID: cardID, snapshot: cardSnapshot)
+
+            let update = BalanceUpdate(id: UUID(), updateType: .reload, amount: 20, timestamp: Date())
+            let updateCompleted = expectation(description: "Swipe update completes")
+
+            // WHEN
+            var latestCard = cardSnapshot
+            let cardUpdates = observe(cardReference) {
+                latestCard = $0.snapshot
+                return latestCard.balance == 30
+            }
+
+            sut.applyUpdates([.balance(update)], to: cardReference)
+                .sink(receiveCompletion: { _ in }, receiveValue: updateCompleted.fulfill)
+                .store(in: &cancellables)
+
+            // THEN
+            wait(for: [updateCompleted, cardUpdates], timeout: 1)
+        }
+
+        // #3: Swipe
+        do {
+            let cardSnapshot = MetroCard(id: UUID(), balance: 10, expirationDate: nil, serialNumber: nil, fare: 2.75)
+            let cardID = sut.insert(snapshot: cardSnapshot)
+            let cardReference = ObjectReference(objectID: cardID, snapshot: cardSnapshot)
+
+            let update = BalanceUpdate(id: UUID(), updateType: .swipe, amount: 2, timestamp: Date())
+            let updateCompleted = expectation(description: "Swipe update completes")
+
+            // WHEN
+            var latestCard = cardSnapshot
+            let cardUpdates = observe(cardReference) {
+                latestCard = $0.snapshot
+                return latestCard.balance == 8
+            }
+
+            sut.applyUpdates([.balance(update)], to: cardReference)
+                .sink(receiveCompletion: { _ in }, receiveValue: updateCompleted.fulfill)
+                .store(in: &cancellables)
+
+            // THEN
+            wait(for: [updateCompleted, cardUpdates], timeout: 1)
+        }
+    }
     
     // MARK: - Helpers
     
@@ -159,7 +300,26 @@ final class PersistentMetroCardDataStoreTests: XCTestCase {
             ).store(in: &cancellables)
         return receiveUpdateExpectation
     }
-    
+
+    func observeBalanceUpdates(for card: ObjectReference<MetroCard>, receiveValue: @escaping ([ObjectReference<BalanceUpdate>]) -> Bool, file: StaticString = #filePath, line: UInt = #line)  -> XCTestExpectation {
+        let receiveUpdateExpectation = expectation(description: "The cards stream sends an update.")
+        sut.balanceUpdatesPublisher(for: card)
+            .share()
+            .sink(
+                receiveCompletion: {
+                    XCTFail("The card stream completed early: \($0)", file: file, line: line)
+                },
+                receiveValue: {
+                    if receiveValue($0) {
+                        print("Received value")
+                        receiveUpdateExpectation.fulfill()
+                        print(self)
+                    }
+                }
+            ).store(in: &cancellables)
+        return receiveUpdateExpectation
+    }
+
     func applyUpdates(_ updates: [MetroCardUpdate], to card: ObjectReference<MetroCard>, file: StaticString = #filePath, line: UInt = #line) -> XCTestExpectation {
         let finishUpdateExpectation = expectation(description: "The update finishes.")
         sut.applyUpdates(updates, to: card)

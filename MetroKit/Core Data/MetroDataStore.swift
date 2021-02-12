@@ -14,7 +14,10 @@ public protocol MetroCardDataStore {
     
     /// A publisher that emits the current card and subsequent updates to it.
     func publisher(for card: ObjectReference<MetroCard>) -> AnyPublisher<ObjectReference<MetroCard>, Never>
-    
+
+    /// A publisher that lists the balance updates for the current card.
+    func balanceUpdatesPublisher(for card: ObjectReference<MetroCard>) -> AnyPublisher<[ObjectReference<BalanceUpdate>], Never>
+
     /// Update the data on the specified card reference by using the given update descriptior.
     func applyUpdates(_ updates: [MetroCardUpdate], to cardReference: ObjectReference<MetroCard>) -> AnyPublisher<Void, Error>
 }
@@ -24,6 +27,7 @@ public class PersistentMetroCardDataStore: MetroCardDataStore {
     let container: NSPersistentContainer
     let saveContext: NSManagedObjectContext
     let historyService: PersistentHistoryService
+    let migrationService: MigrationService
 
     // MARK: - Initialization
     
@@ -33,10 +37,11 @@ public class PersistentMetroCardDataStore: MetroCardDataStore {
     /// - parameter useCloudKit: Whether to use automatic CloudKit syncing.
     /// - throws: Any error thrown while resolving the persistent store. See `PersistentStore` for the possible errors.
     public init(preferences: UserPreferences, persistentStore: PersistentStore, useCloudKit: Bool) throws {
+        let managedObjectModel = NSManagedObjectModel.metroModels
         if useCloudKit {
-            container = NSPersistentCloudKitContainer(name: "Metro", managedObjectModel: .metroModels)
+            container = NSPersistentCloudKitContainer(name: "Metro", managedObjectModel: managedObjectModel)
         } else {
-            container = NSPersistentContainer(name: "Metro", managedObjectModel: .metroModels)
+            container = NSPersistentContainer(name: "Metro", managedObjectModel: managedObjectModel)
         }
         
         container.persistentStoreDescriptions = [
@@ -44,12 +49,11 @@ public class PersistentMetroCardDataStore: MetroCardDataStore {
         ]
 
         try! container.loadPersistentStoresAndWait()
-        preferences.setValue(.v1_0_0, forKey: .dataModelVersion)
-
         container.viewContext.automaticallyMergesChangesFromParent = true
 
         saveContext = container.newBackgroundContext()
         historyService = PersistentHistoryService(context: container.viewContext, preferences: preferences)
+        migrationService = MigrationService(preferences: preferences, managedObjectModel: managedObjectModel)
     }
 
     // MARK: - History Tracking
@@ -80,8 +84,10 @@ public class PersistentMetroCardDataStore: MetroCardDataStore {
         let context = container.viewContext
         let fetchRequest = NSFetchRequest<MBYMetroCard>(entityName: "MetroCard")
         fetchRequest.fetchLimit = 1
+
         do {
             if let existingCard = try context.fetch(fetchRequest).first {
+                try migrationService.run(in: container.viewContext)
                 return .success(existingCard)
             } else {
                 return createFirstCard()
@@ -109,11 +115,26 @@ public class PersistentMetroCardDataStore: MetroCardDataStore {
         }
         return result
     }
-    
+
+    // MARK: - Get Updates
+
+    public func balanceUpdatesPublisher(for card: ObjectReference<MetroCard>) -> AnyPublisher<[ObjectReference<BalanceUpdate>], Never> {
+        let fetchRequest = NSFetchRequest<MBYBalanceUpdate>(entityName: "BalanceUpdate")
+        fetchRequest.predicate = NSPredicate(format: "card.id == %@", card.id as NSUUID)
+        fetchRequest.sortDescriptors = [
+            NSSortDescriptor(keyPath: \MBYBalanceUpdate.timestamp, ascending: false)
+        ]
+
+        return FetchedResultsPublisher(fetchRequest: fetchRequest, managedObjectContext: container.viewContext)
+            .mapArray { $0.makeReferenceSnapshot() }
+            .removeDuplicates()
+            .eraseToAnyPublisher()
+    }
+
     // MARK: - Update Card
     
     public func applyUpdates(_ updates: [MetroCardUpdate], to cardReference: ObjectReference<MetroCard>) -> AnyPublisher<Void, Error> {
-        return Future { [saveContext] completion in
+        return Future { [saveContext, applyBalanceUpdate] completion in
             saveContext.perform {
                 do {
                     guard let card = saveContext.object(with: cardReference.objectID) as? MBYMetroCard else {
@@ -122,8 +143,8 @@ public class PersistentMetroCardDataStore: MetroCardDataStore {
 
                     for update in updates {
                         switch update {
-                        case .balance(let newValue):
-                            card.balance = newValue as NSDecimalNumber
+                        case .balance(let update):
+                            applyBalanceUpdate(update, card, saveContext)
                         case .expirationDate(let newValue):
                             card.expirationDate = newValue
                         case .serialNumber(let newValue):
@@ -140,5 +161,23 @@ public class PersistentMetroCardDataStore: MetroCardDataStore {
                 }
             }
         }.eraseToAnyPublisher()
+    }
+
+    private func applyBalanceUpdate(_ update: BalanceUpdate, to card: MBYMetroCard, saveContext: NSManagedObjectContext) {
+        let updateObject = MBYBalanceUpdate(context: saveContext)
+        updateObject.populateFields(with: update)
+
+        card.balanceUpdates.insert(updateObject)
+
+        switch update.updateType {
+        case .adjustment:
+            card.balance = updateObject.amount
+        case .swipe:
+            card.balance = card.balance.subtracting(updateObject.amount)
+        case .reload:
+            card.balance = card.balance.adding(updateObject.amount)
+        case .unknown:
+            preconditionFailure("Cannot use unknown enum case when requesting an update")
+        }
     }
 }
