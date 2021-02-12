@@ -38,13 +38,13 @@ struct RootView: View {
                 MetroCardScreen(drawer: $drawer)
                     .environmentObject(viewModels.card)
                     .tabItem {
-                        TabItem(title: "My Card", symbolName: "creditcard.fill")
+                        TabItem(title: "My Card", icon: .asset("CardTabIcon"))
                     }
 
                 HistoryScreen()
                     .environmentObject(viewModels.history)
                     .tabItem {
-                        TabItem(title: "History", symbolName: "calendar")
+                        TabItem(title: "History", icon: .symbol("calendar"))
                     }
             }
 
