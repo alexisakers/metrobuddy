@@ -15,4 +15,14 @@ class AppPage {
     var toastText: String {
         app.staticTexts["toast"].label
     }
+
+    func tapMetroCardTab() -> MetroCardPage {
+        app.tabBars.buttons["My Card"].tap()
+        return MetroCardPage(app: app)
+    }
+
+    func tapHistoryTab() -> HistoryPage {
+        app.tabBars.buttons["History"].tap()
+        return HistoryPage(app: app)
+    }
 }

@@ -166,6 +166,9 @@
 		5EC7A60D24BDF15800E3ED39 /* PropertyListRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60C24BDF15800E3ED39 /* PropertyListRepresentable.swift */; };
 		5EC7A60F24BDF2B900E3ED39 /* UserPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A60E24BDF2B900E3ED39 /* UserPreferenceKey.swift */; };
 		5EC7A61124BDF68100E3ED39 /* OnboardingTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC7A61024BDF68100E3ED39 /* OnboardingTipView.swift */; };
+		5ECE5F1E25D7033D0043463C /* Date+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE5F1D25D7033C0043463C /* Date+Helpers.swift */; };
+		5ECE5F2825D704900043463C /* BalanceUpdate+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE5F2725D704900043463C /* BalanceUpdate+Helpers.swift */; };
+		5ECE5F4325D7063D0043463C /* HistoryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE5F3125D7062C0043463C /* HistoryPage.swift */; };
 		5ED4E28A24B3E33300B37946 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED4E28924B3E33300B37946 /* AppDelegate.swift */; };
 		5ED4E28C24B3E33400B37946 /* MetroCardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED4E28B24B3E33400B37946 /* MetroCardScreen.swift */; };
 		5ED4E28E24B3E33D00B37946 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ED4E28D24B3E33D00B37946 /* Assets.xcassets */; };
@@ -478,6 +481,9 @@
 		5EC7A60E24BDF2B900E3ED39 /* UserPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferenceKey.swift; sourceTree = "<group>"; };
 		5EC7A61024BDF68100E3ED39 /* OnboardingTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTipView.swift; sourceTree = "<group>"; };
 		5EC7A61224BE003200E3ED39 /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
+		5ECE5F1D25D7033C0043463C /* Date+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Helpers.swift"; sourceTree = "<group>"; };
+		5ECE5F2725D704900043463C /* BalanceUpdate+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BalanceUpdate+Helpers.swift"; sourceTree = "<group>"; };
+		5ECE5F3125D7062C0043463C /* HistoryPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPage.swift; sourceTree = "<group>"; };
 		5ED4E28624B3E33300B37946 /* MetroBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetroBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ED4E28924B3E33300B37946 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5ED4E28B24B3E33400B37946 /* MetroCardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroCardScreen.swift; sourceTree = "<group>"; };
@@ -716,6 +722,7 @@
 			children = (
 				5E2F16DE24C4C23A0097D0EB /* AppPage.swift */,
 				5E5715CD24C3A6740068F20B /* MetroCardPage.swift */,
+				5ECE5F3125D7062C0043463C /* HistoryPage.swift */,
 				5E57160324C3AE6F0068F20B /* TextFieldAlertPage.swift */,
 				5E2F16F624C4D9F20097D0EB /* ExpirationDatePickerPage.swift */,
 				5E936EDD24D2FC5E00F7807E /* ShortcutsPage.swift */,
@@ -729,6 +736,8 @@
 				5E57160E24C4A8520068F20B /* Constants.swift */,
 				5E57160C24C4A8170068F20B /* FakeManagedObjectID.swift */,
 				5E57160A24C4A62F0068F20B /* MetroCard+Helpers.swift */,
+				5ECE5F1D25D7033C0043463C /* Date+Helpers.swift */,
+				5ECE5F2725D704900043463C /* BalanceUpdate+Helpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1559,6 +1568,7 @@
 				5E57160424C3AE6F0068F20B /* TextFieldAlertPage.swift in Sources */,
 				5E936E2124C5214E00F7807E /* SnapshotsTestCase.swift in Sources */,
 				5E5715CE24C3A6740068F20B /* MetroCardPage.swift in Sources */,
+				5ECE5F4325D7063D0043463C /* HistoryPage.swift in Sources */,
 				5E2F16EF24C4CF780097D0EB /* FirstLaunchUITests.swift in Sources */,
 				5E2F16E124C4C26B0097D0EB /* AppPage.swift in Sources */,
 				5E2F16EC24C4CE240097D0EB /* ScenarioBasedTestCase.swift in Sources */,
@@ -1575,12 +1585,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E57160D24C4A8170068F20B /* FakeManagedObjectID.swift in Sources */,
+				5ECE5F2825D704900043463C /* BalanceUpdate+Helpers.swift in Sources */,
 				5E57160B24C4A62F0068F20B /* MetroCard+Helpers.swift in Sources */,
 				5E2F16E624C4C4C60097D0EB /* OneSwipeLeftTestScenario.swift in Sources */,
 				5E2F16F224C4D33A0097D0EB /* MockPreferences.swift in Sources */,
 				5E5715F224C3AA680068F20B /* MockMetroCardDataStore.swift in Sources */,
 				5E57160F24C4A8520068F20B /* Constants.swift in Sources */,
 				5E57161424C4ADD90068F20B /* NewInstallTestScenario.swift in Sources */,
+				5ECE5F1E25D7033D0043463C /* Date+Helpers.swift in Sources */,
 				5E2F16D924C4BFC00097D0EB /* ReturningUserTestScenario.swift in Sources */,
 				5E57160724C4A0520068F20B /* TestScenario.swift in Sources */,
 				5E2F16F524C4D77A0097D0EB /* ExistingCardAttributesTestScenario.swift in Sources */,

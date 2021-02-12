@@ -24,5 +24,6 @@ struct EmptyHistoryTipView: View {
         .background(Color.prominentContainerBackground)
         .mask(RoundedRectangle.defaultStyle)
         .fixedSize(horizontal: false, vertical: true)
+        .accessibilityIdentifier("empty-history-tip")
     }
 }

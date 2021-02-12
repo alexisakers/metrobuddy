@@ -31,4 +31,10 @@ final class FirstLaunchUITests: ScenarioBasedTestCase<MetroCardPage> {
         XCTAssertFalse(page.tipMessage.exists)
         XCTAssertTrue(page.swipeButton.exists)
     }
+
+    func testThatItShowsHistoryTip() {
+        let page = rootPageWithScenario(NewInstallTestScenario.self)
+        let historyPage = page.tapHistoryTab()
+        XCTAssertTrue(historyPage.hasEmptyTipView)
+    }
 }

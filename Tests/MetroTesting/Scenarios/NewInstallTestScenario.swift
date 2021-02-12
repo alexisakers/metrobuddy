@@ -7,6 +7,7 @@ public final class NewInstallTestScenario: NSObject, TestScenario {
     public static func makeDataStore() -> MetroCardDataStore {
         return MockMetroCardDataStore(
             card: nil,
+            balanceUpdates: [],
             createsCardAutomatically: true,
             allowUpdates: true
         )
