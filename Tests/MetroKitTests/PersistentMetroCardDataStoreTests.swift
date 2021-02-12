@@ -197,6 +197,80 @@ final class PersistentMetroCardDataStoreTests: XCTestCase {
             ]
         )
     }
+
+    func testThatItAppliesCorrectAmounts() {
+        // #1: Adjustment
+        do {
+            let cardSnapshot = MetroCard(id: UUID(), balance: 10, expirationDate: nil, serialNumber: nil, fare: 2.75)
+            let cardID = sut.insert(snapshot: cardSnapshot)
+            let cardReference = ObjectReference(objectID: cardID, snapshot: cardSnapshot)
+
+            let update = BalanceUpdate(id: UUID(), updateType: .adjustment, amount: 20, timestamp: Date())
+            let updateCompleted = expectation(description: "Swipe update completes")
+
+            // WHEN
+            var latestCard = cardSnapshot
+            let cardUpdates = observe(cardReference) {
+                latestCard = $0.snapshot
+                return latestCard.balance == 20
+            }
+
+            sut.applyUpdates([.balance(update)], to: cardReference)
+                .sink(receiveCompletion: { _ in }, receiveValue: updateCompleted.fulfill)
+                .store(in: &cancellables)
+
+            // THEN
+            wait(for: [updateCompleted, cardUpdates], timeout: 1)
+        }
+
+        // #2: Reload
+        do {
+            let cardSnapshot = MetroCard(id: UUID(), balance: 10, expirationDate: nil, serialNumber: nil, fare: 2.75)
+            let cardID = sut.insert(snapshot: cardSnapshot)
+            let cardReference = ObjectReference(objectID: cardID, snapshot: cardSnapshot)
+
+            let update = BalanceUpdate(id: UUID(), updateType: .reload, amount: 20, timestamp: Date())
+            let updateCompleted = expectation(description: "Swipe update completes")
+
+            // WHEN
+            var latestCard = cardSnapshot
+            let cardUpdates = observe(cardReference) {
+                latestCard = $0.snapshot
+                return latestCard.balance == 30
+            }
+
+            sut.applyUpdates([.balance(update)], to: cardReference)
+                .sink(receiveCompletion: { _ in }, receiveValue: updateCompleted.fulfill)
+                .store(in: &cancellables)
+
+            // THEN
+            wait(for: [updateCompleted, cardUpdates], timeout: 1)
+        }
+
+        // #3: Swipe
+        do {
+            let cardSnapshot = MetroCard(id: UUID(), balance: 10, expirationDate: nil, serialNumber: nil, fare: 2.75)
+            let cardID = sut.insert(snapshot: cardSnapshot)
+            let cardReference = ObjectReference(objectID: cardID, snapshot: cardSnapshot)
+
+            let update = BalanceUpdate(id: UUID(), updateType: .swipe, amount: 2, timestamp: Date())
+            let updateCompleted = expectation(description: "Swipe update completes")
+
+            // WHEN
+            var latestCard = cardSnapshot
+            let cardUpdates = observe(cardReference) {
+                latestCard = $0.snapshot
+                return latestCard.balance == 8
+            }
+
+            sut.applyUpdates([.balance(update)], to: cardReference)
+                .sink(receiveCompletion: { _ in }, receiveValue: updateCompleted.fulfill)
+                .store(in: &cancellables)
+
+            // THEN
+            wait(for: [updateCompleted, cardUpdates], timeout: 1)
+        }
+    }
     
     // MARK: - Helpers
     
